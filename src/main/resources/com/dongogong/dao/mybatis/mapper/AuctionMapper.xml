@@ -4,8 +4,8 @@
   <cache />
   <!-- 1) 경매 등록 -->
   <insert id="auctionRegister" parameterType="Post">
-  	INSERT INTO POST(postIdx, registerId, title, border_type, price, content, transactionConfirmation, url)
-  	VALUES(#{postIdx}, #{registerId}, #{title}, "auction", #{price}, #{content}, "no", #{url})
+  	INSERT INTO POST(post_Idx, register_Id, title, border_type, price, content, transaction_confirmation, photoUrl)
+  	VALUES(#{postIdx}, #{registerId}, #{title}, 'auction', #{price}, #{content}, 'no', #{photoUrl})
   </insert>
   
   <!--  
@@ -19,7 +19,7 @@
   
   <!-- 2) 경매 수정 -->
   <update id="auctionUpdate" parameterType="Post">
-  	UPDATE POST SET TITLE = #{title}, CONTENT = #{content}, URL = #{url}
+  	UPDATE POST SET TITLE = #{title}, CONTENT = #{content}, PHOTOURL = #{photoUrl}
   	WHERE POST_IDX = #{post_Idx}
   </update>
   
@@ -57,7 +57,7 @@
   
   <!-- 4) 경매 리스트 -->
   <select id="auctionList" resultType="Post">
-  	SELECT URL, POST_IDX, PRICE, TITLE, CONTENT
+  	SELECT PHOTOURL, POST_IDX, PRICE, TITLE, CONTENT
   	FROM POST
   	WHERE BORDER_TYPE = 'auction'
   	<!--  
@@ -75,7 +75,7 @@
   </select>
   
   <select id="myAuction" resultType="Post">
-  	SELECT URL, PRICE, TITLE, CONTENT
+  	SELECT PHOTOURL, PRICE, TITLE, CONTENT
   	FROM POST
   	WHERE POST_IDX = #{post_Idx}
   </select>

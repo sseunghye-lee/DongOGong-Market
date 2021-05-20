@@ -25,12 +25,12 @@ public class Post implements Serializable {
     // 嫄곕옒 �솗�젙 �뿬遺�
     private String transactionConfirmation;
     
-    private String url;
+    private String photoUrl;
     
     public Post() {}
 
     public Post(int postIdx, String registerId, String title, String borderType, int price, String content,
-			String transactionConfirmation, String url) {
+			String transactionConfirmation, String photoUrl) {
 		super();
 		this.postIdx = postIdx;
 		this.registerId = registerId;
@@ -39,15 +39,15 @@ public class Post implements Serializable {
 		this.price = price;
 		this.content = content;
 		this.transactionConfirmation = transactionConfirmation;
-		this.url = url;
+		this.photoUrl = photoUrl;
 	}
 
-	public String getUrl() {
-		return url;
+	public String getPhotoUrl() {
+		return photoUrl;
 	}
 
-	public void setUrl(String url) {
-		this.url = url;
+	public void setPhotoUrl(String photoUrl) {
+		this.photoUrl = photoUrl;
 	}
 
 	public int getPostIdx() {
@@ -116,6 +116,6 @@ public class Post implements Serializable {
         this.price = param.getPrice();
         this.content = param.getContent();
         this.transactionConfirmation = param.getTransactionConfirmation();
-        this.url = param.getUrl();
+        this.photoUrl = param.getPhotoUrl();
     }
 }

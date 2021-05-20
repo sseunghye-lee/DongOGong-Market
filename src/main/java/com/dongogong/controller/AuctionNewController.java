@@ -33,20 +33,20 @@ public class AuctionNewController {
 	}*/
 	
 	@PostMapping
-	public String addAuction(HttpServletRequest request,
+	public String addAuction(/*HttpServletRequest request,
 			@RequestParam(value="title", required=false) String title,
 			@RequestParam(value="price", required=false) int price,
-			@RequestParam(value="content", required=false) String content
+			@RequestParam(value="content", required=false) String content*/
 			) throws Exception {
 		//int price2 = Integer.valueOf(price);
 		Post post = new Post();
-		post.setPostIdx(3);
-		post.setTitle(title);
-		post.setRegisterId("som3");
+		post.setPostIdx(4);
+		post.setTitle("auction_goods");
+		post.setRegisterId("som4");
 		post.setBorderType("auction");
-		post.setContent(content);
+		post.setContent("good item");
 		post.setTransactionConfirmation("no");
-		post.setUrl("DongOGong.jpg");
+		post.setPhotoUrl("DongOGong.jpg");
 		post.setPrice(5000);
 		
 		auctionFacade.insertAuction(post);
