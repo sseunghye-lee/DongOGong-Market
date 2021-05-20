@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dongogong.dao.mybatis.mapper.PostMapper">
+
+  <cache />
+
+  <select id="getPost" resultType="Post">
+    SELECT
+      POSTIDX,
+      TITLE,
+      DESCN as description,
+    FROM POST
+    WHERE POSTIDX = #{postIdx}
+  </select>
+
+  <select id="getPostList" resultType="Post">
+    SELECT POST_IDX, REGISTER_ID, TITLE, PRICE, CONTENT
+     FROM POST
+     <!--  WHERE BORDER_TYPE = 'borderType' -->
+    </select>
+  
+<insert id="registerPost">
+INSERT INTO POST (TITLE, BORDERTYPE, PRICE, CONTENT, TRANSACTIONCONFIRMNATION)
+VALUE (#{title}, ${borderType}, ${price}, ${content}, ${photoUrl}, {$transactionConfirmation})
+</insert>
+
+ 
+</mapper>
