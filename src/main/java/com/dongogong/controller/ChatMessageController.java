@@ -35,13 +35,13 @@ public class ChatMessageController {
     @RequestMapping("/chat/message.do")
     public ModelAndView showChatMessage(@RequestParam("relation_idx") int relationIdx, @ModelAttribute("post") Post post,
                                         HttpServletRequest request, HttpServletResponse response) {
-//        UserSession userSession =
-//                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
+        UserSession userSession =
+                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 
         ModelAndView mav = new ModelAndView("showChatMessage");
         mav.addObject("post", post);
         mav.addObject("chatMessageList", chatMessageFacade.getChatMessageList(relationIdx));
-//        mav.addObject("userId", userSession.getUserId());
+        mav.addObject("userId", userSession.getUserInfo().getUserId());
 
         return mav;
     }
@@ -60,18 +60,18 @@ public class ChatMessageController {
     @RequestMapping("/send/post/message.do")
     public String sendMessageOnPost(@ModelAttribute("post") Post post, @ModelAttribute("ChatMessage") ChatMessage chatMessage, HttpServletRequest request, HttpServletResponse response) {
 
-//        UserSession userSession =
-//                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
+        UserSession userSession =
+                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 
-//        boolean check = chatMessageFacade.isRelationExist(userSession.getUserId(), post.getRegisterId());
+        boolean check = chatMessageFacade.isRelationExist(userSession.getUserInfo().getUserId(), post.getRegisterId());
 
-//        if (check) {
-//            chatMessageFacade.insertRelation(userSession.getUserId(), post.getRegisterId());
-//        }
-//
-//        int relationIdx = chatMessageFacade.findRelationIdx(userSession.getUserId(), post.getRegisterId());
+        if (! check) {
+            chatMessageFacade.insertRelation(userSession.getUserInfo().getUserId(), post.getRegisterId());
+        }
 
-//        chatMessage.setChatRelationIdx(relationIdx);
+        int relationIdx = chatMessageFacade.findRelationIdx(userSession.getUserInfo().getUserId(), post.getRegisterId());
+
+        chatMessage.setChatRelationIdx(relationIdx);
 
         chatMessageFacade.insertMessage(chatMessage);
 

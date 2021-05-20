@@ -17,11 +17,11 @@ public interface ChatMessageFacade {
     //    채팅방 들어갈 때 안읽음 -> 읽음 변경
     void updateReadYn(String relationIdx, String userIdx);
 
-    //    메세지 전송 시 저장
-    void insertMessage(ChatMessage chatMessage);
-
     //    게시글에서 메세지 보낼 때 관계가 존재하는 지
     boolean isRelationExist(String userId, String registerId);
+
+    //    메세지 전송 시 저장
+    void insertMessage(ChatMessage chatMessage);
 
     //    게시글 작성자와 유저 관계 idx 가져오기
     int findRelationIdx(String userId, String registerId);

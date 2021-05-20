@@ -6,15 +6,18 @@ import com.dongogong.domain.ChatMessage;
 import com.dongogong.domain.Relation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class ChatMessageImpl implements ChatMessageFacade {
 
-    @Autowired(required = false)
+    @Autowired
     private RelationDao relationDao;
-    @Autowired(required = false)
+
+    @Autowired
     private ChatMessageDao chatMessageDao;
 
     @Override

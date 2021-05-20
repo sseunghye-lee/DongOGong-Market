@@ -6,9 +6,9 @@
 <%@ include file="IncludeTopDist.jsp" %>
 <body>
 <!-- ======= Header ======= -->
-<section id="hero" class="clearfix">
+<section id="hero" class="clearfix h-100 overflow-scroll">
     <div id="layoutDefault">
-        <div id="layoutDefault_content">
+        <div id="layoutDefault_content h-100 overflow-scroll">
             <%@ include file="IncludeQuickHeader.jsp" %>
             <!-- End Header -->
             <main>
@@ -73,7 +73,7 @@
                                             <input class="pt-4" type="file" name="file" id="imageFile" accept="image/*"
                                                    onchange="ResizeImage()"/>
                                             <input class="mt-4" type="button" value="사진 등록" onclick="ResizeImage()"/>
-                                            <label class="sr-only" for="inputPicture">사진 첨부
+                                            <label class="sr-only">사진 첨부
                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             </label>
                                         </div>
@@ -87,7 +87,7 @@
                                     </div>
                                     <div class="mt-4 btn btn-light btn-outline-dark font-weight-500 mb-2 w-100"
                                          id="btnApply">
-                                       <a href="<c:url value="/apply/registerPost_product.do"/>"><strong>등록하기</strong></a>
+                                        <a><strong>등록하기</strong></a>
                                     </div>
                                     <%--                                            </form:form>--%>
 
