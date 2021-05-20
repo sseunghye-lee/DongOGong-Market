@@ -32,7 +32,6 @@ public class AuctionNewController {
 		return "auction";
 	}*/
 	
-	
 	@PostMapping
 	public String addAuction(HttpServletRequest request,
 			@RequestParam(value="title", required=false) String title,
