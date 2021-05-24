@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dongogong.domain.UserInfo;
-import com.dongogong.service.UserInfoService;
 
 //회원삭제 컨트롤러
 public class DeleteUserController {

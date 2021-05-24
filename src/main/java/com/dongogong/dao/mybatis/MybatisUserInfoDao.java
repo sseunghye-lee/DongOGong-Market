@@ -14,33 +14,42 @@ import com.dongogong.domain.UserInfo;
 public class MybatisUserInfoDao implements UserInfoDao{
 	
 		@Autowired
-		private UserInfoMapper userMapper;
+		private UserInfoMapper userInfoMapper;
 		
-		@Override
-		public void insertUser(UserInfo user) throws DataAccessException {
-			userMapper.insertUser(user);
-			userMapper.insertSignon(user);
+		public UserInfo getUserInfo(String userId) throws DataAccessException {
+			return userInfoMapper.getUserInfoByUserId(userId);
 		}
 		
-		@Override
-		public void updateUser(UserInfo user) throws DataAccessException {
-			userMapper.updateUser(user);
-			userMapper.updateSignon(user);
+		public UserInfo getUserInfo(String userId, String password) throws DataAccessException {
+			return userInfoMapper.getUserInfoByUserIdAndPassword(userId, password);
 		}
 		
-		@Override
-		public void deleteUser(UserInfo user) throws DataAccessException {
-			userMapper.deleteUser(user);
+		public void insertUserInfo(UserInfo userInfo) throws DataAccessException {
+			userInfoMapper.insertUserInfo(userInfo);
+			userInfoMapper.insertLogin(userInfo);
 		}
 		
-		@Override
-		public List<UserInfo> findUserList() throws DataAccessException {
+		public void updateUserInfo(UserInfo userInfo) throws DataAccessException {
+			userInfoMapper.updateUserInfo(userInfo);
+		}
+		
+		public void deleteUserInfo(UserInfo userInfo) throws DataAccessException {
+			userInfoMapper.deleteUserInfo(userInfo);
+			if (userInfo.getPassword() != null && userInfo.getPassword().length() > 0) {
+				userInfoMapper.updateLogin(userInfo);
+			}
+		}
+		
+		public List<String> getUsernameList() throws DataAccessException {
+			return userInfoMapper.getUsernameList();
+		}
+		
+		/*public List<UserInfo> findUserList() throws DataAccessException {
 			return userMapper.findUserList();
 		}
 		
-		@Override
 		public List<UserInfo> findUserList(int currentPage, int countPerPage) throws DataAccessException {
 			return userMapper.findUserList(currentPage, countPerPage);
 		}
-
+		 */
 }

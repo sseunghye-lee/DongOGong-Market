@@ -1,8 +1,11 @@
 package com.dongogong.controller;
 
+import java.io.Serializable;
+
 import com.dongogong.domain.UserInfo;
 
-public class UserInfoForm {
+@SuppressWarnings("serial")
+public class UserInfoForm implements Serializable{
 	private UserInfo userInfo;
 	
 	private boolean newUserInfo;

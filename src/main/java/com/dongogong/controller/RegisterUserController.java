@@ -20,8 +20,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.util.WebUtils;
 
 import com.dongogong.domain.UserInfo;
-import com.dongogong.service.UserFacade;
-import com.dongogong.service.UserInfoService;
+
 
 //회원가입 컨트롤러
 @Controller

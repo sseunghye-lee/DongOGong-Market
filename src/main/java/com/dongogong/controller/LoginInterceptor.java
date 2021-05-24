@@ -10,20 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 
 public class LoginInterceptor  implements HandlerInterceptor {
     @Override
-    public boolean preHandle(HttpServletRequest request,
-                             HttpServletResponse response, Object handler)
-            throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
         if (userSession == null) {
             String url = request.getRequestURL().toString();
             String query = request.getQueryString();
-            ModelAndView modelAndView = new ModelAndView("Login");
+            ModelAndView modelAndView = new ModelAndView("loginForm");
             if (query != null) {
-                modelAndView.addObject("signonForwardAction", url+"?"+query);
+                modelAndView.addObject("loginForwardAction", url+"?"+query);
             }
             else {
-                modelAndView.addObject("LoginForwardAction", url);
+                modelAndView.addObject("loginForwardAction", url);
             }
             throw new ModelAndViewDefiningException(modelAndView);
         }

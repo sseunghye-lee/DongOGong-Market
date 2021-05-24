@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dongogong.domain.UserInfo;
-import com.dongogong.service.UserInfoService;
-
 
 @Controller
 @RequestMapping("/mypage.do")

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dongogong.dao.mybatis.mapper.ChatMessageMapper">
+    <cache/>
+    <!-- 1) 채팅방 목록 불러오기 -->
+    <select id="getChatRoomList" resultType="ChatMessage">
+        SELECT C.CHAT_MESSAGE_IDX,
+               C.SENDER_ID,
+               C.RECEIVER_ID,
+               C.CHAT_RELATION_IDX,
+               C.POST_IDX,
+               C.READ_YN,
+               C.CONTENT,
+               C.CREATED_DATE_TIME,
+               U1.NICK_NAME AS SENDER_NICKNAME,
+               U2.NICK_NAME AS RECEIVER_NICKNAME
+        From CHAT_MESSAGE C
+                 LEFT JOIN USERINFO U1 ON C.SENDER_ID = U1.USER_ID
+                 LEFT JOIN USERINFO U2 ON C.RECEIVER_ID = U2.USER_ID
+        WHERE RELATION_IDX IN (SELECT RELATION_IDX
+                               FROM RELATION
+                               WHERE USER1_ID = #{userId}
+                                  OR USER2_ID = #{userId})
+        ORDER BY CREATED_DATE_TIME DESC GROUP BY POST_IDX;
+    </select>
+
+    <!-- 2) 채팅방 메세지 불러오기 -->
+    <select id="getChatMessageList" resultType="ChatMessage">
+        SELECT C.CHAT_MESSAGE_IDX,
+               C.SENDER_ID,
+               C.RECEIVER_ID,
+               C.CHAT_RELATION_IDX,
+               C.POST_IDX,
+               C.READ_YN,
+               C.CONTENT,
+               C.CREATED_DATE_TIME,
+               U1.NICK_NAME AS SENDER_NICKNAME,
+               U2.NICK_NAME AS RECEIVER_NICKNAME
+        From CHAT_MESSAGE C
+                 LEFT JOIN USERINFO U1 ON C.SENDER_ID = U1.USER_ID
+                 LEFT JOIN USERINFO U2 ON C.RECEIVER_ID = U2.USER_ID
+        WHERE CHAT_RELATION_IDX = #{chatRelationIdx}
+    </select>
+
+    <!-- 3) 채팅방 들어갈 때 안읽음 -> 읽음 변경 -->
+    <update id="updateReadYn">
+        UPDATE CHAT_MESSAGE
+        SET READ_YN = 'Y'
+        WHERE CHAT_RELATION_IDX = #{chatRelationIdx}
+          AND RECEIVER_ID = #{userId}
+    </update>
+
+    <!-- 4) 게시글에서 메세지 보낼 때 관계가 존재하는 지 -->
+    <select id="isRelationExist" resultType="java.lang.Integer">
+        SELECT RELATION_IDX
+        FROM RELATION
+        WHERE (USER1_ID = #{userId}
+            OR USER2_ID = #{userId})
+          AND (USER1_ID = #{registerId}
+            OR USER2_ID = #{registerId})
+    </select>
+
+
+    <!-- 5) 게시글에서 메세지 보낼 때 관계가 존재하는 지 -->
+    <select id="getRelation" resultType="int">
+        SELECT RELATION_IDX AS value
+        FROM RELATION
+        WHERE (USER1_ID = #{userId}
+            OR USER2_ID = #{userId})
+          AND (USER1_ID = #{registerId}
+            OR USER2_ID = #{registerId})
+    </select>
+
+
+    <!-- 5) 게시글 작성자와 유저 관계 idx 가져오기 -->
+    <select id="findRelationIdx" resultType="java.lang.Integer">
+        SELECT RELATION_IDX
+        FROM RELATION
+        WHERE (USER1_ID = #{userId} or USER2_ID = #{userId})
+           OR (USER1_ID = #{registerId} or USER2_ID = #{registerId})
+    </select>
+
+    <!-- 6) 처음 연락하는 관계에 있을 때 (동일한 사람이라도 게시물에 따라 구별되어 보여짐) -->
+    <insert id="insertRelation" parameterType="Relation">
+        INSERT INTO RELATION
+            (USER1_ID, USER2_ID)
+        VALUES (#{userId}, #{registerId})
+    </insert>
+
+    <!-- 7) 메세지 전송 시 저장 -->
+    <insert id="insertMessage" parameterType="ChatMessage">
+        INSERT INTO CHAT_MESSAGE
+        (SENDER_ID, RECEIVER_ID, CHAT_RELATION_IDX, POST_IDX, READ_YN, CONTENT, CREATED_DATE_TIME)
+        VALUES (#{senderId}, #{receiverId}, #{chatRelationIdx}, #{postIdx}, #{READ_YN}, #{CONTENT},
+                #{CREATED_DATE_TIME})
+    </insert>
+
+</mapper>

@@ -5,8 +5,9 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
+import com.dongogong.controller.UserInfoForm;
 import com.dongogong.domain.UserInfo;
-/*
+
 @Component
 public class UserInfoFormValidator implements Validator {
 
@@ -16,14 +17,14 @@ public class UserInfoFormValidator implements Validator {
 	
 	public void validate(Object obj, Errors errors) {
 		UserInfoForm userInfoForm = (UserInfoForm) obj;
-		UserInfo userInfo = userInfoForm.getAccount();
+		UserInfo userInfo = userInfoForm.getUserInfo();
 		
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userInfo.name", "NAME_REQUIRED", "Name is required.");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userInfo.email", "EMAIL_REQUIRED", "Email address is required.");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userInfo.phone", "PHONE_REQUIRED", "Phone number is required.");
 		
-		if (userInfoForm.isNewAccount()) {
-			userInfo.setStatus("OK");
+		if (userInfoForm.isNewUserInfo()) {
+			//userInfo.setStatus("OK");
 			ValidationUtils.rejectIfEmpty(errors, "userInfo.user_id", "USER_ID_REQUIRED", "User ID is required.");
 			if (userInfo.getPassword() == null || userInfo.getPassword().length() < 1 || !userInfo.getPassword().equals(userInfoForm.getRepeatedPassword())) {
 				errors.reject("PASSWORD_MISMATCH", "Passwords did not match or were not provided. Matching passwords are required.");
@@ -36,4 +37,3 @@ public class UserInfoFormValidator implements Validator {
 		}
 	}
 }
-*/
