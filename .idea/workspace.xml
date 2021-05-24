@@ -5,11 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6eadb82-9fb7-4bd1-8ef7-52adb1ca84d4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DongOGong-Market.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dongogong/util/FileHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dongogong/util/GsonUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dongogong/dao/SequenceDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dongogong/dao/mybatis/MybatisChatMessageDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dongogong/dao/mybatis/MybatisRelationDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dongogong/dao/mybatis/MybatisSequenceDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dongogong/dao/mybatis/mapper/ChatMessageMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dongogong/dao/mybatis/mapper/SequenceMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/dongogong/domain/Sequence.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/dongogong/dao/mybatis/mapper/ChatMessageMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dongogong/controller/ChatMessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dongogong/controller/ChatMessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dongogong/dao/ChatMessageDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dongogong/dao/ChatMessageDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dongogong/service/ChatMessageFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dongogong/service/ChatMessageFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dongogong/service/ChatMessageImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dongogong/service/ChatMessageImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/applyProduct.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/applyProduct.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,11 +29,6 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1sST8ouEjPGWqVv4uuEEvuGFvOI" />
@@ -40,16 +44,9 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/dongogong/util" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/com/dongogong/dao/mybatis/mapper" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -57,11 +54,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gayeon.sim\teamproject\git\DongOGong-Market\src\main\java\com\dongogong\util" />
       <recent name="C:\Users\gayeon.sim\Git\DongOGong-Market\src\main\resources\com\dongogong\dao\mybatis\mapper" />
       <recent name="C:\Users\gayeon.sim\Git\DongOGong-Market\src\main\java\com\dongogong\domain" />
       <recent name="C:\Users\gayeon.sim\Git\DongOGong-Market\src\main\java\com\dongogong\dao\mybatis\mapper" />
       <recent name="C:\Users\gayeon.sim\Git\DongOGong-Market\src\main\java\com\dongogong\dao" />
-      <recent name="C:\Users\gayeon.sim\Git\DongOGong-Market\src\main\java\com\dongogong\controller" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.dongogong.dao.mybatis" />
@@ -71,17 +68,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="DongOGongMarketApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="DongOGong-Market" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.dongogong.DongOGongMarketApplication" />
@@ -101,22 +87,10 @@
       <workItem from="1620864835738" duration="6149000" />
       <workItem from="1621509490828" duration="426000" />
       <workItem from="1621510122151" duration="272000" />
-      <workItem from="1621833100851" duration="1925000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
