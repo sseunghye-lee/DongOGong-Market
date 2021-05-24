@@ -4,9 +4,10 @@
 <mapper namespace="com.dongogong.dao.mybatis.mapper.UserInfoMapper">
    <cache />
   
+  <!-- LOGIN 테이블 이용X -->
    <select id="getUserInfoByUserId" resultType="UserInfo">
          SELECT USERINFO.NAME,
-            USERINFO.NICKNAME,
+            USERINFO.NICK_NAME,
             USERINFO.PHONE
          FROM USERINFO
          WHERE USERINFO.USER_ID = #{userId}
@@ -14,13 +15,37 @@
    
    <select id="getUserInfoByUserIdAndPassword" resultType="UserInfo">
          SELECT USERINFO.NAME,
-            USERINFO.NICKNAME,
+            USERINFO.NICK_NAME,
             USERINFO.PHONE  
          FROM USERINFO
          WHERE USERINFO.USER_ID = #{userId}
             AND USERINFO.PASSWORD = #{password}
    </select>
    
+   <!-- LOGIN 테이블 이용시 -->
+    <!-- 
+      <select id="getUserInfoByUserId" resultType="UserInfo">
+         SELECT LOGIN.NAME,
+            USERINFO.NAME,
+            USERINFO.NICK_NAME,
+            USERINFO.PHONE
+         FROM USERINFO, LOGIN
+         WHERE USERINFO.USER_ID = #{userId}
+            AND LOGIN.NAME = USERINFO.USER_ID
+   </select>
+   
+   <select id="getUserInfoByUserIdAndPassword" resultType="UserInfo">
+         SELECT LOGIN.NAME,
+            USERINFO.NAME,
+            USERINFO.NICK_NAME,
+            USERINFO.PHONE  
+         FROM USERINFO, LOGIN
+         WHERE USERINFO.USER_ID = #{userId}
+            AND LOGIN.PASSWORD = #{password}
+            AND LOGIN.NAME = USERINFO.USER_ID         
+   </select>
+    -->
+    
    <insert id ="insertUserInfo">
       INSERT INTO USERINFO (USER_ID, NAME, NICK_NAME, PHONE, PASSWORD)
       VALUES(#{userId}, #{name}, #{nickName}, #{phone}, #{password})

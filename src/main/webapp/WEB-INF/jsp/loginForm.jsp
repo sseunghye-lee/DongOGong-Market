@@ -36,10 +36,10 @@
                                             	   type="password" placeholder="Enter your password..."
                                                    onkeyup="login()" aria-describedby="inputPassword"/>
                                         </div>
-                                        </form>
-                                        <div class="mt-4 btn btn-light btn-outline-dark font-weight-500 mb-2 w-100" id="btnLogin">
-                                            <a href="<c:url value="/login.do"/>"><strong>로그인</strong></a>
-                                        </div>
+                                         <div class="mt-4 btn btn-light btn-outline-dark font-weight-500 mb-2 w-100" id="btnLogin">
+                                         <input type="submit" value="로그인"/>
+                                        </div>                        
+ 									    </form>
                                         <div class="mt-2 d-inline d-inline-block a-join float-right text-align-right">
                                             <p class="page-header-text small mb-0 float-right text-align-right">
                                             <a href='<c:url value="/join.do"/>'>회원 가입</a>
@@ -58,57 +58,5 @@
     </div>
 </section>
 
-<script inline="javascript">
-    $("#btnLogin").click(function () {
-        startLogin();
-    });
-
-    function login() {
-        if (window.event.keyCode === 13) startLogin();
-    }
-
-    function startLogin() {
-        const btn = $(this);
-        if (btn.hasClass("btn-loading")) return;
-
-        const inputUserId = $("#inputEmail");
-        const userId = inputUserId.val().trim();
-
-        if (userId === "") {
-            alert("이메일 주소를 입력 해 주세요");
-            inputUserId.focus();
-            return;
-        }
-
-        const inputPassword = $("#inputPassword");
-        const password = inputPassword.val().trim();
-
-        if (password === "") {
-            alert("패스워드를 입력 해 주세요");
-            inputPassword.focus();
-            return;
-        }
-
-        btn.addClass("btn-loading").attr("disabled", true);
-
-        $.ajax({
-            url: "login.do",
-            method: "POST",
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify({
-                userEmail: userId,
-                userPassword: password,
-            }),
-            dataType: "json",
-            success: function (res) {
-                location.href = "/";
-            },
-            error: function (err) {
-                btn.removeClass("btn-loading").attr("disabled", false);
-                alert(err.responseJSON.message);
-            },
-        });
-    }
-</script>
 </body>
 </html>
