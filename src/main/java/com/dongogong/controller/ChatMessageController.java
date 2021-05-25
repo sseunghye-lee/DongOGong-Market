@@ -20,14 +20,14 @@ public class ChatMessageController {
     @Autowired
     private ChatMessageFacade chatMessageFacade;
 
-    @RequestMapping("/chat/room.do")
-    public ModelAndView showChatList(@RequestParam("user_id") String userId, HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping("/chat/room/{userId}")
+    public ModelAndView showChatList(@PathVariable("userId") String userId, HttpServletRequest request, HttpServletResponse response) {
         UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 
         ModelAndView mav = new ModelAndView("showChatRoom");
         mav.addObject("chatRoomList", chatMessageFacade.getChatRoomList(userId));
-        mav.addObject("userId", userSession.getUserInfo().getUserId());
+        mav.addObject("userId", userId);
 
         return mav;
     }
