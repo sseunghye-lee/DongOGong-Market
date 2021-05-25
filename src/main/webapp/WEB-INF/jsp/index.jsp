@@ -55,8 +55,7 @@
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
                <c:if test="${!empty userSession.userInfo}">
-                    <%--    ë  ì¤ ì   ë¡ ê·¸ì  ì   í   ë§¤í   ì  ì ´ì£¼ë©´ ë ¨  --%>
-                    <li><a href="#">LOGOUT</a></li>
+                    <li><a href="<c:url value="/logout.do" />">LOGOUT</a></li>		
                 </c:if>
                 <c:if test="${empty userSession.userInfo}">
                     <li><a href="<c:url value="/loginForm.do" />">LOGIN</a></li>
