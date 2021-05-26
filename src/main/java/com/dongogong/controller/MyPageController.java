@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.dongogong.domain.UserInfo;
 
 @Controller
-@RequestMapping("/mypage.do")
+@RequestMapping("/myPage.do")
 public class MyPageController {
 	@GetMapping
 	public String myPage() {
-		return "mypage";
+		return "myPage";
 	}
 }
 

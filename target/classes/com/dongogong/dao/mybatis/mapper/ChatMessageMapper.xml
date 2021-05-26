@@ -3,29 +3,37 @@
 <mapper namespace="com.dongogong.dao.mybatis.mapper.ChatMessageMapper">
     <cache/>
     <!-- 1) 채팅방 목록 불러오기 -->
-    <select id="getChatRoomList" resultType="ChatMessage">
-        SELECT C.CHAT_MESSAGE_IDX,
-               C.SENDER_ID,
-               C.RECEIVER_ID,
-               C.CHAT_RELATION_IDX,
-               C.POST_IDX,
-               C.READ_YN,
-               C.CONTENT,
-               C.CREATED_DATE_TIME,
-               U1.NICK_NAME AS SENDER_NICKNAME,
-               U2.NICK_NAME AS RECEIVER_NICKNAME
-        From CHAT_MESSAGE C
-                 LEFT JOIN USERINFO U1 ON C.SENDER_ID = U1.USER_ID
-                 LEFT JOIN USERINFO U2 ON C.RECEIVER_ID = U2.USER_ID
-        WHERE RELATION_IDX IN (SELECT RELATION_IDX
-                               FROM RELATION
-                               WHERE USER1_ID = #{userId}
-                                  OR USER2_ID = #{userId})
-        ORDER BY CREATED_DATE_TIME DESC GROUP BY POST_IDX;
+    <select id="getChatRoomList" resultType="ChatSummary">
+        SELECT CHAT_MESSAGE_IDX,
+               SENDER_ID,
+               RECEIVER_ID,
+               CHAT_RELATION_IDX,
+               POST_IDX,
+               READ_YN,
+               CONTENT,
+               CREATED_DATE_TIME,
+               SENDER_NICKNAME,
+               RECEIVER_NICKNAME
+        FROM (SELECT C.CHAT_MESSAGE_IDX,
+                     C.SENDER_ID,
+                     C.RECEIVER_ID,
+                     C.CHAT_RELATION_IDX,
+                     C.POST_IDX,
+                     C.READ_YN,
+                     C.CONTENT,
+                     C.CREATED_DATE_TIME,
+                     U1.NICK_NAME AS SENDER_NICKNAME,
+                     U2.NICK_NAME AS RECEIVER_NICKNAME
+              From CHAT_MESSAGE C
+                       LEFT JOIN USERINFO U1 ON C.SENDER_ID = U1.USER_ID
+                       LEFT JOIN USERINFO U2 ON C.RECEIVER_ID = U2.USER_ID
+              WHERE CHAT_RELATION_IDX IN (SELECT RELATION_IDX FROM RELATION WHERE USER1_ID = #{userId} OR USER2_ID = #{userId})
+              ORDER BY CREATED_DATE_TIME DESC)
+        WHERE ROWNUM = 1
     </select>
 
     <!-- 2) 채팅방 메세지 불러오기 -->
-    <select id="getChatMessageList" resultType="ChatMessage">
+    <select id="getChatMessageList" resultType="ChatSummary">
         SELECT C.CHAT_MESSAGE_IDX,
                C.SENDER_ID,
                C.RECEIVER_ID,
@@ -66,9 +74,9 @@
         SELECT RELATION_IDX AS value
         FROM RELATION
         WHERE (USER1_ID = #{userId}
-            OR USER2_ID = #{userId})
+           OR USER2_ID = #{userId})
           AND (USER1_ID = #{registerId}
-            OR USER2_ID = #{registerId})
+           OR USER2_ID = #{registerId})
     </select>
 
 

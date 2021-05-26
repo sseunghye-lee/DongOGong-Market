@@ -10,7 +10,7 @@ public class AuctionPrice implements Serializable { // 경매가 idx
     private int postIdx;
 
     // 제시가
-    private String price;
+    private int price;
 
     // 당첨 낙첨 여부
     private String status;
@@ -34,11 +34,11 @@ public class AuctionPrice implements Serializable { // 경매가 idx
         this.postIdx = postIdx;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -57,6 +57,8 @@ public class AuctionPrice implements Serializable { // 경매가 idx
     public void setBuyerId(String buyerId) {
         this.buyerId = buyerId;
     }
+    
+    public AuctionPrice() {}
 
     // AuctionPrice 모델 복사
     public void CopyData(AuctionPrice param)

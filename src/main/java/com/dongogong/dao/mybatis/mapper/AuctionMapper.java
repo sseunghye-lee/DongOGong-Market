@@ -49,9 +49,9 @@ public interface AuctionMapper {
 	// 7) 경매 참여
 	void auctionSend(AuctionPrice auctionPrice) throws DataAccessException;
 	// AuctionPrice 테이블에 insert 될 때의 price 값을 post 테이블의 price에도 반영함
-	void updatePostPrice(String price, int postIdx) throws DataAccessException;
+	void updatePostPrice(int price, int postIdx) throws DataAccessException;
 	// 원래 가격에서 일정 금액을 더한 price로 업데이트
-	void updateAuctionPrice(String price) throws DataAccessException;
+	void updateAuctionPrice(int price) throws DataAccessException;
 	
 	// 8) 경매 진행 상황
 	List<AuctionPrice> auctionProgress(int post_idx) throws DataAccessException;

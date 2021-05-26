@@ -67,6 +67,7 @@
                         </div>
                     </header>
                     <section class="bg-white py-10">
+                    <form>
                         <div class="container">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h2 class="mb-0">Auction</h2>
@@ -75,89 +76,22 @@
                             <div class="row">
                             <c:forEach var="auction" items="${auctionList}">
                                 <div class="col-lg-4 mb-5 mb-lg-0">
-                                    <a class="card lift h-100" href="#!">
+                                    <a class="card lift h-100">
                                        <div class="card-flag card-flag-dark card-flag-top-right">경매중</div>
-                                        <img class="card-img-top" src="resources/images/${auction.photoUrl}" alt="..." />
+                                        <img class="card-img-top" name="photoUrl" src="resources/images/${auction.photoUrl}" alt="..." />
                                         <div class="card-body">
-                                            <h3 class="text-primary mb-0">${auction.price} won</h3>
-                                            <div class="small text-gray-800 font-weight-500">${auction.title}</div>
-                                            <div class="small text-gray-500">${auction.content}</div>
+                                            <h3 class="text-primary mb-0" name="price">${auction.price} won</h3>
+                                            <div class="small text-gray-800 font-weight-500" name="title">${auction.title}</div>
+                                            <div class="small text-gray-500" name="content">${auction.content}</div>
                                         </div>
-                                         <button>Send</button> 
+                                         <button onclick="<c:url value="/auctionSend.do"/>" id="sendButton" type="submit">Send</button> 
                                    </a>
                                 </div>
                                 </c:forEach>
-                                <!--  
-                                <div class="col-lg-4 mb-5 mb-lg-0">
-                                    <a class="card lift h-100" href="#!">
-                                        <div class="card-flag card-flag-dark card-flag-top-right">Listed 6 days</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/MP0bgaS_d1c/800x500" alt="..." />
-                                        <div class="card-body">
-                                            <h3 class="text-primary mb-0">$409,000</h3>
-                                            <div class="small text-gray-800 font-weight-500">3 bd | 2 ba | 1,350 sqft</div>
-                                            <div class="small text-gray-500">Sartalik, GA</div>
-                                        </div>
-                                        <button>Send</button> 
-                                    </a>
-                                </div>
-                                <div class="col-lg-4">
-                                    <a class="card lift h-100" href="#!">
-                                        <div class="card-flag card-flag-dark card-flag-top-right">Listed 2 weeks</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/iAftdIcgpFc/800x500" alt="..." />
-                                        <div class="card-body">
-                                            <h3 class="text-primary mb-0">$1,299,999</h3>
-                                            <div class="small text-gray-800 font-weight-500">6 bd | 5.5 ba | 4,220 sqft</div>
-                                            <div class="small text-gray-500">Picsard, GA</div>
-                                        </div>
-                                        <button>Send</button> 
-                                   </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-4 mb-5 mb-lg-0">
-                                    <a class="card lift h-100" href="#!">
-                                        <div class="card-flag card-flag-dark card-flag-top-right">Listed 3 days</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/561igiTyvSk/800x500" alt="..." />
-                                        <div class="card-body">
-                                            <h3 class="text-primary mb-0">$556,999</h3>
-                                            <div class="small text-gray-800 font-weight-500">5 bd | 3 ba | 2,420 sqft</div>
-                                            <div class="small text-gray-500">Sartalik, GA</div>
-                                        </div>
-                                        <button>Send</button> 
-                                    </a>
-                                </div>
-                                <div class="col-lg-4 mb-5 mb-lg-0">
-                                    <a class="card lift h-100" href="#!">
-                                       <div class="card-flag card-flag-dark card-flag-top-right">Listed 5 days</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/IYfp2Ixe9nM/800x500" alt="..." />
-                                        <div class="card-body">
-                                            <h3 class="text-primary mb-0">$384,000</h3>
-                                            <div class="small text-gray-800 font-weight-500">4 bd | 2 ba | 1,750 sqft</div>
-                                            <div class="small text-gray-500">Picsard, GA</div>
-                                        </div>
-                                        <button>Send</button> 
-                                    </a>
-                                </div>
-                                <div class="col-lg-4">
-                                    <a class="card lift h-100" href="#!"
-                                        ><div class="card-flag card-flag-dark card-flag-top-right">Listed 1 week</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/XbwHrt87mQ0/800x500" alt="..." />
-                                        <div class="card-body">
-                                            <h3 class="text-primary mb-0">$349,999</h3>
-                                            <div class="small text-gray-800 font-weight-500">3 bd | 2 ba | 1,231 sqft</div>
-                                            <div class="small text-gray-500">Sartalik, GA</div>
-                                        </div>
-                                        <button>Send</button>                                            
-                                    </a>
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="svg-border-rounded text-light">
                             <!-- Rounded SVG Border--><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144.54 17.34" preserveAspectRatio="none" fill="currentColor"><path d="M144.54,17.34H0V0H144.54ZM0,0S32.36,17.34,72.27,17.34,144.54,0,144.54,0"></path></svg>
                         </div>
-                        
+                    </form>    
                     </section>
                 </main>
            </div>
