@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ include file="IncludeTopDist.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -36,8 +37,8 @@
                                   <i data-feather="menu"></i>
                                </button>
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">   
-                                <a class="btn font-weight-500 ml-lg-4 btn-teal" href="product_my_list.jsp">MY<i class="ml-2" data-feather="arrow-right"></i></a>
-                                <a class="btn font-weight-500 ml-lg-4 btn-teal" href="apply_product.jsp">NEW<i class="ml-2" data-feather="arrow-right"></i></a>
+                                <a class="btn font-weight-500 ml-lg-4 btn-teal" href="<c:url value="/apply/MyPost_product.do"/>">MY<i class="ml-2" data-feather="arrow-right"></i></a>
+                                <a class="btn font-weight-500 ml-lg-4 btn-teal" href="<c:url value="/apply/product.do"/>">NEW<i class="ml-2" data-feather="arrow-right"></i></a>
                             </div>
                         </div>
                     </nav>

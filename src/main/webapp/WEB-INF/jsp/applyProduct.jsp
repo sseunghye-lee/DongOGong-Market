@@ -87,8 +87,8 @@
                                     </div>
                                     <div class="mt-4 btn btn-light btn-outline-dark font-weight-500 mb-2 w-100"
                                          id="btnApply">
-                                        <a><strong>등록하기</strong></a>
-                                    </div>
+                                        <a href="<c:url value="/apply/registerPost_product.do"/>"><strong>등록하기</strong></a>
+                                     </div>
                                     <%--                                            </form:form>--%>
 
                             </form>
