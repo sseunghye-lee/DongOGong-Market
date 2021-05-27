@@ -28,48 +28,31 @@ public class AuctionNewController {
 		this.auctionFacade = auctionFacade;
 	}
 	
-	/*
-	public String auction() {
-		return "auction";
-	}*/
-	
 	@PostMapping
-	public String addAuction(HttpServletRequest request/*,
+	public String addAuction(HttpServletRequest request,
+			@RequestParam(value="photoUrl", required=false) String photoUrl,
 			@RequestParam(value="title", required=false) String title,
 			@RequestParam(value="price", required=false) int price,
-			@RequestParam(value="content", required=false) String content*/
+			@RequestParam(value="content", required=false) String content
 			) throws Exception {
 		//int price2 = Integer.valueOf(price);
 		UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 	 
 		Post post = new Post();
-		post.setPostIdx(9);
-		post.setTitle("auction_goods");
+		post.setPostIdx(10);
+		post.setTitle(title);
 		post.setRegisterId(userSession.getUserInfo().getUserId());
 		post.setBorderType("auction");
-		post.setContent("good item");
+		post.setContent(content);
 		post.setTransactionConfirmation("no");
-		post.setPhotoUrl("DongOGong.jpg");
-		post.setPrice(5000);
+		post.setPhotoUrl(photoUrl);
+		post.setPrice(price);
 		
 		auctionFacade.insertAuction(post);
 		
 		return "auction";
 	}
-	
-	/*
-	@PostMapping
-	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String price = request.getParameter("price");
-		int price2 = Integer.valueOf(price);
-		
-		Post post = new Post(3, "som3", request.getParameter("title"), "auction", price2, request.getParameter("content"),
-			"no", "DongOGong.jpg");
-		
-		auctionFacade.insertAuction(post);
-	}
-	*/
 	
 	@ModelAttribute("auctionList")
 	public List<Post> auctionList() {

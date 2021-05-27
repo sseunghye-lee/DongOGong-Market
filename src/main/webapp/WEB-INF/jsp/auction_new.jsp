@@ -37,27 +37,27 @@
                   <form method="post" action="<c:url value="/auctionNew.do"/>">
                      <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                           <input type="file" id = "url" accept="image/*">
+                           <input type="file" name="photoUrl" id = "photoUrl" accept="image/*">
                         </div>
                      </div>
                      <div class="control-group">
                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                <label>Product Name</label>
-                           <input class="form-control" id="title" type="text" placeholder="Product Name" required="required" data-validation-required-message="Please enter your email Product Name." />
+                           <input class="form-control" id="title" name="title" type="text" placeholder="Product Name" required="required" data-validation-required-message="Please enter your email Product Name." />
                                 <p class="help-block text-danger"></p>
                         </div>
                      </div>
                      <div class="control-group">
                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                <label>Minimum Cost</label>
-                                <input class="form-control" id="price" type="text" placeholder="Minimum Cost" required="required" data-validation-required-message="Please enter your phone Minimum Cost." />
+                                <input class="form-control" name="price" id="price" type="text" placeholder="Minimum Cost" required="required" data-validation-required-message="Please enter your phone Minimum Cost." />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                      <div class="control-group">
                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                <label>Description</label>
-                                <textarea class="form-control" id="content" rows="5" type="text" placeholder="Description" required="required" data-validation-required-message="Please enter a Description."></textarea>
+                                <textarea class="form-control" name="content" id="content" rows="5" type="text" placeholder="Description" required="required" data-validation-required-message="Please enter a Description."></textarea>
                                 <p class="help-block text-danger"></p>
                            </div>
                         </div>
