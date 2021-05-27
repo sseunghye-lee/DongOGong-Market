@@ -49,7 +49,7 @@
                             <div class="row text-center">
                                 <div class="col-lg-4 mb-5 mb-lg-0">
                                     <div class="icon-stack icon-stack-xl bg-red text-white mb-4"><i class="fas fa-edit"></i></i></div>
-                                    <h3><a href="mainPage.jsp">회원 정보 수정</a></h3>
+                                    <h3><a href="myPage_change.jsp">회원 정보 수정</a></h3>
                                     <p class="mb-0">주소, 핸드폰 번호, 비밀번호 등을 변경하고 싶을 때 누르세요.</p>
                                 </div>
                                 <div class="col-lg-4 mb-5 mb-lg-0">

@@ -29,7 +29,15 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-                        <form>
+                        <form action='<c:url value="/index.do"/>'>
+                            <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                    <label>Id</label>
+                                    <h4>ID</h4><input class="form-control" id="id" placeholder="ID" type="text" />
+                              
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>                        
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>Name</label>
@@ -75,7 +83,7 @@
                             <div id="success"></div>
 								<div class="form-group">
 									<div class="btn btn-primary btn-xl font-weight-500 mb-2 w-100">
-										<a id="btnLogin">등록하기</a>
+										<input id="btnLogin" type="submit" value="등록하기"/>
 									</div>
 								</div>
                         </form>
