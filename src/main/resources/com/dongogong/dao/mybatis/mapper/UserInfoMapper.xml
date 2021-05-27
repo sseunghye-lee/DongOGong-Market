@@ -2,27 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.dongogong.dao.mybatis.mapper.UserInfoMapper">
-   <cache />
-  
-  <!-- LOGIN 테이블 이용X -->
-   <select id="getUserInfoByUserId" resultType="UserInfo">
-         SELECT USERINFO.NAME,
-            USERINFO.NICK_NAME,
-            USERINFO.PHONE
-         FROM USERINFO
-         WHERE USERINFO.USER_ID = #{userId}
-   </select>
-   
-   <select id="getUserInfoByUserIdAndPassword" resultType="UserInfo">
-         SELECT USERINFO.NAME,
-            USERINFO.NICK_NAME,
-            USERINFO.PHONE  
-         FROM USERINFO
-         WHERE USERINFO.USER_ID = #{userId}
-            AND USERINFO.PASSWORD = #{password}
-   </select>
-   
-   <!-- LOGIN 테이블 이용시 -->
+    <cache/>
+
+    <!-- LOGIN 테이블 이용X -->
+    <select id="getUserInfoByUserId" resultType="UserInfo">
+        SELECT USERINFO.USER_ID,
+               USERINFO.NAME,
+               USERINFO.NICK_NAME,
+               USERINFO.PHONE,
+            USERINFO.PASSWORD
+        FROM USERINFO
+        WHERE USERINFO.USER_ID = #{userId}
+    </select>
+
+    <select id="getUserInfoByUserIdAndPassword" resultType="UserInfo">
+        SELECT USER_ID,
+               NAME,
+               NICK_NAME,
+               PHONE,
+               PASSWORD
+        FROM USERINFO
+        WHERE USER_ID = #{userId}
+          AND PASSWORD = #{password}
+    </select>
+
+    <!-- LOGIN 테이블 이용시 -->
     <!-- 
       <select id="getUserInfoByUserId" resultType="UserInfo">
          SELECT LOGIN.NAME,
@@ -45,46 +49,49 @@
             AND LOGIN.NAME = USERINFO.USER_ID         
    </select>
     -->
-    
-   <insert id ="insertUserInfo">
-      INSERT INTO USERINFO (USER_ID, NAME, NICK_NAME, PHONE, PASSWORD)
-      VALUES(#{userId}, #{name}, #{nickName}, #{phone}, #{password})
-   </insert>
-   
-   <update id="updateUserInfo" parameterType="UserInfo">
-      UPDATE USERINFO SET
-         NAME = #{name},
-         NICK_NAME = #{nickName},
-         PHONE = #{phone},
-         PASSWORD = #{password}
-      WHERE USER_ID = #{userId}
-   </update>
-   
-   <delete id="deleteUserInfo" parameterType="UserInfo">
-      DELETE FROM USERINFO
-      WHERE USER_ID = #{userId}
-   </delete>
-   
-   <select id="getUsernameList" resultType="java.lang.String">
-      SELECT NAME AS VALUE FROM LOGIN
-   </select>
-   
-     <update id="updateLogin" parameterType="UserInfo">
-    UPDATE LOGIN SET PASSWORD = #{password}
-    WHERE NAME = #{name}
-  </update>
 
-  <insert id="insertLogin" parameterType="UserInfo">
-    INSERT INTO LOGIN (PASSWORD,NAME)
-    VALUES (#{password}, #{name})
-  </insert>
-  
-   <!--  
-   <select id="findUserList" resultType="List<User>">
-      SELECT
-         USER_ID, NAME, NICK_NAME, PHONE, PASSWORD, INDIVIDUAL_COPORATION_STATUS
-      FROM USERINFO
-      ORDER BY USER_ID
-   </select>
-   -->
+    <insert id="insertUserInfo">
+        INSERT INTO USERINFO (USER_ID, NAME, NICK_NAME, PHONE, PASSWORD)
+        VALUES (#{userId}, #{name}, #{nickName}, #{phone}, #{password})
+    </insert>
+
+    <update id="updateUserInfo" parameterType="UserInfo">
+        UPDATE USERINFO
+        SET NAME      = #{name},
+            NICK_NAME = #{nickName},
+            PHONE     = #{phone},
+            PASSWORD  = #{password}
+        WHERE USERID = #{userId}
+    </update>
+
+    <delete id="deleteUserInfo" parameterType="UserInfo">
+        DELETE
+        FROM USERINFO
+        WHERE USERID = #{userId}
+    </delete>
+
+    <select id="getUsernameList" resultType="java.lang.String">
+        SELECT NAME AS VALUE
+        FROM LOGIN
+    </select>
+
+    <update id="updateLogin" parameterType="UserInfo">
+        UPDATE LOGIN
+        SET PASSWORD = #{password}
+        WHERE NAME = #{name}
+    </update>
+
+    <insert id="insertLogin" parameterType="UserInfo">
+        INSERT INTO LOGIN (PASSWORD, NAME)
+        VALUES (#{password}, #{name})
+    </insert>
+
+    <!--
+    <select id="findUserList" resultType="List<User>">
+       SELECT
+          USER_ID, NAME, NICK_NAME, PHONE, PASSWORD, INDIVIDUAL_COPORATION_STATUS
+       FROM USERINFO
+       ORDER BY USER_ID
+    </select>
+    -->
 </mapper>

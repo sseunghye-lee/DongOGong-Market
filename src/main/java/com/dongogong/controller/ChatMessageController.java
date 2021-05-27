@@ -25,6 +25,8 @@ public class ChatMessageController {
         UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 
+        userSession.getUserInfo().getUserId();
+
         ModelAndView mav = new ModelAndView("showChatRoom");
         mav.addObject("chatRoomList", chatMessageFacade.getChatRoomList(userId));
         mav.addObject("userId", userId);

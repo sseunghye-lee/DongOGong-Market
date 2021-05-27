@@ -26,17 +26,15 @@
                                                    value='<c:url value="${loginForwardAction}"/>'/>
                                         </c:if>
                                         <div class="form-group flex-fill mb-2 ">
-                                            <label class="sr-only" for="inputEmail"><strong>ID</strong></label>
+                                            <label class="sr-only" for="inputId"><strong>ID</strong></label>
                                             <input class="mt-2 form-control form-control-solid w-100 log-email"
                                                    id="userId" name="userId"
-                                                   type="text" placeholder="Enter your ID..."
-                                                   onkeyup="login()" aria-describedby="inputEmail"/>
+                                                   type="text" placeholder="Enter your ID..." aria-describedby="inputEmail"/>
                                             <label class="pt-3 sr-only"
                                                    for="inputPassword"><strong>PASSWORD</strong></label>
                                             <input class="mt-2 form-control form-control-solid w-100"
                                                    id="password" name="password"
-                                                   type="password" placeholder="Enter your password..."
-                                                   onkeyup="login()" aria-describedby="inputPassword"/>
+                                                   type="password" placeholder="Enter your password..." aria-describedby="inputPassword"/>
                                         </div>
                                         <input class="mt-4 btn btn-light btn-outline-dark font-weight-500 mb-2 w-100"
                                                id="btnLogin" type="submit" value="로그인"/>
@@ -46,10 +44,6 @@
                                         <p class="page-header-text small mb-0 float-right text-align-right">
                                             <a href='<c:url value="/join.do"/>'>회원 가입</a>
                                     </div>
-                                    <!--                                    <p class="page-header-text small mb-0 w-100">-->
-                                    <!--                                        <a class="a-password w-75" href="#!">비밀번호가 기억나지 않습니다.</a>-->
-                                    <!--                                        <a class="a-join w-75" href="#!">회원 가입</a>-->
-                                    <!--                                    </p>-->
                                 </div>
                             </div>
                         </div>

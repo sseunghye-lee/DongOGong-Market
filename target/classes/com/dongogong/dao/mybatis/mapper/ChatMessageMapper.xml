@@ -65,7 +65,7 @@
         WHERE (USER1_ID = #{userId}
             OR USER2_ID = #{userId})
           AND (USER1_ID = #{registerId}
-            OR USER2_ID = #{registerId})
+           OR USER2_ID = #{registerId})
     </select>
 
 

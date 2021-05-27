@@ -20,19 +20,30 @@ public class UserInfo implements Serializable {
     //회원 비밀번호
     private String password;
 
+    private String user_id;
+
     public UserInfo() {
 
     }
 
-    public UserInfo(String userId, String name, String nickName, String phone, String password) {
+    public UserInfo(String userId, String name, String nickName, String phone, String password, String user_id) {
         this.userId = userId;
         this.name = name;
         this.nickName = nickName;
         this.phone = phone;
         this.password = password;
+        this.user_id = user_id;
     }
 
     //getters & setters
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
+
     public String getUserId() {
         return userId;
     }
@@ -72,6 +83,7 @@ public class UserInfo implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
 
 	/*public String getIndividual_corporation_status() {
 		return individual_corporation_status;

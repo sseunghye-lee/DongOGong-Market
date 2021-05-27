@@ -62,7 +62,7 @@
                 </c:if>
                 <li><a href="notice_bootstrap.jsp">Home</a></li>
                 <li><a href="<c:url value="/apply/product.do"/>">PRODUCT</a></li>
-                <li><a href="<c:url value="/chat/room.do"/>">CHAT</a></li>
+                <li><a href="<c:url value='/chat/room/ + ${userSession.userInfo.userId}'/>">CHAT</a></li>
 
                 <li><a href="<c:url value="/services.do"/>">Services</a></li>
                 <li><a href="<c:url value="/myPage.do"/>">MYPAGE</a></li>
