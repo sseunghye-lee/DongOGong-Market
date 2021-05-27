@@ -67,7 +67,7 @@
                         </div>
                     </header>
                     <section class="bg-white py-10">
-                    <form>
+                    <form method="post">
                         <div class="container">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h2 class="mb-0">Auction</h2>

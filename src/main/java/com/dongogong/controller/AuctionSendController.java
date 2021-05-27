@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -25,8 +26,8 @@ public class AuctionSendController {
 		this.auctionFacade = auctionFacade;
 	}
 	
-	@GetMapping
-	public String auction(HttpServletRequest request,
+	@PostMapping
+	public String auction(
 			@RequestParam(value="postIdx", required=false) int postIdx,
 			@RequestParam(value="price", required=false) int price) {
 		AuctionPrice auctionPrice = new AuctionPrice();

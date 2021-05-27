@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.util.WebUtils;
 
 import com.dongogong.domain.Post;
 import com.dongogong.service.AuctionFacade;
@@ -33,16 +34,19 @@ public class AuctionNewController {
 	}*/
 	
 	@PostMapping
-	public String addAuction(/*HttpServletRequest request,
+	public String addAuction(HttpServletRequest request/*,
 			@RequestParam(value="title", required=false) String title,
 			@RequestParam(value="price", required=false) int price,
 			@RequestParam(value="content", required=false) String content*/
 			) throws Exception {
 		//int price2 = Integer.valueOf(price);
+		UserSession userSession =
+                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
+	 
 		Post post = new Post();
-		post.setPostIdx(4);
+		post.setPostIdx(9);
 		post.setTitle("auction_goods");
-		post.setRegisterId("som4");
+		post.setRegisterId(userSession.getUserInfo().getUserId());
 		post.setBorderType("auction");
 		post.setContent("good item");
 		post.setTransactionConfirmation("no");

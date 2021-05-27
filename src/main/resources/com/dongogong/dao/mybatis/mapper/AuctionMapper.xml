@@ -20,7 +20,7 @@
   <!-- 2) 경매 수정 -->
   <update id="auctionUpdate" parameterType="Post">
   	UPDATE POST SET TITLE = #{title}, CONTENT = #{content}, PHOTOURL = #{photoUrl}
-  	WHERE POST_IDX = #{post_Idx}
+  	WHERE POST_IDX = #{postIdx}
   </update>
   
   <!--  
@@ -35,24 +35,24 @@
   <!-- 3) 경매 마감 -->
   <update id="auctionFinish" parameterType="Post">
   	UPDATE POST SET TRANSACTIONCONFIRMATION = 'DECIDE'
-  	WHERE POST_IDX = #{post_Idx}
+  	WHERE POST_IDX = #{postIdx}
   </update> <!-- post 테이블의 거래확정여부 변경 -->
   
   <update id="auctionPriceFinish" parameterType="AuctionPrice">
   	UPDATE AUCTIONPRICE SET STATUS = 'DECIDE'
-  	WHERE POST_IDX = #{post_Idx}
+  	WHERE POST_IDX = #{postIdx}
   </update> <!-- auction_price 테이블의 상태 변경 -->
   
   <!-- post의 registerId가 transactions의 sellerId가 됨 -->
   <select id="postRegisterId" resultType="java.lang.String">
   	SELECT REGISTERID
   	FROM POST
-  	WHERE POST_IDX = #{post_Idx}
+  	WHERE POST_IDX = #{postIdx}
   </select>
   
   <insert id="insertTransaction" parameterType="Transactions">
   	INSERT INTO TRANSACTIONS(transactionsIdx, post_Idx, sellerId, buyerId, status)
-  	VALUES(#{transactionsIdx}, #{post_Idx}, #{sellerId}, #{buyerId}, "DECIDE")
+  	VALUES(#{transactionsIdx}, #{postIdx}, #{sellerId}, #{buyerId}, 'DECIDE')
   </insert> <!-- transaction 테이블에 거래 완료된 경매 등록 -->
   
   <!-- 4) 경매 리스트 -->
@@ -70,38 +70,38 @@
   <select id="myAuctionRegister" resultType="java.lang.Integer">
   	SELECT POST_IDX
   	FROM POST
-  	WHERE REGISTER_ID = #{register_Id} 
+  	WHERE REGISTER_ID = #{registerId} 
   		AND BORDER_TYPE = 'auction'
   </select>
   
   <select id="myAuction" resultType="Post">
   	SELECT PHOTOURL, PRICE, TITLE, CONTENT
   	FROM POST
-  	WHERE POST_IDX = #{post_Idx}
+  	WHERE POST_IDX = #{postIdx}
   </select>
   
   <!-- 7) 경매 참여 -> 원래 가격에서 일정 금액만큼 더한 price가 들어감 -->
   <update id="updateAuctionPrice" parameterType="java.lang.String">
   	UPDATE AUCTIONPRICE SET PRICE = #{price} 
-  	WHERE POST_IDX = #{post_Idx}
+  	WHERE POST_IDX = #{postIdx}
   </update>
   
   <insert id="auctionSend" parameterType="AuctionPrice">
   	INSERT INTO AUCTIONPRICE(auctionPriceId, post_Idx, price, status, buyerId)
-  	VALUES(#{auctionPriceId}, #{post_Idx}, #{price}, "DECIDE", #{buyerId})
+  	VALUES(#{auctionPriceId}, #{postIdx}, #{price}, 'DECIDE', #{buyerId})
   </insert>
   
   <!-- insert 될 때의 price 값을 post 테이블의 price에 반영함 -->
   <update id="updatePostPrice" parameterType="java.lang.String">
   	UPDATE POST SET PRICE = #{price}
-  	WHERE POST_IDX = #{post_Idx}
+  	WHERE POST_IDX = #{postIdx}
   </update>
   
   <!-- 8) 경매 진행 상황 -->
   <select id="auctionProgress" resultType="AuctionPrice">
   	SELECT BUYERID, PRICE
   	FROM AUCTIONPRICE
-  	WHERE POST_IDX = #{post_Idx}
+  	WHERE POST_IDX = #{postIdx}
   </select>
   
   <select id="auctionNickName" resultType="java.lang.String">
