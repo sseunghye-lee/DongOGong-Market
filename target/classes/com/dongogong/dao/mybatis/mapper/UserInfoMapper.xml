@@ -16,9 +16,9 @@
     </select>
 
     <select id="getUserInfoByUserIdAndPassword" resultType="UserInfo">
-        SELECT USER_ID,
+        SELECT USER_ID AS userId,
                NAME,
-               NICK_NAME,
+               NICK_NAME AS nickName,
                PHONE,
                PASSWORD
         FROM USERINFO

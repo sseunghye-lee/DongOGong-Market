@@ -4,16 +4,16 @@
     <cache/>
     <!-- 1) 채팅방 목록 불러오기 -->
     <select id="getChatRoomList" resultType="ChatSummary">
-        SELECT CHAT_MESSAGE_IDX,
-               SENDER_ID,
-               RECEIVER_ID,
-               CHAT_RELATION_IDX,
-               POST_IDX,
-               READ_YN,
+        SELECT CHAT_MESSAGE_IDX AS chatMessageIdx,
+               SENDER_ID AS senderId,
+               RECEIVER_ID AS receiverId,
+               CHAT_RELATION_IDX AS chatRelationIdx,
+               POST_IDX AS postIdx,
+               READ_YN AS readYn,
                CONTENT,
-               CREATED_DATE_TIME,
-               SENDER_NICKNAME,
-               RECEIVER_NICKNAME
+               CREATED_DATE_TIME AS createDateTime,
+               SENDER_NICKNAME AS senderNickName,
+               RECEIVER_NICKNAME AS receiverNickName
         FROM (SELECT C.CHAT_MESSAGE_IDX,
                      C.SENDER_ID,
                      C.RECEIVER_ID,
