@@ -13,7 +13,7 @@
                 <c:if test="${empty userSession.userInfo}">
                     <li><a href="<c:url value="/loginForm.do" />">LOGIN</a></li>
                 </c:if>
-                <li><a href="notice_bootstrap.jsp">Home</a></li>
+                <li><a href="/">Home</a></li>
                 <li><a href="<c:url value='/apply/product.do'/>">PRODUCT</a></li>
                 <li><a href="<c:url value='/chat/room/ + ${userSession.userInfo.userId}'/>">CHAT</a></li>
 
