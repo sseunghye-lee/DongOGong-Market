@@ -1,25 +1,23 @@
 package com.dongogong.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
-
+import com.dongogong.domain.Post;
+import com.dongogong.service.PostFacade;
 @Controller
-@SessionAttributes({"post", "selectPost"})
+@RequestMapping("/apply/select_product_myList.do")
 public class SelectPostController {
 
-	@Autowired
-	public void setPost() {
-		
-	}
+	 @Autowired
+	   private PostFacade postFacade;
+	 @GetMapping
+	    public String send() {
+		 return "product_my_list";
+	    }
 	
-	//상품 눌렀을때 정보보기
-	@RequestMapping("/market/selectPost")
-	public String handleRequest(@RequestParam("postIdx")
-	String postIdx) throws Exception {
-		return "Post";
-	}
-
 }

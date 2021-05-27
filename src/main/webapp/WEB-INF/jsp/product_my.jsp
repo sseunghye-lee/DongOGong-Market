@@ -5,6 +5,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>   
+<%@ include file="IncludeTopDist.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,6 +18,7 @@
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+	
 	<title>product_my</title>    
     <!-- Core theme CSS (includes Bootstrap)-->
     <link type="text/css" href="resources/css/styles.css" rel="stylesheet" />
