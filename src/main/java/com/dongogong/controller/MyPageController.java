@@ -41,7 +41,7 @@ public class MyPageController {
 		UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 		model.addAttribute("userSession", userSession);
-		return new ModelAndView("services");
+		return new ModelAndView("myPage");
 	}
    
    /*
