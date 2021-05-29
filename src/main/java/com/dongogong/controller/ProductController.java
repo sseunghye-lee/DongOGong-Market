@@ -13,12 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/apply/product.do")
 public class ProductController {
     @GetMapping
-    public String applyProduct(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView applyProduct(HttpServletRequest request, HttpServletResponse response) {
         UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 
         ModelAndView mav = new ModelAndView("applyProduct");
         mav.addObject("userSession", userSession);
-        return "mav";
+        return mav;
     }
 }
