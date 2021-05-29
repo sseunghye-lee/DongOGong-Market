@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.WebUtils;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dongogong.service.UserInfoFacade;
 import com.dongogong.service.UserInfoFormValidator;
@@ -33,12 +34,13 @@ public class RegisterUserController {
       this.userInfo = userInfo;
    }
 
+   /*
    @Autowired
    private UserInfoFormValidator validator;
    public void setValidator(UserInfoFormValidator validator) {
       this.validator = validator;
    }
-   
+   */
    @ModelAttribute("userInfoForm")
    public UserInfoForm formBackingObject(HttpServletRequest request) throws Exception {
       UserSession userSession = (UserSession) WebUtils.getSessionAttribute(request, "userSession");
@@ -61,7 +63,7 @@ public class RegisterUserController {
          @ModelAttribute("userInfoForm") UserInfoForm userInfoForm,
          BindingResult result) throws Exception {
 
-     validator.validate(userInfoForm, result);
+     //validator.validate(userInfoForm, result);
      
       if (result.hasErrors()) 
          return formViewName;
@@ -76,10 +78,12 @@ public class RegisterUserController {
          return formViewName;
       }
 
+      /*
       UserSession UserSession = new UserSession (
             userInfo.getUserInfo(userInfoForm.getUserInfo().getUserId()));
 
       session.setAttribute("UserSession", UserSession);
+      */
       return successViewName;
    }
 

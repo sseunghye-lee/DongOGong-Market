@@ -51,7 +51,7 @@
    </select>
      -->
 
-    <insert id="insertUserInfo">
+    <insert id="insertUserInfo" parameterType="UserInfo">
         INSERT INTO USERINFO (USER_ID, NAME, NICK_NAME, PHONE, PASSWORD)
         VALUES (#{userId}, #{name}, #{nickName}, #{phone}, #{password})
     </insert>
