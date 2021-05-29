@@ -16,7 +16,7 @@
 </head>
 <body>
 <!-- Update form  -->
-<div class="container">
+	<div class="container">
                 <!-- Contact Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">JOIN OUR WEBSITE</h2>
                 <!-- Icon Divider-->
@@ -56,8 +56,8 @@
                             </div>
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                    <label>Email</label> 
-                                    <h4>EMAIL</h4><input class="form-control" id="email" type="email" placeholder="EMAIL" />
+                                    <label>PHONE</label> 
+                                    <h4>PHONE</h4><input class="form-control" id="phone" type="text" placeholder="PHONE" />
                                    
                                     <p class="help-block text-danger"></p>
                                 </div>

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.util.WebUtils;
 
 import com.dongogong.service.UserInfoFacade;
@@ -27,7 +26,7 @@ public class RegisterUserController {
    private String formViewName;
    @Value("index")
    private String successViewName;
-	
+   
    @Autowired
    private UserInfoFacade userInfo;
    public void setUserInfo(UserInfoFacade userInfo) {
@@ -36,21 +35,17 @@ public class RegisterUserController {
 
    @Autowired
    private UserInfoFormValidator validator;
-	public void setValidator(UserInfoFormValidator validator) {
-		this.validator = validator;
-	}
+   public void setValidator(UserInfoFormValidator validator) {
+      this.validator = validator;
+   }
    
    @ModelAttribute("userInfoForm")
    public UserInfoForm formBackingObject(HttpServletRequest request) throws Exception {
       UserSession userSession = (UserSession) WebUtils.getSessionAttribute(request, "userSession");
-      if (userSession != null) {   // edit an existing account
-         return new UserInfoForm( 
-        		 userInfo.getUserInfo(userSession.getUserInfo().getUserId()) 
-        );
-      }
-      else {   // create a new account
+      if (userSession == null) {   // create a new account
          return new UserInfoForm();
       }
+	return null;
    }
 
 
@@ -58,7 +53,7 @@ public class RegisterUserController {
    public String showForm() {
       return formViewName;
    }
-	
+   
 
    @PostMapping
    public String onSubmit(
@@ -66,10 +61,10 @@ public class RegisterUserController {
          @ModelAttribute("userInfoForm") UserInfoForm userInfoForm,
          BindingResult result) throws Exception {
 
-	  validator.validate(userInfoForm, result);
-	  
+     validator.validate(userInfoForm, result);
+     
       if (result.hasErrors()) 
-    	  return formViewName;
+         return formViewName;
       
       try {
          if (userInfoForm.isNewUserInfo()) {
@@ -81,10 +76,10 @@ public class RegisterUserController {
          return formViewName;
       }
 
-      UserSession userSission = new UserSession (
+      UserSession UserSession = new UserSession (
             userInfo.getUserInfo(userInfoForm.getUserInfo().getUserId()));
 
-      session.setAttribute("userSission", userSission);
+      session.setAttribute("UserSession", UserSession);
       return successViewName;
    }
 

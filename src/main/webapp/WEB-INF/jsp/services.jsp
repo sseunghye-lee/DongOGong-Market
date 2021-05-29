@@ -69,13 +69,13 @@
             <div class="box">
               <div class="icon" style="background: #fff0da;"><i class="bi bi-card-checklist" style="color: #e98e06;"></i></div>
               <h4 class="title">
-              <!--  
+               
               <c:if test="${empty userSession.userInfo}">
               <a href="<c:url value="/loginForm.do"/>">AUCTION</a>
-              </c:if> -->
-              
+              </c:if> 
+              <c:if test="${!empty userSession.userInfo}">
               <a href="<c:url value="/auction.do"/>">AUCTION</a>
-              
+              </c:if>
               <p class="description">경매페이지 <br> 경매할 상품들의 목록과 상세보기를 할 수 있는 페이지입니다.</p>
             </div>
           </div>

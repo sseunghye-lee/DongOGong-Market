@@ -11,19 +11,21 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-	        <meta name="viewport" content="width=device-width, initial-scale=1">
-		<link href="./css/bootstrap.min.css" rel="stylesheet">
-		<link href="./css/custom.css" rel="stylesheet">
-		<script
-		    src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<script src="./js/bootstrap.min.js"></script>
+           <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link href="./css/bootstrap.min.css" rel="stylesheet">
+      <link href="./css/custom.css" rel="stylesheet">
+      <script
+          src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+      <script src="./js/bootstrap.min.js"></script>
         <title>myPage</title>
         <link type="text/css" href="resources/dist/css/styles.css" rel="stylesheet" />
         <link rel="icon" type="image/x-icon" href="resources/dist/assets/img/favicon.png" />
         <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" crossorigin="anonymous"></script>
+ <%@ include file="IncludeTop.jsp" %>
 </head>
 <body>
+<%@ include file="IncludeQuickHeader.jsp" %>
 
                     <!-- Page Header-->
                     <header class="page-header page-header-light bg-white">
@@ -49,12 +51,12 @@
                             <div class="row text-center">
                                 <div class="col-lg-4 mb-5 mb-lg-0">
                                     <div class="icon-stack icon-stack-xl bg-red text-white mb-4"><i class="fas fa-edit"></i></i></div>
-                                    <h3><a href="myPage_change.jsp">회원 정보 수정</a></h3>
+                                    <h3><a href="<c:url value="/myPage_change.do"/>">회원 정보 수정</a></h3>
                                     <p class="mb-0">주소, 핸드폰 번호, 비밀번호 등을 변경하고 싶을 때 누르세요.</p>
                                 </div>
                                 <div class="col-lg-4 mb-5 mb-lg-0">
                                     <div class="icon-stack icon-stack-xl bg-yellow text-white mb-4"><i class="far fa-frown"></i></i></div>
-                                    <h3><a href="">회원 탈퇴</a></h3>
+                                    <h3><a href="<c:url value="/deleteUser.do"/>">회원 탈퇴</a></h3>
                                     <p class="mb-0">더 이상 이 사이트를 이용하지 않을 때 누르세요.</p>
                                 </div>
                                 <div class="col-lg-4">
