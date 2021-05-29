@@ -17,7 +17,6 @@
    <!-- Core theme CSS (includes Bootstrap)-->
     <link type="text/css" href="resources/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-    
 </head>
 <body>
    <section>

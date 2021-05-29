@@ -39,6 +39,7 @@
                                 <a class="btn font-weight-500 ml-lg-4 btn-primary" href="<c:url value="/auction.do"/>">Auction<i class="ml-2" data-feather="arrow-right"></i></a>
                                 <a class="btn font-weight-500 ml-lg-4 btn-primary" href="<c:url value="/auction_my.do"/>">My<i class="ml-2" data-feather="arrow-right"></i></a>
                                 <a class="btn font-weight-500 ml-lg-4 btn-primary" href="<c:url value="/auction_new.do"/>">NEW<i class="ml-2" data-feather="arrow-right"></i></a>
+                                <a class="btn font-weight-500 ml-lg-4 btn-primary" href="<c:url value="/"/>">HOME<i class="ml-2" data-feather="arrow-right"></i></a>
                             </div>
                         </div>
                     </nav>
@@ -67,31 +68,37 @@
                         </div>
                     </header>
                     <section class="bg-white py-10">
-                    <form method="post">
+                  
                         <div class="container">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h2 class="mb-0">Auction</h2>
                                 <a class="btn btn-sm btn-primary d-inline-flex align-items-center" href="#!">See more<i class="ml-1" data-feather="arrow-right"></i></a>
                             </div>
+                            <form method="POST" action="<c:url value="/auctionSend.do"/>">
                             <div class="row">
+                            
                             <c:forEach var="auction" items="${auctionList}">
                                 <div class="col-lg-4 mb-5 mb-lg-0">
                                     <a class="card lift h-100">
+                                    <input type="hidden" id="postIdx" name="postIdx" value="${auction.postIdx}"/>
+                                    <input type="hidden" id="price" name="price" value="${auction.price}"/>
                                        <div class="card-flag card-flag-dark card-flag-top-right">경매중</div>
                                         <img class="card-img-top" name="photoUrl" src="resources/images/${auction.photoUrl}" alt="..." />
                                         <div class="card-body">
-                                            <h3 class="text-primary mb-0" name="price">${auction.price} won</h3>
+                                            <h3 class="text-primary mb-0">${auction.price} won</h3>
                                             <div class="small text-gray-800 font-weight-500" name="title">${auction.title}</div>
                                             <div class="small text-gray-500" name="content">${auction.content}</div>
                                         </div>
                                          <button onclick="<c:url value="/auctionSend.do"/>" id="sendButton" type="submit">Send</button> 
-                                   </a>
-                                </div>
+                                   </a>                                  
+                                </div>                            
                                 </c:forEach>
+                                
                         <div class="svg-border-rounded text-light">
                             <!-- Rounded SVG Border--><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144.54 17.34" preserveAspectRatio="none" fill="currentColor"><path d="M144.54,17.34H0V0H144.54ZM0,0S32.36,17.34,72.27,17.34,144.54,0,144.54,0"></path></svg>
                         </div>
-                    </form>    
+                     </div>
+                     </form>
                     </section>
                 </main>
            </div>

@@ -79,7 +79,7 @@
             <div class="col-lg-6 intro-info order-lg-first order-last" data-aos="zoom-in" data-aos-delay="100">
                 <h2>DONGOGONG MARKET<br>당신의 물건을 <span>판매해보세요!</span></h2>
                 <div>
-                    <a href="notice_bootstrap.jsp" class="btn-get-started scrollto">Go Shopping!</a>
+                    <a href="<c:url value="/apply/PostList_product.do"/>" class="btn-get-started scrollto">Go Shopping!</a>
                 </div>
             </div>
 

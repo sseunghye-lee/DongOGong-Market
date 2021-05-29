@@ -82,12 +82,12 @@
   
   <!-- 7) 경매 참여 -> 원래 가격에서 일정 금액만큼 더한 price가 들어감 -->
   <update id="updateAuctionPrice" parameterType="java.lang.String">
-  	UPDATE AUCTIONPRICE SET PRICE = #{price} 
+  	UPDATE AUCTION_PRICE SET PRICE = #{price} 
   	WHERE POST_IDX = #{postIdx}
   </update>
   
   <insert id="auctionSend" parameterType="AuctionPrice">
-  	INSERT INTO AUCTIONPRICE(auctionPriceId, post_Idx, price, status, buyerId)
+  	INSERT INTO AUCTION_PRICE(auction_price_id, post_Idx, price, status, buyer_Id)
   	VALUES(#{auctionPriceId}, #{postIdx}, #{price}, 'DECIDE', #{buyerId})
   </insert>
   
