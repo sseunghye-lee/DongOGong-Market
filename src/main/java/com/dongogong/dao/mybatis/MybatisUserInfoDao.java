@@ -26,7 +26,7 @@ public class MybatisUserInfoDao implements UserInfoDao{
       
       public void insertUserInfo(UserInfo userInfo) throws DataAccessException {
          userInfoMapper.insertUserInfo(userInfo);
-         userInfoMapper.insertLogin(userInfo);
+        // userInfoMapper.insertLogin(userInfo);
       }
       
       public void updateUserInfo(UserInfo userInfo) throws DataAccessException {

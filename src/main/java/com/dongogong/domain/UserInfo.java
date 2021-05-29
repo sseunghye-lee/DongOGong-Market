@@ -20,18 +20,15 @@ public class UserInfo implements Serializable {
     //회원 비밀번호
     private String password;
 
-    public UserInfo() {
-
-    }
-
-    public UserInfo(String userId, String name, String nickName, String phone, String password) {
+	
+    /*public UserInfo(String userId, String name, String nickName, String phone, String password) {
         this.userId = userId;
         this.name = name;
         this.nickName = nickName;
         this.phone = phone;
         this.password = password;
     }
-
+	*/
     //getters & setters
     public String getUserId() {
         return userId;

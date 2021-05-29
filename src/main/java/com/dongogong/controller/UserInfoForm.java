@@ -6,6 +6,7 @@ import com.dongogong.domain.UserInfo;
 
 @SuppressWarnings("serial")
 public class UserInfoForm implements Serializable{
+	
 	private UserInfo userInfo;
 	
 	private boolean newUserInfo;

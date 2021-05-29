@@ -53,7 +53,7 @@
 
     <insert id="insertUserInfo" parameterType="UserInfo">
         INSERT INTO USERINFO (USER_ID, NAME, NICK_NAME, PHONE, PASSWORD)
-        VALUES (#{userId}, #{name}, #{nickName}, #{phone}, #{password})
+        VALUES (#{userId, jdbcType=VARCHAR}, #{name, jdbcType=VARCHAR}, #{nickName, jdbcType=VARCHAR}, #{phone, jdbcType=CHAR}, #{password, jdbcType=VARCHAR})
     </insert>
 
     <update id="updateUserInfo" parameterType="UserInfo">
@@ -62,7 +62,7 @@
             NICK_NAME = #{nickName},
             PHONE     = #{phone},
             PASSWORD  = #{password}
-        WHERE USERID = #{userId}
+        WHERE USER_ID = #{userId}
     </update>
 
     <delete id="deleteUserInfo" parameterType="UserInfo">
@@ -81,11 +81,12 @@
         WHERE USER_ID = #{userId}
     </update>
 
+	<!--  
     <insert id="insertLogin" parameterType="UserInfo">
         INSERT INTO LOGIN (PASSWORD, USER_ID)
         VALUES (#{password}, #{userId})
     </insert>
-
+	-->
     <!--
     <select id="findUserList" resultType="List<User>">
        SELECT

@@ -5,6 +5,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>    
+
+<c:set var="targetUrl"><c:url value="/index.do" /></c:set>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,12 +31,11 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-                        <form action='<c:url value="/index.do"/>' method="POST">
+                        <form:form modelAttribute="UserInfoForm" action="${targstUrl}" method="POST">
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>Id</label>
                                     <h4>ID</h4><input class="form-control" id="id" placeholder="ID" type="text" />
-                              
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>                        
@@ -49,8 +50,9 @@
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>NickName</label>
-                                    <h4>NICKNAME</h4><input class="form-control" placeholder="NICKNAME" id="name" type="text" /><button id="confirmNickName" type="submit">중복확인</button>
-                                    
+                                    <h4>NICKNAME</h4>
+                                    <input class="form-control" placeholder="NICKNAME" id="name" type="text" />
+                                    <button id="confirmNickName" type="submit">중복확인</button>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -70,7 +72,7 @@
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
-                             <div class="control-group">
+                             <!--  <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>PASSWORD CHECK</label>
                                     <h4>PASSWORD CHECK</h4><input class="form-control" id="passwordCheck" type="password" placeholder="PASSWORD CHECK"  />
@@ -78,7 +80,7 @@
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
-                         
+                            -->
                             <br />
                             <div id="success"></div>
 								<div class="form-group">
@@ -86,7 +88,7 @@
 										<input id="btnLogin" type="submit" value="등록하기"/>
 									</div>
 								</div>
-                        </form>
+                        </form:form>
                     </div>
                 </div>
             </div>
