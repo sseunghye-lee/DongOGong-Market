@@ -84,11 +84,11 @@
                                        <div class="card-flag card-flag-dark card-flag-top-right">경매중</div>
                                         <img class="card-img-top" name="photoUrl" src="resources/images/${auction.photoUrl}" alt="..." />
                                         <div class="card-body">
-                                            <h3 class="text-primary mb-0"><input type="text" name="price" value="${auction.price}"/></h3>
-                                            <div class="small text-gray-800 font-weight-500">
-                                            <input type="text" name="title" value="${auction.title}"/></div>
-                                            <div class="small text-gray-500" name="content">
-                                            <input type="text" name="content" value="${auction.content}"/></div>
+                                            <h3 class="text-primary mb-0"><input type="text" id="price" name="price" value="${auction.price}"/></h3>
+                                            <div class="small text-gray-800 font-weight-500">${auction.title}
+                                            </div>
+                                            <div class="small text-gray-500" name="content">${auction.content}
+                                            </div>
                                         </div>
                                          <button onclick="<c:url value="/auctionSend.do"/>" id="sendButton" type="submit">Send</button> 
                                    </a>                                  
