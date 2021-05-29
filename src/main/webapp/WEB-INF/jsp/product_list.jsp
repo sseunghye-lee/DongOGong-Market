@@ -27,6 +27,7 @@
     </head>
     <body>
         <div id="layoutDefault">
+      
             <div id="layoutDefault_content">
                 <main>
                     <!-- Navbar-->
@@ -39,8 +40,8 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">   
                                 <a class="btn font-weight-500 ml-lg-4 btn-teal" href="<c:url value="/apply/MyPost_product.do"/>">MY<i class="ml-2" data-feather="arrow-right"></i></a>
                                 <a class="btn font-weight-500 ml-lg-4 btn-teal" href="<c:url value="/apply/product.do"/>">NEW<i class="ml-2" data-feather="arrow-right"></i></a>
-                           	     <a class="btn font-weight-500 ml-lg-4 btn-teal" href="<c:url value="/"/>">HOME<i class="ml-2" data-feather="arrow-right"></i></a>
-                       
+                           		<a class="btn font-weight-500 ml-lg-4 btn-teal" href="<c:url value="/"/>">HOME<i class="ml-2" data-feather="arrow-right"></i></a>
+                          
                             </div>
                         </div>
                     </nav>
@@ -48,7 +49,7 @@
                     <section class="bg-light py-10">
                         <div class="container">
                         
-                           <h2 class="mb-4">Browse Categories</h2>
+                        	<h2 class="mb-4">Browse Categories</h2>
                             <div class="row">
                                 <div class="col-lg-3 col-md-6 mb-5">
                                     <a class="card lift border-bottom-lg border-red" href="#!"
@@ -115,7 +116,7 @@
                                     >
                                 </div>
                             </div>
-                           <br>
+                        	<br>
                             <h2 class="mb-4">Product_list</h2>
                             <div class="row">
                             <c:forEach var="getPostList" items="${getPostList}">
