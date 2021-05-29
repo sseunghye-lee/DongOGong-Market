@@ -25,11 +25,9 @@ public class ChatMessageController {
         UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 
-        userSession.getUserInfo().getUserId();
-
         ModelAndView mav = new ModelAndView("showChatRoom");
         mav.addObject("chatRoomList", chatMessageFacade.getChatRoomList(userId));
-        mav.addObject("userId", userId);
+        mav.addObject("userSession", userSession);
 
         return mav;
     }
@@ -43,7 +41,7 @@ public class ChatMessageController {
         ModelAndView mav = new ModelAndView("showChatMessage");
         mav.addObject("post", post);
         mav.addObject("chatMessageList", chatMessageFacade.getChatMessageList(relationIdx));
-        mav.addObject("userId", userSession.getUserInfo().getUserId());
+        mav.addObject("userSession", userSession);
 
         return mav;
     }

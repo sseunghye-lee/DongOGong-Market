@@ -20,6 +20,7 @@ public class RegisterPostController {
 	
     @GetMapping
     public String registerPost() {
+
         return "product_list";
     }
     

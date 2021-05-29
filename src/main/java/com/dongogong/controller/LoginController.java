@@ -43,6 +43,7 @@ public class LoginController {
 			//PagedListHolder<ProductCategory> myList = new PagedListHolder<ProductCategory>(this.userInfo.getProductListByCategory(userInfo.getFavouriteCategoryId()));
 
 			model.addAttribute("userSession", userSession);
+
 			if (forwardAction != null) 
 				return new ModelAndView("redirect: " + forwardAction);
 			else
