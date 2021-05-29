@@ -32,7 +32,7 @@
                     <!-- Navbar-->
                     <nav class="navbar navbar-marketing navbar-expand-lg bg-white navbar-light">
                         <div class="container">
-                            <a class="navbar-brand text-dark" href="index.html">DongOGong Market</a>
+                            <a class="navbar-brand text-dark">DongOGong Market</a>
                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                   <i data-feather="menu"></i>
                                </button>
@@ -45,138 +45,8 @@
                     <!-- Page Header-->    
                     <section class="bg-light py-10">
                         <div class="container">
-                            <h2 class="mb-4">Product_list</h2>
-                            <div class="row">
-                            <c:forEach var="getPostList" items="${getPostList}">
-                                <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
-                                    <a class="card lift h-100" href="product_detail.jsp"
-                                        ><div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">${getPostList.price}</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/tG36rvCeqng/800x500" alt="..." />
-                                        <div class="card-body p-3">
-                                            <div class="card-title small mb-0">${getPostList.title}</div>
-                                            <div class="text-xs text-gray-500">Readcaster, CO &middot; 2 days ago</div>
-                                        </div></a
-                                    >
-                                </div>
-                                </c:forEach>
-                                  <!--
-                                <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
-                                    <a class="card lift h-100" href="product_detail.jsp"
-                                        ><div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">$29</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/nHOz7sp5nHE/800x500" alt="..." />
-                                        <div class="card-body p-3">
-                                            <div class="card-title small mb-0">Hanimex Camera</div>
-                                            <div class="text-xs text-gray-500">Waterlow, CO &middot; 3 days ago</div>
-                                        </div></a
-                                    >
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
-                                    <a class="card lift h-100" href="product_detail.jsp"
-                                        ><div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">$999</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/GkFQEOubrCo/800x500" alt="..." />
-                                        <div class="card-body p-3">
-                                            <div class="card-title small mb-0">Macbook Pro</div>
-                                            <div class="text-xs text-gray-500">Waterlow, CO &middot; 4 hours ago</div>
-                                        </div></a
-                                    >
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
-                                    <a class="card lift h-100" href="product_detail.jsp"
-                                        ><div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">$19</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/MCUOp3o4dgk/800x500" alt="..." />
-                                        <div class="card-body p-3">
-                                            <div class="card-title small mb-0">Assorted Skin Care</div>
-                                            <div class="text-xs text-gray-500">Waterlow, CO &middot; 29 minutes ago</div>
-                                        </div></a
-                                    >
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
-                                    <a class="card lift h-100" href="product_detail.jsp"
-                                        ><div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">$59</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/w9IHmVSNBfU/800x500" alt="..." />
-                                        <div class="card-body p-3">
-                                            <div class="card-title small mb-0">Brown Ukulele</div>
-                                            <div class="text-xs text-gray-500">Readcaster, CO &middot; 3 days ago</div>
-                                        </div></a
-                                    >
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
-                                    <a class="card lift h-100" href="product_detail.jsp"
-                                        ><div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">$249</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/bpg-ngqrPc8/800x500" alt="..." />
-                                        <div class="card-body p-3">
-                                            <div class="card-title small mb-0">Leather Sofa</div>
-                                            <div class="text-xs text-gray-500">Readcaster, CO &middot; 2 hours ago</div>
-                                        </div></a
-                                    >
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
-                                    <a class="card lift h-100" href="product_detail.jsp"
-                                        ><div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">$219</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/fZuleEfeA1Q/800x500" alt="..." />
-                                        <div class="card-body p-3">
-                                            <div class="card-title small mb-0">Green Suede Sofa</div>
-                                            <div class="text-xs text-gray-500">Waterlow, CO &middot; 2 days ago</div>
-                                        </div></a
-                                    >
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
-                                    <a class="card lift h-100" href="product_detail.jsp"
-                                        ><div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">$89</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/rjhAiP3cj9E/800x500" alt="..." />
-                                        <div class="card-body p-3">
-                                            <div class="card-title small mb-0">Metal Chairs</div>
-                                            <div class="text-xs text-gray-500">Readcaster, CO &middot; 5 days ago</div>
-                                        </div></a
-                                    >
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
-                                    <a class="card lift h-100" href="product_detail.jsp"
-                                        ><div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">$89</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/5ba6j8d_oXY/800x500" alt="..." />
-                                        <div class="card-body p-3">
-                                            <div class="card-title small mb-0">Wireless Earbuds</div>
-                                            <div class="text-xs text-gray-500">Readcaster, CO &middot; 1 month ago</div>
-                                        </div></a
-                                    >
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
-                                    <a class="card lift h-100" href="product_detail.jsp"
-                                        ><div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">$34,999</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/ESoE_buQvNQ/800x500" alt="..." />
-                                        <div class="card-body p-3">
-                                            <div class="card-title small mb-0">Muscle Car</div>
-                                            <div class="text-xs text-gray-500">Waterlow, CO &middot; 1 week ago</div>
-                                        </div></a
-                                    >
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
-                                    <a class="card lift h-100" href="product_detail.jsp"
-                                        ><div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">$69</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/zuE9jsaVHuA/800x500" alt="..." />
-                                        <div class="card-body p-3">
-                                            <div class="card-title small mb-0">Hardwood Dresser</div>
-                                            <div class="text-xs text-gray-500">Waterlow, CO &middot; 2 weeks ago</div>
-                                        </div></a
-                                    >
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
-                                    <a class="card lift h-100" href="product_detail.jsp"
-                                        ><div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">$9,999</div>
-                                        <img class="card-img-top" src="https://source.unsplash.com/WuRsjF4iZK0/800x500" alt="..." />
-                                        <div class="card-body p-3">
-                                            <div class="card-title small mb-0">Classic Motorcycle</div>
-                                            <div class="text-xs text-gray-500">Readcaster, CO &middot; 1 week ago</div>
-                                        </div></a
-                                    >
-                                </div>
-                                
-                               -->
-                            </div>
-                            <div class="mb-10">
-                                <a class="text-arrow-icon" href="#!">See more deals near you<i data-feather="arrow-right"></i></a>
-                            </div>
-                            <h2 class="mb-4">Browse Categories</h2>
+                        
+                        	<h2 class="mb-4">Browse Categories</h2>
                             <div class="row">
                                 <div class="col-lg-3 col-md-6 mb-5">
                                     <a class="card lift border-bottom-lg border-red" href="#!"
@@ -243,6 +113,30 @@
                                     >
                                 </div>
                             </div>
+                        	<br>
+                            <h2 class="mb-4">Product_list</h2>
+                            <div class="row">
+                            <c:forEach var="getPostList" items="${getPostList}">
+                                <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
+                                    <a class="card lift h-100" href="product_detail.jsp"
+                                        ><div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">${getPostList.price}</div>
+                                        <img class="card-img-top" src="https://source.unsplash.com/tG36rvCeqng/800x500" alt="..." />
+                                        <div class="card-body p-3">
+                                            <div class="card-title small mb-0">${getPostList.title}</div>
+                                            <div class="text-xs text-gray-500">Readcaster, CO &middot; 2 days ago</div>
+                                        </div></a
+                                    >
+                                </div>
+                                </c:forEach>
+                            </div>
+                            <div class="mb-10">
+                                <a class="text-arrow-icon" href="#!">See more deals near you<i data-feather="arrow-right"></i></a>
+                            </div>
+                            
+                            
+                            
+                            
+                            
                         </div>
                     </section>
                 </main>
