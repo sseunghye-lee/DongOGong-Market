@@ -57,9 +57,12 @@
                      <div class="control-group">
                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                <label>Description</label>
+                               <input class="form-control" name="content" id="Description" rows="5" type="text" placeholder="Description" required="required" 
+                               data-validation-required-message="Please enter a Description." value="${myAuction.content}" />
+                                <!--  
                                 <textarea class="form-control" name="content" id="Description" rows="5" type="text" placeholder="Description" required="required" data-validation-required-message="Please enter a Description.">
                                 	${myAuction.content}
-                                </textarea>
+                                </textarea>-->
                                 <p class="help-block text-danger"></p>
                            </div>
                         </div>
