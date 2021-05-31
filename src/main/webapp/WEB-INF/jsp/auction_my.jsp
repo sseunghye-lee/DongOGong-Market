@@ -34,30 +34,30 @@
             <div class="row">
                <div class="col-lg-8 mx-auto">
                 <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-                  <form>
+                  <form method="post" action="<c:url value="/auctionUpdate.do"/>">
                      <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                           <input type="file" accept="image/*">
+                           <input type="file" name="photoUrl" accept="image/*" value="${myAuction.photoUrl}">
                         </div>
                      </div>
                      <div class="control-group">
                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                <label>Product Name</label>
-                           <input class="form-control" id="ProductName" type="text" value = "${myAuction.title}" placeholder="Product Name" required="required" data-validation-required-message="Please enter your email Product Name." />
+                           <input class="form-control"  name="title" id="ProductName" type="text" value = "${myAuction.title}" placeholder="Product Name" required="required" data-validation-required-message="Please enter your email Product Name." />
                                 <p class="help-block text-danger"></p>
                         </div>
                      </div>
                      <div class="control-group">
                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                <label>Minimum Cost</label>
-                                <input class="form-control" id="MinimumCost" type="text" value="${myAuction.price}" placeholder="Minimum Cost" required="required" data-validation-required-message="Please enter your phone Minimum Cost." />
+                                <input class="form-control" name="price" id="MinimumCost" type="text" value="${myAuction.price}" placeholder="Minimum Cost" required="required" data-validation-required-message="Please enter your phone Minimum Cost." />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                      <div class="control-group">
                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                <label>Description</label>
-                                <textarea class="form-control" id="Description" rows="5" type="text" placeholder="Description" required="required" data-validation-required-message="Please enter a Description.">
+                                <textarea class="form-control" name="content" id="Description" rows="5" type="text" placeholder="Description" required="required" data-validation-required-message="Please enter a Description.">
                                 	${myAuction.content}
                                 </textarea>
                                 <p class="help-block text-danger"></p>
@@ -66,8 +66,10 @@
                          <br />
                         <div id="success"></div>
                         <div class="form-group">
-                     <button onclick="location='auction.jsp'" class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Update</button>
-                     <button onclick="location=<c:url value="/auction.do"/>" class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Cancel</button>                           </div>
+                        <button onclick="<c:url value="/auctionUpdate.do"/>" class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Update</button>
+                        <a class="btn btn-primary btn-xl" href="<c:url value="/auction.do"/>">Cancel</a>
+                        <!--  
+                     <button onclick="<c:url value="/auction.do"/>" class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Cancel</button>  -->                         </div>
                   </form>
                </div>
             </div>

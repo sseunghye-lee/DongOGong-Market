@@ -84,7 +84,7 @@
                                        <div class="card-flag card-flag-dark card-flag-top-right">경매중</div>
                                         <img class="card-img-top" name="photoUrl" src="resources/images/${auction.photoUrl}" alt="..." />
                                         <div class="card-body">
-                                            <h3 class="text-primary mb-0"><input type="text" id="price" name="price" value="${auction.price}"/></h3>
+                                            <h3 class="text-primary mb-0">${auction.price}</h3>
                                             <div class="small text-gray-800 font-weight-500">${auction.title}
                                             </div>
                                             <div class="small text-gray-500" name="content">${auction.content}
