@@ -72,7 +72,7 @@
                         <div class="container">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h2 class="mb-0">Auction</h2>
-                                <a class="btn btn-sm btn-primary d-inline-flex align-items-center" href="#!">See more<i class="ml-1" data-feather="arrow-right"></i></a>
+                                <a class="btn btn-sm btn-primary d-inline-flex align-items-center" href="<c:url value="/auction_my.do"/>">See more<i class="ml-1" data-feather="arrow-right"></i></a>
                             </div>
                             <form method="POST" action="<c:url value="/auctionSend.do"/>">
                             <div class="row">

@@ -29,18 +29,19 @@ public class AuctionSendController {
 	}
 	
 	@PostMapping
-	public String auction(HttpServletRequest request,
-			@RequestParam(value="postIdx", required=false) int postIdx,
-			@RequestParam(value="price", required=false) String price
+	public String auction(HttpServletRequest request
+			//@RequestParam(value="postIdx", required=false) int postIdx,
+			//@RequestParam(value="price", required=false) String price
 			) {
 		UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 		AuctionPrice auctionPrice = new AuctionPrice();
-		auctionPrice.setAuctionPriceId(2);
+		auctionPrice.setAuctionPriceId(1);
 		auctionPrice.setBuyerId(userSession.getUserInfo().getUserId());
-		auctionPrice.setPostIdx(postIdx);
-		int intPrice = Integer.valueOf(price);
-		auctionPrice.setPrice(intPrice + 5000);
+		auctionPrice.setPostIdx(1);
+		//int intPrice = Integer.valueOf(price);
+		//auctionPrice.setPrice(intPrice + 5000);
+		auctionPrice.setPrice(6000);
 		auctionPrice.setStatus("going");
 		auctionFacade.attendAuction(auctionPrice);
 		return "auction";

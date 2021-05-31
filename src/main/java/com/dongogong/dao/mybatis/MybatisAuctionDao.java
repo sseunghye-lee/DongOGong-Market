@@ -93,7 +93,7 @@ public class MybatisAuctionDao implements AuctionPriceDao {
 	public void attendAuction(AuctionPrice auctionPrice) throws DataAccessException {
 		auctionMapper.auctionSend(auctionPrice);
 		auctionMapper.updatePostPrice(auctionPrice.getPrice(), auctionPrice.getPostIdx());
-		auctionMapper.updateAuctionPrice(auctionPrice.getPrice());
+		//auctionMapper.updateAuctionPrice(auctionPrice.getPrice());
 	}
 
 	@Override

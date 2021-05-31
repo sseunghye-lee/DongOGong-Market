@@ -88,11 +88,11 @@
   
   <insert id="auctionSend" parameterType="AuctionPrice">
   	INSERT INTO AUCTION_PRICE(auction_price_id, post_Idx, price, status, buyer_Id)
-  	VALUES(#{auctionPriceId}, #{postIdx}, #{price}, 'DECIDE', #{buyerId})
+  	VALUES(#{auctionPriceId}, #{postIdx}, #{price}, 'GOING', #{buyerId})
   </insert>
   
   <!-- insert 될 때의 price 값을 post 테이블의 price에 반영함 -->
-  <update id="updatePostPrice" parameterType="java.lang.String">
+  <update id="updatePostPrice" parameterType="java.lang.Integer">
   	UPDATE POST SET PRICE = #{price}
   	WHERE POST_IDX = #{postIdx}
   </update>
