@@ -27,7 +27,7 @@ public class AuctionUpdateController {
 	
 	@PostMapping
 	public String addAuction(HttpServletRequest request,
-			@RequestParam(value="photoUrl", required=false) String photoUrl,
+			@RequestParam(value="photoUrl") String photoUrl,
 			@RequestParam(value="title", required=false) String title,
 			@RequestParam(value="price", required=false) int price,
 			@RequestParam(value="content", required=false) String content
@@ -45,7 +45,25 @@ public class AuctionUpdateController {
 		post.setBorderType("auction");
 		post.setContent(content);
 		post.setTransactionConfirmation("no");
-		post.setPhotoUrl(photoUrl);
+		if(!(photoUrl.equals("")) || photoUrl.length() != 0)
+			post.setPhotoUrl(photoUrl);
+		
+		
+		
+		
+		/*
+		if(photoUrl == null) {
+			post.setPhotoUrl(post.getPhotoUrl());
+		} else {
+			post.setPhotoUrl(photoUrl);
+		}
+		
+		/*
+		if(photoUrl == null && post.getPhotoUrl() != null) {
+			post.setPhotoUrl(post.getPhotoUrl());
+		} else {
+			post.setPhotoUrl(photoUrl);
+		}*/
 		post.setPrice(price);
 		
 		auctionFacade.updateAuction(post);

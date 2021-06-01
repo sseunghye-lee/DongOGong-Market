@@ -90,7 +90,8 @@
                                             <div class="small text-gray-500" name="content">${auction.content}
                                             </div>
                                         </div>
-                                         <button onclick="<c:url value="/auctionSend.do"/>" id="sendButton" type="submit">Send</button> 
+                                         <button onclick="<c:url value="/auctionSend.do"/>" id="sendButton" type="submit">경매참가</button> 
+                                         <button onclick="<c:url value="/auction_progress.do"/>" id="sendButton" type="submit">경매현황</button> 
                                    </a>                                  
                                 </div>                            
                                 </c:forEach>

@@ -37,7 +37,7 @@
                   <form method="post" action="<c:url value="/auctionUpdate.do"/>">
                      <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                           <input type="file" name="photoUrl" accept="image/*" value="${myAuction.photoUrl}">
+                           <input type="file" name="photoUrl" accept="image/*" />
                         </div>
                      </div>
                      <div class="control-group">
