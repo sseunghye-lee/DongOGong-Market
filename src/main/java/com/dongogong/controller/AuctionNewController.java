@@ -17,6 +17,7 @@ import org.springframework.web.util.WebUtils;
 
 import com.dongogong.domain.Post;
 import com.dongogong.service.AuctionFacade;
+import com.dongogong.service.PostFacade;
 
 @Controller
 @RequestMapping("/auctionNew.do")
@@ -26,6 +27,12 @@ public class AuctionNewController {
 	private AuctionFacade auctionFacade;
 	public void setAuctionFacade(AuctionFacade auctionFacade) {
 		this.auctionFacade = auctionFacade;
+	}
+	
+	@Autowired(required=false)
+	private PostFacade postFacade;
+	public void setPostFacade(PostFacade postFacade) {
+		this.postFacade = postFacade;
 	}
 	
 	@PostMapping
@@ -38,9 +45,9 @@ public class AuctionNewController {
 		//int price2 = Integer.valueOf(price);
 		UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
-	 
+		int postIdx = postFacade.getPostListSize().size();
 		Post post = new Post();
-		post.setPostIdx(10);
+		post.setPostIdx(++postIdx);
 		post.setTitle(title);
 		post.setRegisterId(userSession.getUserInfo().getUserId());
 		post.setBorderType("auction");

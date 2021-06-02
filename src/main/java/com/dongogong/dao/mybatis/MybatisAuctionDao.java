@@ -106,4 +106,9 @@ public class MybatisAuctionDao implements AuctionPriceDao {
 		return auctionMapper.auctionNickName(buyerId);
 	}
 
+	@Override
+	public List<AuctionPrice> auctionPriceSize() throws DataAccessException {
+		return auctionMapper.auctionPriceSize();
+	}
+
 }

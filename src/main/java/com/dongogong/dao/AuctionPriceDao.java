@@ -44,4 +44,6 @@ public interface AuctionPriceDao {
 	List<AuctionPrice> auctionProgress(int postIdx) throws DataAccessException;
 	// buyerId를 통해 닉네임을 가져옴
 	String auctionNickName(String buyerId) throws DataAccessException;
+	
+	List<AuctionPrice> auctionPriceSize() throws DataAccessException;
 }

@@ -109,4 +109,9 @@
   	FROM USER
   	WHERE USERID = #{buyerId}
   </select>
+  
+  <select id="auctionPriceSize" resultType="AuctionPrice">
+  	SELECT AUCTION_PRICE_ID AS AUCTIONPRICEID, POST_IDX AS POSTIDX, PRICE, STATUS, BUYER_ID
+  	FROM AUCTION_PRICE
+  </select>
   </mapper>

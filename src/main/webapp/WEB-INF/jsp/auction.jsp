@@ -96,7 +96,7 @@
                                             </div>
                                         </div>
                                          <input type = "submit" value = "경매참가" onClick = "goAuction('<c:url value='/auctionSend.do'><c:param name='postIdx' value='${auction.postIdx}'/><c:param name='price' value='${auction.price}'/></c:url>')" />
-                                          
+                                         <input type = "submit" value = "경매현황" onClick = "goAuction('<c:url value='/auctionSend.do'> <c:param name='postIdx' value='${auction.postIdx}'/></c:url>')" />
                                    </a>                                  
                                 </div>                            
                                 </c:forEach>

@@ -78,4 +78,9 @@ public class AuctionImpl implements AuctionFacade {
 		return auctionDao.auctionNickName(buyerId);
 	}
 
+	@Override
+	public List<AuctionPrice> auctionPriceSize() {
+		return auctionDao.auctionPriceSize();
+	}
+
 }

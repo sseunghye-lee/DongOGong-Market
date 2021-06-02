@@ -37,4 +37,5 @@ public interface AuctionFacade {
 	// buyerId를 통해 닉네임을 가져옴
 	String auctionNickName(String buyerId);
 	
+	List<AuctionPrice> auctionPriceSize();
 }
