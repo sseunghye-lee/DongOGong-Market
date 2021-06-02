@@ -3,6 +3,7 @@ package com.dongogong.dao.mybatis.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.dao.DataAccessException;
 
 import com.dongogong.domain.Post;
 
@@ -19,7 +20,7 @@ public interface PostMapper {
 			
 
 			// 상품 등록
-			Post registerPost(String registerId);
+			void registerPost(Post post) throws DataAccessException;
 			
 			// 전체 상품 가져오기
 			List<Post> getPostListSize();

@@ -35,8 +35,8 @@ public class PostImpl implements PostFacade{
          
    // 상품 등록
    @Override
-   public Post registerPost(String registerId) {
-      return postDao.registerPost(registerId);
+   public void registerPost(Post post) {
+      postDao.registerPost(post);
    }
 
    @Override

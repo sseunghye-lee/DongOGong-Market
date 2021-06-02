@@ -3,6 +3,8 @@
 <%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ include file="IncludeTopDist.jsp" %>
 <body>
 <!-- ======= Header ======= -->
@@ -22,30 +24,31 @@
                                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
                                     <%--                                            <form:form modelAttribute="post" action="${targetUrl}" method="post">--%>
                                     <%--                    <form id="contactForm" name="sentMessage" novalidate="novalidate">--%>
+                                    <form method="post" action="<c:url value="/apply/registerPost_product.do"/>">
                                     <p class="d-inline text-align-left fw-bold">카테고리 선택 (해당 카테고리 검색 시 게시물이
                                         보여집니다.)</p>
                                     <div class="float-right d-inline-block d-inline-flex float-right d-inline-block">
-                                        <select class="custom-select w-auto mr-2">
-                                            <option value="가전제품">가전제품</option>
-                                            <option value="의류">의류</option>
-                                            <option value="화장품">화장품</option>
-                                            <option value="가구">가구</option>
-                                            <option value="장난감">장난감</option>
-                                            <option value="문구류">문구류</option>
-                                            <option value="도서">도서</option>
-                                            <option value="기타">기타</option>
+                                        <select class="custom-select w-auto mr-2" id="borderType" name="borderType">
+                                            <option value="elec">가전제품</option>
+                                            <option value="clothes">의류</option>
+                                            <option value="cosmetic">화장품</option>
+                                            <option value="furniture">가구</option>
+                                            <option value="toy">장난감</option>
+                                            <option value="stationery">문구류</option>
+                                            <option value="book">도서</option>
+                                            <option value="others">기타</option>
                                         </select>
                                     </div>
                                     <div class="form-group flex-fill mb-2 mr-2 mt-8">
                                         <p class="d-inline text-align-left w-25 pt-4 fw-bold">상품명 입력</p>
                                         <label class="sr-only" for="inputName">상품명 입력</label>
                                         <input
-                                                class="form-control form-control-solid w-75" id="inputName"
+                                                class="form-control form-control-solid w-75" id="title" name="title"
                                                 type="text" placeholder="Enter the Product Name" onkeyup="apply()"
                                                 aria-describedby="inputEmail" required="required"/>
                                         <p class="d-inline text-align-left w-25 fw-bold bottom pt-4 m-0">가격</p>
                                         <label class="sr-only" for="inputPrice">가격</label>
-                                        <input class="form-control form-control-solid w-75" id="inputPrice"
+                                        <input class="form-control form-control-solid w-75" id="price" name="price"
                                                type="text" placeholder="Enter the cost. (WON)"
                                                required="required"
                                                data-validation-required-message="Please enter the Cost."/>
@@ -53,7 +56,7 @@
                                         <p class="d-inline text-align-left w-25 fw-bold m-0">상품 설명</p>
                                         <label class="sr-only" for="inputDescription">상품 설명</label>
                                         <textarea class="form-control w-75 mt-2" style="resize: none"
-                                                  id="inputDescription" rows="5"
+                                                  id="content" name="content" rows="5"
                                                   type="text" placeholder="Description"
                                                   required="required"
                                                   data-validation-required-message="Please enter a Description."></textarea>
@@ -70,7 +73,7 @@
                                                     사진이 나오지 않을 경우, 버튼을 다시 클릭해주세요.</a>
                                             </div>
 
-                                            <input class="pt-4" type="file" name="file" id="imageFile" accept="image/*"
+                                            <input class="pt-4" type="file" name="photoUrl" id="photoUrl" accept="image/*"
                                                    onchange="ResizeImage()"/>
                                             <input class="mt-4" type="button" value="사진 등록" onclick="ResizeImage()"/>
                                             <label class="sr-only">사진 첨부
@@ -110,7 +113,7 @@
 <script src="<c:url value="/assets/js/main.js"/>"></script>
 <script type="text/javascript">
     function ResizeImage() {
-        var filesToUpload = document.getElementById('imageFile').files;
+        var filesToUpload = document.getElementById('photoUrl').files;
         var file = filesToUpload[0];
 
         // 문서내에 img 객체를 생성합니다

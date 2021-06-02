@@ -15,7 +15,7 @@ public interface PostFacade {
    public Post selectPost(int post_idx, String content);
          
    // 상품 등록
-   public Post registerPost(String registerId);
+   void registerPost(Post post);
    
    public List<Post> getPostListSize();
    
