@@ -38,6 +38,11 @@ public class PostImpl implements PostFacade{
    public Post registerPost(String registerId) {
       return postDao.registerPost(registerId);
    }
+
+   @Override
+	public List<Post> getPostListSize() {
+		return postDao.getPostListSize();
+	}
    
    
 }

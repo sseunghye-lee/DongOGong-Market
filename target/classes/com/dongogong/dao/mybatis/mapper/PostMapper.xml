@@ -18,6 +18,11 @@
      FROM POST
      WHERE NOT BORDER_TYPE = 'auction'
     </select>
+    
+    <select id="getPostListSize" resultType="Post">
+    SELECT POST_IDX, REGISTER_ID, TITLE, PRICE, CONTENT
+     FROM POST
+    </select>
   
 <insert id="registerPost">
 INSERT INTO POST (TITLE, BORDERTYPE, PRICE, CONTENT, TRANSACTIONCONFIRMNATION)

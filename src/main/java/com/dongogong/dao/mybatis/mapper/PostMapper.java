@@ -20,4 +20,7 @@ public interface PostMapper {
 
 			// 상품 등록
 			Post registerPost(String registerId);
+			
+			// 전체 상품 가져오기
+			List<Post> getPostListSize();
 }
