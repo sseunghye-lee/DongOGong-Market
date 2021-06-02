@@ -42,7 +42,8 @@ public class AuctionSendController {
 		String Sprice = request.getParameter("price");
 		int postIdx = Integer.valueOf(SpostIdx);
 		int price = Integer.valueOf(Sprice);
-		int auctionPriceIdx = auctionFacade.auctionPriceSize().size();
+		AuctionPrice auction = auctionFacade.auctionPriceSize();
+		int auctionPriceIdx = auction.getAuctionPriceId();
 		AuctionPrice auctionPrice = new AuctionPrice();
 		auctionPrice.setAuctionPriceId(++auctionPriceIdx);
 		auctionPrice.setBuyerId(userSession.getUserInfo().getUserId());

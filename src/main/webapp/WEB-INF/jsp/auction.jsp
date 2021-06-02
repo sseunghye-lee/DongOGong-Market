@@ -56,14 +56,18 @@
                                 <div class="row justify-content-center">
                                     <div class="col-xl-8 col-lg-10 text-center">
                                         <h1 class="page-header-title">Auction</h1>
-                                        <p class="page-header-text mb-5">//경매 관련 말//</p>
+                                        <p class="page-header-text mb-5">경매에 참여하고 싶은 상품을 골라 "경매참가" 버튼을 눌러주세요.
+                                        <br> 원하는 상품을 구매할 수 있길 바랍니다.
+                                        <br> 상품 가격은 "경매참가"를 할 때마다 "5000원"씩 올라갑니다.
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center">
                                     <div class="col-xl-6 col-lg-8 text-center">
                                         <form class="form-inline justify-content-center">
+                                        <!--  
                                             <div class="form-group flex-fill mb-2 mr-2"><label class="sr-only" for="inputSearch">Enter and address, city, state, or ZIP</label><input class="form-control form-control-solid w-100" id="inputSearch" type="search" placeholder="Enter and address, city, state, or ZIP" /></div>
-                                            <button class="btn btn-teal font-weight-500 mb-2" type="submit">Search</button>
+                                            <button class="btn btn-teal font-weight-500 mb-2" type="submit">Search</button> -->
                                         </form>
                                     </div>
                                 </div>
@@ -78,7 +82,7 @@
                         <div class="container">
                             <div class="d-flex align-items-center justify-content-between mb-4">
                                 <h2 class="mb-0">Auction</h2>
-                                <a class="btn btn-sm btn-primary d-inline-flex align-items-center" href="<c:url value="/auction_my.do"/>">See more<i class="ml-1" data-feather="arrow-right"></i></a>
+                               
                             </div>
                             <form name="form" method="POST">
                             <div class="row">
@@ -86,7 +90,7 @@
                             <c:forEach var="auction" items="${auctionList}">
                                 <div class="col-lg-4 mb-5 mb-lg-0">
                                     <a class="card lift h-100">
-                                       <div class="card-flag card-flag-dark card-flag-top-right">${auction.postIdx}</div>
+                                       <div class="card-flag card-flag-dark card-flag-top-right">경매중</div>
                                         <img class="card-img-top" name="photoUrl" src="resources/images/${auction.photoUrl}" alt="..." />
                                         <div class="card-body">
                                             <h3 class="text-primary mb-0">${auction.price}</h3>
@@ -96,7 +100,7 @@
                                             </div>
                                         </div>
                                          <input type = "submit" value = "경매참가" onClick = "goAuction('<c:url value='/auctionSend.do'><c:param name='postIdx' value='${auction.postIdx}'/><c:param name='price' value='${auction.price}'/></c:url>')" />
-                                         <input type = "submit" value = "경매현황" onClick = "goAuction('<c:url value='/auctionSend.do'> <c:param name='postIdx' value='${auction.postIdx}'/></c:url>')" />
+                                         <input type = "submit" value = "경매현황" onClick = "goAuction('<c:url value='/auction_progress.do'> <c:param name='postIdx' value='${auction.postIdx}'/></c:url>')" />
                                    </a>                                  
                                 </div>                            
                                 </c:forEach>

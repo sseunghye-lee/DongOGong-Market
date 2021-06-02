@@ -17,7 +17,12 @@
    <!-- Core theme CSS (includes Bootstrap)-->
     <link type="text/css" href="resources/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-    
+    <script>
+		   function goAuction(targetUri) {
+		         form.action = targetUri;
+		         form.submit();
+      	}
+	</script>
 </head>
 <body>
    <section>
@@ -34,7 +39,7 @@
             <div class="row">
                <div class="col-lg-8 mx-auto">
                 <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-                  <form method="post" action="<c:url value="/auctionUpdate.do"/>">
+                  <form  name="form" method="post">
                      <div class="control-group">
                         <div class="form-group floating-label-form-group controls mb-0 pb-2">
                            <input type="file" name="photoUrl" accept="image/*" />
@@ -69,8 +74,9 @@
                          <br />
                         <div id="success"></div>
                         <div class="form-group">
-                        <button onclick="<c:url value="/auctionUpdate.do"/>" class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Update</button>
-                        <a class="btn btn-primary btn-xl" href="<c:url value="/auction.do"/>">Cancel</a>
+                        <input type = "submit" value = "DELETE" class="btn btn-primary btn-xl" onClick = "goAuction('<c:url value='/auctionDelete.do'></c:url>')" />
+                        <input type = "submit" value = "UPDATE" class="btn btn-primary btn-xl" onClick = "goAuction('<c:url value='/auctionUpdate.do'></c:url>')" />
+                        <a class="btn btn-primary btn-xl" href="<c:url value="/auction.do"/>">CANCEL</a>
                         <!--  
                      <button onclick="<c:url value="/auction.do"/>" class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Cancel</button>  -->                         </div>
                   </form>

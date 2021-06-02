@@ -58,6 +58,12 @@ public interface AuctionMapper {
 	// buyerId를 통해 닉네임을 가져옴
 	String auctionNickName(String buyerId) throws DataAccessException;
 	
-	List<AuctionPrice> auctionPriceSize() throws DataAccessException;
+	// auctionPrice의 개수 가져오기
+	AuctionPrice auctionPriceSize() throws DataAccessException;
 	
+	// 경매 삭제하기
+	Post auctionDelete(Post post) throws DataAccessException;
+	
+	// auctionPrice에서 해당 경매참가한 내역 삭제하기
+	AuctionPrice auctionPriceDelete(int postIdx) throws DataAccessException;
 }

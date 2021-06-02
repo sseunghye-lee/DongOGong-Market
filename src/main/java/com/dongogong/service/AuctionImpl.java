@@ -79,8 +79,18 @@ public class AuctionImpl implements AuctionFacade {
 	}
 
 	@Override
-	public List<AuctionPrice> auctionPriceSize() {
+	public AuctionPrice auctionPriceSize() {
 		return auctionDao.auctionPriceSize();
+	}
+
+	@Override
+	public void auctionDelete(Post post) {
+		auctionDao.auctionDelete(post);
+	}
+
+	@Override
+	public void auctionPriceDelete(int postIdx) {
+		auctionDao.auctionPriceDelete(postIdx);
 	}
 
 }

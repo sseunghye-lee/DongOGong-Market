@@ -107,8 +107,18 @@ public class MybatisAuctionDao implements AuctionPriceDao {
 	}
 
 	@Override
-	public List<AuctionPrice> auctionPriceSize() throws DataAccessException {
+	public AuctionPrice auctionPriceSize() throws DataAccessException {
 		return auctionMapper.auctionPriceSize();
+	}
+
+	@Override
+	public void auctionDelete(Post post) throws DataAccessException {
+		auctionMapper.auctionDelete(post);
+	}
+
+	@Override
+	public void auctionPriceDelete(int postIdx) throws DataAccessException {
+		auctionMapper.auctionPriceDelete(postIdx);
 	}
 
 }

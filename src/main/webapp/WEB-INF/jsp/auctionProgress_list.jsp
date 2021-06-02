@@ -27,7 +27,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="auction">
+                                    
                                         <tr>
                                             <td class="px-3 text-nowrap">
                                                 <c:out value="위에 count 하면ㅇ 됨 var Status ? 이겅"/>
@@ -42,8 +42,7 @@
                                                 <c:out value="날짜"></c:out>
                                             </td>
                                         </tr>
-                                    </c:forEach>
-                                    </tbody>
+                                     </tbody>
                                 </table>
                             </li>
                         </ul>

@@ -2,6 +2,8 @@ package com.dongogong.service;
 
 import java.util.List;
 
+import org.springframework.dao.DataAccessException;
+
 import com.dongogong.domain.AuctionPrice;
 import com.dongogong.domain.Post;
 import com.dongogong.domain.Transactions;
@@ -37,5 +39,11 @@ public interface AuctionFacade {
 	// buyerId를 통해 닉네임을 가져옴
 	String auctionNickName(String buyerId);
 	
-	List<AuctionPrice> auctionPriceSize();
+	AuctionPrice auctionPriceSize();
+	
+	// 경매 삭제하기
+	void auctionDelete(Post post);
+			
+	// auctionPrice에서 해당 경매참가한 내역 삭제하기
+	void auctionPriceDelete(int postIdx);
 }
