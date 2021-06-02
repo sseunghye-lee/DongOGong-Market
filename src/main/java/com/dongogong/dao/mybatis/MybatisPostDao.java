@@ -36,11 +36,11 @@ public class MybatisPostDao implements PostDao {
 	
 	// 상품 등록
 	@Override
-	public Post registerPost(String registerId) 
+	public void registerPost(Post post) 
 			throws DataAccessException {
-	    return postMapper.registerPost(registerId);
+	   postMapper.registerPost(post);
 	}
-
+	
 	@Override
 	public List<Post> getPostListSize() throws DataAccessException {
 		return postMapper.getPostListSize();
