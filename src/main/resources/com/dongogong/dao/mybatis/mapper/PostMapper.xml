@@ -20,7 +20,7 @@
     </select>
     
     <select id="getPostListSize" resultType="Post">
-    SELECT POST_IDX, REGISTER_ID, TITLE, PRICE, CONTENT
+    SELECT MAX(POST_IDX) AS POSTIDX
      FROM POST
     </select>
   

@@ -40,7 +40,7 @@ public class PostImpl implements PostFacade{
    }
 
    @Override
-	public List<Post> getPostListSize() {
+	public Post getPostListSize() {
 		return postDao.getPostListSize();
 	}
    

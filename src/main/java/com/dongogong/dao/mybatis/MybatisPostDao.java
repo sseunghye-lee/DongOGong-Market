@@ -42,7 +42,7 @@ public class MybatisPostDao implements PostDao {
 	}
 	
 	@Override
-	public List<Post> getPostListSize() throws DataAccessException {
+	public Post getPostListSize() throws DataAccessException {
 		return postMapper.getPostListSize();
 	}
 }

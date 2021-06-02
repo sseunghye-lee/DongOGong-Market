@@ -23,5 +23,5 @@ public interface PostMapper {
 			void registerPost(Post post) throws DataAccessException;
 			
 			// 전체 상품 가져오기
-			List<Post> getPostListSize();
+			Post getPostListSize();
 }

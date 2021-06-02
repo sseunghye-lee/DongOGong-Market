@@ -19,5 +19,5 @@ public interface PostDao {
       // 상품 등록
       void registerPost(Post post) throws DataAccessException;
     
-      List<Post> getPostListSize() throws DataAccessException;
+      Post getPostListSize() throws DataAccessException;
 }
