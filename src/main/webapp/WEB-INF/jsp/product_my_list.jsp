@@ -28,22 +28,22 @@
         <div id="layoutDefault">
             <div id="layoutDefault_content">
                 <main>
-                    <!-- Navbar-->
-                    <nav class="navbar navbar-marketing navbar-expand-lg bg-white navbar-light">
-                        <div class="container">
-                            <a class="navbar-brand text-dark" href="index.html">DongOGong Market</a>
-                            	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            		<i data-feather="menu"></i>
-                            	</button>
-                            <div class="collapse navbar-collapse" id="navbarSupportedContent">   
-                                <a class="btn font-weight-500 ml-lg-4 btn-teal" href="product_list.jsp">BACK<i class="ml-2" data-feather="arrow-right"></i></a>
+                    <nav class="navbar navbar-marketing navbar-expand-lg bg-white navbar-light justify-content-between">
+                        <div class="container justify-content-between py-4">
+                            <a class="navbar-brand text-dark">DongOGong Market</a>
+                            <div class="d-inline-block collapse navbar-collapse justify-content-end text-align-right"
+                                 id="navbarSupportedContent">
+                                <a class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline"
+                                   href="<c:url value="/apply/product.do"/>">NEW</a>
+                                <a class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline" href="<c:url value="/"/>">HOME</a>
+                                <a class="btn font-weight-500 ml-lg-4 btn-blue p-3 d-inline" href="product_list.jsp">BACK<i class="ml-2 fas fa-arrow-left"></i></a>
                             </div>
                         </div>
                     </nav>
                     <!-- Page Header-->    
                     <section class="bg-light py-10">
                         <div class="container">
-                            <h2 class="mb-4">Product_my_list</h2>
+                            <h2 class="mb-5 mt-n2 font-weight-bolder">Product_my_list</h2>
                             <div class="row">
                                 <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
                                     <a class="card lift h-100" href="product_my.jsp"
