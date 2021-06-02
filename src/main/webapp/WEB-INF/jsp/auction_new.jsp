@@ -63,7 +63,8 @@
                          <br />
                         <div id="success"></div>
                         <div class="form-group">
-                           <button onclick="<c:url value="/auctionNew.do"/>" class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Register</button>
+                           <button onclick="<c:url value="/auctionNew.do"/>" class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">REGIST</button>
+                           <a class="btn btn-primary btn-xl" href="<c:url value="/auction.do"/>">CANCEL</a>
                         </div>
                   </form>
                </div>

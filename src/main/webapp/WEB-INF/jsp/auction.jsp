@@ -23,10 +23,32 @@
         <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" crossorigin="anonymous"></script>
 		<script>
-		   function goAuction(targetUri) {
-		         form.action = targetUri;
-		         form.submit();
+		
+		function goMyAuction(targetUri) {
+			var myTitle = "${myAuction.title}";
+			if(myTitle.length == 0) {
+				alert("내 경매가 존재하지 않습니다.");
+				return false;
+			} else {
+				form.action = targetUri;
+	        	form.submit();
+			}
+ 		}
+		 function goAuction(targetUri) {
+		      form.action = targetUri;
+		      form.submit();
       	}
+		 
+		 function goNewAuction(targetUri) {
+			 var myTitle = "${myAuction.title}";
+				if(myTitle.length != 0) {
+					alert("이미 등록한 경매가 있습니다.");
+					return false;
+				} else {
+					form.action = targetUri;
+		        	form.submit();
+				}
+		 }
 	</script>
     </head>
     <body>
@@ -41,12 +63,14 @@
                                <i data-feather="menu"></i>
                             </button>
                               ₩5000
+                              <form method="post">
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <a class="btn font-weight-500 ml-lg-4 btn-primary" href="<c:url value="/auction.do"/>">Auction<i class="ml-2" data-feather="arrow-right"></i></a>
-                                <a class="btn font-weight-500 ml-lg-4 btn-primary" href="<c:url value="/auction_my.do"/>">My<i class="ml-2" data-feather="arrow-right"></i></a>
-                                <a class="btn font-weight-500 ml-lg-4 btn-primary" href="<c:url value="/auction_new.do"/>">NEW<i class="ml-2" data-feather="arrow-right"></i></a>
+                                <input type = "button" value = "My" onClick = "goMyAuction('<c:url value="/auction_my.do"/>')" class="btn font-weight-500 ml-lg-4 btn-primary" />
+                               <input type = "button" value = "NEW" onClick = "goNewAuction('<c:url value="/auction_new.do"/>')" class="btn font-weight-500 ml-lg-4 btn-primary" />
                                 <a class="btn font-weight-500 ml-lg-4 btn-primary" href="<c:url value="/"/>">HOME<i class="ml-2" data-feather="arrow-right"></i></a>
                             </div>
+                            </form>
                         </div>
                     </nav>
                     <!-- Page Header-->

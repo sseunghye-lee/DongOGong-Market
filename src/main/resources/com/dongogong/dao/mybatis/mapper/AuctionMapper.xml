@@ -4,127 +4,127 @@
   <cache />
   <!-- 1) 경매 등록 -->
   <insert id="auctionRegister" parameterType="Post">
-  	INSERT INTO POST(post_Idx, register_Id, title, border_type, price, content, transaction_confirmation, photoUrl)
-  	VALUES(#{postIdx}, #{registerId}, #{title}, 'auction', #{price}, #{content}, 'no', #{photoUrl})
+     INSERT INTO POST(post_Idx, register_Id, title, border_type, price, content, transaction_confirmation, photoUrl)
+     VALUES(#{postIdx}, #{registerId}, #{title}, 'auction', #{price}, #{content}, 'no', #{photoUrl})
   </insert>
   
   <!--  
   <insert id="auctionPhoto" parameterType="Photo">
-  	INSERT INTO PHOTO(photoIdx, postIdx, url)
-  	VALUES(#{photoIdx}, #{postIdx}, #{url})
+     INSERT INTO PHOTO(photoIdx, postIdx, url)
+     VALUES(#{photoIdx}, #{postIdx}, #{url})
   
-  	 INSERT INTO PHOTO(photoIdx, postIdx, url, created_date_time, modified_date_time)
-  	VALUES(#{photoIdx}, #{postIdx}, #{url}, #{created_date_time}, #{modified_date_time}) 
+      INSERT INTO PHOTO(photoIdx, postIdx, url, created_date_time, modified_date_time)
+     VALUES(#{photoIdx}, #{postIdx}, #{url}, #{created_date_time}, #{modified_date_time}) 
   </insert> -->
   
   <!-- 2) 경매 수정 -->
   <update id="auctionUpdate" parameterType="Post">
-  	UPDATE POST SET TITLE = #{title}, CONTENT = #{content}, PHOTOURL = #{photoUrl}
-  	WHERE POST_IDX = #{postIdx}
+     UPDATE POST SET TITLE = #{title}, CONTENT = #{content}, PHOTOURL = #{photoUrl}
+     WHERE POST_IDX = #{postIdx}
   </update>
   
   <!--  
   <update id="photoUpdate" parameterType="Photo">
-  	UPDATE PHOTO SET URL = #{url}
-  	WHERE POSTIDX = #{postIdx}
+     UPDATE PHOTO SET URL = #{url}
+     WHERE POSTIDX = #{postIdx}
   
-  	 UPDATE PHOTO SET URL = #{url}, MODIFIED_DATE_TIME = #{modified_date_time}
-  	WHERE POSTIDX = #{postIdx} 
+      UPDATE PHOTO SET URL = #{url}, MODIFIED_DATE_TIME = #{modified_date_time}
+     WHERE POSTIDX = #{postIdx} 
   </update> -->
   
   <!-- 3) 경매 마감 -->
   <update id="auctionFinish" parameterType="Post">
-  	UPDATE POST SET TRANSACTIONCONFIRMATION = 'DECIDE'
-  	WHERE POST_IDX = #{postIdx}
+     UPDATE POST SET TRANSACTIONCONFIRMATION = 'DECIDE'
+     WHERE POST_IDX = #{postIdx}
   </update> <!-- post 테이블의 거래확정여부 변경 -->
   
   <update id="auctionPriceFinish" parameterType="AuctionPrice">
-  	UPDATE AUCTIONPRICE SET STATUS = 'DECIDE'
-  	WHERE POST_IDX = #{postIdx}
+     UPDATE AUCTIONPRICE SET STATUS = 'DECIDE'
+     WHERE POST_IDX = #{postIdx}
   </update> <!-- auction_price 테이블의 상태 변경 -->
   
   <!-- post의 registerId가 transactions의 sellerId가 됨 -->
   <select id="postRegisterId" resultType="java.lang.String">
-  	SELECT REGISTERID
-  	FROM POST
-  	WHERE POST_IDX = #{postIdx}
+     SELECT REGISTERID
+     FROM POST
+     WHERE POST_IDX = #{postIdx}
   </select>
   
   <insert id="insertTransaction" parameterType="Transactions">
-  	INSERT INTO TRANSACTIONS(transactionsIdx, post_Idx, sellerId, buyerId, status)
-  	VALUES(#{transactionsIdx}, #{postIdx}, #{sellerId}, #{buyerId}, 'DECIDE')
+     INSERT INTO TRANSACTIONS(transactionsIdx, post_Idx, sellerId, buyerId, status)
+     VALUES(#{transactionsIdx}, #{postIdx}, #{sellerId}, #{buyerId}, 'DECIDE')
   </insert> <!-- transaction 테이블에 거래 완료된 경매 등록 -->
   
   <!-- 4) 경매 리스트 -->
   <select id="auctionList" resultType="Post">
-  	SELECT PHOTOURL, POST_IDX AS POSTIDX, PRICE, TITLE, CONTENT
-  	FROM POST
-  	WHERE BORDER_TYPE = 'auction'
-  	<!--  
-  	WHERE POST.POSTIDX = #{postIdx}
-  		AND PHOTO.POSTIDX = #{postIdx}
-  		AND POST.POSTIDX = PHOTO.POSTIDX -->
+     SELECT PHOTOURL, POST_IDX AS POSTIDX, PRICE, TITLE, CONTENT
+     FROM POST
+     WHERE BORDER_TYPE = 'auction'
+     <!--  
+     WHERE POST.POSTIDX = #{postIdx}
+        AND PHOTO.POSTIDX = #{postIdx}
+        AND POST.POSTIDX = PHOTO.POSTIDX -->
   </select>
   
   <!-- 5) 내가 등록한 경매 -> registerId로 post_idx를 찾고 그 것을 이용해 Photo를 찾음 -->
   <select id="myAuctionRegister" resultType="java.lang.Integer">
-  	SELECT POST_IDX
-  	FROM POST
-  	WHERE REGISTER_ID = #{registerId} 
-  		AND BORDER_TYPE = 'auction'
+     SELECT POST_IDX AS POSTIDX
+     FROM POST
+     WHERE REGISTER_ID = #{registerId} 
+        AND BORDER_TYPE = 'auction'
   </select>
   
   <select id="myAuction" resultType="Post">
-  	SELECT PHOTOURL, PRICE, TITLE, CONTENT
-  	FROM POST
-  	WHERE POST_IDX = #{postIdx}
+     SELECT PHOTOURL, PRICE, TITLE, CONTENT
+     FROM POST
+     WHERE POST_IDX = #{postIdx}
   </select>
   
   <!-- 7) 경매 참여 -> 원래 가격에서 일정 금액만큼 더한 price가 들어감 -->
   <update id="updateAuctionPrice" parameterType="java.lang.String">
-  	UPDATE AUCTION_PRICE SET PRICE = #{price} 
-  	WHERE POST_IDX = #{postIdx}
+     UPDATE AUCTION_PRICE SET PRICE = #{price} 
+     WHERE POST_IDX = #{postIdx}
   </update>
   
   <insert id="auctionSend" parameterType="AuctionPrice">
-  	INSERT INTO AUCTION_PRICE(auction_price_id, post_Idx, price, status, buyer_Id)
-  	VALUES(#{auctionPriceId}, #{postIdx}, #{price}, 'GOING', #{buyerId})
+     INSERT INTO AUCTION_PRICE(auction_price_id, post_Idx, price, status, buyer_Id)
+     VALUES(#{auctionPriceId}, #{postIdx}, #{price}, 'GOING', #{buyerId})
   </insert>
   
   <!-- insert 될 때의 price 값을 post 테이블의 price에 반영함 -->
   <update id="updatePostPrice" parameterType="java.lang.Integer">
-  	UPDATE POST SET PRICE = #{price}
-  	WHERE POST_IDX = #{postIdx}
+     UPDATE POST SET PRICE = #{price}
+     WHERE POST_IDX = #{postIdx}
   </update>
   
   <!-- 8) 경매 진행 상황 -->
   <select id="auctionProgress" resultType="AuctionPrice">
-  	SELECT BUYERID, PRICE
-  	FROM AUCTIONPRICE
-  	WHERE POST_IDX = #{postIdx}
+     SELECT BUYERID, PRICE
+     FROM AUCTIONPRICE
+     WHERE POST_IDX = #{postIdx}
   </select>
   
   <select id="auctionNickName" resultType="java.lang.String">
-  	SELECT NICKNAME
-  	FROM USER
-  	WHERE USERID = #{buyerId}
+     SELECT NICKNAME
+     FROM USER
+     WHERE USERID = #{buyerId}
   </select>
   
   <select id="auctionPriceSize" resultType="AuctionPrice">
-  	SELECT MAX(AUCTION_PRICE_ID) AS AUCTIONPRICEID
-  	FROM AUCTION_PRICE
+     SELECT MAX(AUCTION_PRICE_ID) AS AUCTIONPRICEID
+     FROM AUCTION_PRICE
   </select>
   
-  <delete id="auctionDelete" parameterType="Post">
-  	DELETE
-  	FROM POST 
-  	WHERE POST_IDX = #{postIdx}
+  <delete id="auctionDelete" parameterType="java.lang.Integer">
+     DELETE
+     FROM POST 
+     WHERE POST_IDX = #{postIdx}
   </delete>
   
   <delete id="auctionPriceDelete" parameterType="java.lang.Integer">
-  	DELETE
-  	FROM AUCTION_PRICE
-  	WHERE POST_IDX = #{postIdx}
+     DELETE
+     FROM AUCTION_PRICE
+     WHERE POST_IDX = #{postIdx}
   </delete>
   
   </mapper>

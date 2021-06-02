@@ -62,8 +62,8 @@ public interface AuctionMapper {
 	AuctionPrice auctionPriceSize() throws DataAccessException;
 	
 	// 경매 삭제하기
-	Post auctionDelete(Post post) throws DataAccessException;
+	void auctionDelete(int postIdx) throws DataAccessException;
 	
 	// auctionPrice에서 해당 경매참가한 내역 삭제하기
-	AuctionPrice auctionPriceDelete(int postIdx) throws DataAccessException;
+	void auctionPriceDelete(int postIdx) throws DataAccessException;
 }

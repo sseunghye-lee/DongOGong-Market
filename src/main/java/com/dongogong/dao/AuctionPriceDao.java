@@ -48,7 +48,7 @@ public interface AuctionPriceDao {
 	AuctionPrice auctionPriceSize() throws DataAccessException;
 	
 	// 경매 삭제하기
-	void auctionDelete(Post post) throws DataAccessException;
+	void auctionDelete(int postIdx) throws DataAccessException;
 		
 	// auctionPrice에서 해당 경매참가한 내역 삭제하기
 	void auctionPriceDelete(int postIdx) throws DataAccessException;

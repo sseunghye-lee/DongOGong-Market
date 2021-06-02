@@ -84,8 +84,8 @@ public class AuctionImpl implements AuctionFacade {
 	}
 
 	@Override
-	public void auctionDelete(Post post) {
-		auctionDao.auctionDelete(post);
+	public void auctionDelete(int postIdx) {
+		auctionDao.auctionDelete(postIdx);
 	}
 
 	@Override

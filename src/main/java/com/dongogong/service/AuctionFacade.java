@@ -42,7 +42,7 @@ public interface AuctionFacade {
 	AuctionPrice auctionPriceSize();
 	
 	// 경매 삭제하기
-	void auctionDelete(Post post);
+	void auctionDelete(int postIdx);
 			
 	// auctionPrice에서 해당 경매참가한 내역 삭제하기
 	void auctionPriceDelete(int postIdx);
