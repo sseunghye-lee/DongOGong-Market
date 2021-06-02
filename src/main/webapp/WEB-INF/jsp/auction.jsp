@@ -57,21 +57,25 @@
                 <main>
                     <!-- Navbar-->
                     <nav class="navbar navbar-marketing navbar-expand-lg bg-white navbar-light">
+                    
                         <div class="container">
                             <a class="navbar-brand text-dark" href="<c:url value="/index.do"/>"> DongOGong Market</a>
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                <i data-feather="menu"></i>
                             </button>
                               ₩5000
-                              <form method="post">
+                             
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                             <form method="post">
                                 <a class="btn font-weight-500 ml-lg-4 btn-primary" href="<c:url value="/auction.do"/>">Auction<i class="ml-2" data-feather="arrow-right"></i></a>
                                 <input type = "button" value = "My" onClick = "goMyAuction('<c:url value="/auction_my.do"/>')" class="btn font-weight-500 ml-lg-4 btn-primary" />
                                <input type = "button" value = "NEW" onClick = "goNewAuction('<c:url value="/auction_new.do"/>')" class="btn font-weight-500 ml-lg-4 btn-primary" />
                                 <a class="btn font-weight-500 ml-lg-4 btn-primary" href="<c:url value="/"/>">HOME<i class="ml-2" data-feather="arrow-right"></i></a>
-                            </div>
                             </form>
+                            </div>
+                            
                         </div>
+                        
                     </nav>
                     <!-- Page Header-->
                     <header class="page-header page-header-dark bg-img-cover overlay overlay-primary overlay-90" style="background-image: url('https://source.unsplash.com/g39p1kDjvSY/1600x1200')">
