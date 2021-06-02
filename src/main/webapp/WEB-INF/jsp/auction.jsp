@@ -22,6 +22,12 @@
         <link rel="icon" type="image/x-icon" href="resources/dist/assets/img/favicon.png" />
         <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" crossorigin="anonymous"></script>
+		<script>
+		   function goAuction(targetUri) {
+		         form.action = targetUri;
+		         form.submit();
+      	}
+	</script>
     </head>
     <body>
         <div id="layoutDefault">
@@ -74,14 +80,13 @@
                                 <h2 class="mb-0">Auction</h2>
                                 <a class="btn btn-sm btn-primary d-inline-flex align-items-center" href="<c:url value="/auction_my.do"/>">See more<i class="ml-1" data-feather="arrow-right"></i></a>
                             </div>
-                            <form method="POST" action="<c:url value="/auctionSend.do"/>">
+                            <form name="form" method="POST">
                             <div class="row">
                             
                             <c:forEach var="auction" items="${auctionList}">
                                 <div class="col-lg-4 mb-5 mb-lg-0">
                                     <a class="card lift h-100">
-                                    <input type="hidden" id="postIdx" name="postIdx" value="${auction.postIdx}"/>
-                                       <div class="card-flag card-flag-dark card-flag-top-right">경매중</div>
+                                       <div class="card-flag card-flag-dark card-flag-top-right">${auction.postIdx}</div>
                                         <img class="card-img-top" name="photoUrl" src="resources/images/${auction.photoUrl}" alt="..." />
                                         <div class="card-body">
                                             <h3 class="text-primary mb-0">${auction.price}</h3>
@@ -90,8 +95,8 @@
                                             <div class="small text-gray-500" name="content">${auction.content}
                                             </div>
                                         </div>
-                                         <button onclick="<c:url value="/auctionSend.do"/>" id="sendButton" type="submit">경매참가</button> 
-                                         <button onclick="<c:url value="/auction_progress.do"/>" id="sendButton" type="submit">경매현황</button> 
+                                         <input type = "submit" value = "경매참가" onClick = "goAuction('<c:url value='/auctionSend.do'><c:param name='postIdx' value='${auction.postIdx}'/><c:param name='price' value='${auction.price}'/></c:url>')" />
+                                          
                                    </a>                                  
                                 </div>                            
                                 </c:forEach>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,7 +20,7 @@ import com.dongogong.domain.Post;
 import com.dongogong.service.AuctionFacade;
 
 @Controller
-@RequestMapping(value="/auctionSend.do")
+@RequestMapping("/auctionSend.do")
 public class AuctionSendController {
 
 	@Autowired(required=false)
@@ -30,18 +31,24 @@ public class AuctionSendController {
 	
 	@PostMapping
 	public String auction(HttpServletRequest request
+			//@PathVariable(value="postIdx", required=false) int postIdx,
+			//@PathVariable(value="price", required=false) int price
 			//@RequestParam(value="postIdx", required=false) int postIdx,
 			//@RequestParam(value="price", required=false) String price
 			) {
 		UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
+		String SpostIdx = request.getParameter("postIdx");
+		String Sprice = request.getParameter("price");
+		int postIdx = Integer.valueOf(SpostIdx);
+		int price = Integer.valueOf(Sprice);
 		AuctionPrice auctionPrice = new AuctionPrice();
-		auctionPrice.setAuctionPriceId(1);
+		auctionPrice.setAuctionPriceId(6);
 		auctionPrice.setBuyerId(userSession.getUserInfo().getUserId());
-		auctionPrice.setPostIdx(1);
+		auctionPrice.setPostIdx(postIdx);
 		//int intPrice = Integer.valueOf(price);
 		//auctionPrice.setPrice(intPrice + 5000);
-		auctionPrice.setPrice(6000);
+		auctionPrice.setPrice(price + 5000);
 		auctionPrice.setStatus("going");
 		auctionFacade.attendAuction(auctionPrice);
 		return "auction";
