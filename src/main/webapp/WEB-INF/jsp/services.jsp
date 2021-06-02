@@ -75,7 +75,7 @@
               </c:if> 
               <c:if test="${!empty userSession.userInfo}">
               <a href="<c:url value="/auction.do"/>">AUCTION</a>
-              </c:if>
+              </c:if> </h4>
               <p class="description">경매페이지 <br> 경매할 상품들의 목록과 상세보기를 할 수 있는 페이지입니다.</p>
             </div>
           </div>
