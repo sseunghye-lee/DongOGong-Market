@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,11 +37,12 @@ public class AuctionNewController {
 	}
 	
 	@PostMapping
-	public String addAuction(HttpServletRequest request,
+	public ModelAndView addAuction(HttpServletRequest request,
 			@RequestParam(value="photoUrl", required=false) String photoUrl,
 			@RequestParam(value="title", required=false) String title,
 			@RequestParam(value="price", required=false) int price,
-			@RequestParam(value="content", required=false) String content
+			@RequestParam(value="content", required=false) String content,
+			Model model
 			) throws Exception {
 		//int price2 = Integer.valueOf(price);
 		UserSession userSession =
@@ -60,15 +62,18 @@ public class AuctionNewController {
 		
 		auctionFacade.insertAuction(post);
 		
-		return "auction";
+		model.addAttribute("auctionList", auctionList());
+		model.addAttribute("myAuction", myAuction(request));
+		
+		return new ModelAndView("auction");
 	}
 	
-	@ModelAttribute("auctionList")
+	//@ModelAttribute("auctionList")
 	public List<Post> auctionList() {
 		return auctionFacade.auctionList();
 	}
 	
-	@ModelAttribute("myAuction")
+	//@ModelAttribute("myAuction")
 	public Post myAuction(HttpServletRequest request) {
 		 UserSession userSession =
 	                (UserSession) WebUtils.getSessionAttribute(request, "userSession");

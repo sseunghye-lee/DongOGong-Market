@@ -6,10 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.WebUtils;
 
 import com.dongogong.domain.Post;
@@ -26,11 +28,12 @@ public class AuctionUpdateController {
 	}
 	
 	@PostMapping
-	public String addAuction(HttpServletRequest request,
+	public ModelAndView addAuction(HttpServletRequest request,
 			@RequestParam(value="photoUrl") String photoUrl,
 			@RequestParam(value="title", required=false) String title,
 			@RequestParam(value="price", required=false) int price,
-			@RequestParam(value="content", required=false) String content
+			@RequestParam(value="content", required=false) String content,
+			Model model
 			) throws Exception {
 		//int price2 = Integer.valueOf(price);
 		UserSession userSession =
@@ -48,35 +51,22 @@ public class AuctionUpdateController {
 		if(!(photoUrl.equals("")) || photoUrl.length() != 0)
 			post.setPhotoUrl(photoUrl);
 		
-		
-		
-		
-		/*
-		if(photoUrl == null) {
-			post.setPhotoUrl(post.getPhotoUrl());
-		} else {
-			post.setPhotoUrl(photoUrl);
-		}
-		
-		/*
-		if(photoUrl == null && post.getPhotoUrl() != null) {
-			post.setPhotoUrl(post.getPhotoUrl());
-		} else {
-			post.setPhotoUrl(photoUrl);
-		}*/
 		post.setPrice(price);
 		
 		auctionFacade.updateAuction(post);
 		
-		return "auction";
+		model.addAttribute("auctionList", auctionList());
+		model.addAttribute("myAuction", myAuction(request));
+		
+		return new ModelAndView("auction");
 	}
 	
-	@ModelAttribute("auctionList")
+	//@ModelAttribute("auctionList")
 	public List<Post> auctionList() {
 		return auctionFacade.auctionList();
 	}
 	
-	@ModelAttribute("myAuction")
+	//@ModelAttribute("myAuction")
 	public Post myAuction(HttpServletRequest request) {
 		 UserSession userSession =
 	                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
