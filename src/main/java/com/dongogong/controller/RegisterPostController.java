@@ -29,7 +29,7 @@ public class RegisterPostController {
 		this.postFacade = postFacade;
 	}
 	
-	@GetMapping
+	@PostMapping
 	public String addPost(HttpServletRequest request,
 			@RequestParam(value="photoUrl", required=false) String photoUrl,
 			@RequestParam(value="title", required=false) String title,

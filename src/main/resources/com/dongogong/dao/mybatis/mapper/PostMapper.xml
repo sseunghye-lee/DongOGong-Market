@@ -24,10 +24,10 @@
      FROM POST
     </select>
   
-<insert id="registerPost">
-INSERT INTO POST (TITLE, BORDERTYPE, PRICE, CONTENT, TRANSACTIONCONFIRMNATION)
-VALUE (#{title}, ${borderType}, ${price}, ${content}, ${photoUrl}, {$transactionConfirmation})
-</insert>
+	<insert id="registerPost" parameterType="Post">
+	INSERT INTO POST (post_Idx, register_Id, title, border_type, price, content, transaction_confirmation, photoUrl)
+	 VALUES(#{postIdx}, #{registerId}, #{title}, 'auction', #{price}, #{content}, 'no', #{photoUrl})
+	</insert>
 
  
 </mapper>

@@ -19,12 +19,12 @@
                     <div class="row justify-content-around">
                         <div class="col-lg-7">
                             <h1 class="page-header-title fw-bolder">상품 등록</h1><br>
-                            <form class="form-inline justify-content-center">
+                            <form method="post" class="form-inline justify-content-center"  action="<c:url value='/apply/registerPost_product.do'/>" >
                                 <div class="form-group flex-fill mb-2 justify-content-between">
                                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
                                     <%--                                            <form:form modelAttribute="post" action="${targetUrl}" method="post">--%>
                                     <%--                    <form id="contactForm" name="sentMessage" novalidate="novalidate">--%>
-                                    <form method="get" action="<c:url value="/apply/registerPost_product.do"/>">
+                                    
                                     <p class="d-inline text-align-left fw-bold">카테고리 선택 (해당 카테고리 검색 시 게시물이
                                         보여집니다.)</p>
                                     <div class="float-right d-inline-block d-inline-flex float-right d-inline-block">
@@ -90,12 +90,14 @@
                                     </div>
                                     <div class="mt-4 btn btn-light btn-outline-dark font-weight-500 mb-2 w-100"
                                          id="btnApply">
+                                         <button onclick="<c:url value="/apply/registerPost_product.do"/>" class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">등록하기</button>
                                         <a href="<c:url value="/apply/registerPost_product.do"/>"><strong>등록하기</strong></a>
                                      </div>
                                     <%--                                            </form:form>--%>
 
-                            </form>
+                           
                         </div>
+                        </form>
                     </div>
                 </div>
             </main>
