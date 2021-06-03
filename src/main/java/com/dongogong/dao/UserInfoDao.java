@@ -22,6 +22,7 @@ public interface UserInfoDao {   //회원
    
    List<String> getUsernameList() throws DataAccessException;
    
+   //int nickNameChk(UserInfo userInfo) throws DataAccessException;	// 회원가입 시 닉네입 중복 체크
    //List<UserInfo> findUserList() throws DataAccessException;
    
    //List<UserInfo> findUserList(int currentPage, int countPerPaga) throws DataAccessException;

@@ -37,5 +37,5 @@ public class UserInfoForm implements Serializable{
 
 	public void setRepeatedPassword(String repeatedPassword) {
 		this.repeatedPassword = repeatedPassword;
-	}
+	}	
 }

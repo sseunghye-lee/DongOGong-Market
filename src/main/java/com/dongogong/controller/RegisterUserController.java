@@ -14,15 +14,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.WebUtils;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dongogong.domain.UserInfo;
 import com.dongogong.service.UserInfoFacade;
 import com.dongogong.service.UserInfoFormValidator;
 
 //회원가입 컨트롤러
 @Controller
 @RequestMapping("/join.do")
+//@RequestMapping("/joinNew.do")
 public class RegisterUserController {
-
+	
+	
    @Value("join")
    private String formViewName;
    @Value("index")
@@ -34,18 +38,18 @@ public class RegisterUserController {
       this.userInfo = userInfo;
    }
 
-   /*
+   
    @Autowired
    private UserInfoFormValidator validator;
    public void setValidator(UserInfoFormValidator validator) {
       this.validator = validator;
    }
-   */
+   
    @ModelAttribute("userInfoForm")
    public UserInfoForm formBackingObject(HttpServletRequest request) throws Exception {
       UserSession userSession = (UserSession) WebUtils.getSessionAttribute(request, "userSession");
       if (userSession == null) {   // create a new account
-         return new UserInfoForm();
+    	  return new UserInfoForm();
       }
 	return null;
    }
@@ -63,7 +67,7 @@ public class RegisterUserController {
          @ModelAttribute("userInfoForm") UserInfoForm userInfoForm,
          BindingResult result) throws Exception {
 
-     //validator.validate(userInfoForm, result);
+     validator.validate(userInfoForm, result);
      
       if (result.hasErrors()) 
          return formViewName;
@@ -77,14 +81,7 @@ public class RegisterUserController {
                "User ID already exists: choose a different ID.");
          return formViewName;
       }
-
-      /*
-      UserSession UserSession = new UserSession (
-            userInfo.getUserInfo(userInfoForm.getUserInfo().getUserId()));
-
-      session.setAttribute("UserSession", UserSession);
-      */
+	
       return successViewName;
    }
-
 }

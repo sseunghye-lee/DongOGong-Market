@@ -31,18 +31,18 @@
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
                         <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-                        <form:form modelAttribute="UserInfoForm" action="${targstUrl}" method="POST">
+                        <form:form modelAttribute="userInfoForm" action="${targstUrl}" method="POST">
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>Id</label>
-                                    <h4>ID</h4><input class="form-control" id="id" placeholder="ID" type="text" />
+                                    <h4>ID</h4><form:input class="form-control" path="userInfo.userId" placeholder="ID" type="text" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>                        
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>Name</label>
-                                    <h4>NAME</h4><input class="form-control" id="name" placeholder="NAME" type="text" />
+                                    <h4>NAME</h4><form:input class="form-control" path="userInfo.name" placeholder="NAME" type="text" />
                               
                                     <p class="help-block text-danger"></p>
                                 </div>
@@ -51,7 +51,7 @@
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>NickName</label>
                                     <h4>NICKNAME</h4>
-                                    <input class="form-control" placeholder="NICKNAME" id="name" type="text" />
+                                    <form:input class="form-control" placeholder="NICKNAME" path="userInfo.nickName" type="text" />
                                     <button id="confirmNickName" type="submit">중복확인</button>
                                     <p class="help-block text-danger"></p>
                                 </div>
@@ -59,7 +59,7 @@
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>PHONE</label> 
-                                    <h4>PHONE</h4><input class="form-control" id="phone" type="text" placeholder="PHONE" />
+                                    <h4>PHONE</h4><form:input class="form-control" path="userInfo.phone" type="text" placeholder="PHONE" />
                                    
                                     <p class="help-block text-danger"></p>
                                 </div>
@@ -67,7 +67,7 @@
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>PASSWORD</label>
-                                    <h4>PASSWORD</h4><input class="form-control" id="password" type="password" placeholder="PASSWORD" />
+                                    <h4>PASSWORD</h4><form:input class="form-control" path="userInfo.password"  type="password" placeholder="PASSWORD" />
                                    
                                     <p class="help-block text-danger"></p>
                                 </div>
