@@ -24,7 +24,7 @@
                                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
                                     <%--                                            <form:form modelAttribute="post" action="${targetUrl}" method="post">--%>
                                     <%--                    <form id="contactForm" name="sentMessage" novalidate="novalidate">--%>
-                                    <form method="post" action="<c:url value="/apply/registerPost_product.do"/>">
+                                    <form method="get" action="<c:url value="/apply/registerPost_product.do"/>">
                                     <p class="d-inline text-align-left fw-bold">카테고리 선택 (해당 카테고리 검색 시 게시물이
                                         보여집니다.)</p>
                                     <div class="float-right d-inline-block d-inline-flex float-right d-inline-block">
