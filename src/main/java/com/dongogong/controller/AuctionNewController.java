@@ -48,8 +48,15 @@ public class AuctionNewController {
 		UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 		
-		Post auctionPost = postFacade.getPostListSize();
-		int postIdx = auctionPost.getPostIdx();
+		Post auctionPost;
+		int postIdx = 0;
+		try {
+			auctionPost = postFacade.getPostListSize();
+			postIdx = auctionPost.getPostIdx();
+		} catch(Exception e) {
+			postIdx = 0;
+		}
+		
 		Post post = new Post();
 		post.setPostIdx(++postIdx);
 		post.setTitle(title);

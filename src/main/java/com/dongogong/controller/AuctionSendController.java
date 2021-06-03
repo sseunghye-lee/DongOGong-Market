@@ -44,8 +44,16 @@ public class AuctionSendController {
 		String Sprice = request.getParameter("price");
 		int postIdx = Integer.valueOf(SpostIdx);
 		int price = Integer.valueOf(Sprice);
-		AuctionPrice auction = auctionFacade.auctionPriceSize();
-		int auctionPriceIdx = auction.getAuctionPriceId();
+		
+		AuctionPrice auction;
+		int auctionPriceIdx = 0;
+		try {
+			auction = auctionFacade.auctionPriceSize();
+			auctionPriceIdx = auction.getAuctionPriceId();
+		} catch(Exception e) {
+			auctionPriceIdx = 0;
+		}
+		 
 		AuctionPrice auctionPrice = new AuctionPrice();
 		auctionPrice.setAuctionPriceId(++auctionPriceIdx);
 		auctionPrice.setBuyerId(userSession.getUserInfo().getUserId());
