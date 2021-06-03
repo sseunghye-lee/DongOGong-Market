@@ -139,7 +139,7 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
                                 <a class="card lift h-100" href="product_detail.jsp">
                                     <div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">${getPostList.price}</div>
-                                     <img class="card-img-top" name="photoUrl" src="resources/images/${getPostList.photoUrl}/800x500" alt="..." />
+                                     <img name="photoUrl" src="resources/images/${getPostList.photoUrl}" alt="..." />
                                            
                                     <div class="card-body p-3">
                                         <div class="card-title small mb-0">${getPostList.title}</div>
@@ -161,8 +161,7 @@
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
-<script src="js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="<c:url value="resouces/dist/js/scripts.js"/>"></script>
 </body>
 </html>
