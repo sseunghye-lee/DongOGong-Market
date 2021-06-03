@@ -30,20 +30,20 @@
                 <!-- Contact Section Form-->
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
                         <form:form modelAttribute="userInfoForm" action="${targstUrl}" method="POST">
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>Id</label>
-                                    <h4>ID</h4><form:input class="form-control" path="userInfo.userId" placeholder="ID" type="text" />
+                                    <h4>ID</h4>
+                                    <form:input class="form-control" path="userInfo.userId" placeholder="ID" type="text" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>                        
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>Name</label>
-                                    <h4>NAME</h4><form:input class="form-control" path="userInfo.name" placeholder="NAME" type="text" />
-                              
+                                    <h4>NAME</h4>
+                                    <form:input class="form-control" path="userInfo.name" placeholder="NAME" type="text" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -59,16 +59,16 @@
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>PHONE</label> 
-                                    <h4>PHONE</h4><form:input class="form-control" path="userInfo.phone" type="text" placeholder="PHONE" />
-                                   
+                                    <h4>PHONE</h4>
+                                    <form:input class="form-control" path="userInfo.phone" type="text" placeholder="PHONE" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                     <label>PASSWORD</label>
-                                    <h4>PASSWORD</h4><form:input class="form-control" path="userInfo.password"  type="password" placeholder="PASSWORD" />
-                                   
+                                    <h4>PASSWORD</h4>
+                                    <form:input class="form-control" path="userInfo.password"  type="password" placeholder="PASSWORD" /> 
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>

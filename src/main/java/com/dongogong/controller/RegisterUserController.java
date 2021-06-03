@@ -23,7 +23,6 @@ import com.dongogong.service.UserInfoFormValidator;
 //회원가입 컨트롤러
 @Controller
 @RequestMapping("/join.do")
-//@RequestMapping("/joinNew.do")
 public class RegisterUserController {
 	
 	
@@ -48,7 +47,7 @@ public class RegisterUserController {
    @ModelAttribute("userInfoForm")
    public UserInfoForm formBackingObject(HttpServletRequest request) throws Exception {
       UserSession userSession = (UserSession) WebUtils.getSessionAttribute(request, "userSession");
-      if (userSession == null) {   // create a new account
+      if (userSession == null) {  
     	  return new UserInfoForm();
       }
 	return null;
