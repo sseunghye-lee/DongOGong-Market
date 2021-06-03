@@ -33,7 +33,7 @@ public class AuctionDeleteController {
 		int postIdx = auctionFacade.myAuctionRegister(userSession.getUserInfo().getUserId());
 		//String SpostIdx = request.getParameter("postIdx");
 		//int postIdx = Integer.valueOf(SpostIdx);
-		Post post = auctionFacade.myAuction(postIdx);	
+		//Post post = auctionFacade.myAuction(postIdx);	
 		//auctionFacade.updateAuction(post);
 		auctionFacade.auctionPriceDelete(postIdx);
 		auctionFacade.auctionDelete(postIdx);

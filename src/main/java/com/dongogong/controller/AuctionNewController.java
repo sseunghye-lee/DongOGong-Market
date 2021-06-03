@@ -68,4 +68,18 @@ public class AuctionNewController {
 		return auctionFacade.auctionList();
 	}
 	
+	@ModelAttribute("myAuction")
+	public Post myAuction(HttpServletRequest request) {
+		 UserSession userSession =
+	                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
+		 int postIdx = 0;
+		 try{
+			 postIdx = auctionFacade.myAuctionRegister(userSession.getUserInfo().getUserId());
+		 } catch(Exception e) {
+			 postIdx = 0;
+			 return auctionFacade.myAuction(postIdx);
+		 }
+		return auctionFacade.myAuction(postIdx);
+	}
+	
 }
