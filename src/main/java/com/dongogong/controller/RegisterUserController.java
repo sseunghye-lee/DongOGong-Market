@@ -66,7 +66,7 @@ public class RegisterUserController {
          @ModelAttribute("userInfoForm") UserInfoForm userInfoForm,
          BindingResult result) throws Exception {
 
-     validator.validate(userInfoForm, result);
+     //validator.validate(userInfoForm, result);
      
       if (result.hasErrors()) 
          return formViewName;

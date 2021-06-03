@@ -20,7 +20,6 @@ public class UserInfoFormValidator implements Validator {
 		UserInfo userInfo = userInfoForm.getUserInfo();
 		
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userInfo.name", "NAME_REQUIRED", "Name is required.");
-		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userInfo.email", "EMAIL_REQUIRED", "Email address is required.");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userInfo.phone", "PHONE_REQUIRED", "Phone number is required.");
 		
 		if (userInfoForm.isNewUserInfo()) {
