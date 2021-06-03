@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,18 +31,28 @@ public class RegisterPostController {
 	}
 	
 	@PostMapping
-	public String addPost(HttpServletRequest request,
+	public ModelAndView addPost(HttpServletRequest request,
 			@RequestParam(value="photoUrl", required=false) String photoUrl,
 			@RequestParam(value="title", required=false) String title,
 			@RequestParam(value="price", required=false) int price,
 			@RequestParam(value="content", required=false) String content,
-			@RequestParam(value="borderType", required=false) String borderType
+			@RequestParam(value="borderType", required=false) String borderType,
+			Model model
 			) throws Exception {
 		UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 	 
+		Post registerPost;
+		int postIdx = 0;
+		try {
+			registerPost = postFacade.getPostListSize();
+			postIdx = registerPost.getPostIdx();
+		} catch(Exception e) {
+			postIdx = 0;
+		}
+		
 		Post post = new Post();
-		post.setPostIdx(10);
+		post.setPostIdx(++postIdx);
 		post.setTitle(title);
 		post.setRegisterId(userSession.getUserInfo().getUserId());
 		post.setBorderType(borderType);
@@ -52,7 +63,9 @@ public class RegisterPostController {
 		
 		postFacade.registerPost(post);
 		
-		return "product_list";
+		model.addAttribute("getPostList", getPostList());
+		
+		return new ModelAndView("product_list");
 	}
     
     @ModelAttribute("getPostList")

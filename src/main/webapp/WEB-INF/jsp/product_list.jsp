@@ -3,7 +3,6 @@
 <%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="IncludeTopDist.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -140,11 +139,11 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
                                 <a class="card lift h-100" href="product_detail.jsp">
                                     <div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">${getPostList.price}</div>
-                                    <img class="card-img-top" src="https://source.unsplash.com/tG36rvCeqng/800x500"
-                                         alt="..."/>
+                                     <img class="card-img-top" name="photoUrl" src="resources/images/${getPostList.photoUrl}/800x500" alt="..." />
+                                           
                                     <div class="card-body p-3">
                                         <div class="card-title small mb-0">${getPostList.title}</div>
-                                        <div class="text-xs text-gray-500">Readcaster, CO &middot; 2 days ago</div>
+                                        <div class="text-xs text-gray-500">${getPostList.content} </div>
                                     </div>
                                 </a>
                             </div>
