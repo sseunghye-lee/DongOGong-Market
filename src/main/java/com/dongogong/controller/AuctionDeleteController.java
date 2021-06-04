@@ -38,6 +38,7 @@ public class AuctionDeleteController {
 		//Post post = auctionFacade.myAuction(postIdx);	
 		//auctionFacade.updateAuction(post);
 		auctionFacade.auctionPriceDelete(postIdx);
+		auctionFacade.transactionDelete(postIdx);
 		auctionFacade.auctionDelete(postIdx);
 		
 		model.addAttribute("auctionList", auctionList());

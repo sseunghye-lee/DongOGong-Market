@@ -24,13 +24,13 @@ public interface AuctionMapper {
 	//void photoUpdate(Photo photo) throws DataAccessException;
 		
 	// 3) 경매 마감 -> post 테이블의 거래확정 여부 변경
-	void auctionFinish(Post post) throws DataAccessException;
+	void auctionFinish(int postIdx) throws DataAccessException;
 	// transaction에 넣을 sellerId 가져오기
 	String postRegisterId(int postIdx) throws DataAccessException;
 	// transaction 테이블에 거래 완료된 경매 상품 넣기
 	void insertTransaction(Transactions transactions) throws DataAccessException;
 	// auction_price 테이블의 상태 변경
-	void auctionPriceFinish(AuctionPrice auctionPrice) throws DataAccessException;
+	void auctionPriceFinish(int postIdx) throws DataAccessException;
 	
 	// 4) 경매 리스트
 	List<Post> auctionList() throws DataAccessException;
@@ -66,4 +66,12 @@ public interface AuctionMapper {
 	
 	// auctionPrice에서 해당 경매참가한 내역 삭제하기
 	void auctionPriceDelete(int postIdx) throws DataAccessException;
+	
+	void transactionDelete(int postIdx) throws DataAccessException;
+	
+	Post auctionRegisterId(int postIdx) throws DataAccessException;
+	
+	AuctionPrice auctionMax(int postIdx) throws DataAccessException;
+	
+	//Transactions transactionSize() throws DataAccessException;
 }

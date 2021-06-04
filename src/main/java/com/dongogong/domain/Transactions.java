@@ -1,7 +1,8 @@
 package com.dongogong.domain;
+import java.io.Serializable;
 
 @SuppressWarnings("serial")
-public class Transactions {
+public class Transactions implements Serializable {
     // 거래 기록 idx
     private int transactionsIdx;
 

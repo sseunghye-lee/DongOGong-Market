@@ -19,10 +19,10 @@ public interface AuctionPriceDao {
 	//void updatePhoto(Photo photo) throws DataAccessException;
 			
 	// 3) 경매 마감
-	void finishAuction(Post post) throws DataAccessException;
+	void finishAuction(int postIdx) throws DataAccessException;
 	String postRegisterId(int postIdx) throws DataAccessException;
 	void insertTransaction(Transactions transactions) throws DataAccessException;
-	void auctionPriceFinish(AuctionPrice auctionPrice) throws DataAccessException;		
+	void auctionPriceFinish(int postIdx) throws DataAccessException;		
 	
 	// 4) 경매 리스트
 	List<Post> auctionList() throws DataAccessException;
@@ -52,5 +52,11 @@ public interface AuctionPriceDao {
 		
 	// auctionPrice에서 해당 경매참가한 내역 삭제하기
 	void auctionPriceDelete(int postIdx) throws DataAccessException;
+	
+	Post auctionRegisterId(int postIdx) throws DataAccessException;
+	
+	AuctionPrice auctionMax(int postIdx) throws DataAccessException;
+	
+	void transactionDelete(int postIdx) throws DataAccessException;
 	
 }

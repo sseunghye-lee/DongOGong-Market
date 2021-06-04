@@ -12,8 +12,15 @@
 		WHERE 
 	</select>  
 -->	  
+
   
-	<update id="TransactionsStatus" parameterType="">
+	<select id="transactionSize" resultType="Transactions">
+     SELECT MAX(TRANSACTIONS_IDX) 
+     FROM TRANSACTIONS
+  	</select> 
+  
+   <!--  
+	<update id="TransactionsStatus" parameterType="java.lang.String">
 		UPDATE TRANSACTIONS
 		SET STATUS = #{status}
 	</update>
@@ -22,5 +29,5 @@
 		SELECT TRANSACTIONSIDX, BORDERIDX, postIDX
 		FROM TRANSACTIONS
 		WHERE BUYER_ID = #{buyer_id}
-	</select>
+	</select> -->
 </mapper>

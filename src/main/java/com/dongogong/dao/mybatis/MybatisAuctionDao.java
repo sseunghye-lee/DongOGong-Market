@@ -43,8 +43,8 @@ public class MybatisAuctionDao implements AuctionPriceDao {
 	}
 	*/
 	@Override
-	public void finishAuction(Post post) throws DataAccessException {
-		auctionMapper.auctionFinish(post);
+	public void finishAuction(int postIdx) throws DataAccessException {
+		auctionMapper.auctionFinish(postIdx);
 	}
 	
 	@Override
@@ -58,8 +58,8 @@ public class MybatisAuctionDao implements AuctionPriceDao {
 	}
 	
 	@Override
-	public void auctionPriceFinish(AuctionPrice auctionPrice) throws DataAccessException {
-		auctionMapper.auctionPriceFinish(auctionPrice);
+	public void auctionPriceFinish(int postIdx) throws DataAccessException {
+		auctionMapper.auctionPriceFinish(postIdx);
 	}
 
 	@Override
@@ -119,6 +119,22 @@ public class MybatisAuctionDao implements AuctionPriceDao {
 	@Override
 	public void auctionPriceDelete(int postIdx) throws DataAccessException {
 		auctionMapper.auctionPriceDelete(postIdx);
+	}
+
+	@Override
+	public Post auctionRegisterId(int postIdx) throws DataAccessException {
+		return auctionMapper.auctionRegisterId(postIdx);
+	}
+
+	@Override
+	public AuctionPrice auctionMax(int postIdx) throws DataAccessException {
+		return auctionMapper.auctionMax(postIdx);
+	}
+
+	@Override
+	public void transactionDelete(int postIdx) throws DataAccessException {
+		auctionMapper.transactionDelete(postIdx);
+		
 	}
 
 }

@@ -2,11 +2,15 @@ package com.dongogong.dao.mybatis.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.dao.DataAccessException;
+
 import com.dongogong.domain.Transactions;
 
+@Mapper
 public interface TransactionsMapper {
 	//구매자가 판매자에게 거래 요청
-	Transactions TransactionsRequest(String buyer_id, String seller_id);
+	//Transactions TransactionsRequest(String buyer_id, String seller_id);
 	
 	//거래 완료 후 거래 상태 변경
 	//Transactions TransactionsStatus(String status);
@@ -14,5 +18,7 @@ public interface TransactionsMapper {
 
 	
 	//거래 내역 확인
-	List<Transactions> getTransactionsByBuyerName(String buyer_id);
+	//List<Transactions> getTransactionsByBuyerName(String buyer_id);
+	
+	Transactions transactionSize() throws DataAccessException;
 }

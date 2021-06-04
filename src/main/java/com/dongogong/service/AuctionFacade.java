@@ -17,10 +17,10 @@ public interface AuctionFacade {
 	void updateAuction(Post post);
 				
 	// 3) 경매 마감
-	void finishAuction(Post post);
+	void finishAuction(int postIdx);
 	String postRegisterId(int postIdx);
 	void insertTransaction(Transactions transactions);
-	void auctionPriceFinish(AuctionPrice auctionPrice);		
+	void auctionPriceFinish(int postIdx);		
 		
 	// 4) 경매 리스트
 	List<Post> auctionList();
@@ -46,4 +46,12 @@ public interface AuctionFacade {
 			
 	// auctionPrice에서 해당 경매참가한 내역 삭제하기
 	void auctionPriceDelete(int postIdx);
+	
+	void transactionDelete(int postIdx);
+	
+	Post auctionRegisterId(int postIdx);
+	
+	AuctionPrice auctionMax(int postIdx);
+	
+	//Transactions transactionSize();
 }

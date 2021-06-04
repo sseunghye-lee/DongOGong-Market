@@ -23,30 +23,48 @@
                                         <th class="w-7 text-nowrap">번호</th>
                                         <th class="w-7 d-none d-lg-table-cell text-nowrap">참가자</th>
                                         <th class="w-7 d-none d-lg-table-cell text-nowrap">제시가</th>
-                                        <th class="w-7 d-none d-lg-table-cell text-nowrap">날짜</th>
+                                        <th class="w-7 d-none d-lg-table-cell text-nowrap">낙찰</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    
+                                    <c:forEach var="auction" items="${auctionProgressList}" varStatus="status">
                                         <tr>
                                             <td class="px-3 text-nowrap">
-                                                <c:out value="위에 count 하면ㅇ 됨 var Status ? 이겅"/>
+                                                <c:out value="${status.count}"/>
                                             </td>
                                             <td class="px-3 d-none d-lg-table-cell text-nowrap">
-                                                <c:out value="참가자 닉네임"></c:out>
+                                                <c:out value="${auction.buyerId}"></c:out>
                                             </td>
                                             <td class="px-3 d-none d-lg-table-cell text-nowrap">
-                                                <c:out value="가격"></c:out>
+                                                <c:out value="${auction.price}"></c:out>
                                             </td>
                                             <td class="px-3 d-none d-lg-table-cell text-nowrap">
-                                                <c:out value="날짜"></c:out>
+                                            <form method="post" action="<c:url value='/auctionFinish.do'>
+                                                <c:param name='postIdx' value='${auction.postIdx}'/>
+                                                <c:param name='buyerId' value='${auction.buyerId}'/>
+                                                <c:param name='sellerId' value='${postRegister.registerId}'/>
+                                                </c:url>">
+                                            <c:if test="${userId eq postRegister.registerId and auction.price eq maxPrice.price}">  
+                                            	                                        	
+                                                <input type = "submit" value = "낙찰하기" onClick = "goAuction('<c:url value='/auctionFinish.do'>
+                                                <c:param name='postIdx' value='${auction.postIdx}'/>
+                                                <c:param name='buyerId' value='${auction.buyerId}'/>
+                                                <c:param name='sellerId' value='${postRegister.registerId}'/>
+                                                </c:url>')" />     
+                                                          
+                                            </c:if>
+                                            <c:if test="${userId ne postRegister.registerId}">
+                                                낙찰불가 
+                                            </c:if>
+                                            </form>
                                             </td>
                                         </tr>
+                                        </c:forEach>
                                      </tbody>
                                 </table>
                             </li>
                         </ul>
-                        <c:if test="받아온 list.size == 0">
+                        <c:if test="${auctionProgressList}.size == 0">
                             <p class="text-center page-header-text align-middle pt-10 pb-15">
                                 게시물이 없습니다.
                             </p>

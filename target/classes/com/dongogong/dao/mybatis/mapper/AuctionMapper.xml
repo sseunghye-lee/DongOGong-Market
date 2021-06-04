@@ -33,13 +33,13 @@
   </update> -->
   
   <!-- 3) 경매 마감 -->
-  <update id="auctionFinish" parameterType="Post">
-     UPDATE POST SET TRANSACTIONCONFIRMATION = 'DECIDE'
+  <update id="auctionFinish" parameterType="java.lang.Integer">
+     UPDATE POST SET TRANSACTION_CONFIRMATION = 'DECIDE'
      WHERE POST_IDX = #{postIdx}
   </update> <!-- post 테이블의 거래확정여부 변경 -->
   
-  <update id="auctionPriceFinish" parameterType="AuctionPrice">
-     UPDATE AUCTIONPRICE SET STATUS = 'DECIDE'
+  <update id="auctionPriceFinish" parameterType="java.lang.Integer">
+     UPDATE AUCTION_PRICE SET STATUS = 'DECIDE'
      WHERE POST_IDX = #{postIdx}
   </update> <!-- auction_price 테이블의 상태 변경 -->
   
@@ -51,7 +51,7 @@
   </select>
   
   <insert id="insertTransaction" parameterType="Transactions">
-     INSERT INTO TRANSACTIONS(transactionsIdx, post_Idx, sellerId, buyerId, status)
+     INSERT INTO TRANSACTIONS(transactions_Idx, post_Idx, seller_Id, buyer_Id, status)
      VALUES(#{transactionsIdx}, #{postIdx}, #{sellerId}, #{buyerId}, 'DECIDE')
   </insert> <!-- transaction 테이블에 거래 완료된 경매 등록 -->
   
@@ -99,15 +99,22 @@
   
   <!-- 8) 경매 진행 상황 -->
   <select id="auctionProgress" resultType="AuctionPrice">
-     SELECT BUYERID, PRICE
-     FROM AUCTIONPRICE
-     WHERE POST_IDX = #{postIdx}
+     SELECT BUYER_ID AS BUYERID, PRICE, POST_IDX AS POSTIDX
+     FROM AUCTION_PRICE
+     WHERE POST_IDX = #{postIdx} AND STATUS = 'GOING'
+     ORDER BY PRICE 
+  </select>
+  
+  <select id="auctionRegisterId" resultType="Post">
+     SELECT REGISTER_ID AS REGISTERID
+     FROM POST
+     WHERE POST_IDX = #{postIdx} 
   </select>
   
   <select id="auctionNickName" resultType="java.lang.String">
      SELECT NICKNAME
-     FROM USER
-     WHERE USERID = #{buyerId}
+     FROM USERINFO
+     WHERE USER_ID = #{buyerId}
   </select>
   
   <select id="auctionPriceSize" resultType="AuctionPrice">
@@ -126,5 +133,17 @@
      FROM AUCTION_PRICE
      WHERE POST_IDX = #{postIdx}
   </delete>
+  
+  <delete id="transactionDelete" parameterType="java.lang.Integer">
+  	DELETE
+  	FROM TRANSACTIONS
+  	WHERE POST_IDX = #{postIdx}
+  </delete>
+  
+  <select id="auctionMax" resultType="AuctionPrice">
+  	SELECT MAX(PRICE) AS PRICE
+  	FROM AUCTION_PRICE
+  	WHERE POST_IDX = #{postIdx}
+  </select>
   
   </mapper>

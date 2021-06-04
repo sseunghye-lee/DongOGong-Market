@@ -109,17 +109,17 @@
                   
                         <div class="container">
                             <div class="d-flex align-items-center justify-content-between mb-4">
-                                <h2 class="mb-0">Auction</h2>
+                                <h2 class="mb-0">Auction ${transIdx.transactionsIdx }</h2>
                                
                             </div>
                             <form name="form" method="POST">
                             <div class="row">
-                            
+                 
                             <c:forEach var="auction" items="${auctionList}">
                                 <div class="col-lg-4 mb-5 mb-lg-0">
                                     <a class="card lift h-100">
                                        <div class="card-flag card-flag-dark card-flag-top-right">경매중</div>
-                                        <img class="card-img-top" name="photoUrl" src="/resources/images/${auction.photoUrl}" alt="..." />
+                                        <img class="card-img-top" name="photoUrl" src="/resources/images/${auction.photoUrl}" height=200 alt="..." />
                                         <div class="card-body">
                                             <h3 class="text-primary mb-0">${auction.price}</h3>
                                             <div class="small text-gray-800 font-weight-500">${auction.title}

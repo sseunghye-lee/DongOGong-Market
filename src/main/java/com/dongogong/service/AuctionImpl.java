@@ -29,8 +29,8 @@ public class AuctionImpl implements AuctionFacade {
 	}
 
 	@Override
-	public void finishAuction(Post post) {
-		auctionDao.finishAuction(post);
+	public void finishAuction(int postIdx) {
+		auctionDao.finishAuction(postIdx);
 	}
 
 	@Override
@@ -44,8 +44,8 @@ public class AuctionImpl implements AuctionFacade {
 	}
 
 	@Override
-	public void auctionPriceFinish(AuctionPrice auctionPrice) {
-		auctionDao.auctionPriceFinish(auctionPrice);
+	public void auctionPriceFinish(int postIdx) {
+		auctionDao.auctionPriceFinish(postIdx);
 	}
 
 	@Override
@@ -91,6 +91,28 @@ public class AuctionImpl implements AuctionFacade {
 	@Override
 	public void auctionPriceDelete(int postIdx) {
 		auctionDao.auctionPriceDelete(postIdx);
+	}
+
+	@Override
+	public Post auctionRegisterId(int postIdx) {
+		return auctionDao.auctionRegisterId(postIdx);
+	}
+
+	@Override
+	public AuctionPrice auctionMax(int postIdx) {
+		return auctionDao.auctionMax(postIdx);
+	}
+/*
+	@Override
+	public Transactions transactionSize() {
+	
+		return auctionDao.transactionSize();
+	}*/
+
+	@Override
+	public void transactionDelete(int postIdx) {
+		auctionDao.transactionDelete(postIdx);
+		
 	}
 
 }

@@ -11,7 +11,12 @@
     <link href="/assets/vendor/bootstrap/css/custom.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-
+	<script>
+		function goAuction(targetUri) {
+		    form.action = targetUri;
+		    form.submit();
+		}
+	</script>
 
     <!-- Favicons -->
     <link href="/img/market.png" rel="icon">
