@@ -119,7 +119,7 @@
                                 <div class="col-lg-4 mb-5 mb-lg-0">
                                     <a class="card lift h-100">
                                        <div class="card-flag card-flag-dark card-flag-top-right">경매중</div>
-                                        <img class="card-img-top" name="photoUrl" src="resources/images/${auction.photoUrl}" alt="..." />
+                                        <img class="card-img-top" name="photoUrl" src="/resources/images/${auction.photoUrl}" alt="..." />
                                         <div class="card-body">
                                             <h3 class="text-primary mb-0">${auction.price}</h3>
                                             <div class="small text-gray-800 font-weight-500">${auction.title}
