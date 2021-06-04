@@ -29,14 +29,15 @@ public class AuctionFinishController {
 		this.auctionFacade = auctionFacade;
 	}
 	
-	@Autowired
+	@Autowired(required=false)
 	private TransactionsFacade transactionsFacade;
 	public void setTransactionsFacade(TransactionsFacade transactionsFacade) {
 		this.transactionsFacade = transactionsFacade;
 	}
 	
 	@PostMapping
-	public ModelAndView auctionProgress(HttpServletRequest request, Model model) {
+	public ModelAndView auctionProgress(HttpServletRequest request, Model model
+			) throws Exception {
 		UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 		String SpostIdx = request.getParameter("postIdx");

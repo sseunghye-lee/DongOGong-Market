@@ -15,7 +15,7 @@
 
   
 	<select id="transactionSize" resultType="Transactions">
-     SELECT MAX(TRANSACTIONS_IDX) 
+     SELECT MAX(TRANSACTIONS_IDX) AS transactionsIdx
      FROM TRANSACTIONS
   	</select> 
   
