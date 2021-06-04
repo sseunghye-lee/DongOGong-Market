@@ -7,9 +7,9 @@
     <!-- LOGIN 테이블 이용X -->
    
     <select id="getUserInfoByUserId" resultType="UserInfo">
-        SELECT USERINFO.USER_ID,
+        SELECT USERINFO.USER_ID AS USERID,
                USERINFO.NAME,
-               USERINFO.NICK_NAME,
+               USERINFO.NICK_NAME AS NICKNAME,
                USERINFO.PHONE,
             USERINFO.PASSWORD
         FROM USERINFO
