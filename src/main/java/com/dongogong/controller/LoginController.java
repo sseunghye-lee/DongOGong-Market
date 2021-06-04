@@ -17,37 +17,37 @@ import org.springframework.ui.Model;
 @Controller
 @SessionAttributes("userSession")
 public class LoginController {
-	
-	private UserInfoFacade userInfo;
-	@Autowired
-	public void setUserInfo(UserInfoFacade userInfo) {
-		this.userInfo = userInfo;
-	}
-		
-	//로그인 성공 시 메인홈페이지(or index)로 가능 controller
-	@RequestMapping("/login.do")
-	public ModelAndView handleRequest(HttpServletRequest request,
-			@RequestParam("userId") String userId,
-			@RequestParam("password") String password,
-			@RequestParam(value="forwardAction", required=false) String forwardAction,
-			Model model) throws Exception {
-		
-		UserInfo user = userInfo.getUserInfo(userId, password);
-		
-		if (user == null) {
-			return new ModelAndView("Error", "message", 
-					"Invalid username or password.  Signon failed.");
-		}
-		else {
-			UserSession userSession = new UserSession(user);
-			//PagedListHolder<ProductCategory> myList = new PagedListHolder<ProductCategory>(this.userInfo.getProductListByCategory(userInfo.getFavouriteCategoryId()));
+   
+   private UserInfoFacade userInfo;
+   @Autowired
+   public void setUserInfo(UserInfoFacade userInfo) {
+      this.userInfo = userInfo;
+   }
+      
+   //로그인 성공 시 메인홈페이지(or index)로 가능 controller
+   @RequestMapping("/login.do")
+   public ModelAndView handleRequest(HttpServletRequest request,
+         @RequestParam("userId") String userId,
+         @RequestParam("password") String password,
+         @RequestParam(value="forwardAction", required=false) String forwardAction,
+         Model model) throws Exception {
+      
+      UserInfo user = userInfo.getUserInfo(userId, password);
+      
+      if (user == null) {
+         return new ModelAndView("Error", "message", 
+               "Invalid username or password.  Signon failed.");
+      }
+      else {
+         UserSession userSession = new UserSession(user);
+         //PagedListHolder<ProductCategory> myList = new PagedListHolder<ProductCategory>(this.userInfo.getProductListByCategory(userInfo.getFavouriteCategoryId()));
 
-			model.addAttribute("userSession", userSession);
+         model.addAttribute("userSession", userSession);
 
-			if (forwardAction != null) 
-				return new ModelAndView("redirect: " + forwardAction);
-			else
-				return new ModelAndView("index");
-		}
-	}
+         if (forwardAction != null) 
+            return new ModelAndView("redirect: " + forwardAction);
+         else
+            return new ModelAndView("index");
+      }
+   }
 }

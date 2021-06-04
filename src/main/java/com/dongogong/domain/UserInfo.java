@@ -20,7 +20,7 @@ public class UserInfo implements Serializable {
     //회원 비밀번호
     private String password;
 
-	
+   
     /*public UserInfo(String userId, String name, String nickName, String phone, String password) {
         this.userId = userId;
         this.name = name;
@@ -28,7 +28,7 @@ public class UserInfo implements Serializable {
         this.phone = phone;
         this.password = password;
     }
-	*/
+   */
     //getters & setters
     public String getUserId() {
         return userId;
@@ -70,13 +70,13 @@ public class UserInfo implements Serializable {
         this.password = password;
     }
 
-	/*public String getIndividual_corporation_status() {
-		return individual_corporation_status;
-	}
+   /*public String getIndividual_corporation_status() {
+      return individual_corporation_status;
+   }
 
-	public void setIndividual_corporation_status(String individual_corporation_status) {
-		this.individual_corporation_status = individual_corporation_status;
-	}
-	 */
+   public void setIndividual_corporation_status(String individual_corporation_status) {
+      this.individual_corporation_status = individual_corporation_status;
+   }
+    */
 
 }
