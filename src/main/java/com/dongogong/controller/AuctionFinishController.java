@@ -36,7 +36,7 @@ public class AuctionFinishController {
 	}
 	
 	@PostMapping
-	public ModelAndView auctionProgress(HttpServletRequest request, Model model
+	public ModelAndView goAuctionProgress(HttpServletRequest request, Model model
 			) throws Exception {
 		UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
@@ -72,15 +72,15 @@ public class AuctionFinishController {
 		model.addAttribute("auctionList", auctionList());
 		model.addAttribute("myAuction", myAuction(request));
 		//model.addAttribute("transIdx", transIdx);
-		//model.addAttribute("auctionProgressList", auctionProgressList(postIdx));
+		model.addAttribute("auctionProgressList", auctionProgressList(postIdx));
 		
 		return new ModelAndView("auction");
 	}
 	
-	/*
+	
 	public List<AuctionPrice> auctionProgressList(int postIdx) {
 		return auctionFacade.auctionProgress(postIdx);
-	}*/
+	}
 	
 	public List<Post> auctionList() {
 		return auctionFacade.auctionList();

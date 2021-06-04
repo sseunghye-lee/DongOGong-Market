@@ -59,7 +59,7 @@
   <select id="auctionList" resultType="Post">
      SELECT PHOTOURL, POST_IDX AS POSTIDX, PRICE, TITLE, CONTENT
      FROM POST
-     WHERE BORDER_TYPE = 'auction'
+     WHERE BORDER_TYPE = 'auction' AND TRANSACTION_CONFIRMATION = 'no'
      <!--  
      WHERE POST.POSTIDX = #{postIdx}
         AND PHOTO.POSTIDX = #{postIdx}
