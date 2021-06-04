@@ -23,17 +23,6 @@ import com.dongogong.service.UserInfoFacade;
 @Controller
 @RequestMapping("/myPage.do")
 public class MyPageController {
-   /*	
-   @Value("myPage_change")
-   private String formViewName;
-   
-
-    @Autowired
-    private UserInfoFacade userInfo;
-    public void setUserInfo(UserInfoFacade userInfo) {
-       this.userInfo = userInfo;
-    }
-    */
 	
 	//index에서 mypage.jsp로 이동
 	@GetMapping
@@ -43,39 +32,4 @@ public class MyPageController {
 		model.addAttribute("userSession", userSession);
 		return new ModelAndView("myPage");
 	}
-   
-   /*
-    @ModelAttribute("userInfoForm")
-      public UserInfoForm formBackingObject(HttpServletRequest request) throws Exception {
-         UserSession userSession = (UserSession) WebUtils.getSessionAttribute(request, "userSession");
-         if (userSession != null) {   // edit an existing account
-            return new UserInfoForm( 
-                  userInfo.getUserInfo(userSession.getUserInfo().getUserId()) 
-           );
-         }
-         else {   // create a new account
-            return new UserInfoForm();
-         }
-    }
-    
-   @PostMapping
-      public String onSubmit(
-            HttpServletRequest request, HttpSession session,
-            @ModelAttribute("userInfoForm") UserInfoForm userInfoForm,
-            BindingResult result) throws Exception {
-      
-      try {
-         if (!userInfoForm.isNewUserInfo()) {
-            userInfo.updateUserInfo(userInfoForm.getUserInfo());
-         }
-      } catch (DataIntegrityViolationException ex) {
-         
-      }
-      UserSession UserSession = new UserSession (
-              userInfo.getUserInfo(userInfoForm.getUserInfo().getUserId()));
-
-       session.setAttribute("UserSession", UserSession);
-       return "index";
-   }
-   */         
 }

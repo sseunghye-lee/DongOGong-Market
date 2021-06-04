@@ -58,7 +58,7 @@
                             </div>
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                    <label>PHONE</label> 
+                                    <label>phone</label> 
                                     <h4>PHONE</h4>
                                     <form:input class="form-control" path="userInfo.phone" type="text" placeholder="PHONE" />
                                     <p class="help-block text-danger"></p>
@@ -66,7 +66,7 @@
                             </div>
                             <div class="control-group">
                                 <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                    <label>PASSWORD</label>
+                                    <label>password</label>
                                     <h4>PASSWORD</h4>
                                     <form:input class="form-control" path="userInfo.password"  type="password" placeholder="PASSWORD" /> 
                                     <p class="help-block text-danger"></p>

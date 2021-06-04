@@ -59,7 +59,7 @@
     <update id="updateUserInfo" parameterType="UserInfo">
         UPDATE USERINFO
         SET NAME      = #{name},
-            NICK_NAME = #{nickName},
+           <!-- NICK_NAME = #{nickName}, --> 
             PHONE     = #{phone},
             PASSWORD  = #{password}
         WHERE USER_ID = #{userId}

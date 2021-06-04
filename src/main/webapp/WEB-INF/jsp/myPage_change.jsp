@@ -4,7 +4,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>    
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>   
+<c:set var="targetUrl"><c:url value="/index.do" /></c:set> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -28,25 +29,38 @@
 	    <!-- Contact Section Form-->
 	    <div class="row">
 	        <div class="col-lg-8 mx-auto">
-	                <form:form modelAttribute="" method="post">
+	                <form method="POST" action="<c:url value="/myPage_change.do"/>">
 	                    <div class="control-group">
 	                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
 	                            <label>Name</label>
-	                            <h4>NAME</h4><input class="form-control" id="name" type="text" />
+	                            <h4>NAME</h4>
+	                            <input class="form-control" id="name" name="name" type="text" placeholder="NAME" required="required" data-validation-required-message="Please enter your name." />
 	                            <p class="help-block text-danger"></p>
 	                        </div>
 	                    </div>
+	                    <!-- <div class="control-group">
+                        	<div class="form-group floating-label-form-group controls mb-0 pb-2">
+                            	<label>NickName</label>
+                                <h4>NICKNAME</h4>
+                                <input class="form-control" id="nickName" name="nickName" placeholder="NICKNAME" type="text" />
+                                <button id="confirmNickName" type="submit">중복확인</button>
+                                <p class="help-block text-danger"></p>
+                           </div>
+                        </div>
+                         -->
 	                    <div class="control-group">
 	                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
 	                            <label>Phone</label> 
-	                            <h4>Phone</h4><input class="form-control" id="phone" type="text" placeholder="Phone" required="required" data-validation-required-message="Please enter your phone." />
+	                            <h4>PHONE</h4>
+	                            <input class="form-control" id="phone" name="phone" type="text" placeholder="PHONE" required="required" data-validation-required-message="Please enter your phone number." />
 	                            <p class="help-block text-danger"></p>
 	                        </div>
 	                    </div>
 	                    <div class="control-group">
 	                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-	                            <label>PASSWORD</label>
-	                            <h4>PASSWORD</h4><input class="form-control" id="password" type="password" placeholder="PASSWORD" required="required" data-validation-required-message="Please enter your phone number." />
+	                            <label>password</label>
+	                            <h4>PASSWORD</h4>
+	                            <input class="form-control" id="password" name="password" type="password" placeholder="PASSWORD" required="required" data-validation-required-message="Please enter your password." />
 	                            <p class="help-block text-danger"></p>
 	                        </div>
 	                    </div>
@@ -61,10 +75,10 @@
 	                    -->
 	                    <br />
 	                    <div id="success"></div>
-	                    <div class="form-group"><button class="btn btn-primary btn-xl" id="okayButton" type="submit">OKAY</button>
-	                    <button class="btn btn-primary btn-xl" id="cancelButton" type="submit">CANCEL</button>
+	                    <div onclick="<c:url value="/myPage_change.do"/>" class="form-group"><button class="btn btn-primary btn-xl" id="okayButton" type="submit">UPDATE</button>
+	                    <button class="btn btn-primary btn-xl" id="cancelButton" onClick="history.go(-1)">CANCEL</button>
 	                    </div>
-	                </form:form>
+	                </form>
 	        </div>
 	    </div>
 	</div>
