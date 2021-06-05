@@ -38,7 +38,6 @@ public class RegisterUserController {
       this.userInfoFacade = userInfoFacade;
    }
 
-   
    @Autowired
    private UserInfoFormValidator validator;
    public void setValidator(UserInfoFormValidator validator) {
@@ -55,6 +54,7 @@ public class RegisterUserController {
    }
 
 
+   //login.jsp에서 회원가입 클릭시 join.jsp로 넘어감
    @GetMapping
    public String showForm() {
       return formViewName;

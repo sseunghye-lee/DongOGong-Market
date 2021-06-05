@@ -16,6 +16,7 @@ public interface UserInfoFacade {
    // 회원 수정
    void updateUserInfo(UserInfo userInfo);
    
+   //회원 탈퇴
    void deleteUserInfo(String userId, String password);
    void deleteAuctionInfo(String userId);
    void deletePostInfo(String userId);

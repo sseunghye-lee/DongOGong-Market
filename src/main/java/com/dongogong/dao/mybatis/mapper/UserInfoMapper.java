@@ -15,11 +15,7 @@ public interface UserInfoMapper {
    
    void insertUserInfo(UserInfo userInfo);
    
-  // void insertLogin(UserInfo userInfo);
-   
    void updateUserInfo(UserInfo userInfo);
-   
-   //void updateLogin(UserInfo userInfo);
    
    void deleteUserInfo(String userId, String password);
    void deleteAuctionInfo(String userId);
@@ -27,8 +23,6 @@ public interface UserInfoMapper {
    void deleteChatInfo(String userId);
    void deleteRelation(String userId);
    void deleteTransaction(String userId);
-   
-   //UserInfo deleteUserInfo(String userId);
    
    //boolean passChk(UserInfo userInfo, UserInfo passward);
    

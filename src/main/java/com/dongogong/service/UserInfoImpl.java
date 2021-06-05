@@ -32,26 +32,6 @@ public class UserInfoImpl implements UserInfoFacade{
       userInfoDao.updateUserInfo(userInfo);
    }
    
-  
-   
-   public int idChk(UserInfo userInfo) {
-	   int result = userInfoDao.idChk(userInfo);
-	   return result;
-   }
-   /*
-   public UserInfo deleteUserInfo(String userId) {   
-      return userInfoDao.deleteUserInfo(userId);
-   }
-	*/
-   /*public boolean passChk(UserInfo userInfo, UserInfo password) {
-      boolean result = userInfoDao.passChk(userInfo, password);
-      return result;
-   }
-   */
-   public List<String> getUsernameList() {
-      return userInfoDao.getUsernameList();
-   }
-
 	@Override
 	public void deleteUserInfo(String userId, String password) {
 		userInfoDao.deleteUserInfo(userId, password);
@@ -87,4 +67,20 @@ public class UserInfoImpl implements UserInfoFacade{
 		userInfoDao.deleteTransaction(userId);
 		
 	}
+	   
+    public int idChk(UserInfo userInfo) {
+	    int result = userInfoDao.idChk(userInfo);
+	    return result;
+    }
+
+   /*public boolean passChk(UserInfo userInfo, UserInfo password) {
+      boolean result = userInfoDao.passChk(userInfo, password);
+      return result;
+   }
+   */
+    
+    public List<String> getUsernameList() {
+       return userInfoDao.getUsernameList();
+    }
+
 }

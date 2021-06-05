@@ -4,8 +4,6 @@
 <mapper namespace="com.dongogong.dao.mybatis.mapper.UserInfoMapper">
     <cache/>
 
-    <!-- LOGIN 테이블 이용X -->
-   
     <select id="getUserInfoByUserId" resultType="UserInfo">
         SELECT USERINFO.USER_ID AS USERID,
                USERINFO.NAME,
@@ -26,31 +24,7 @@
         WHERE USER_ID = #{userId}
           AND PASSWORD = #{password}
     </select>
-
-    <!-- LOGIN 테이블 이용시 -->
-    <!-- 
-      <select id="getUserInfoByUserId" resultType="UserInfo">
-         SELECT LOGIN.USER_ID,
-            USERINFO.NAME,
-            USERINFO.NICK_NAME,
-            USERINFO.PHONE
-         FROM USERINFO, LOGIN
-         WHERE USERINFO.USER_ID = #{userId}
-            AND LOGIN.USER_ID = USERINFO.USER_ID
-   </select>
-   
-   <select id="getUserInfoByUserIdAndPassword" resultType="UserInfo">
-         SELECT LOGIN.USER_ID,
-            USERINFO.NAME,
-            USERINFO.NICK_NAME,
-            USERINFO.PHONE  
-         FROM USERINFO, LOGIN
-         WHERE USERINFO.USER_ID = #{userId}
-            AND LOGIN.PASSWORD = #{password}
-            AND LOGIN.USER_ID = USERINFO.USER_ID         
-   </select>
-     -->
-
+    
     <insert id="insertUserInfo" parameterType="UserInfo">
         INSERT INTO USERINFO (USER_ID, NAME, NICK_NAME, PHONE, PASSWORD)
         VALUES (#{userId, jdbcType=VARCHAR}, #{name, jdbcType=VARCHAR}, #{nickName, jdbcType=VARCHAR}, #{phone, jdbcType=CHAR}, #{password, jdbcType=VARCHAR})
@@ -64,13 +38,6 @@
             PASSWORD  = #{password}
         WHERE USER_ID = #{userId}
     </update>
-	
-	<!--  
-    <delete id="deleteUserInfo" parameterType="UserInfo">
-        DELETE FROM USERINFO
-        WHERE USER_ID = #{userId}
-    </delete>
-	-->
 	
 	<delete id="deleteUserInfo" parameterType="java.lang.String">
         DELETE FROM USERINFO
@@ -121,18 +88,6 @@
         FROM LOGIN
     </select>
 
-    <update id="updateLogin" parameterType="UserInfo">
-        UPDATE LOGIN
-        SET PASSWORD = #{password}
-        WHERE USER_ID = #{userId}
-    </update>
-
-	<!--  
-    <insert id="insertLogin" parameterType="UserInfo">
-        INSERT INTO LOGIN (PASSWORD, USER_ID)
-        VALUES (#{password}, #{userId})
-    </insert>
-	-->
     <!--
     <select id="findUserList" resultType="List<User>">
        SELECT
