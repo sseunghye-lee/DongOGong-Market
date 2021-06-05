@@ -33,16 +33,22 @@ public class MybatisUserInfoDao implements UserInfoDao{
          userInfoMapper.updateUserInfo(userInfo);
       }
       
-      /*public void deleteUserInfo(UserInfo userInfo) throws DataAccessException {
+      public void deleteUserInfo(UserInfo userInfo) throws DataAccessException {
          userInfoMapper.deleteUserInfo(userInfo);
-         if (userInfo.getPassword() != null && userInfo.getPassword().length() > 0) {
-            userInfoMapper.updateLogin(userInfo);
-         }
+        // if (userInfo.getPassword() != null && userInfo.getPassword().length() > 0) {
+        //    userInfoMapper.updateLogin(userInfo);
+         //}
+      }
+      
+      /*
+      public UserInfo deleteUserInfo(String userId) throws DataAccessException {
+         return userInfoMapper.deleteUserInfo(userId);
       }
       */
       
-      public UserInfo deleteUserInfo(String userId) throws DataAccessException {
-         return userInfoMapper.deleteUserInfo(userId);
+      public int idChk(UserInfo userInfo) throws DataAccessException {
+    	  int result = userInfoMapper.idChk(userInfo);
+    	  return result;
       }
       
       /*boolean passChk(UserInfo userInfo, UserInfo passward) throws DataAccessException {

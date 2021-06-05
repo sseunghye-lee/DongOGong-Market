@@ -16,9 +16,11 @@ public interface UserInfoFacade {
    // 회원 수정
    void updateUserInfo(UserInfo userInfo);
    
-   //void deleteUserInfo(UserInfo userInfo);
-   UserInfo deleteUserInfo(String userId);
+   void deleteUserInfo(UserInfo userInfo);
+   //UserInfo deleteUserInfo(String userId);
    //boolean passChk(UserInfo userInfo, UserInfo passward);
+   
+   int idChk(UserInfo userInfo);
    
    List<String> getUsernameList();
 }

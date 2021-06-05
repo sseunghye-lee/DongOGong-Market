@@ -34,7 +34,7 @@
 	                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
 	                            <label>Name</label>
 	                            <h4>NAME</h4>
-	                            <input class="form-control" id="name" name="name" type="text" placeholder="NAME" required="required" data-validation-required-message="Please enter your name." />
+	                            <input class="form-control" id="name" name="name" type="text" value="${userInfo.name}" placeholder="NAME" required="required" data-validation-required-message="Please enter your name." />
 	                            <p class="help-block text-danger"></p>
 	                        </div>
 	                    </div>
@@ -52,7 +52,7 @@
 	                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
 	                            <label>Phone</label> 
 	                            <h4>PHONE</h4>
-	                            <input class="form-control" id="phone" name="phone" type="text" placeholder="PHONE" required="required" data-validation-required-message="Please enter your phone number." />
+	                            <input class="form-control" id="phone" name="phone" type="text" value="${userInfo.phone}" placeholder="PHONE" required="required" data-validation-required-message="Please enter your phone number." />
 	                            <p class="help-block text-danger"></p>
 	                        </div>
 	                    </div>
@@ -60,7 +60,7 @@
 	                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
 	                            <label>password</label>
 	                            <h4>PASSWORD</h4>
-	                            <input class="form-control" id="password" name="password" type="password" placeholder="PASSWORD" required="required" data-validation-required-message="Please enter your password." />
+	                            <input class="form-control" id="password" name="password" type="password" value="${userInfo.password}" placeholder="PASSWORD" required="required" data-validation-required-message="Please enter your password." />
 	                            <p class="help-block text-danger"></p>
 	                        </div>
 	                    </div>

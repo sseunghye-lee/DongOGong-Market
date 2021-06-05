@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.WebUtils;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dongogong.domain.UserInfo;
 import com.dongogong.service.UserInfoFacade;
@@ -32,9 +33,9 @@ public class RegisterUserController {
    private String successViewName;
    
    @Autowired
-   private UserInfoFacade userInfo;
-   public void setUserInfo(UserInfoFacade userInfo) {
-      this.userInfo = userInfo;
+   private UserInfoFacade userInfoFacade;
+   public void setUserInfo(UserInfoFacade userInfoFacade) {
+      this.userInfoFacade = userInfoFacade;
    }
 
    
@@ -64,16 +65,35 @@ public class RegisterUserController {
    public String onSubmit(
          HttpServletRequest request, HttpSession session,
          @ModelAttribute("userInfoForm") UserInfoForm userInfoForm,
+         UserInfo userInfo,
          BindingResult result) throws Exception {
 
      //validator.validate(userInfoForm, result);
      
       if (result.hasErrors()) 
+         return "index";
+     
+      /*
+       try {
+         if (userInfoForm.isNewUserInfo() && idChk(userInfo) == 0) {
+        	 userInfoFacade.insertUserInfo(userInfoForm.getUserInfo());
+         } 
+         else if (idChk(userInfo) == 1) {
+        	 return "index";
+         }
+      } catch (DataIntegrityViolationException ex) {
+         result.rejectValue("userInfo.userId", "USER_ID_ALREADY_EXISTS",
+               "User ID already exists: choose a different ID.");
          return formViewName;
+      }
+	
+      return successViewName;
+       */
+      
       
       try {
          if (userInfoForm.isNewUserInfo()) {
-            userInfo.insertUserInfo(userInfoForm.getUserInfo());
+        	 userInfoFacade.insertUserInfo(userInfoForm.getUserInfo());
          } 
       } catch (DataIntegrityViolationException ex) {
          result.rejectValue("userInfo.userId", "USER_ID_ALREADY_EXISTS",
@@ -83,4 +103,13 @@ public class RegisterUserController {
 	
       return successViewName;
    }
+   
+   /*
+   //아이디 중복체크
+   @ResponseBody
+   @RequestMapping(value="/idChk.do", method=RequestMethod.POST)
+   public int idChk(UserInfo userInfo) throws Exception {
+	   int result = userInfoFacade.idChk(userInfo);
+	   return result;
+   }*/
 }

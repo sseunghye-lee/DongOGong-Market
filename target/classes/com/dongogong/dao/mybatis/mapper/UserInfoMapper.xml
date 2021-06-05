@@ -64,12 +64,28 @@
             PASSWORD  = #{password}
         WHERE USER_ID = #{userId}
     </update>
-
+	
+	<!--  
     <delete id="deleteUserInfo" parameterType="UserInfo">
         DELETE FROM USERINFO
         WHERE USER_ID = #{userId}
     </delete>
-
+	-->
+	
+	<delete id="deleteUserInfo" parameterType="UserInfo">
+        DELETE FROM USERINFO
+        WHERE USER_ID = #{userId}
+        	AND PASSWORD = #{password}
+    </delete>
+    
+    <!-- 
+    <select id="idChk" resultType="int">
+    	SELECT COUNT(*)
+    	FROM USERINFO
+    	WHERE USER_ID = #{userId} AS userId
+    </select>
+     -->
+     
     <select id="getUsernameList" resultType="java.lang.String">
         SELECT NAME AS VALUE
         FROM LOGIN

@@ -19,12 +19,14 @@ public interface UserInfoMapper {
    
    void updateUserInfo(UserInfo userInfo);
    
-   void updateLogin(UserInfo userInfo);
+   //void updateLogin(UserInfo userInfo);
    
-   //void deleteUserInfo(UserInfo userInfo);
-   UserInfo deleteUserInfo(String userId);
+   void deleteUserInfo(UserInfo userInfo);
+   //UserInfo deleteUserInfo(String userId);
    
    //boolean passChk(UserInfo userInfo, UserInfo passward);
+   
+   int idChk(UserInfo userInfo);
    
    UserInfo findUser(String user_id);
    

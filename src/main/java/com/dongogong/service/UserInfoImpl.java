@@ -32,14 +32,19 @@ public class UserInfoImpl implements UserInfoFacade{
       userInfoDao.updateUserInfo(userInfo);
    }
    
-   /*public void deleteUserInfo(UserInfo userInfo) {   
+   public void deleteUserInfo(UserInfo userInfo) {   
       userInfoDao.deleteUserInfo(userInfo);
-   }*/
+   }
    
+   public int idChk(UserInfo userInfo) {
+	   int result = userInfoDao.idChk(userInfo);
+	   return result;
+   }
+   /*
    public UserInfo deleteUserInfo(String userId) {   
       return userInfoDao.deleteUserInfo(userId);
    }
-
+	*/
    /*public boolean passChk(UserInfo userInfo, UserInfo password) {
       boolean result = userInfoDao.passChk(userInfo, password);
       return result;

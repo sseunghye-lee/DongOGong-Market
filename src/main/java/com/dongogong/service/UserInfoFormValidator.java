@@ -20,11 +20,12 @@ public class UserInfoFormValidator implements Validator {
 		UserInfo userInfo = userInfoForm.getUserInfo();
 		
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userInfo.name", "NAME_REQUIRED", "Name is required.");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userInfo.nickName", "NICKNAME_REQUIRED", "NickName is required.");
 		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "userInfo.phone", "PHONE_REQUIRED", "Phone number is required.");
 		
 		if (userInfoForm.isNewUserInfo()) {
 			//userInfo.setStatus("OK");
-			ValidationUtils.rejectIfEmpty(errors, "userInfo.user_id", "USER_ID_REQUIRED", "User ID is required.");
+			ValidationUtils.rejectIfEmpty(errors, "userInfo.userId", "USER_ID_REQUIRED", "User ID is required.");
 			if (userInfo.getPassword() == null || userInfo.getPassword().length() < 1 || !userInfo.getPassword().equals(userInfoForm.getRepeatedPassword())) {
 				errors.reject("PASSWORD_MISMATCH", "Passwords did not match or were not provided. Matching passwords are required.");
 			}

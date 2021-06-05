@@ -15,6 +15,26 @@
 <link type="text/css" href="resources/css/styles.css" rel="stylesheet" />
 <!-- Font Awesome icons (free version)-->
 <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+
+<script>
+	function fn_idChk() {
+		$.ajax( {
+			url : "/idChk.do",
+			type : "post",
+			dataType : "json",
+			data : {"userId" : $("#userId").val()},
+			success : function(data) {
+				if (data == 1) {
+					asler("중복된 아이디입니다.");
+				} else if (data == 0) {
+					$("#idChk").attr("value", "Y");
+					alert("사용 가능한 아이디입니다.");
+				}
+			}
+		})
+	}
+
+</script>
 </head>
 <body>
 <!-- Update form  -->
@@ -36,6 +56,7 @@
                                     <label>Id</label>
                                     <h4>ID</h4>
                                     <form:input class="form-control" path="userInfo.userId" placeholder="ID" type="text" />
+                                    <form:button class ="idChk" id="idChk" type="button" onclick="fn_idChk();" value="N" >중복확인</form:button>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>                        
@@ -52,7 +73,6 @@
                                     <label>NickName</label>
                                     <h4>NICKNAME</h4>
                                     <form:input class="form-control" placeholder="NICKNAME" path="userInfo.nickName" type="text" />
-                                    <button id="confirmNickName" type="submit">중복확인</button>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
