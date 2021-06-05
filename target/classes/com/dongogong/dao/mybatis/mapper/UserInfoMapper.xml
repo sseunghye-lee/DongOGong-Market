@@ -72,10 +72,40 @@
     </delete>
 	-->
 	
-	<delete id="deleteUserInfo" parameterType="UserInfo">
+	<delete id="deleteUserInfo" parameterType="java.lang.String">
         DELETE FROM USERINFO
         WHERE USER_ID = #{userId}
         	AND PASSWORD = #{password}
+    </delete>
+    
+    <delete id="deleteAuctionInfo" parameterType="java.lang.String">
+    	DELETE
+    	FROM AUCTION_PRICE
+    	WHERE BUYER_ID = #{userId}
+    </delete>
+    
+    <delete id="deletePostInfo" parameterType="java.lang.String">
+    	DELETE
+    	FROM POST
+    	WHERE REGISTER_ID = #{userId}
+    </delete>
+    
+    <delete id="deleteChatInfo" parameterType="java.lang.String">
+    	DELETE
+    	FROM CHAT_MESSAGE
+    	WHERE SENDER_ID = #{userId} OR RECEIVER_ID = #{userId}
+    </delete>
+    
+    <delete id="deleteRelation" parameterType="java.lang.String">
+    	DELETE
+    	FROM RELATION
+    	WHERE USER1_ID = #{userId} OR USER2_ID = #{userId}
+    </delete>
+    
+    <delete id="deleteTransaction" parameterType="java.lang.String">
+    	DELETE
+    	FROM TRANSACTIONS
+    	WHERE SELLER_ID = #{userId} OR BUYER_ID = #{userId}
     </delete>
     
     <!-- 

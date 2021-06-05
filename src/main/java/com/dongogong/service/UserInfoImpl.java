@@ -32,9 +32,7 @@ public class UserInfoImpl implements UserInfoFacade{
       userInfoDao.updateUserInfo(userInfo);
    }
    
-   public void deleteUserInfo(UserInfo userInfo) {   
-      userInfoDao.deleteUserInfo(userInfo);
-   }
+  
    
    public int idChk(UserInfo userInfo) {
 	   int result = userInfoDao.idChk(userInfo);
@@ -53,4 +51,40 @@ public class UserInfoImpl implements UserInfoFacade{
    public List<String> getUsernameList() {
       return userInfoDao.getUsernameList();
    }
+
+	@Override
+	public void deleteUserInfo(String userId, String password) {
+		userInfoDao.deleteUserInfo(userId, password);
+		
+	}
+	
+	@Override
+	public void deleteAuctionInfo(String userId) {
+		userInfoDao.deleteAuctionInfo(userId);
+		
+	}
+	
+	@Override
+	public void deletePostInfo(String userId) {
+		userInfoDao.deletePostInfo(userId);
+		
+	}
+	
+	@Override
+	public void deleteChatInfo(String userId) {
+		userInfoDao.deleteChatInfo(userId);
+		
+	}
+
+	@Override
+	public void deleteRelation(String userId) {
+		userInfoDao.deleteRelation(userId);
+		
+	}
+	
+	@Override
+	public void deleteTransaction(String userId) {
+		userInfoDao.deleteTransaction(userId);
+		
+	}
 }

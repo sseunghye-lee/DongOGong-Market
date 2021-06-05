@@ -25,49 +25,28 @@ public class DeleteUserController {
    public void setUserInfo(UserInfoFacade userInfoFacade) {
       this.userInfoFacade = userInfoFacade;
    }
-   
+   /*
    @GetMapping
    public String deleteUserInfoView() throws Exception {
 	   return "deleteUserInfoView";
-   }
+   }*/
    
-   /*
-   @PostMapping
-   public ModelAndView deleteUserInfo(HttpServletRequest request, Model model) throws Exception {
-   
-	   	
-	   UserSession userSession =
-               (UserSession) WebUtils.getSessionAttribute(request, "userSession");
-		model.addAttribute("userSession", userSession);
-		
-		UserInfo userInfo = userInfoFacade.getUserInfo(userSession.getUserInfo().getUserId());
-		userInfoFacade.deleteUserInfo(userInfo);
-		
-		return new ModelAndView("index");
-		
-   }
-    */
-   
-   @PostMapping
-   public String deleteUserInfo(UserInfo userInfo, HttpSession session, RedirectAttributes rttr, HttpServletRequest request, Model model) throws Exception {
+   @GetMapping
+   public String deleteUserInfo(HttpSession session, RedirectAttributes rttr, HttpServletRequest request, Model model) throws Exception {
 	   //세션 가져옴
 	   UserSession userSession =
                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 		model.addAttribute("userSession", userSession);
 
 	   //UserInfo user = (UserInfo) session.getAttribute("userSession");
+	   UserInfo userInfo = userSession.getUserInfo();
 	   
-	   //세션에 있는 비밀번호
-	   String sessionPass = userSession.getUserInfo().getPassword();   
-	   //UserInfo로 들어오는 비밀번호
-	   String userInfoPass = userInfo.getPassword();
-	   
-	   if (!(sessionPass.equals(userInfoPass))) {
-		   rttr.addFlashAttribute("msg", false);
-		   return "deleteUserInfoView";
-	   }
-	   
-	   userInfoFacade.deleteUserInfo(userInfo);
+	   userInfoFacade.deleteChatInfo(userInfo.getUserId());
+	   userInfoFacade.deleteAuctionInfo(userInfo.getUserId());
+	   userInfoFacade.deletePostInfo(userInfo.getUserId());
+	   userInfoFacade.deleteRelation(userInfo.getUserId());
+	   userInfoFacade.deleteTransaction(userInfo.getUserId());
+	   userInfoFacade.deleteUserInfo(userInfo.getUserId(), userInfo.getPassword());
 	   session.invalidate();
 	   return "index";
    }

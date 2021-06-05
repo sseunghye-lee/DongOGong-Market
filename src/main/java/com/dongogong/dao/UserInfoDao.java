@@ -15,7 +15,13 @@ public interface UserInfoDao {   //회원
    
    void updateUserInfo(UserInfo userInfo) throws DataAccessException;      //회원 수정
    
-   void deleteUserInfo(UserInfo userInfo) throws DataAccessException;      //회원 탈퇴
+   void deleteUserInfo(String userId, String password) throws DataAccessException; 
+   void deleteAuctionInfo(String userId) throws DataAccessException;
+   void deletePostInfo(String userId) throws DataAccessException;
+   void deleteChatInfo(String userId) throws DataAccessException;
+   void deleteRelation(String userId) throws DataAccessException;
+   void deleteTransaction(String userId) throws DataAccessException;
+   //회원 탈퇴
    //UserInfo deleteUserInfo(String userId) throws DataAccessException;
    
    //boolean passChk(UserInfo userInfo, UserInfo passward) throws DataAccessException;   //회원 탈퇴 시 패스워드 체크
