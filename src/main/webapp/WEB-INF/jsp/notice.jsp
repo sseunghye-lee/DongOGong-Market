@@ -58,13 +58,24 @@
           <div class="col-lg-7 col-md-6">
             <div class="about-content" data-aos="fade-left" data-aos-delay="100">
               <h2>About DongOGong Market</h2>
-              <h3>공지사항</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              <p>Aut dolor id. Sint aliquam consequatur ex ex labore. Et quis qui dolor nulla dolores neque. Aspernatur consectetur omnis numquam quaerat. Sed fugiat nisi. Officiis veniam molestiae. Et vel ut quidem alias veritatis repudiandae ut fugit. Est ut eligendi aspernatur nulla voluptates veniam iusto vel quisquam. Fugit ut maxime incidunt accusantium totam repellendus eum error. Et repudiandae eum iste qui et ut ab alias.</p>
+              <p>안녕하세요. 동오공 마켓입니다. <br> 저희 마켓을 방문해주셔서 감사합니다. <br> 아래의 주의사항들을 잘 읽고 만족스러운 구매가 되길 바랍니다.<br>
+              보다 나은 거래 환경을 제공할 수 있도록 항상 노력하는 동오공 마켓이 되겠습니다. <br> 감사합니다.
+              </p>
+              <p>Hello. DongOGong Market.<br>
+				Thank you for visiting our market. <br>
+				Please read the cautions below carefully and we hope that you will be satisfied with your purchase.<br>
+				DongOGong Market will always strive to provide a better trading environment. <br>
+				Thank you.
+				</p>
               <ul>
-                <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i class="bi bi-check-circle"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i class="bi bi-check-circle"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+                <li><i class="bi bi-check-circle"></i> 경매는 한 사람 당 하나만 등록할 수 있습니다. 새로운 경매를 등록하려면 기존 경매를 삭제해주세요.</li>
+                <li><i class="bi bi-check-circle"></i> 불법 게시글은 등록을 금지합니다. 불법 게시글 발견 시 반드시 신고해주시기 바랍니다.</li>
+                <li><i class="bi bi-check-circle"></i> 동오공마켓은 채팅을 통해 구매를 확정할 수 있습니다. 원하는 게시글을 선택해 판매자와 연락하시기 바랍니다.</li>
+              </ul>
+              <ul>
+                <li><i class="bi bi-check-circle"></i> Only one auction can be registered per person. To register a new auction, please delete the existing auction.</li>
+                <li><i class="bi bi-check-circle"></i> Illegal postings are prohibited from registration. If you find any illegal postings, be sure to report them.</li>
+                <li><i class="bi bi-check-circle"></i> In DongOGong Market, you can confirm your purchase through chat. Please select the desired post and contact the seller.</li>
               </ul>
             </div>
           </div>
