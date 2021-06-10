@@ -42,8 +42,10 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+   <%@ include file="IncludeTop.jsp" %>
 </head>
 <body>
+<%@ include file="IncludeQuickHeader.jsp" %>
 <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
