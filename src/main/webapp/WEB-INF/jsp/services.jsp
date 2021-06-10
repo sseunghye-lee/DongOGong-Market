@@ -61,7 +61,7 @@
           <div class="col-md-6 col-lg-4 wow bounceInUp" data-aos="zoom-in" data-aos-delay="100">
             <div class="box">
               <div class="icon" style="background: #fceef3;"><i class="bi bi-briefcase" style="color: #ff689b;"></i></div>
-              <h4 class="title"><a href="">PRODUCT</a></h4>
+              <h4 class="title"><a href="<c:url value='/apply/PostList_product.do'/>">PRODUCT</a></h4>
               <p class="description">상품게시판 <br> 상품들의 목록과 상세보기, 내가 올린 상품들을 볼 수 있는 페이지입니다.</p>
             </div>
           </div>
@@ -83,7 +83,7 @@
           <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
             <div class="box">
               <div class="icon" style="background: #e6fdfc;"><i class="bi bi-bar-chart" style="color: #3fcdc7;"></i></div>
-              <h4 class="title"><a href="">REGISTER PRODUCT</a></h4>
+              <h4 class="title"><a href="<c:url value="/apply/product.do"/>">REGISTER PRODUCT</a></h4>
               <p class="description">상품 등록 페이지 <br> 구매 상품을 등록하는 페이지로 검색될 상품명, 가격, 설명 등을 입력해 등록할 수 있는 페이지입니다.</p>
             </div>
           </div>
