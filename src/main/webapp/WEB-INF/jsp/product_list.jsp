@@ -43,6 +43,8 @@
                         <a class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline"
                            href="<c:url value="/apply/product.do"/>">NEW</a>
                         <a class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline"
+                           href="<c:url value="/cartSend.do/"/>">CART</a>
+                        <a class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline"
                            href="<c:url value="/"/>">HOME</a>
 
                     </div>
@@ -53,32 +55,35 @@
                 <div class="container">
 
                     <h2 class="mb-5 font-weight-bolder">Product Categories</h2>
+                      <form method="get" action="<c:url value="/jsp/category_product.do"/>">
+                        
                     <div class="row">
                         <div class="col-lg-3 col-md-6 mb-5">
-                            <a class="card lift border-bottom-lg border-red" href="#!">
-                                <div class="card-body text-center">
+                           <input type="submit" class="card lift border-bottom-lg border-red col-lg-12" id="borderType" name="borderType" value="elec" href="<c:url value="/jsp/category_product.do"/>">
+                             <div class="card-body text-center">
                                     <div class="icon-stack icon-stack-xl bg-red text-white w-2 mb-2">
-                                        <i class="fas fa-blender-phone"></i>
+                                         <i class="fas fa-blender-phone"></i>
                                     </div>
                                     <div class="small text-gray-600 mt-3">가전제품(Home Appliances)</div>
                                 </div>
+                             
                             </a>
+                            
                         </div>
-                        <div class="col-lg-3 col-md-6 mb-5">
-                            <a class="card lift border-bottom-lg border-orange" href="#!"
-                            >
+                        <div class="col-lg-3 col-md-6 mb-5"> 
+                              <input type="submit" class="card lift border-bottom-lg border-red col-lg-12" id="borderType" name="borderType" value="clothes" href="<c:url value="/jsp/category_product.do"/>">
+                         
                                 <div class="card-body text-center">
                                     <div class="icon-stack icon-stack-xl bg-orange text-white mb-2">
                                         <i class="fas fa-tshirt"></i>
                                     </div>
                                     <div class="small text-gray-600 mt-3">옷(Clothes)</div>
                                 </div>
-                            </a
-                            >
+                            </a>
                         </div>
                         <div class="col-lg-3 col-md-6 mb-5">
-                            <a class="card lift border-bottom-lg border-yellow" href="#!">
-                                <div class="card-body text-center">
+                          <input type="submit" class="card lift border-bottom-lg border-red col-lg-12" id="borderType" name="borderType" value="cosmetic" href="<c:url value="/jsp/category_product.do"/>">
+                              <div class="card-body text-center">
                                     <div class="icon-stack icon-stack-xl bg-yellow text-white mb-2"><i
                                             class="fas fa-gift"></i></div>
                                     <div class="small text-gray-600 mt-3">화장품(Cosmetics)</div>
@@ -86,8 +91,8 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-6 mb-5">
-                            <a class="card lift border-bottom-lg border-green" href="#!">
-                                <div class="card-body text-center">
+                            <input type="submit" class="card lift border-bottom-lg border-red col-lg-12" id="borderType" name="borderType" value="furniture" href="<c:url value="/jsp/category_product.do"/>">
+                            <div class="card-body text-center">
                                     <div class="icon-stack icon-stack-xl bg-green text-white mb-2">
                                         <i class="fas fa-couch"></i></div>
                                     <div class="small text-gray-600 mt-3">가구(Furniture)</div>
@@ -95,8 +100,8 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                            <a class="card lift border-bottom-lg border-cyan" href="#!">
-                                <div class="card-body text-center">
+                           <input type="submit" class="card lift border-bottom-lg border-red col-lg-12" id="borderType" name="borderType" value="toy" href="<c:url value="/jsp/category_product.do"/>">
+                             <div class="card-body text-center">
                                     <div class="icon-stack icon-stack-xl bg-cyan text-white mb-2">
                                         <i class="fas fa-robot"></i></div>
                                     <div class="small text-gray-600 mt-3">장난감(Toy)</div>
@@ -104,8 +109,8 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                            <a class="card lift border-bottom-lg border-blue" href="#!">
-                                <div class="card-body text-center">
+                          <input type="submit" class="card lift border-bottom-lg border-red col-lg-12" id="borderType" name="borderType" value="stationery" href="<c:url value="/jsp/category_product.do"/>">
+                              <div class="card-body text-center">
                                     <div class="icon-stack icon-stack-xl bg-blue text-white mb-2">
                                         <i class="fas fa-pencil-alt"></i></div>
                                     <div class="small text-gray-600 mt-3">문구류(Stationery)</div>
@@ -113,8 +118,8 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                            <a class="card lift border-bottom-lg border-purple" href="#!">
-                                <div class="card-body text-center">
+                          <input type="submit" class="card lift border-bottom-lg border-red col-lg-12" id="borderType" name="borderType" value="book" href="<c:url value="/jsp/category_product.do"/>">
+                              <div class="card-body text-center">
                                     <div class="icon-stack icon-stack-xl bg-purple text-white mb-2">
                                         <i class="fas fa-book"></i>
                                     </div>
@@ -123,8 +128,8 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-6">
-                            <a class="card lift border-bottom-lg border-pink" href="#!">
-                                <div class="card-body text-center">
+                          <input type="submit" class="card lift border-bottom-lg border-red col-lg-12" id="borderType" name="borderType" value="others" href="<c:url value="/jsp/category_product.do"/>">
+                              <div class="card-body text-center">
                                     <div class="icon-stack icon-stack-xl bg-pink text-white mb-2"><i
                                             class="fas fa-shopping-cart"></i></div>
                                     <div class="small text-gray-600 mt-3">기타(Other)</div>
@@ -132,15 +137,15 @@
                             </a>
                         </div>
                     </div>
+                    </form>
                     <br>
                     <h2 class="mt-5 mb-5 font-weight-bolder">Product_list</h2>
                     <div class="row">
                         <c:forEach var="getPostList" items="${getPostList}">
                             <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
                                 <a class="card lift h-100" href="product_detail.jsp">
-                                
                                     <div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">${getPostList.price}</div>
-                                     <img class="card-img-top" name="photoUrl" src="/resources/images/${getPostList.photoUrl}" alt="..." />
+                                     <img name="photoUrl" src="/resources/images/${getPostList.photoUrl}" height=170 alt="..." />
                                            
                                     <div class="card-body p-3">
                                         <div class="card-title small mb-0">${getPostList.title}</div>

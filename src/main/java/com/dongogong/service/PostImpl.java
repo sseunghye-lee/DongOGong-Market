@@ -3,6 +3,7 @@ package com.dongogong.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +21,13 @@ public class PostImpl implements PostFacade{
    public List<Post> getPostList() {
       return postDao.getPostList();
    }
+   
+   //카테고리별 상품출력
+   @Override
+   public List<Post> getCategory(String borderType) {
+	   return postDao.getCategory(borderType);
+   }
+   
          
    // 내 상품 가져오기
    @Override

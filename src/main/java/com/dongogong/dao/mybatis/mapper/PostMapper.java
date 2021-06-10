@@ -11,6 +11,11 @@ import com.dongogong.domain.Post;
 public interface PostMapper {
 	// 전체상품 가져오기
 			List<Post> getPostList();
+			
+			//카테고리별 상품 출력
+			 List<Post> getCategory(String borderType);
+		      
+			
 			// 내 상품 가져오기
 			Post getPost(int post_idx); 
 			

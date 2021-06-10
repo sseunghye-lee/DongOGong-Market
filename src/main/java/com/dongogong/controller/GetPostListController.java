@@ -26,5 +26,9 @@ public class GetPostListController {
 		public List<Post> getPostList() {
 			return postFacade.getPostList();
 		}
+		 @ModelAttribute("getCategory")
+		   public List<Post> getCategory(String borderType) {
+		      return postFacade.getCategory("elec");
+		   }
 
 	}

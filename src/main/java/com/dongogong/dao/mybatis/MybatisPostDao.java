@@ -21,6 +21,12 @@ public class MybatisPostDao implements PostDao {
 		return postMapper.getPostList();
 	}
 	
+	@Override
+	 public  List<Post> getCategory(String borderType) throws DataAccessException {
+		 return postMapper.getCategory(borderType);
+	 }
+     
+	
 	// 내 상품 가져오기
 	@Override
 	public Post getPost(int post_idx) throws DataAccessException {
