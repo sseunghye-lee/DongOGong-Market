@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.WebUtils;
 
@@ -32,7 +33,8 @@ public class DeleteUserController {
    }*/
    
    @GetMapping
-   public String deleteUserInfo(HttpSession session, RedirectAttributes rttr, HttpServletRequest request, Model model) throws Exception {
+   public String handleRequest(HttpSession session, RedirectAttributes rttr, HttpServletRequest request, Model model
+		   ) throws Exception {
 	   //세션 가져옴
 	   UserSession userSession =
                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
@@ -47,7 +49,15 @@ public class DeleteUserController {
 	   userInfoFacade.deleteRelation(userInfo.getUserId());
 	   userInfoFacade.deleteTransaction(userInfo.getUserId());
 	   userInfoFacade.deleteUserInfo(userInfo.getUserId(), userInfo.getPassword());
+	   //session.invalidate();
+	   //status.setComplete();
+	   session.removeAttribute("userSession");
 	   session.invalidate();
+	   
+	  userSession =
+               (UserSession) WebUtils.getSessionAttribute(request, "userSession");
+		model.addAttribute("userSession", userSession);
+	   
 	   return "index";
    }
 }
