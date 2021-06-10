@@ -26,6 +26,12 @@
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js"
             crossorigin="anonymous"></script>
+    <script>
+    function goCart(targetUri) {
+        form.action = targetUri;
+        form.submit();
+     }
+    </script>
 </head>
 <body>
 <div id="layoutDefault">
@@ -151,7 +157,8 @@
                                         <div class="card-title small mb-0">${getPostList.title}</div>
                                         <div class="text-xs text-gray-500">${getPostList.content} </div>
                                     </div>
-                                </a>
+                                       <input type = "submit" value = "장바구니" onClick = "goCart('<c:url value='/cartSend.do'><c:param name='postIdx' value='${post.postIdx}'/><c:param name='price' value='${post.price}'/><c:param name='title' value='${post.title}'/></c:url>')" /> 
+                               	   </a>
                             </div>
                         </c:forEach>
                     </div>
