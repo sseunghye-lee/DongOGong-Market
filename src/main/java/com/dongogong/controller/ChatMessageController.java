@@ -5,6 +5,7 @@ import com.dongogong.domain.Post;
 import com.dongogong.service.ChatMessageFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.WebUtils;
@@ -20,16 +21,15 @@ public class ChatMessageController {
     @Autowired
     private ChatMessageFacade chatMessageFacade;
 
-    @RequestMapping("/chat/room/{userId}")
-    public ModelAndView showChatList(@PathVariable("userId") String userId, HttpServletRequest request, HttpServletResponse response) {
+    @GetMapping("/chat/room/{userId}")
+    public ModelAndView showChatList(@PathVariable("userId") String userId, HttpServletRequest request, HttpServletResponse response, Model model) {
         UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 
-        ModelAndView mav = new ModelAndView("showChatRoom");
-        mav.addObject("chatRoomList", chatMessageFacade.getChatRoomList(userId));
-        mav.addObject("userSession", userSession);
+        model.addAttribute("chatRoomList", chatMessageFacade.getChatRoomList(userId));
+        model.addAttribute("userSession", userSession);
 
-        return mav;
+        return new ModelAndView("showChatRoom");
     }
 
     @RequestMapping("/chat/message.do")

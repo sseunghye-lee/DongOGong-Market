@@ -3,43 +3,55 @@
 <%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%@ include file="IncludeTop.jsp" %>
+<%@ include file="IncludeTopDist.jsp" %>
 <body>
-<!-- ======= Header ======= -->
-<%@ include file="IncludeQuickHeader.jsp" %>
-<!-- End Header -->
-<main class="main-screen" th:each="chat, index : ${chatRoomList}">
-    <a th:href="${'/chat/message/list/'+userId+'/'+chat.getChatRoomId()}" class="chats-list">
-        <div class="user-component-chatroom">
-
-            <div class="user-component__column__chat__img" th:if="${chat.getSenderId() == userId}">
-                <img th:src="${chat.getReceiverProfileImg()}"
-                     class="user-component__avatar user-component__avatar--sm__chats"
-                />
-            </div>
-            <div class="user-component__column__chat__img" th:if="${chat.getSenderId() != userId}">
-                <img th:src="${chat.getSenderProfileImg()}"
-                     class="user-component__avatar user-component__avatar--sm__chats"
-                />
-            </div>
-            <!--                <h4 class="user-component__title" th:if="${chat.getSenderId()}" text="${chat.getSenderId()}"></h4>-->
-            <!--                    <h6 class="user-component__subtitle" th:text="${chat.getChatMessage()}">-->
-            <h4 class="user-component__title" th:if="${chat.getSenderId() == userId}"
-                th:text="${chat.getReceiverName()}"></h4>
-            <h4 class="user-component__title" th:if="${chat.getSenderId() != userId}"
-                th:text="${chat.getSenderName()}"></h4>
-            <div class="user-component__column__chat__noImg date">
-                <span class="user-component__time" th:text="${chat.getModifiedDateTime()}"></span>
-            </div>
-            <h6 class="user-component__subtitle__chats" th:text="${chat.getChatMessage()}"></h6>
-            <div class="user-component__column__chat__noImg"
-                 th:if="${(chat.receiverId == userId) and (chat.getReadYn().toString().equals('N'))}">
-                <div class="badge">N</div>
-            </div>
-        </div>
-    </a>
-</main>
-
+<div id="layoutDefault">
+    <section id="layoutDefault_content">
+        <%@ include file="IncludeQuickHeader.jsp" %>
+        <main class="vh-100">
+            <header class="page-header page-header-light bg-light h-100 overflow-scroll">
+                <c:forEach var="chat" items="${chatRoomList}">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7">
+                                <a href="<c:url value="/chat/message.do?chatRelationIdx=${chat.chatRelationIdx}"/>"
+                                   class="chats-list">
+                                    <div class="user-component-chatroom">
+                                        <c:if test="${chat.senderId eq userSession.getUserInfo().getUserId()}">
+                                            <h4 class="user-component__title" th:text="${chat.getReceiverName()}">
+                                                <c:out value="${chat.receiverNickName}"></c:out>
+                                            </h4>
+                                        </c:if>
+                                        <c:if test="${chat.senderId ne userSession.getUserInfo().getUserId()}">
+                                            <h4 class="user-component__title">
+                                                <c:out value="${chat.senderNickName}"></c:out>
+                                            </h4>
+                                        </c:if>
+                                        <div class="user-component__column__chat__noImg date">
+                                            <span class="user-component__time">
+                                                <c:out value="${chat.createdDateTime}"></c:out>
+                                            </span>
+                                        </div>
+                                        <h6 class="user-component__subtitle__chats">
+                                            <c:out value="${chat.content}"></c:out></h6>
+                                        <c:if test="${chat.receiverId eq userSession.getUserInfo().getUserId() and chat.readYn eq 'N'}">
+                                            <div class="user-component__column__chat__noImg">
+                                                <div class="badge">N</div>
+                                            </div>
+                                        </c:if>
+                                    </div>
+                                </a>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </c:forEach>
+                <h3 class="font-weight-bolder page-header-text text-muted text-center">END</h3>
+            </header>
+        </main>
+    </section>
+</div>
+</div>
 <script
         src="https://kit.fontawesome.com/6478f529f2.js"
         crossorigin="anonymous"
