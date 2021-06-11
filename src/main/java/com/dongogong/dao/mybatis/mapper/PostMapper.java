@@ -17,7 +17,7 @@ public interface PostMapper {
 		      
 			
 			// 내 상품 가져오기
-			Post getPost(int post_idx); 
+			 List<Post> getPost(String registerId); 
 			
 			
 			// 상품 눌렀을때 정보보기

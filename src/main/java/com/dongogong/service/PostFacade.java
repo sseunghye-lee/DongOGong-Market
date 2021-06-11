@@ -15,8 +15,8 @@ public interface PostFacade {
    
          
    // 내 상품 가져오기
-   public Post getPost(int post_idx);
-         
+   public List<Post> getPost(String registerId);
+	     
    // 상품 눌렀을때 정보보기
    public Post selectPost(int post_idx, String content);
          

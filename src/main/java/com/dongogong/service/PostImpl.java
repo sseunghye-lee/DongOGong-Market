@@ -31,8 +31,8 @@ public class PostImpl implements PostFacade{
          
    // 내 상품 가져오기
    @Override
-   public Post getPost(int post_idx) {
-      return postDao.getPost(post_idx);
+   public List<Post> getPost(String registerId) {
+      return postDao.getPost(registerId);
    }
          
    // 상품 눌렀을때 정보보기

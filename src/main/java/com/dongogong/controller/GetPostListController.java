@@ -13,8 +13,11 @@ import com.dongogong.service.PostFacade;
 @RequestMapping("/apply/PostList_product.do")
 public class GetPostListController {
 		
-		@Autowired
+	@Autowired(required=false)
 	   private PostFacade postFacade;
+		public void setPostFacade(PostFacade postFacade) {
+			this.postFacade = postFacade;
+		}
 		
 		 @GetMapping
 		    public String registerPost() {
@@ -26,9 +29,6 @@ public class GetPostListController {
 		public List<Post> getPostList() {
 			return postFacade.getPostList();
 		}
-		 @ModelAttribute("getCategory")
-		   public List<Post> getCategory(String borderType) {
-		      return postFacade.getCategory("elec");
-		   }
+		
 
 	}

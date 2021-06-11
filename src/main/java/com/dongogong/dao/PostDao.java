@@ -13,7 +13,7 @@ public interface PostDao {
       List<Post> getCategory(String borderType) throws DataAccessException;
       
       // 내 상품 가져오기
-      Post getPost(int post_idx) throws DataAccessException;
+      List<Post> getPost(String registerId) throws DataAccessException;
       
       // 상품 눌렀을때 정보보기
       Post selectPost(int post_idx, String content) throws DataAccessException;

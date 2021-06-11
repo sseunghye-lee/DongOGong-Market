@@ -4,6 +4,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ include file="IncludeTopDist.jsp" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,6 +33,11 @@
         form.action = targetUri;
         form.submit();
      }
+    function goMyPost(targetUri) {
+			form.action = targetUri;
+        	form.submit();
+		
+		}
     </script>
 </head>
 <body>
@@ -42,17 +49,20 @@
             <nav class="navbar navbar-marketing navbar-expand-lg bg-white navbar-light justify-content-between">
                 <div class="container justify-content-between py-4">
                     <a class="navbar-brand text-dark">DongOGong Market</a>
+                    <form method="post" action="<c:url value="/apply/MyPost_product.do"/>">
+                           
+                         <input type = "submit" value = "My" class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline btn-primary">
+                      	  </form> 
                     <div class="d-inline-block collapse navbar-collapse justify-content-end text-align-right"
                          id="navbarSupportedContent">
-                        <a class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline"
-                           href="<c:url value="/apply/MyPost_product.do"/>">MY</a>
+                         
                         <a class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline"
                            href="<c:url value="/apply/product.do"/>">NEW</a>
                         <a class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline"
                            href="<c:url value="/cartSend.do/"/>">CART</a>
                         <a class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline"
                            href="<c:url value="/"/>">HOME</a>
-
+                                          
                     </div>
                 </div>
             </nav>
@@ -65,7 +75,7 @@
                         
                     <div class="row">
                         <div class="col-lg-3 col-md-6 mb-5">
-                           <input type="submit" class="card lift border-bottom-lg border-red col-lg-12" id="borderType" name="borderType" value="elec" href="<c:url value="/jsp/category_product.do"/>">
+                           <input type="submit" class="card lift border-bottom-lg border-red col-lg-12 text-white" id="borderType" name="borderType" value="elec" href="<c:url value="/jsp/category_product.do"/>">
                              <div class="card-body text-center">
                                     <div class="icon-stack icon-stack-xl bg-red text-white w-2 mb-2">
                                          <i class="fas fa-blender-phone"></i>
@@ -77,7 +87,7 @@
                             
                         </div>
                         <div class="col-lg-3 col-md-6 mb-5"> 
-                              <input type="submit" class="card lift border-bottom-lg border-red col-lg-12" id="borderType" name="borderType" value="clothes" href="<c:url value="/jsp/category_product.do"/>">
+                              <input type="submit" class="card lift border-bottom-lg border-red col-lg-12 text-white" id="borderType" name="borderType" value="clothes" href="<c:url value="/jsp/category_product.do"/>">
                          
                                 <div class="card-body text-center">
                                     <div class="icon-stack icon-stack-xl bg-orange text-white mb-2">
@@ -88,7 +98,7 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-6 mb-5">
-                          <input type="submit" class="card lift border-bottom-lg border-red col-lg-12" id="borderType" name="borderType" value="cosmetic" href="<c:url value="/jsp/category_product.do"/>">
+                          <input type="submit" class="card lift border-bottom-lg border-red col-lg-12 text-white" id="borderType" name="borderType" value="cosmetic" href="<c:url value="/jsp/category_product.do"/>">
                               <div class="card-body text-center">
                                     <div class="icon-stack icon-stack-xl bg-yellow text-white mb-2"><i
                                             class="fas fa-gift"></i></div>
@@ -97,7 +107,7 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-6 mb-5">
-                            <input type="submit" class="card lift border-bottom-lg border-red col-lg-12" id="borderType" name="borderType" value="furniture" href="<c:url value="/jsp/category_product.do"/>">
+                            <input type="submit" class="card lift border-bottom-lg border-red col-lg-12 text-white" id="borderType" name="borderType" value="furniture" href="<c:url value="/jsp/category_product.do"/>">
                             <div class="card-body text-center">
                                     <div class="icon-stack icon-stack-xl bg-green text-white mb-2">
                                         <i class="fas fa-couch"></i></div>
@@ -106,7 +116,7 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                           <input type="submit" class="card lift border-bottom-lg border-red col-lg-12" id="borderType" name="borderType" value="toy" href="<c:url value="/jsp/category_product.do"/>">
+                           <input type="submit" class="card lift border-bottom-lg border-red col-lg-12 text-white" id="borderType" name="borderType" value="toy" href="<c:url value="/jsp/category_product.do"/>">
                              <div class="card-body text-center">
                                     <div class="icon-stack icon-stack-xl bg-cyan text-white mb-2">
                                         <i class="fas fa-robot"></i></div>
@@ -115,7 +125,7 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                          <input type="submit" class="card lift border-bottom-lg border-red col-lg-12" id="borderType" name="borderType" value="stationery" href="<c:url value="/jsp/category_product.do"/>">
+                          <input type="submit" class="card lift border-bottom-lg border-red col-lg-12 text-white" id="borderType" name="borderType" value="stationery" href="<c:url value="/jsp/category_product.do"/>">
                               <div class="card-body text-center">
                                     <div class="icon-stack icon-stack-xl bg-blue text-white mb-2">
                                         <i class="fas fa-pencil-alt"></i></div>
@@ -124,7 +134,7 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-                          <input type="submit" class="card lift border-bottom-lg border-red col-lg-12" id="borderType" name="borderType" value="book" href="<c:url value="/jsp/category_product.do"/>">
+                          <input type="submit" class="card lift border-bottom-lg border-red col-lg-12 text-white" id="borderType" name="borderType" value="book" href="<c:url value="/jsp/category_product.do"/>">
                               <div class="card-body text-center">
                                     <div class="icon-stack icon-stack-xl bg-purple text-white mb-2">
                                         <i class="fas fa-book"></i>
@@ -134,7 +144,7 @@
                             </a>
                         </div>
                         <div class="col-lg-3 col-md-6">
-                          <input type="submit" class="card lift border-bottom-lg border-red col-lg-12" id="borderType" name="borderType" value="others" href="<c:url value="/jsp/category_product.do"/>">
+                          <input type="submit" class="card lift border-bottom-lg border-red col-lg-12 text-white" id="borderType" name="borderType" value="others" href="<c:url value="/jsp/category_product.do"/>">
                               <div class="card-body text-center">
                                     <div class="icon-stack icon-stack-xl bg-pink text-white mb-2"><i
                                             class="fas fa-shopping-cart"></i></div>
