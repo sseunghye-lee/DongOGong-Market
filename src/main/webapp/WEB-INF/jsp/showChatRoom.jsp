@@ -18,7 +18,7 @@
                                    class="chats-list">
                                     <div class="user-component-chatroom">
                                         <c:if test="${chat.senderId eq userSession.getUserInfo().getUserId()}">
-                                            <h4 class="user-component__title" th:text="${chat.getReceiverName()}">
+                                            <h4 class="user-component__title">
                                                 <c:out value="${chat.receiverNickName}"></c:out>
                                             </h4>
                                         </c:if>
