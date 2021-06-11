@@ -33,11 +33,6 @@
         form.action = targetUri;
         form.submit();
      }
-    function goMyPost(targetUri) {
-			form.action = targetUri;
-        	form.submit();
-		
-		}
     </script>
 </head>
 <body>
@@ -167,8 +162,9 @@
                                         <div class="card-title small mb-0">${getPostList.title}</div>
                                         <div class="text-xs text-gray-500">${getPostList.content} </div>
                                     </div>
+                                     </a>
                                        <input type = "submit" value = "장바구니" onClick = "goCart('<c:url value='/cartSend.do'><c:param name='postIdx' value='${post.postIdx}'/><c:param name='price' value='${post.price}'/><c:param name='title' value='${post.title}'/></c:url>')" /> 
-                               	   </a>
+                               	  
                             </div>
                         </c:forEach>
                     </div>
