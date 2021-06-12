@@ -38,16 +38,9 @@ public class GetCategoryController {
 				) throws Exception {
 			UserSession userSession =
 	                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
+			model.addAttribute("userSession", userSession);
+
 			String borderType = request.getParameter("borderType");
-			
-			Post categoryPost;
-			int postIdx = 0;
-			try {
-				categoryPost = postFacade.getPostListSize();
-				postIdx = categoryPost.getPostIdx();
-			} catch(Exception e) {
-				postIdx = 0;
-			}
 			
 			model.addAttribute("getPostList", postFacade.getCategory(borderType));
 			

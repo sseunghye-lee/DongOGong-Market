@@ -4,8 +4,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ include file="IncludeTopDist.jsp" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +28,10 @@
             crossorigin="anonymous"></script>
     <script>
     function goCart(targetUri) {
+        form.action = targetUri;
+        form.submit();
+     }
+    function goDetail(targetUri) {
         form.action = targetUri;
         form.submit();
      }
@@ -151,23 +153,30 @@
                     </form>
                     <br>
                     <h2 class="mt-5 mb-5 font-weight-bolder">Product_list</h2>
+                    <form name="form" method="POST">
                     <div class="row">
                         <c:forEach var="getPostList" items="${getPostList}">
                             <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
-                                <a class="card lift h-100" href="product_detail.jsp">
+                                <a class="card lift h-100">
                                     <div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">${getPostList.price}</div>
-                                     <img name="photoUrl" src="/resources/images/${getPostList.photoUrl}" height=170 alt="..." />
-                                           
+                                     <img name="photoUrl" src="/resources/images/${getPostList.photoUrl}" height=170 alt="..." />          
                                     <div class="card-body p-3">
                                         <div class="card-title small mb-0">${getPostList.title}</div>
                                         <div class="text-xs text-gray-500">${getPostList.content} </div>
                                     </div>
-                                     </a>
-                                       <input type = "submit" value = "장바구니" onClick = "goCart('<c:url value='/cartSend.do'><c:param name='postIdx' value='${post.postIdx}'/><c:param name='price' value='${post.price}'/><c:param name='title' value='${post.title}'/></c:url>')" /> 
-                               	  
+                                    
+                                       <input type = "submit" value = "세부정보" onClick = "goDetail('<c:url value='/select_product_myList.do'><c:param name='postIdx' value='${getPostList.postIdx}'/></c:url>')" />                               	                                
+ 									   <input type = "submit" value = "장바구니" onClick = "goCart('<c:url value='/cartSend.do'>
+                                                   <c:param name='postIdx' value='${getPostList.postIdx}'/>
+                                                   <c:param name='price' value='${getPostList.price}'/>
+                                                   <c:param name='title' value='${getPostList.title}'/>
+                                                   <c:param name='sellerId' value='${getPostList.registerId }'/>
+                                                   </c:url>')" /> 
+                               	   </a> 
                             </div>
                         </c:forEach>
                     </div>
+                     </form>
                     <div class="mb-10">
                         <a class="text-arrow-icon" href="#!">See more deals near you<i
                                 data-feather="arrow-right"></i></a>
@@ -175,6 +184,7 @@
 
 
                 </div>
+               
             </section>
         </main>
     </div>

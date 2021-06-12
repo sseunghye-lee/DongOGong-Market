@@ -18,11 +18,18 @@ public interface PostFacade {
    public List<Post> getPost(String registerId);
 	     
    // 상품 눌렀을때 정보보기
-   public Post selectPost(int post_idx, String content);
+   Post selectPost(int post_idx);
+
          
    // 상품 등록
    void registerPost(Post post);
    
    public Post getPostListSize();
+   
+   public Post getPostIdx(int postIdx);
+   
+   // 장바구니 추가 시 상태변경
+   void updatePost(int postIdx);
+
    
 }

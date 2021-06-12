@@ -90,7 +90,7 @@
           <div class="col-md-6 col-lg-4 wow" data-aos="zoom-in" data-aos-delay="100">
             <div class="box">
               <div class="icon" style="background: #eafde7;"><i class="bi bi-binoculars" style="color:#41cf2e;"></i></div>
-              <h4 class="title"><a href="">MY CART</a></h4>
+              <h4 class="title"><a href="<c:url value="/cartList.do"/>">MY CART</a></h4>
               <p class="description">장바구니 <br> 장바구니에 담은 물건을 한 눈에 볼 수 있는 페이지입니다.</p>
             </div>
           </div>

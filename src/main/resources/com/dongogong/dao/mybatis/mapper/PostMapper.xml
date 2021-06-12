@@ -9,17 +9,32 @@
      FROM POST
      WHERE REGISTER_ID = #{registerId} 
     </select>
+    
+    <select id="getPostIdx" resultType="Post">
+    SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID, PRICE, TITLE, CONTENT, TRANSACTION_CONFIRMATION AS transactionConfirmation
+     FROM POST
+     WHERE POST_IDX = #{postIdx} 
+    </select>
 
   <select id="getPostList" resultType="Post">
-    SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID, PRICE, TITLE, CONTENT
+    SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID AS REGISTERID, PRICE, TITLE, CONTENT
      FROM POST
      WHERE NOT BORDER_TYPE = 'auction'
+     AND TRANSACTION_CONFIRMATION = 'no'
     </select>
     
+    <select id="selectPost" resultType="Post">
+     SELECT PHOTOURL, POST_IDX, PRICE, TITLE, CONTENT
+     FROM POST
+     WHERE POST_IDX = #{postIdx}
+  </select>
+    
     <select id="getCategory" resultType="Post" parameterType="java.lang.String">
-    SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID, PRICE, TITLE, CONTENT, BORDER_TYPE
+    SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID AS REGISTERID, PRICE, TITLE, CONTENT, BORDER_TYPE
      FROM POST
      WHERE BORDER_TYPE = #{borderType}
+       AND TRANSACTION_CONFIRMATION = 'no'
+   
     </select>
     
     <select id="getPostListSize" resultType="Post">
@@ -27,10 +42,14 @@
      FROM POST
     </select>
   
-<insert id="registerPost" parameterType="Post">
-INSERT INTO POST (post_Idx, register_Id, title, border_type, price, content, transaction_confirmation, photoUrl)
- VALUES(#{postIdx}, #{registerId}, #{title}, #{borderType}, #{price}, #{content}, 'no', #{photoUrl})
-</insert>
+	<insert id="registerPost" parameterType="Post">
+	INSERT INTO POST (post_Idx, register_Id, title, border_type, price, content, transaction_confirmation, photoUrl)
+	 VALUES(#{postIdx}, #{registerId}, #{title}, #{borderType}, #{price}, #{content}, 'no', #{photoUrl})
+	</insert>
 
- 
+	<update id="updatePost" parameterType="java.lang.Integer">
+	  UPDATE POST
+	  SET TRANSACTION_CONFIRMATION = 'WAIT'
+	  WHERE POST_IDX = #{postIdx}
+	</update>
 </mapper>
