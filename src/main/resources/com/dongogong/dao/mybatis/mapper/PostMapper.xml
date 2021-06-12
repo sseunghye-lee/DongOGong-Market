@@ -30,7 +30,7 @@
   </select>
     
     <select id="getCategory" resultType="Post" parameterType="java.lang.String">
-    SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID, PRICE, TITLE, CONTENT, BORDER_TYPE
+    SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID AS REGISTERID, PRICE, TITLE, CONTENT, BORDER_TYPE
      FROM POST
      WHERE BORDER_TYPE = #{borderType}
        AND TRANSACTION_CONFIRMATION = 'no'
