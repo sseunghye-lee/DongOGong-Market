@@ -18,18 +18,19 @@
                                    class="chats-list">
                                     <div class="user-component-chatroom">
                                         <c:if test="${chat.senderId eq userSession.getUserInfo().getUserId()}">
-                                            <h4 class="user-component__title">
+                                            <h4 class="user-component__title font-weight-bolder">
                                                 <c:out value="${chat.receiverNickName}"></c:out>
                                             </h4>
                                         </c:if>
                                         <c:if test="${chat.senderId ne userSession.getUserInfo().getUserId()}">
-                                            <h4 class="user-component__title">
+                                            <h4 class="user-component__title font-weight-bolder">
                                                 <c:out value="${chat.senderNickName}"></c:out>
                                             </h4>
                                         </c:if>
                                         <div class="user-component__column__chat__noImg date">
                                             <span class="user-component__time">
-                                                <c:out value="${chat.createdDateTime}"></c:out>
+                                                <fmt:formatDate value="${chat.createdDateTime}"
+                                                                pattern="yyyy/MM/dd hh:mm:ss" />
                                             </span>
                                         </div>
                                         <h6 class="user-component__subtitle__chats">

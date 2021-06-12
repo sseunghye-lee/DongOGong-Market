@@ -9,7 +9,7 @@
 //import java.util.List;
 //
 //public interface ChatMessageRepository extends JpaRepository<ChatMessage, String> {
-//    @Query("SELECT chatMessageIdx, " +
+//    @Query(value = "SELECT chatMessageIdx, " +
 //            "               senderId, " +
 //            "               receiverId, " +
 //            "               chatRelationIdx, " +
@@ -39,6 +39,28 @@
 //            "                                                  FROM RELATION " +
 //            "                                                  WHERE USER1_ID = :userIdx " +
 //            "                                                     OR USER2_ID = :userIdx) " +
-//            "                                           GROUP BY CHAT_RELATION_IDX))")
-//    List<ChatSummary> findChatRoomOrderByCreatedDateTime(@Param("userIdx") String userIdx);
+//            "                                           GROUP BY CHAT_RELATION_IDX))", nativeQuery = true)
+//    List<ChatSummary> findChatRoomOrderByCreatedDateTime(@Param("userId") String userId);
+//
+//    @Query(value = "SELECT C.CHAT_MESSAGE_IDX, " +
+//            "               C.SENDER_ID, " +
+//            "               C.RECEIVER_ID, " +
+//            "               C.CHAT_RELATION_IDX, " +
+//            "               C.POST_IDX, " +
+//            "               C.READ_YN, " +
+//            "               C.CONTENT, " +
+//            "               C.CREATED_DATE_TIME, " +
+//            "               U1.NICK_NAME AS SENDER_NICKNAME, " +
+//            "               U2.NICK_NAME AS RECEIVER_NICKNAME " +
+//            "        From CHAT_MESSAGE C " +
+//            "                 LEFT JOIN USERINFO U1 ON C.SENDER_ID = U1.USER_ID " +
+//            "                 LEFT JOIN USERINFO U2 ON C.RECEIVER_ID = U2.USER_ID " +
+//            "        WHERE CHAT_RELATION_IDX = :chatRelationIdx", nativeQuery = true)
+//    List<ChatSummary> findChatMessageOrderByCreatedDateTime(@Param("relationIdx") int chatRelationIdx);
+//
+//    @Query(value = "UPDATE CHAT_MESSAGE " +
+//            "        SET READ_YN = 'Y' " +
+//            "        WHERE CHAT_RELATION_IDX = :chatRelationIdx " +
+//            "          AND RECEIVER_ID = :userId", nativeQuery = true)
+//    void updateReadYn(@Param("relationIdx") int chatRelationIdx, @Param("userId") String userId);
 //}
