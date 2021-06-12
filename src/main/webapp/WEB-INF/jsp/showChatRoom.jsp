@@ -13,36 +13,35 @@
                 <c:forEach var="chat" items="${chatRoomList}">
                     <div class="container">
                         <div class="row justify-content-center">
+
                             <div class="col-lg-7">
                                 <a href="<c:url value="/chat/message.do?chatRelationIdx=${chat.chatRelationIdx}"/>"
                                    class="chats-list">
-                                    <div class="user-component-chatroom">
-                                        <c:if test="${chat.senderId eq userSession.getUserInfo().getUserId()}">
-                                            <h4 class="user-component__title font-weight-bolder">
-                                                <c:out value="${chat.receiverNickName}"></c:out>
-                                            </h4>
-                                        </c:if>
-                                        <c:if test="${chat.senderId ne userSession.getUserInfo().getUserId()}">
-                                            <h4 class="user-component__title font-weight-bolder">
-                                                <c:out value="${chat.senderNickName}"></c:out>
-                                            </h4>
-                                        </c:if>
-                                        <div class="user-component__column__chat__noImg date">
-                                            <span class="user-component__time">
+
+                                    <div class="w-100 overflow-hidden">
+                                        <h5 class="mt-0 mb-0 font-14">
+                                            <span class="float-end text-muted font-12">
                                                 <fmt:formatDate value="${chat.createdDateTime}"
-                                                                pattern="yyyy/MM/dd hh:mm:ss" />
+                                                                pattern="yyyy/MM/dd hh:mm"/></span>
+                                            <c:if test="${chat.senderId eq userSession.getUserInfo().getUserId()}">
+                                                <c:out value="${chat.receiverNickName}"></c:out>
+                                            </c:if>
+                                            <c:if test="${chat.senderId ne userSession.getUserInfo().getUserId()}">
+                                                <c:out value="${chat.senderNickName}"></c:out>
+                                            </c:if>
+                                        </h5>
+                                        <h6 class="mt-2 mb-0 text-muted font-14">
+                                            <c:if test="${(chat.receiverId eq userSession.getUserInfo().getUserId()) and (chat.readYn eq 'N')}">
+                                            <span class="w-25 float-end text-end"><span
+                                                    class="badge badge-danger-lighten">N</span></span>
+                                            </c:if>
+                                            <span class="w-75 font-12">
+                                            <c:out value="${chat.content}"></c:out>
                                             </span>
-                                        </div>
-                                        <h6 class="user-component__subtitle__chats">
-                                            <c:out value="${chat.content}"></c:out></h6>
-                                        <c:if test="${chat.receiverId eq userSession.getUserInfo().getUserId() and chat.readYn eq 'N'}">
-                                            <div class="user-component__column__chat__noImg">
-                                                <div class="badge">N</div>
-                                            </div>
-                                        </c:if>
+                                        </h6>
                                     </div>
+                                    <hr class="font-weight-bolder">
                                 </a>
-                                <hr>
                             </div>
                         </div>
                     </div>
