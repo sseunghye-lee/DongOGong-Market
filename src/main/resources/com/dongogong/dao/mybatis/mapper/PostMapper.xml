@@ -8,6 +8,18 @@
      UPDATE POST SET TITLE = #{title}, CONTENT = #{content}, PRICE = #{price}, PHOTOURL = #{photoUrl}
      WHERE POST_IDX = #{postIdx}
   </update>
+  
+  <delete id="postDelete" parameterType="java.lang.Integer">
+     DELETE
+     FROM POST 
+     WHERE POST_IDX = #{postIdx}
+  </delete>
+  
+   <delete id="transactionDelete" parameterType="java.lang.Integer">
+  	DELETE
+  	FROM TRANSACTIONS
+  	WHERE POST_IDX = #{postIdx}
+  </delete>
 
   <select id="getPost" resultType="Post">
     SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID, PRICE, TITLE, CONTENT

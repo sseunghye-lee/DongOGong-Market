@@ -80,6 +80,8 @@ function goProduct(targetUri) {
                             <div class="form-group">
                                  <input type = "submit" value = "UPDATE" class="btn btn-primary btn-xl" 
                                  onClick = "goProduct('<c:url value='/productUpdate.do'><c:param name='postIdx' value='${productMy.postIdx}'/></c:url>')"/>
+                     			 <input type = "submit" value = "DELETE" class="btn btn-primary btn-xl" 
+                                 onClick = "goProduct('<c:url value='/productDelete.do'><c:param name='postIdx' value='${productMy.postIdx}'/></c:url>')"/>
                      			 
                        
                      			 

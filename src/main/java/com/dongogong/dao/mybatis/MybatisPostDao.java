@@ -52,7 +52,16 @@ public class MybatisPostDao implements PostDao {
 	public void updatePost(Post post) throws DataAccessException {
 		postMapper.postUpdate(post);
 	}
+	@Override
+	public void postDelete(int postIdx) throws DataAccessException {
+		postMapper.postDelete(postIdx);
+	}
 	
+	@Override
+	public void transactionDelete(int postIdx) throws DataAccessException {
+		postMapper.transactionDelete(postIdx);
+		
+	}
 	
 	@Override
 	public Post getPostListSize() throws DataAccessException {

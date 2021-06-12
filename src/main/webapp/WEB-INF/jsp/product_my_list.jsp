@@ -62,7 +62,7 @@
                                         <img name="photoUrl" src="/resources/images/${getPost.photoUrl}" height=170 alt="..." />
                                        <div class="card-body p-3">
                                             <div class="card-title small mb-0">${getPost.title}</div>
-                                            <div class="text-xs text-gray-500">${getPost.content}, CO &middot; 2 days ago</div>
+                                            <div class="text-xs text-gray-500">${getPost.content}</div>
                                         </div>
                                          <input type="submit" value="수정 및 삭제" class="btn-blue-soft border-light" 
                                         	 onClick="goChange('<c:url value='/apply/productMy.do'><c:param name='postIdx' value='${getPost.postIdx}'/></c:url>')"/>

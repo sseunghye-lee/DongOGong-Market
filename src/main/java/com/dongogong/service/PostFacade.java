@@ -25,6 +25,9 @@ public interface PostFacade {
    void registerPost(Post post);
    // 상품 업데이트
    void updatePost(Post post);
+   //상품 삭제
+   void postDelete(int postIdx);
+   void transactionDelete(int postIdx);
 	
    
    public Post getPostListSize();

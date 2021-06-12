@@ -51,7 +51,17 @@ public class PostImpl implements PostFacade{
 	public void updatePost(Post post) {
 		postDao.updatePost(post);
 	}
-
+   @Override
+	public void postDelete(int postIdx) {
+		postDao.postDelete(postIdx);
+	}
+   
+   @Override
+	public void transactionDelete(int postIdx) {
+		postDao.transactionDelete(postIdx);
+		
+	}
+   
    @Override
 	public Post getPostListSize() {
 		return postDao.getPostListSize();

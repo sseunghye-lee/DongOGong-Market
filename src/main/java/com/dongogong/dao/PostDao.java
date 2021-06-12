@@ -23,7 +23,11 @@ public interface PostDao {
       
       void updatePost(Post post) throws DataAccessException;
   	
-    
+      void postDelete(int postIdx) throws DataAccessException;
+  	
+      void transactionDelete(int postIdx) throws DataAccessException;
+  	
+      
       Post getPostListSize() throws DataAccessException;
       
       Post getPostIdx(int postIdx) throws DataAccessException;
