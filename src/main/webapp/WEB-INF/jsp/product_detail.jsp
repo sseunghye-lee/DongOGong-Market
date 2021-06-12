@@ -37,8 +37,21 @@
   <link type="text/css" href="resources/assets/css/style.css" rel="stylesheet">
 </head>
 
-<body>  
+<body>
+  
   <main id="main">
+   <nav class="navbar navbar-marketing navbar-expand-lg bg-white navbar-light justify-content-between">
+                        <div class="container justify-content-between py-4">
+                            <a class="navbar-brand text-dark">DongOGong Market</a>
+                            <div class="d-inline-block collapse navbar-collapse justify-content-end text-align-right"
+                                 id="navbarSupportedContent">
+                                <a class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline"
+                                   href="<c:url value="/apply/product.do"/>">NEW</a>
+                                <a class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline" href="<c:url value="/"/>">HOME</a>
+                                <a class="btn font-weight-500 ml-lg-4 btn-blue p-3 d-inline" href="<c:url value='/apply/PostList_product.do'/>">BACK<i class="ml-2 fas fa-arrow-left"></i></a>
+                            </div>
+                        </div>
+                    </nav>
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
         <div class="row">
