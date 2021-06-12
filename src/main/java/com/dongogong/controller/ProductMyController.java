@@ -2,7 +2,6 @@ package com.dongogong.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,31 +15,29 @@ import org.springframework.web.util.WebUtils;
 import com.dongogong.domain.Post;
 import com.dongogong.service.PostFacade;
 @Controller
-@RequestMapping("/apply/MyPost_product.do")
-public class GetMyPostController {		
+@RequestMapping("/apply/productMy.do")
+public class ProductMyController {
 	@Autowired(required=false)
 	   private PostFacade postFacade;
 		public void setPostFacade(PostFacade postFacade) {
 			this.postFacade = postFacade;
 		}
-		
-		 @PostMapping
-		 public String myPost() {
-		       return "product_my_list";
-		    }
-		 @GetMapping
-		 public String myPostList() {
-		       return "product_my_list";
-		    }
-		
-		 @ModelAttribute("getPost")
-			public List<Post> getPost(HttpServletRequest request) {
-				 UserSession userSession =
-			                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
-				 
-			return postFacade.getPost(userSession.getUserInfo().getUserId());
-			}
-		 
+		@PostMapping
+		public  ModelAndView productMy(HttpServletRequest request, Model model) throws Exception {
+			UserSession userSession =
+	                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
+			
+			String SpostIdx = request.getParameter("postIdx");
+			int postIdx = Integer.valueOf(SpostIdx);
+			
+			
+			model.addAttribute("userSession", userSession);
+			model.addAttribute("productMy", productMy(postIdx));
+			model.addAttribute("userId", userSession.getUserInfo().getUserId());
+			
+			return new ModelAndView("product_my");
 		}
-
-
+	public Post productMy(int postId) {
+		return postFacade.selectPost(postId);
+	}
+}

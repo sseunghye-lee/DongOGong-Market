@@ -90,7 +90,7 @@
                                         <div class="icon-stack icon-stack-xl bg-red text-white w-2 mb-2">
                                             <i class="fas fa-blender-phone"></i>
                                         </div>
-                                        <div class="small text-gray-600 mt-3">가전제품<br>(Home Appliances)</div>
+                                        <div class="small text-gray-600 mt-3">가전제품(Home Appliances)</div>
                                     </div>
                                 </div>
 
@@ -207,10 +207,11 @@
                                             <div class="text-xs text-gray-500">${getPostList.content} </div>
                                         </div>
 
-                                        <input type="submit" value="세부정보" class="btn-blue-soft border-light"
-                                               onClick="goDetail('<c:url value='/select_product_myList.do'><c:param name='postIdx' value='${getPostList.postIdx}'/></c:url>')"/>
+                                        <input type="submit" value="세부정보" class="btn-blue-soft border-light" 
+                                        	   onClick="goDetail('<c:url value='/select_product_myList.do'><c:param name='postIdx' value='${getPostList.postIdx}'/></c:url>')"/>
                                         <input type="submit" value="장바구니" class="btn-danger-soft border-light"
                                                onClick="goCart('<c:url value='/cartSend.do'><c:param name='postIdx' value='${getPostList.postIdx}'/><c:param name='price' value='${getPostList.price}'/><c:param name='title' value='${getPostList.title}'/></c:url>')"/>
+                                   		
                                     </a>
                                 </div>
                             </c:forEach>

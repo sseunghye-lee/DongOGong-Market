@@ -3,11 +3,17 @@
 
 <mapper namespace="com.dongogong.dao.mybatis.mapper.PostMapper">
   <cache />
+  
+   <update id="postUpdate" parameterType="Post">
+     UPDATE POST SET TITLE = #{title}, CONTENT = #{content}, PRICE = #{price}, PHOTOURL = #{photoUrl}
+     WHERE POST_IDX = #{postIdx}
+  </update>
 
   <select id="getPost" resultType="Post">
     SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID, PRICE, TITLE, CONTENT
      FROM POST
      WHERE REGISTER_ID = #{registerId} 
+     AND NOT BORDER_TYPE = 'auction'
     </select>
     
     <select id="getPostIdx" resultType="Post">
@@ -24,7 +30,7 @@
     </select>
     
     <select id="selectPost" resultType="Post">
-     SELECT PHOTOURL, POST_IDX, PRICE, TITLE, CONTENT
+     SELECT PHOTOURL, POST_IDX AS POSTIDX, PRICE, TITLE, CONTENT, TRANSACTION_CONFIRMATION
      FROM POST
      WHERE POST_IDX = #{postIdx}
   </select>

@@ -46,6 +46,11 @@ public class PostImpl implements PostFacade{
    public void registerPost(Post post) {
       postDao.registerPost(post);
    }
+   
+   @Override
+	public void updatePost(Post post) {
+		postDao.updatePost(post);
+	}
 
    @Override
 	public Post getPostListSize() {

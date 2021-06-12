@@ -25,6 +25,12 @@
         <link rel="icon" type="image/x-icon" href="resources/dist/assets/img/favicon.png" />
         <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.24.1/feather.min.js" crossorigin="anonymous"></script>
+   		<script>
+		   	 function goChange(targetUri) {
+		         form.action = targetUri;
+		         form.submit();
+		     }
+   		</script>
     </head>
     <body>
         <div id="layoutDefault">
@@ -46,6 +52,7 @@
                     <section class="bg-light py-10">
                         <div class="container">
                             <h2 class="mb-5 mt-n2 font-weight-bolder">Product_my_list</h2>
+                             <form name="form" method="POST">              
                             <div class="row">
                               <c:forEach var="getPost" items="${getPost}">
                         
@@ -56,11 +63,15 @@
                                        <div class="card-body p-3">
                                             <div class="card-title small mb-0">${getPost.title}</div>
                                             <div class="text-xs text-gray-500">${getPost.content}, CO &middot; 2 days ago</div>
-                                        </div></a>
+                                        </div>
+                                         <input type="submit" value="수정 및 삭제" class="btn-blue-soft border-light" 
+                                        	 onClick="goChange('<c:url value='/apply/productMy.do'><c:param name='postIdx' value='${getPost.postIdx}'/></c:url>')"/>
+                                   		
+                                        </a>
                                 </div>
                                  </c:forEach>
                             </div>
-                           
+                           </form>
                             <div class="mb-10">
                                 <a class="text-arrow-icon" href="#!">See more deals near you<i data-feather="arrow-right"></i></a>
                             </div>
