@@ -25,4 +25,6 @@ public interface PostFacade {
    
    public Post getPostListSize();
    
+   public Post getPostIdx(int postIdx);
+   
 }

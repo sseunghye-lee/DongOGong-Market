@@ -29,4 +29,6 @@ public interface PostMapper {
 			
 			// 전체 상품 가져오기
 			Post getPostListSize();
+			
+			Post getPostIdx(int postIdx) throws DataAccessException;
 }

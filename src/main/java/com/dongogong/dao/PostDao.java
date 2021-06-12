@@ -22,4 +22,6 @@ public interface PostDao {
       void registerPost(Post post) throws DataAccessException;
     
       Post getPostListSize() throws DataAccessException;
+      
+      Post getPostIdx(int postIdx) throws DataAccessException;
 }

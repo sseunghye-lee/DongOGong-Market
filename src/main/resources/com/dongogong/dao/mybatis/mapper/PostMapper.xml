@@ -9,6 +9,12 @@
      FROM POST
      WHERE REGISTER_ID = #{registerId} 
     </select>
+    
+    <select id="getPostIdx" resultType="Post">
+    SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID, PRICE, TITLE, CONTENT, TRANSACTIONS_CONFIRMATION AS transactionConfirmation
+     FROM POST
+     WHERE POST_IDX = #{postIdx} 
+    </select>
 
   <select id="getPostList" resultType="Post">
     SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID, PRICE, TITLE, CONTENT

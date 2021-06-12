@@ -51,6 +51,11 @@ public class PostImpl implements PostFacade{
 	public Post getPostListSize() {
 		return postDao.getPostListSize();
 	}
+
+	@Override
+	public Post getPostIdx(int postIdx) {
+		return postDao.getPostIdx(postIdx);
+	}
    
    
 }
