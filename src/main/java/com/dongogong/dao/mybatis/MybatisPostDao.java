@@ -35,10 +35,11 @@ public class MybatisPostDao implements PostDao {
 	
 	
 	// 상품 눌렀을때 정보보기
-	@Override
-	public Post selectPost(int post_idx, String content) throws DataAccessException {
-		return postMapper.selectPost(post_idx, content);
-	}
+		@Override
+		public Post selectPost(int post_idx) throws DataAccessException {
+			return postMapper.selectPost(post_idx);
+		}
+
 	
 	// 상품 등록
 	@Override

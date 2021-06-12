@@ -35,10 +35,10 @@ public class PostImpl implements PostFacade{
       return postDao.getPost(registerId);
    }
          
-   // 상품 눌렀을때 정보보기
+// 상품 눌렀을때 정보보기
    @Override
-   public Post selectPost(int post_idx, String content) {
-      return postDao.selectPost(post_idx, content);
+   public Post selectPost(int post_idx) {
+      return postDao.selectPost(post_idx);
    }
          
    // 상품 등록

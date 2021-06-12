@@ -18,7 +18,8 @@ public interface PostFacade {
    public List<Post> getPost(String registerId);
 	     
    // 상품 눌렀을때 정보보기
-   public Post selectPost(int post_idx, String content);
+   Post selectPost(int post_idx);
+
          
    // 상품 등록
    void registerPost(Post post);
