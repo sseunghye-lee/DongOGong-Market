@@ -28,4 +28,8 @@ public interface PostFacade {
    
    public Post getPostIdx(int postIdx);
    
+   // 장바구니 추가 시 상태변경
+   void updatePost(int postIdx);
+
+   
 }

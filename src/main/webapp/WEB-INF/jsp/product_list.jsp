@@ -159,15 +159,19 @@
                             <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
                                 <a class="card lift h-100">
                                     <div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">${getPostList.price}</div>
-                                     <img name="photoUrl" src="/resources/images/${getPostList.photoUrl}" height=170 alt="..." />
-                                           
+                                     <img name="photoUrl" src="/resources/images/${getPostList.photoUrl}" height=170 alt="..." />          
                                     <div class="card-body p-3">
                                         <div class="card-title small mb-0">${getPostList.title}</div>
                                         <div class="text-xs text-gray-500">${getPostList.content} </div>
                                     </div>
                                     
                                        <input type = "submit" value = "세부정보" onClick = "goDetail('<c:url value='/select_product_myList.do'><c:param name='postIdx' value='${getPostList.postIdx}'/></c:url>')" />                               	                                
-                                       <input type = "submit" value = "장바구니" onClick = "goCart('<c:url value='/cartSend.do'><c:param name='postIdx' value='${getPostList.postIdx}'/><c:param name='price' value='${getPostList.price}'/><c:param name='title' value='${getPostList.title}'/></c:url>')" /> 
+ 									   <input type = "submit" value = "장바구니" onClick = "goCart('<c:url value='/cartSend.do'>
+                                                   <c:param name='postIdx' value='${getPostList.postIdx}'/>
+                                                   <c:param name='price' value='${getPostList.price}'/>
+                                                   <c:param name='title' value='${getPostList.title}'/>
+                                                   <c:param name='sellerId' value='${getPostList.registerId }'/>
+                                                   </c:url>')" /> 
                                	   </a> 
                             </div>
                         </c:forEach>

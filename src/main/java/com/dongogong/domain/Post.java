@@ -4,25 +4,25 @@ import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class Post implements Serializable {
-    // 寃뚯떆臾� idx
+    // 해당 상품 idx
     private int postIdx;
 
-    // �벑濡앹옄 id
+    // 상품 등록자 id
     private String registerId;
 
-    // 寃뚯떆臾� �젣紐�
+    // 상품 이름
     private String title;
 
     // 寃뚯떆�뙋 醫낅쪟
     private String borderType;
     
-    // �긽�뭹 媛�寃�
+    //가격
     private int price;
 
 	// 寃뚯떆臾� �궡�슜
     private String content;
 
-    // 嫄곕옒 �솗�젙 �뿬遺�
+    // 거래확정 여부
     private String transactionConfirmation;
     
     private String photoUrl;
@@ -106,7 +106,7 @@ public class Post implements Serializable {
         this.transactionConfirmation = transactionConfirmation;
     }
 
-    // Post 紐⑤뜽 蹂듭궗
+	// Post 紐⑤뜽 蹂듭궗
     public void CopyData(Post param)
     {
         this.postIdx = param.getPostIdx();

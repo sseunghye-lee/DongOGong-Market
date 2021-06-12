@@ -56,6 +56,11 @@ public class PostImpl implements PostFacade{
 	public Post getPostIdx(int postIdx) {
 		return postDao.getPostIdx(postIdx);
 	}
-   
+	
+   @Override
+   public void updatePost(int postIdx) {
+      postDao.updatePost(postIdx);
+   }
+
    
 }

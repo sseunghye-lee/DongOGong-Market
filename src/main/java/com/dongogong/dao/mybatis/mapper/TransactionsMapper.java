@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.dao.DataAccessException;
 
+import com.dongogong.domain.Post;
 import com.dongogong.domain.Transactions;
 
 @Mapper
@@ -15,10 +16,26 @@ public interface TransactionsMapper {
 	//거래 완료 후 거래 상태 변경
 	//Transactions TransactionsStatus(String status);
 	//	int TransactionsStatus(String status);
-
-	
-	//거래 내역 확인
-	//List<Transactions> getTransactionsByBuyerName(String buyer_id);
 	
 	Transactions transactionSize() throws DataAccessException;
+	
+	// 거래 내역 확인 -> 같은 게시물 id를 가진 transactions 테이블의 모든 레코드 가져오기
+	//List<Transactions> transactionsCheck(int postIdx);
+	
+	// 거래 내역 확인 -> 로그인한 해당 user가 buyerId인 경우의 모든 레코드 가져오기
+	List<Transactions> transactionsCheck(String buyerId);
+	//sellerId를 통해 닉네임 가져오기.
+	String transactionsCheckNickName(String sellerId);
+	
+	//거래 추가
+	//void insertTransactions(Transactions transactions) throws DataAccessException;
+	
+    // 장바구니에 추가
+    //void insertCart(Post post) throws DataAccessException;
+    
+    // 장바구니 보기
+    //List<Transactions> cartList(int postIdx) throws DataAccessException;
+	
+	 void insertCartTransactions(Transactions transactions);
+    
 }

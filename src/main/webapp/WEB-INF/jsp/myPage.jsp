@@ -62,7 +62,9 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="icon-stack icon-stack-xl bg-blue text-white mb-4"><i class="fas fa-clipboard-list"></i></div>
-                                    <h3><a href="">거래 내역 확인</a></h3>
+                                    <h3><a href="<c:url value="/checkDeal.do"/>">거래 내역 확인</a></h3>
+                                   <!-- <input type = "submit" value = "거래 내역 확인" onClick = "goCheckDeal('<c:url value='/checkDeal.do'> <c:param name='postIdx' value='${transactions.postIdx}'/></c:url>')" />
+                                   --> 
                                     <p class="mb-0">본인이 거래한 상품 내역을 확인하고 싶을 때 누르세요.</p>
                                 </div>
                             </div>

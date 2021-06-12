@@ -57,4 +57,10 @@ public class MybatisPostDao implements PostDao {
 	public Post getPostIdx(int postIdx) throws DataAccessException {
 		return postMapper.getPostIdx(postIdx);
 	}
+
+    @Override
+    public void updatePost(int postIdx) throws DataAccessException {
+       postMapper.updatePost(postIdx);  
+    }
+
 }

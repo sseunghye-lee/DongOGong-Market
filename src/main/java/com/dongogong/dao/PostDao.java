@@ -24,4 +24,8 @@ public interface PostDao {
       Post getPostListSize() throws DataAccessException;
       
       Post getPostIdx(int postIdx) throws DataAccessException;
+      
+      // 장바구니 추가 시 상태 변경
+      void updatePost(int postIdx) throws DataAccessException;
+
 }
