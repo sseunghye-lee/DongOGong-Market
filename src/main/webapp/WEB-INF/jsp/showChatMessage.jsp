@@ -57,6 +57,15 @@
                                 </c:if>
                             </div>
                         </c:forEach>
+                        <form class="reply w-50">
+                            <div class="reply__column">
+                                <input type="text" placeholder="Write a message..." id="message" onkeyup="send()" autofocus/>
+                                <i class="far fa-smile-wink fa-lg"></i>
+                                <button id="send_message_btn" onclick="send()">
+                                    <i class="fas fa-arrow-up"></i>
+                                </button>
+                            </div>
+                        </form>
                     </main>
                 </div>
             </header>

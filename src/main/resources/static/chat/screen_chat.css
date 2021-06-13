@@ -120,12 +120,11 @@
 
 .reply {
     position: fixed;
-    bottom: 0;
+    bottom: 45px;
     width: 100%;
-    background-color: white;
     display: flex;
     justify-content: space-between;
-    padding: 5px 25px;
+    padding: 5px 0px 5px 25px;
     box-sizing: border-box;
     align-items: center;
     transition: transform 0.3s ease-in-out;
@@ -135,7 +134,7 @@
     width: 10%;
 }
 .reply .reply__column:last-child {
-    width: 90%;
+    width: 100%;
     position: relative;
 }
 
@@ -160,7 +159,6 @@
 }
 
 .reply__column:last-child > i {
-    right: 50px;
     top: 15px;
 }
 
