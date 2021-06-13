@@ -64,9 +64,9 @@
                                 </table>
                             </li>
                         </ul>
-                        <c:if test="${auctionProgressList}.size == 0">
+                        <c:if test="${empty auctionProgressList}">
                             <p class="text-center page-header-text align-middle pt-10 pb-15">
-                                게시물이 없습니다.
+                                경매에 참여한 사람이 없습니다.
                             </p>
                             <hr class="mb-0">
                         </c:if>
