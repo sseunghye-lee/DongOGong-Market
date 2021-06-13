@@ -35,9 +35,11 @@ public class ProductDeleteController {
 		 
 			int postId = Integer.valueOf(postIdx);
 			
-		
-			postFacade.postDelete(postId);
+			postFacade.chatDelete(postId);
+			postFacade.relationDelete(postId);
 			postFacade.transactionDelete(postId);
+			
+			postFacade.postDelete(postId);
 			
 			model.addAttribute("getPost", postFacade.getPost(userSession.getUserInfo().getUserId()));
 		

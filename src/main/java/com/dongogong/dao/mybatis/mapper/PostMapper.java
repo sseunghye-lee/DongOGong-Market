@@ -31,6 +31,9 @@ public interface PostMapper {
 	void postDelete(int postIdx) throws DataAccessException;
 	
 	void transactionDelete(int postIdx) throws DataAccessException;
+	void relationDelete(int postIdx) throws DataAccessException;
+	
+	void chatDelete(int postIdx) throws DataAccessException;
 	
 	// 전체 상품 가져오기
 	Post getPostListSize();

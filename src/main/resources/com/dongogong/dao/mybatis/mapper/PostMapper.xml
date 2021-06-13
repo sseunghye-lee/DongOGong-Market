@@ -20,6 +20,18 @@
   	FROM TRANSACTIONS
   	WHERE POST_IDX = #{postIdx}
   </delete>
+  
+   <delete id="relationDelete" parameterType="java.lang.Integer">
+  	DELETE
+  	FROM RELATION
+  	WHERE POST_IDX = #{postIdx}
+  </delete>
+  
+   <delete id="chatDelete" parameterType="java.lang.Integer">
+  	DELETE
+  	FROM CHAT_MESSAGE
+  	WHERE POST_IDX = #{postIdx}
+  </delete>
 
   <select id="getPost" resultType="Post">
     SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID, PRICE, TITLE, CONTENT

@@ -28,6 +28,8 @@ public interface PostFacade {
    //상품 삭제
    void postDelete(int postIdx);
    void transactionDelete(int postIdx);
+   void relationDelete(int postIdx);
+   void chatDelete(int postIdx);
 	
    
    public Post getPostListSize();

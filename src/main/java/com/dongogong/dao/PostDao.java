@@ -26,7 +26,10 @@ public interface PostDao {
       void postDelete(int postIdx) throws DataAccessException;
   	
       void transactionDelete(int postIdx) throws DataAccessException;
-  	
+      void relationDelete(int postIdx) throws DataAccessException;
+    	
+      void chatDelete(int postIdx) throws DataAccessException;
+    	
       
       Post getPostListSize() throws DataAccessException;
       

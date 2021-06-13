@@ -61,6 +61,16 @@ public class PostImpl implements PostFacade{
 		postDao.transactionDelete(postIdx);
 		
 	}
+   @Override
+  	public void relationDelete(int postIdx) {
+  		postDao.relationDelete(postIdx);
+  		
+  	}
+   @Override
+  	public void chatDelete(int postIdx) {
+  		postDao.chatDelete(postIdx);
+  		
+  	}
    
    @Override
 	public Post getPostListSize() {

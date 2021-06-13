@@ -62,6 +62,16 @@ public class MybatisPostDao implements PostDao {
 		postMapper.transactionDelete(postIdx);
 		
 	}
+	@Override
+	public void relationDelete(int postIdx) throws DataAccessException {
+		postMapper.relationDelete(postIdx);
+		
+	}
+	@Override
+	public void chatDelete(int postIdx) throws DataAccessException {
+		postMapper.chatDelete(postIdx);
+		
+	}
 	
 	@Override
 	public Post getPostListSize() throws DataAccessException {
