@@ -57,8 +57,8 @@
                               <c:forEach var="getPost" items="${getPost}">
                         
                                 <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
-                                    <a class="card lift h-100" href="product_my.jsp">
-                                    <div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">${getPost.price}</div>
+                                    <a class="card lift h-100">
+                                    <div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">${getPost.price}원</div>
                                         <img name="photoUrl" src="/resources/images/${getPost.photoUrl}" height=170 alt="..." />
                                        <div class="card-body p-3">
                                             <div class="card-title small mb-0">${getPost.title}</div>
@@ -72,10 +72,7 @@
                                  </c:forEach>
                             </div>
                            </form>
-                            <div class="mb-10">
-                                <a class="text-arrow-icon" href="#!">See more deals near you<i data-feather="arrow-right"></i></a>
-                            </div>
-                        </div>
+                           </div>
                     </section>
                 </main>
             </div>

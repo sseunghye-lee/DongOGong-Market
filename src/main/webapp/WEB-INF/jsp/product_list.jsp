@@ -222,12 +222,7 @@
                             </c:forEach>
                         </div>
                     </form>
-                    <div class="mb-10">
-                        <a class="text-arrow-icon" href="#!">See more deals near you<i
-                                data-feather="arrow-right"></i></a>
-                    </div>
-
-
+                  
                 </div>
 
             </section>
