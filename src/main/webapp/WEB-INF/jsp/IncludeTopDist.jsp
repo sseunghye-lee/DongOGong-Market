@@ -43,6 +43,7 @@
     <link type="text/css" href="/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
+    <link type="text/css" href="/chat/styles.css" rel="stylesheet">
     <link type="text/css" href="/dist/css/style.css" rel="stylesheet">
     <link href="/dist/css/styles.css" rel="stylesheet"/>
     <link type="text/css" href="/assets/css/style.css" rel="stylesheet">

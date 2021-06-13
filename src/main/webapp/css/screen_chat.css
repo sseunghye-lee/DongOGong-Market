@@ -34,10 +34,9 @@
 }
 
 .main-chat {
-    margin-top: 110px;
     display: flex;
     flex-direction: column;
-    animation: fadeIn 1s;
+    animation: fadeIn 2s;
     overflow-y: scroll;
 }
 
@@ -81,16 +80,14 @@
 .message__info {
     display: flex;
     align-items: flex-end;
-    margin-bottom: 5px;
 }
 
 .message__bubble {
-    background-color: white;
+    background-color: #dae7fb;
     padding: 13px;
-    font-size: 18px;
+    font-size: 13px;
     border-radius: 0px 15px 15px 15px;
     margin-right: 5px;
-    margin-bottom: 10px;
 }
 
 .message__time,
@@ -106,7 +103,7 @@
 }
 
 .message-row--own .message__bubble {
-    background-color: var(--yellow);
+    background-color: #d9abb3;
     border-top-right-radius: 0px;
     border-top-left-radius: 15px;
     margin-right: 0px;
@@ -194,7 +191,7 @@
     float: right;
 }
 
-/*Ã¤ÆÃ¹æ ÀÔ·Â¶õ Å¬¸¯ ½Ã ÀÔ·ÂÃ¢ ¾ç ¿·À¸·Î È®´ëµÇ´Â °Í ¼öÁ¤*/
+/*Ã¤ï¿½Ã¹ï¿½ ï¿½Ô·Â¶ï¿½ Å¬ï¿½ï¿½ ï¿½ï¿½ ï¿½Ô·ï¿½Ã¢ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½*/
 
 /*.reply:focus-within .reply__column:first-child,*/
 /*.reply:focus-within .fa-smile-wink,*/

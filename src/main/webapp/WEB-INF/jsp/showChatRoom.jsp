@@ -16,8 +16,7 @@
 
                             <div class="col-lg-7">
                                 <a href='<c:url value="/chat/message.do">
-                                    <c:param name="chatRelationIdx" value="${chat.chatRelationIdx}"/>
-                                    <c:param name="postIdx" value="${chat.postIdx}"/><</c:url>'
+                                    <c:param name="chatRelationIdx" value="${chat.chatRelationIdx}"/></c:url>'
                                    class="chats-list">
                                     <div class="d-flex align-items-start bg-light p-2">
                                         <img src="/resources/images/${chat.photoUrl}" class="me-2 rounded-pill mr-3"

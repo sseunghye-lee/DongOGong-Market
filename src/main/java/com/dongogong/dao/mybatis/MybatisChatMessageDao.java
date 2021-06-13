@@ -4,6 +4,7 @@ import com.dongogong.dao.ChatMessageDao;
 import com.dongogong.dao.SequenceDao;
 import com.dongogong.dao.mybatis.mapper.ChatMessageMapper;
 import com.dongogong.domain.ChatMessage;
+import com.dongogong.domain.ChatSummary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
@@ -21,19 +22,19 @@ public class MybatisChatMessageDao implements ChatMessageDao {
 
     @Transactional
     //    채팅방 리스트 불러오기
-    public List<ChatMessage> getChatRoomList(String userId) throws DataAccessException {
+    public List<ChatSummary> getChatRoomList(String userId) throws DataAccessException {
         return chatMessageMapper.getChatRoomList(userId);
     }
 
     @Transactional
     //    채팅리스트에서 채팅방 클릭 시 채팅창 화면 불러오기
-    public List<ChatMessage> getChatMessageList(int relationIdx) throws DataAccessException {
+    public List<ChatSummary> getChatMessageList(int relationIdx) throws DataAccessException {
         return chatMessageMapper.getChatMessageList(relationIdx);
     }
 
     @Transactional
     //    채팅방 들어갈 때 안읽음 -> 읽음 변경
-    public void updateReadYn(String relationIdx, String userIdx) throws DataAccessException {
+    public void updateReadYn(int relationIdx, String userIdx) throws DataAccessException {
         chatMessageMapper.updateReadYn(relationIdx, userIdx);
     }
 

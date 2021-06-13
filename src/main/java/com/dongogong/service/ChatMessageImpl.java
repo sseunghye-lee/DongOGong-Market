@@ -3,6 +3,7 @@ package com.dongogong.service;
 import com.dongogong.dao.ChatMessageDao;
 import com.dongogong.dao.RelationDao;
 import com.dongogong.domain.ChatMessage;
+import com.dongogong.domain.ChatSummary;
 import com.dongogong.domain.Relation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,12 +22,12 @@ public class ChatMessageImpl implements ChatMessageFacade {
     private ChatMessageDao chatMessageDao;
 
     @Override
-    public List<ChatMessage> getChatRoomList(String userId) {
+    public List<ChatSummary> getChatRoomList(String userId) {
         return chatMessageDao.getChatRoomList(userId);
     }
 
     @Override
-    public List<ChatMessage> getChatMessageList(int relationIdx) {
+    public List<ChatSummary> getChatMessageList(int relationIdx) {
         return chatMessageDao.getChatMessageList(relationIdx);
     }
 
@@ -46,7 +47,7 @@ public class ChatMessageImpl implements ChatMessageFacade {
     }
 
     @Override
-    public void updateReadYn(String relationIdx, String userIdx) {
+    public void updateReadYn(int relationIdx, String userIdx) {
         chatMessageDao.updateReadYn(relationIdx, userIdx);
     }
 

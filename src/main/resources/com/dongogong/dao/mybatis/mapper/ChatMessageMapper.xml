@@ -69,8 +69,8 @@
     <update id="updateReadYn">
         UPDATE CHAT_MESSAGE
         SET READ_YN = 'Y'
-        WHERE CHAT_RELATION_IDX = #{chatRelationIdx}
-          AND RECEIVER_ID = #{userId}
+        WHERE CHAT_RELATION_IDX = #{relationIdx}
+          AND RECEIVER_ID = #{userIdx}
     </update>
 
     <!-- 4) 게시글에서 메세지 보낼 때 관계가 존재하는 지 -->
