@@ -9,9 +9,11 @@
                receiverId,
                chatRelationIdx,
                postIdx,
+               title,
+               photoUrl,
                readYn,
                CONTENT,
-               createDateTime,
+               createdDateTime,
                senderNickName,
                receiverNickName
         FROM (SELECT C.CHAT_MESSAGE_IDX  AS chatMessageIdx,
@@ -19,14 +21,17 @@
                      C.RECEIVER_ID       AS receiverId,
                      C.CHAT_RELATION_IDX AS chatRelationIdx,
                      C.POST_IDX          AS postIdx,
+                     P.TITLE             AS title,
+                     P.PHOTOURL          AS photoUrl,
                      C.READ_YN           AS readYn,
                      C.CONTENT,
-                     C.CREATED_DATE_TIME AS createDateTime,
+                     C.CREATED_DATE_TIME AS createdDateTime,
                      U1.NICK_NAME        AS senderNickName,
                      U2.NICK_NAME        AS receiverNickName
               From CHAT_MESSAGE C
                        LEFT JOIN USERINFO U1 ON C.SENDER_ID = U1.USER_ID
                        LEFT JOIN USERINFO U2 ON C.RECEIVER_ID = U2.USER_ID
+                       LEFT JOIN POST P on C.POST_IDX = P.POST_IDX
               WHERE C.CHAT_MESSAGE_IDX IN (SELECT MAX(CHAT_MESSAGE_IDX)
                                            From CHAT_MESSAGE C
                                            WHERE CHAT_RELATION_IDX IN
@@ -39,19 +44,22 @@
 
     <!-- 2) 채팅방 메세지 불러오기 -->
     <select id="getChatMessageList" resultType="ChatSummary">
-        SELECT C.CHAT_MESSAGE_IDX,
-               C.SENDER_ID,
-               C.RECEIVER_ID,
-               C.CHAT_RELATION_IDX,
-               C.POST_IDX,
-               C.READ_YN,
-               C.CONTENT,
-               C.CREATED_DATE_TIME,
-               U1.NICK_NAME AS SENDER_NICKNAME,
-               U2.NICK_NAME AS RECEIVER_NICKNAME
+        SELECT  C.CHAT_MESSAGE_IDX  AS chatMessageIdx,
+                C.SENDER_ID         AS senderId,
+                C.RECEIVER_ID       AS receiverId,
+                C.CHAT_RELATION_IDX AS chatRelationIdx,
+                C.POST_IDX          AS postIdx,
+                P.TITLE             AS title,
+                P.PHOTOURL          AS photoUrl,
+                C.READ_YN           AS readYn,
+                C.CONTENT,
+                C.CREATED_DATE_TIME AS createdDateTime,
+                U1.NICK_NAME        AS senderNickName,
+                U2.NICK_NAME        AS receiverNickName
         From CHAT_MESSAGE C
                  LEFT JOIN USERINFO U1 ON C.SENDER_ID = U1.USER_ID
                  LEFT JOIN USERINFO U2 ON C.RECEIVER_ID = U2.USER_ID
+                 LEFT JOIN POST P on C.POST_IDX = P.POST_IDX
         WHERE CHAT_RELATION_IDX = #{chatRelationIdx}
     </select>
 

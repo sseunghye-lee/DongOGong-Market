@@ -27,6 +27,12 @@ public class ChatSummary implements Serializable {
     // 게시물 idx
     private int postIdx;
 
+    // 게시물 제목
+    private String title;
+
+    // 게시물 사진
+    private String photoUrl;
+
     // 읽음 여부
     private String readYn;
 
@@ -35,6 +41,22 @@ public class ChatSummary implements Serializable {
 
     // 전송일자
     private Date createdDateTime;
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public int getChatMessageIdx() {
         return chatMessageIdx;
@@ -126,6 +148,8 @@ public class ChatSummary implements Serializable {
         this.receiverNickName = param.getSenderNickName();
         this.chatRelationIdx = param.getChatRelationIdx();
         this.postIdx = param.getPostIdx();
+        this.title = param.getTitle();
+        this.photoUrl = param.getPhotoUrl();
         this.readYn = param.getReadYn();
         this.content = param.getContent();
         this.createdDateTime = param.getCreatedDateTime();

@@ -17,28 +17,35 @@
                             <div class="col-lg-7">
                                 <a href="<c:url value="/chat/message.do?chatRelationIdx=${chat.chatRelationIdx}"/>"
                                    class="chats-list">
-
-                                    <div class="w-100 overflow-hidden">
-                                        <h5 class="mt-0 mb-0 font-14">
-                                            <span class="float-end text-muted font-12">
-                                                <fmt:formatDate value="${chat.createdDateTime}"
-                                                                pattern="yyyy/MM/dd hh:mm"/></span>
-                                            <c:if test="${chat.senderId eq userSession.getUserInfo().getUserId()}">
-                                                <c:out value="${chat.receiverNickName}"></c:out>
-                                            </c:if>
-                                            <c:if test="${chat.senderId ne userSession.getUserInfo().getUserId()}">
-                                                <c:out value="${chat.senderNickName}"></c:out>
-                                            </c:if>
-                                        </h5>
-                                        <h6 class="mt-2 mb-0 text-muted font-14">
-                                            <c:if test="${(chat.receiverId eq userSession.getUserInfo().getUserId()) and (chat.readYn eq 'N')}">
+                                    <div class="d-flex align-items-start bg-light p-2">
+                                        <img src="/resources/images/${chat.photoUrl}" class="me-2 rounded-pill"
+                                             height="48"/>
+                                        <div class="w-100 overflow-hidden">
+                                            <h5 class="mt-0 mb-0 font-14 font-weight-bolder">
+                                                <span class="float-end text-muted font-12 font-weight-normal">
+                                                    <fmt:formatDate value="${chat.createdDateTime}"
+                                                                    pattern="yyyy/MM/dd hh:mm"/>
+                                                </span>
+                                                <c:if test="${chat.senderId eq userSession.getUserInfo().getUserId()}">
+                                                    <c:out value="${chat.receiverNickName}"></c:out>
+                                                </c:if>
+                                                <c:if test="${chat.senderId ne userSession.getUserInfo().getUserId()}">
+                                                    <c:out value="${chat.senderNickName}"></c:out>
+                                                </c:if>
+                                                <span class="ml-2 text-gray-600 font-12">(상품명 -
+                                                    <c:out value="${chat.title}"></c:out>)
+                                                </span>
+                                            </h5>
+                                            <h6 class="mt-2 mb-0 text-muted font-14">
+                                                <c:if test="${(chat.receiverId eq userSession.getUserInfo().getUserId()) and (chat.readYn eq 'N')}">
                                             <span class="w-25 float-end text-end"><span
                                                     class="badge badge-danger-lighten">N</span></span>
-                                            </c:if>
-                                            <span class="w-75 font-12">
+                                                </c:if>
+                                                <span class="w-75 font-12">
                                             <c:out value="${chat.content}"></c:out>
                                             </span>
-                                        </h6>
+                                            </h6>
+                                        </div>
                                     </div>
                                     <hr class="font-weight-bolder">
                                 </a>
