@@ -198,7 +198,7 @@
                             <c:forEach var="getPostList" items="${getPostList}">
                                 <div class="col-xl-3 col-lg-4 col-md-6 mb-5">
                                     <a class="card lift h-100">
-                                        <div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">${getPostList.price}</div>
+                                        <div class="card-flag card-flag-dark card-flag-top-right card-flag-lg">${getPostList.price}원</div>
                                         <img name="photoUrl" src="/resources/images/${getPostList.photoUrl}" height=170
                                              alt="..."/>
 

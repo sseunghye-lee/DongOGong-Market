@@ -15,10 +15,12 @@
                         <div class="row justify-content-center">
 
                             <div class="col-lg-7">
-                                <a href="<c:url value="/chat/message.do?chatRelationIdx=${chat.chatRelationIdx}"/>"
+                                <a href='<c:url value="/chat/message.do">
+                                    <c:param name="chatRelationIdx" value="${chat.chatRelationIdx}"/>
+                                    <c:param name="postIdx" value="${chat.postIdx}"/><</c:url>'
                                    class="chats-list">
                                     <div class="d-flex align-items-start bg-light p-2">
-                                        <img src="/resources/images/${chat.photoUrl}" class="me-2 rounded-pill"
+                                        <img src="/resources/images/${chat.photoUrl}" class="me-2 rounded-pill mr-3"
                                              height="48"/>
                                         <div class="w-100 overflow-hidden">
                                             <h5 class="mt-0 mb-0 font-14 font-weight-bolder">
@@ -36,19 +38,20 @@
                                                     <c:out value="${chat.title}"></c:out>)
                                                 </span>
                                             </h5>
-                                            <h6 class="mt-2 mb-0 text-muted font-14">
-                                                <c:if test="${(chat.receiverId eq userSession.getUserInfo().getUserId()) and (chat.readYn eq 'N')}">
-                                            <span class="w-25 float-end text-end"><span
-                                                    class="badge badge-danger-lighten">N</span></span>
+                                            <h6 class="mt-3 mb-0 text-muted">
+                                                <c:if test="${chat.receiverId eq userId and chat.readYn eq 'N'}">
+                                                    <span class="w-25 float-end text-end pt-1 pb-1 mt-n1">
+                                                        <span class="badge-pill badge-danger pt-1 pb-1">N</span>
+                                                    </span>
                                                 </c:if>
-                                                <span class="w-75 font-12">
-                                            <c:out value="${chat.content}"></c:out>
-                                            </span>
+                                                <span class="w-75 font-12 text-gray-700 ">
+                                                    <c:out value="${chat.content}"></c:out>
+                                                </span>
                                             </h6>
                                         </div>
                                     </div>
-                                    <hr class="font-weight-bolder">
                                 </a>
+                                <hr class="font-weight-bolder">
                             </div>
                         </div>
                     </div>

@@ -39,28 +39,30 @@
                                                   FROM RELATION
                                                   WHERE USER1_ID = #{userIdx}
                                                      OR USER2_ID = #{userIdx})
-                                           GROUP BY CHAT_RELATION_IDX))
+                                           GROUP BY CHAT_RELATION_IDX)
+              ORDER BY CREATED_DATE_TIME DESC)
     </select>
 
     <!-- 2) 채팅방 메세지 불러오기 -->
     <select id="getChatMessageList" resultType="ChatSummary">
-        SELECT  C.CHAT_MESSAGE_IDX  AS chatMessageIdx,
-                C.SENDER_ID         AS senderId,
-                C.RECEIVER_ID       AS receiverId,
-                C.CHAT_RELATION_IDX AS chatRelationIdx,
-                C.POST_IDX          AS postIdx,
-                P.TITLE             AS title,
-                P.PHOTOURL          AS photoUrl,
-                C.READ_YN           AS readYn,
-                C.CONTENT,
-                C.CREATED_DATE_TIME AS createdDateTime,
-                U1.NICK_NAME        AS senderNickName,
-                U2.NICK_NAME        AS receiverNickName
+        SELECT C.CHAT_MESSAGE_IDX  AS chatMessageIdx,
+               C.SENDER_ID         AS senderId,
+               C.RECEIVER_ID       AS receiverId,
+               C.CHAT_RELATION_IDX AS chatRelationIdx,
+               C.POST_IDX          AS postIdx,
+               P.TITLE             AS title,
+               P.PHOTOURL          AS photoUrl,
+               C.READ_YN           AS readYn,
+               C.CONTENT,
+               C.CREATED_DATE_TIME AS createdDateTime,
+               U1.NICK_NAME        AS senderNickName,
+               U2.NICK_NAME        AS receiverNickName
         From CHAT_MESSAGE C
                  LEFT JOIN USERINFO U1 ON C.SENDER_ID = U1.USER_ID
                  LEFT JOIN USERINFO U2 ON C.RECEIVER_ID = U2.USER_ID
                  LEFT JOIN POST P on C.POST_IDX = P.POST_IDX
         WHERE CHAT_RELATION_IDX = #{chatRelationIdx}
+        ORDER BY CREATED_DATE_TIME ASC
     </select>
 
     <!-- 3) 채팅방 들어갈 때 안읽음 -> 읽음 변경 -->

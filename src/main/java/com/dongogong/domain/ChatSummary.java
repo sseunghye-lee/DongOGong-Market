@@ -42,22 +42,6 @@ public class ChatSummary implements Serializable {
     // 전송일자
     private Date createdDateTime;
 
-    public String getPhotoUrl() {
-        return photoUrl;
-    }
-
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public int getChatMessageIdx() {
         return chatMessageIdx;
     }
@@ -83,15 +67,15 @@ public class ChatSummary implements Serializable {
     }
 
     public String getReceiverId() {
-        return receiverNickName;
+        return receiverId;
+    }
+
+    public void setReceiverId(String receiverId) {
+        this.receiverId = receiverId;
     }
 
     public String getReceiverNickName() {
         return receiverNickName;
-    }
-
-    public void setReceiverId(String receiverNickName) {
-        this.receiverNickName = receiverNickName;
     }
 
     public void setReceiverNickName(String receiverNickName) {
@@ -112,6 +96,22 @@ public class ChatSummary implements Serializable {
 
     public void setPostIdx(int postIdx) {
         this.postIdx = postIdx;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getPhotoUrl() {
+        return photoUrl;
+    }
+
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
     public String getReadYn() {
