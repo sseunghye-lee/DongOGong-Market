@@ -13,10 +13,10 @@
                 <div class="container h-100">
                     <a href="<c:url value="/chat/room/${userSession.userInfo.userId}"/>">
                         <i class="fas fa-angle-left fa-2x"></i>
+                        <h1 class="ml-2 d-inline font-weight-bolder">
+                            <c:out value="${chatRoomName}"></c:out>
+                        </h1>
                     </a>
-                    <h1 class="ml-2 d-inline font-weight-bolder">
-                        <c:out value="${chatRoomName}"></c:out>
-                    </h1>
                     <main class="main-screen main-chat mt-5 h-75">
                         <c:forEach var="message" items="${chatMessageList}">
                             <div>
@@ -57,17 +57,17 @@
                                 </c:if>
                             </div>
                         </c:forEach>
-                        <form class="reply w-50">
-                            <div class="reply__column">
-                                <input type="text" placeholder="Write a message..." id="message" onkeyup="send()" autofocus/>
-                                <i class="far fa-smile-wink fa-lg"></i>
-                                <button id="send_message_btn" onclick="send()">
-                                    <i class="fas fa-arrow-up"></i>
-                                </button>
-                            </div>
-                        </form>
                     </main>
                 </div>
+                <form class="reply">
+                    <div class="reply__column">
+                        <input type="text" placeholder="Write a message..." id="message" onkeyup="send()" autofocus/>
+                        <i class="far fa-smile-wink fa-lg"></i>
+                        <button id="send_message_btn" onclick="send()">
+                            <i class="fas fa-arrow-up"></i>
+                        </button>
+                    </div>
+                </form>
             </header>
         </main>
     </section>

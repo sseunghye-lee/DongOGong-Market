@@ -8,7 +8,7 @@
 <!-- ======= Header ======= -->
 <%@ include file="IncludeQuickHeader.jsp" %>
 <!-- End Header -->
-<section id="hero" class="clearfix">
+<section id="hero" class="clearfix bg-light">
     <div class="container h-100">
         <div>
             <main>

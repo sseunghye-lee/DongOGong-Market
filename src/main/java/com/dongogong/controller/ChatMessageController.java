@@ -4,6 +4,7 @@ import com.dongogong.domain.ChatMessage;
 import com.dongogong.domain.ChatSummary;
 import com.dongogong.domain.Post;
 import com.dongogong.service.ChatMessageFacade;
+import com.dongogong.service.PostFacade;
 import com.dongogong.service.UserInfoFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,11 +27,16 @@ public class ChatMessageController {
     private ChatMessageFacade chatMessageFacade;
     @Autowired
     private UserInfoFacade userInfoFacade;
+    @Autowired
+    private PostFacade postFacade;
 
     @GetMapping("/chat/room/{userId}")
     public ModelAndView showChatList(@PathVariable("userId") String userId, HttpServletRequest request, HttpServletResponse response, Model model) {
         UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
+
+        if(userSession == null)
+            return new ModelAndView("index");
 
         model.addAttribute("chatRoomList", chatMessageFacade.getChatRoomList(userId));
         model.addAttribute("userSession", userSession);
@@ -45,10 +51,13 @@ public class ChatMessageController {
         UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 
+        if(userSession == null)
+            return new ModelAndView("index");
 
-//        mav.addObject("post", postFacade.getPostIdx(postIdx));
+
         List<ChatSummary> chatMessageList = chatMessageFacade.getChatMessageList(relationIdx);
         model.addAttribute("chatMessageList", chatMessageList);
+        model.addAttribute("post", postFacade.getPostIdx(chatMessageList.get(chatMessageList.size() - 1).getPostIdx()));
         model.addAttribute("userSession", userSession);
         model.addAttribute("userId", userSession.getUserInfo().getUserId());
 

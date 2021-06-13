@@ -3,18 +3,22 @@
 <%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
-<%@ include file="IncludeTopDist.jsp" %>
+<%@ include file="IncludeTopDist.jsp" %><!-- Font Awesome icons (free version)-->
+<script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+
 <body>
 <!-- ======= Header ======= -->
-<section id="hero" class="clearfix h-100 overflow-scroll">
+<section id="hero" class="bg-light h-100 overflow-scroll" >
     <div id="layoutDefault">
         <div id="layoutDefault_content h-100 overflow-scroll">
             <%@ include file="IncludeQuickHeader.jsp" %>
             <!-- End Header -->
             <main>
                 <!-- Page Header-->
-                <div class="page-header-content pt-5">
+                <div class="page-header-content pt-15">
                     <div class="container mt-n10 mb-4">
+                        <h5 class="page-header-text text-orange">
+                            <i class="fas fa-coins text-yellow mr-2"></i>현재 경매 진행상황을 살펴보세요.</h5>
                         <ul class="list-group list-group-flush list-group-careers overflow-hidden">
                             <li class="list-group-item bg-light align-items-center">
                                 <table class="text-center table table-vcenter custom-table">

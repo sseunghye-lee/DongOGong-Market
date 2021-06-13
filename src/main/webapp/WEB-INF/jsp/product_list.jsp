@@ -48,7 +48,6 @@
                 <div class="container justify-content-between py-4">
                     <a class="navbar-brand text-dark">DongOGong Market</a>
                     <form method="post" action="<c:url value="/apply/MyPost_product.do"/>">
-
                         <input type="submit" value="My"
                                class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline btn-primary">
                     </form>
@@ -207,8 +206,8 @@
                                             <div class="text-xs text-gray-500">${getPostList.content} </div>
                                         </div>
 
-                                        <input type="submit" value="세부정보" class="btn-blue-soft border-light" 
-                                        	   onClick="goDetail('<c:url value='/select_product_myList.do'><c:param name='postIdx' value='${getPostList.postIdx}'/></c:url>')"/>
+                                        <input type="submit" value="세부정보" class="btn-blue-soft border-light"
+                                               onClick="goDetail('<c:url value='/select_product_myList.do'><c:param name='postIdx' value='${getPostList.postIdx}'/></c:url>')"/>
                                         <input type="submit" value="장바구니" class="btn-danger-soft border-light"
                                                onClick="goCart('<c:url value='/cartSend.do'>
                                                <c:param name='postIdx' value='${getPostList.postIdx}'/>
@@ -216,13 +215,13 @@
                                                <c:param name='title' value='${getPostList.title}'/>
                                                <c:param name='sellerId' value='${getPostList.registerId}'/>
                                                </c:url>')"/>
-                                   		
+
                                     </a>
                                 </div>
                             </c:forEach>
                         </div>
                     </form>
-                  
+
                 </div>
 
             </section>
