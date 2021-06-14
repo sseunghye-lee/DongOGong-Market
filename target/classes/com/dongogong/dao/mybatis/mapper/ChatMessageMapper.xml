@@ -61,7 +61,7 @@
                  LEFT JOIN USERINFO U1 ON C.SENDER_ID = U1.USER_ID
                  LEFT JOIN USERINFO U2 ON C.RECEIVER_ID = U2.USER_ID
                  LEFT JOIN POST P on C.POST_IDX = P.POST_IDX
-        WHERE CHAT_RELATION_IDX = #{chatRelationIdx}
+        WHERE CHAT_RELATION_IDX = #{relationIdx}
         ORDER BY CREATED_DATE_TIME ASC
     </select>
 
@@ -118,4 +118,8 @@
                 #{CREATED_DATE_TIME})
     </insert>
 
+    <select id="getMaxChatMessageIdx" resultType="ChatMessage">
+        SELECT MAX(CHAT_MESSAGE_IDX) AS chatMessageIdx
+        FROM CHAT_MESSAGE
+    </select>
 </mapper>

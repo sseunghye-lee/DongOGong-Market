@@ -22,8 +22,10 @@ public interface ChatMessageFacade {
     boolean isRelationExist(String userId, String registerId);
 
     //    메세지 전송 시 저장
-    void insertMessage(ChatMessage chatMessage);
+    ChatMessage insertMessage(ChatMessage chatMessage);
 
     //    게시글 작성자와 유저 관계 idx 가져오기
     int findRelationIdx(String userId, String registerId);
+
+    ChatMessage getMaxChatMessageIdx();
 }

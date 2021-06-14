@@ -1,13 +1,22 @@
 package com.dongogong.domain;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+
+import javax.persistence.*;
+
 import java.io.Serializable;
 import java.util.Date;
 
-@SuppressWarnings("serial")
 // 구매자 판매자 채팅 메세지
+@SuppressWarnings("serial")
+@Entity
+@Table(name = "CHAT_MESSAGE")
 public class ChatMessage implements Serializable {
 
     // 채팅 메세지 idx
+    @Id
+//    @Column(name="chat_message_idx")
     private int chatMessageIdx;
 
     // 보낸 사람
@@ -29,6 +38,9 @@ public class ChatMessage implements Serializable {
     private String content;
 
     // 전송일자
+    @Temporal(TemporalType.DATE)
+    @CreationTimestamp
+    @Column(name = "CREATED_DATE_TIME", updatable = false)
     private Date createdDateTime;
 
     public int getChatMessageIdx() {

@@ -1,8 +1,8 @@
 package com.dongogong.dao;
 
+import com.dongogong.domain.AuctionPrice;
 import com.dongogong.domain.ChatMessage;
 import com.dongogong.domain.ChatSummary;
-import com.dongogong.domain.Relation;
 import org.springframework.dao.DataAccessException;
 
 import java.util.List;
@@ -18,5 +18,8 @@ public interface ChatMessageDao {
     void updateReadYn(int relationIdx, String userIdx) throws DataAccessException;
 
     //    메세지 전송 시 저장
-    void insertMessage(ChatMessage chatMessage) throws DataAccessException;
+    ChatMessage insertMessage(ChatMessage chatMessage) throws DataAccessException;
+
+    //    시퀀스
+    ChatMessage getMaxChatMessageIdx() throws DataAccessException;
 }

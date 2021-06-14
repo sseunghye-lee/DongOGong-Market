@@ -13,10 +13,8 @@
                 <c:forEach var="chat" items="${chatRoomList}">
                     <div class="container">
                         <div class="row justify-content-center">
-
                             <div class="col-lg-7">
-                                <a href='<c:url value="/chat/message.do">
-                                    <c:param name="chatRelationIdx" value="${chat.chatRelationIdx}"/></c:url>'
+                                <a href='<c:url value="/chat/message/${chat.chatRelationIdx}"></c:url>'
                                    class="chats-list">
                                     <div class="d-flex align-items-start bg-light p-2">
                                         <img src="/resources/images/${chat.photoUrl}" class="me-2 rounded-pill mr-3"

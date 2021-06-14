@@ -40,7 +40,12 @@ public class MybatisChatMessageDao implements ChatMessageDao {
 
     @Transactional
     //    메세지 전송 시 저장
-    public void insertMessage(ChatMessage chatMessage) throws DataAccessException {
-        chatMessageMapper.insertMessage(chatMessage);
+    public ChatMessage insertMessage(ChatMessage chatMessage) throws DataAccessException {
+        return chatMessageMapper.insertMessage(chatMessage);
+    }
+
+    @Transactional
+    public ChatMessage getMaxChatMessageIdx() throws DataAccessException {
+        return chatMessageMapper.getMaxChatMessageIdx();
     }
 }

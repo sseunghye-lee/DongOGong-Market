@@ -22,13 +22,15 @@ public interface ChatMessageMapper {
     void updateReadYn(int relationIdx, String userIdx) throws DataAccessException;
 
     //    메세지 전송 시 저장
-    void insertMessage(ChatMessage chatMessage) throws DataAccessException;
+    ChatMessage insertMessage(ChatMessage chatMessage) throws DataAccessException;
 
     //    게시글에서 메세지 보낼 때 관계가 존재하는 지
-    boolean isRelationExist(String userId, String registerId);
+    boolean isRelationExist(String userId, String registerId) throws DataAccessException;
 
-    int getRelation(String userId, String registerId);
+    int getRelation(String userId, String registerId) throws DataAccessException;
 
     //    게시글 작성자와 유저 관계 idx 가져오기
-    int findRelationIdx(String userId, String registerId);
+    int findRelationIdx(String userId, String registerId) throws DataAccessException;
+
+    ChatMessage getMaxChatMessageIdx() throws DataAccessException;
 }

@@ -62,9 +62,8 @@
                 <form class="reply">
                     <div class="reply__column">
                         <input type="text" placeholder="Write a message..." id="message" onkeyup="send()" autofocus/>
-                        <i class="far fa-smile-wink fa-lg"></i>
-                        <button id="send_message_btn" onclick="send()">
-                            <i class="fas fa-arrow-up"></i>
+                        <button id="send_message_btn" class="bg-gray-400" onclick="send()">
+                            <i class="fas fa-arrow-up text-light"></i>
                         </button>
                     </div>
                 </form>
@@ -78,10 +77,11 @@
         src="https://kit.fontawesome.com/6478f529f2.js"
         crossorigin="anonymous"
 ></script>
+<script
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
 
 
-<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="<c:url value='/dist/jquery/jquery-3.5.1.min.js'/>"></script>
 <script>
     /*<![CDATA[*/
     let Message = document.getElementById("message");
@@ -100,16 +100,10 @@
         if (btn.hasClass("btn-loading")) return;
 
         let content = $('#message').val();
-        let postIdx = /*[[${post.getPostIdx()}]]*/ '';
-        let senderId = /*[[${userId}]]*/ '';
-        let receiverId = /*[[${post.getRegisterId()}]]*/ '';
-        let userId = /*[[${userId}]]*/ '';
-
-        if (senderId != userId) {
-            let tmp = senderId;
-            senderId = userId;
-            receiverId = tmp;
-        }
+        let postIdx = '<c:out value="${post.postIdx}"></c:out>';
+        let senderId = '<c:out value="${userId}"></c:out>';
+        let receiverId = '<c:out value="${chatRoomId}"></c:out>';
+        let chatRelationIdx = '<c:out value="${chatRelationIdx}"></c:out> '
 
         // alert(receiverId);
         //문자열 좌우 공백 제거
@@ -125,24 +119,25 @@
             senderId: senderId,
             receiverId: receiverId,
             readYn: 'N',
-            content: content
+            content: content,
+            chatRelationIdx: chatRelationIdx
         };
 
+        var reqUrl = "../../../send/room/message.do";
         $.ajax({
-            url: "../../../send/message.do",
-            async: false,
+            url: reqUrl,
             type: 'POST',
+            async: false,
             data: JSON.stringify(data),
             contentType: 'application/json; charset = utf-8',
             dataType: 'json', // 리턴해주는 타입을 지정해줘야함
             success: function (res) {
-                // location.reload();
-
                 console.log("호출성공");
                 console.log(JSON.parse(res)); //찾아보기
             },// 요청 완료 시
             error: function (err) {
-                console.log("실패입니다.");
+                console.log("채팅 전송 실패입니다.");
+                alert("채팅 전송에 실패하였습니다.");
                 btn.removeClass("btn-loading").attr("disabled", false);
             }// 요청 실패.
         });

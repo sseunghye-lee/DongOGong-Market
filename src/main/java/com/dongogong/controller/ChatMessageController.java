@@ -3,6 +3,7 @@ package com.dongogong.controller;
 import com.dongogong.domain.ChatMessage;
 import com.dongogong.domain.ChatSummary;
 import com.dongogong.domain.Post;
+import com.dongogong.repository.ChatMessageRepository;
 import com.dongogong.service.ChatMessageFacade;
 import com.dongogong.service.PostFacade;
 import com.dongogong.service.UserInfoFacade;
@@ -45,8 +46,8 @@ public class ChatMessageController {
         return new ModelAndView("showChatRoom");
     }
 
-    @RequestMapping("/chat/message.do")
-    public ModelAndView showChatMessage(@RequestParam("chatRelationIdx") int relationIdx,
+    @RequestMapping("/chat/message/{chatRelationIdx}")
+    public ModelAndView showChatMessage(@PathVariable("chatRelationIdx") int relationIdx,
                                         HttpServletRequest request, HttpServletResponse response, Model model) {
         UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
@@ -54,14 +55,12 @@ public class ChatMessageController {
         if(userSession == null)
             return new ModelAndView("index");
 
-
         List<ChatSummary> chatMessageList = chatMessageFacade.getChatMessageList(relationIdx);
         model.addAttribute("chatMessageList", chatMessageList);
         model.addAttribute("post", postFacade.getPostIdx(chatMessageList.get(chatMessageList.size() - 1).getPostIdx()));
         model.addAttribute("userSession", userSession);
+        model.addAttribute("chatRelationIdx", relationIdx);
         model.addAttribute("userId", userSession.getUserInfo().getUserId());
-
-        String readYn = chatMessageList.get(chatMessageList.size() - 1).getReadYn();
 
         if (chatMessageList.get(((ArrayList) chatMessageList).size() - 1).getReadYn().equals("N")) {
             if (chatMessageList.get(((ArrayList) chatMessageList).size() - 1).getReceiverId().equals(userSession.getUserInfo().getUserId())) {
@@ -71,20 +70,25 @@ public class ChatMessageController {
 
         if (chatMessageList.get(0).getSenderId().equals(userSession.getUserInfo().getUserId())) {
             model.addAttribute("chatRoomName", userInfoFacade.getUserInfo(chatMessageList.get(0).getReceiverId()).getNickName());
+            model.addAttribute("chatRoomId", userInfoFacade.getUserInfo(chatMessageList.get(0).getReceiverId()).getUserId());
         } else {
             model.addAttribute("chatRoomName", userInfoFacade.getUserInfo(chatMessageList.get(0).getSenderId()).getNickName());
+            model.addAttribute("chatRoomId", userInfoFacade.getUserInfo(chatMessageList.get(0).getSenderId()).getUserId());
         }
 
         return new ModelAndView("showChatMessage");
     }
 
-    @RequestMapping("/send/room/message.do")
-    public Map<String, Boolean> sendMessageOnChat(@RequestBody ChatMessage chatMessage, HttpServletRequest request, HttpServletResponse reponse) {
-        chatMessageFacade.insertMessage(chatMessage);
+    @PostMapping("/send/room/message.do")
+    @ResponseBody
+    public Object sendMessageOnChat(@RequestBody ChatMessage chatMessage, HttpServletRequest request, HttpServletResponse reponse, Model model) {
+        ChatMessage newChatMessage =chatMessageFacade.insertMessage(chatMessage);
 
-        Map<String, Boolean> map = new HashMap<String, Boolean>();
+        model.addAttribute("sendMessage", newChatMessage);
+        model.addAttribute("chatRelationIdx", chatMessage.getChatRelationIdx());
+
+        HashMap<String, Boolean> map = new HashMap<String, Boolean>();
         map.put("result", true);
-
         return map;
     }
 
