@@ -91,11 +91,5 @@
 		  AND NOT P.BORDER_TYPE = 'auction'
 		  AND P.TRANSACTION_CONFIRMATION = 'WAIT' 
     </select>
-    
-    <select id="getTitle" resultType="Post">
-    	SELECT TITLE
-    	FROM POST
-    	WHERE POST_IDX = #{postIdx}
-    </select>
-    
+
 </mapper>

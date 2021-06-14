@@ -93,10 +93,4 @@ public class MybatisPostDao implements PostDao {
    	public List<Post> cartList(String buyerId) throws DataAccessException {
     	return postMapper.cartList(buyerId);
     }
-    
-    @Override
-    public Post getTitle(int postIdx) throws DataAccessException {
-    	return postMapper.getTitle(postIdx);
-    }
-    
 }

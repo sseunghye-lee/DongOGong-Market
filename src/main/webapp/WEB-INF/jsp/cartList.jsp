@@ -4,7 +4,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ include file="IncludeTopDist.jsp" %>
+<%@ include file="IncludeTop.jsp" %>
 <body>
+<%@ include file="IncludeQuickHeader.jsp" %>
 <!-- ======= Header ======= -->
 <section id="hero" class="clearfix h-100 overflow-scroll">
     <div id="layoutDefault">
@@ -23,41 +25,23 @@
                                         <th class="w-7 text-nowrap">번호</th>
                                         <th class="w-7 d-none d-lg-table-cell text-nowrap">물건 이름</th>
                                         <th class="w-7 d-none d-lg-table-cell text-nowrap">가격</th>
-                                        <th class="w-7 d-none d-lg-table-cell text-nowrap">판매 상태</th>
+                                        <th class="w-7 d-none d-lg-table-cell text-nowrap">장바구니에서 삭제</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="post" items="${cartList}" varStatus="status">
+                                    <c:forEach var="cartList" items="${cartList}" varStatus="status">
                                         <tr>
                                             <td class="px-3 text-nowrap">
                                                 <c:out value="${status.count}"/>
                                             </td>
                                             <td class="px-3 d-none d-lg-table-cell text-nowrap">
-                                                <c:out value="${post.title}"></c:out>
+                                                <c:out value="${cartList.title}"></c:out>
                                             </td>
                                              <td class="px-3 d-none d-lg-table-cell text-nowrap">
-                                                <c:out value="${post.price}"></c:out>
+                                                <c:out value="${cartList.price}"></c:out>
                                             </td>
                                             <td class="px-3 d-none d-lg-table-cell text-nowrap">
-                                            <!-- 
-                                            <form method="post" action="<c:url value='/auctionFinish.do'>
-                                                <c:param name='postIdx' value='${auction.postIdx}'/>
-                                                <c:param name='buyerId' value='${auction.buyerId}'/>
-                                                <c:param name='sellerId' value='${postRegister.registerId}'/>
-                                                </c:url>">
-                                            <c:if test="${userId eq postRegister.registerId and auction.price eq maxPrice.price}">  
-                                            	                                        	
-                                                <input type = "submit" value = "낙찰하기" onClick = "goAuction('<c:url value='/auctionFinish.do'>
-                                                <c:param name='postIdx' value='${auction.postIdx}'/>
-                                                <c:param name='buyerId' value='${auction.buyerId}'/>
-                                                <c:param name='sellerId' value='${postRegister.registerId}'/>
-                                                </c:url>')" />     
-                                                         
-                                            </c:if>
-                                            <c:if test="${userId ne postRegister.registerId}">
-                                                낙찰불가 
-                                            </c:if>
-                                            </form>-->  
+                                            	<a href="<c:url value="/cartDelete.do"/>">삭제하기</a>
                                             </td>
                                         </tr>
                                         </c:forEach>
@@ -65,9 +49,9 @@
                                 </table>
                             </li>
                         </ul>
-                        <c:if test="${auctionProgressList}.size == 0">
+                        <c:if test="${empty cartList}">
                             <p class="text-center page-header-text align-middle pt-10 pb-15">
-                                게시물이 없습니다.
+                                장바구니에 담은 물건이 없습니다.
                             </p>
                             <hr class="mb-0">
                         </c:if>

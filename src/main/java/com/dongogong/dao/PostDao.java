@@ -40,7 +40,4 @@ public interface PostDao {
       
      //장바구니에 추가된 상품 가져오기
       List<Post> cartList(String buyerId) throws DataAccessException;
-      
-      Post getTitle(int postIdx) throws DataAccessException;
-
 }
