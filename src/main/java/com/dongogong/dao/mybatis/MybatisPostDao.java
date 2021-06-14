@@ -88,4 +88,15 @@ public class MybatisPostDao implements PostDao {
        postMapper.updatePost(postIdx);  
     }
 
+    //장바구니에 추가된 상품 가져오기
+    @Override
+   	public List<Post> cartList(String buyerId) throws DataAccessException {
+    	return postMapper.cartList(buyerId);
+    }
+    
+    @Override
+    public Post getTitle(int postIdx) throws DataAccessException {
+    	return postMapper.getTitle(postIdx);
+    }
+    
 }

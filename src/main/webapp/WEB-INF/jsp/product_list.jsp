@@ -57,7 +57,7 @@
                         <a class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline"
                            href="<c:url value="/apply/product.do"/>">NEW</a>
                         <a class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline"
-                           href="<c:url value="/cartSend.do/"/>">CART</a>
+                           href="<c:url value="/cartList.do/"/>">CART</a>
                         <a class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline"
                            href="<c:url value="/"/>">HOME</a>
 

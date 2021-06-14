@@ -20,7 +20,7 @@ public interface PostFacade {
    // 상품 눌렀을때 정보보기
    Post selectPost(int post_idx);
 
-         
+   
    // 상품 등록
    void registerPost(Post post);
    // 상품 업데이트
@@ -38,6 +38,9 @@ public interface PostFacade {
    
    // 장바구니 추가 시 상태변경
    void updatePost(int postIdx);
-
    
+   //장바구니에 추가된 상품 가져오기
+   List<Post> cartList(String buyerId);
+   
+   Post getTitle(int postIdx);
 }

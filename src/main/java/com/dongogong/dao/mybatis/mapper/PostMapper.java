@@ -42,4 +42,9 @@ public interface PostMapper {
 	
     // 장바구니 추가 시 상태변경
     void updatePost(int postIdx) throws DataAccessException;
+    
+    //장바구니에 추가된 상품 가져오기
+    List<Post> cartList(String buyerId);
+    
+    Post getTitle(int postIdx);
 }

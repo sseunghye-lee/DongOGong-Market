@@ -82,4 +82,20 @@
 	  SET TRANSACTION_CONFIRMATION = 'WAIT'
 	  WHERE POST_IDX = #{postIdx}
 	</update>
+	
+    <select id="cartList" resultType="Post">
+		SELECT P.TITLE, P.PRICE, P.TRANSACTION_CONFIRMATION AS TRANSACTIONCONFIRMATION
+		FROM POST P
+		         LEFT JOIN TRANSACTIONS T ON P.POST_IDX = T.POST_IDX
+		WHERE T.BUYER_ID = #{buyerId, jdbcType=VARCHAR}
+		  AND NOT P.BORDER_TYPE = 'auction'
+		  AND P.TRANSACTION_CONFIRMATION = 'WAIT' 
+    </select>
+    
+    <select id="getTitle" resultType="Post">
+    	SELECT TITLE
+    	FROM POST
+    	WHERE POST_IDX = #{postIdx}
+    </select>
+    
 </mapper>

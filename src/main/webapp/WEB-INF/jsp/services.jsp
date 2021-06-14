@@ -7,6 +7,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<script>
+	   function goCartList(targetUri) {
+	       form.action = targetUri;
+	       form.submit();
+	   }
+	</script>
+    
 <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -37,12 +44,15 @@
   <!-- Template Main CSS File -->
   <link type="text/css" href="resources/assets/css/style.css" rel="stylesheet">
 
+
   <!-- =======================================================
   * Template Name: Rapid - v4.0.1
   * Template URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+
  <%@ include file="IncludeTop.jsp" %>
 </head>
 <body>
@@ -90,7 +100,7 @@
           <div class="col-md-6 col-lg-4 wow" data-aos="zoom-in" data-aos-delay="100">
             <div class="box">
               <div class="icon" style="background: #eafde7;"><i class="bi bi-binoculars" style="color:#41cf2e;"></i></div>
-              <h4 class="title"><a href="<c:url value="/cartList.do"/>">MY CART</a></h4>
+               <h4 class="title"><a href="<c:url value="/cartList.do"/>">MY CART</a></h4> 
               <p class="description">장바구니 <br> 장바구니에 담은 물건을 한 눈에 볼 수 있는 페이지입니다.</p>
             </div>
           </div>
@@ -98,9 +108,9 @@
           <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="200">
         <div class=" box">
             <div class="icon" style="background: #e1eeff;"><i class="bi bi-brightness-high" style="color: #2282ff;"></i></div>
-            <h4 class="title"><a href="<c:url value="/myPage.do"/>">MYPAGE</a></h4>
+            <h4 class="title"><a href="<c:url value="/myPage.do"/>" > MYPAGE</a></h4>
             <p class="description">마이페이지 <br> 내 정보와 거래 내역을 확인하고 정보 수정, 회원 탈퇴할 수 있는 페이지입니다.</p>
-          </div>
+        </div>
         </div>
         <div class="col-md-6 col-lg-4" data-aos="zoom-in" data-aos-delay="300">
           <div class="box">

@@ -87,5 +87,13 @@ public class PostImpl implements PostFacade{
       postDao.updatePost(postIdx);
    }
 
-   
+	@Override
+	public List<Post> cartList(String buyerId) {
+		return postDao.cartList(buyerId);
+	}   
+	
+    @Override
+    public Post getTitle(int postIdx) {
+    	return postDao.getTitle(postIdx);
+    }
 }

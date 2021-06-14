@@ -27,15 +27,9 @@ public interface TransactionsMapper {
 	//sellerId를 통해 닉네임 가져오기.
 	String transactionsCheckNickName(String sellerId);
 	
-	//거래 추가
-	//void insertTransactions(Transactions transactions) throws DataAccessException;
-	
-    // 장바구니에 추가
-    //void insertCart(Post post) throws DataAccessException;
-    
-    // 장바구니 보기
-    //List<Transactions> cartList(int postIdx) throws DataAccessException;
-	
-	 void insertCartTransactions(Transactions transactions);
-    
+	// 장바구니에 추가
+	void insertCartTransactions(Transactions transactions);
+	 
+	// 장바구니에 추가된 상품 가져오기 (같은 buyerId)
+	//List<Transactions> cartList(String buyerId) throws DataAccessException; 
 }

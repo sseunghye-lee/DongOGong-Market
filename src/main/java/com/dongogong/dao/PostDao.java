@@ -37,5 +37,10 @@ public interface PostDao {
       
       // 장바구니 추가 시 상태 변경
       void updatePost(int postIdx) throws DataAccessException;
+      
+     //장바구니에 추가된 상품 가져오기
+      List<Post> cartList(String buyerId) throws DataAccessException;
+      
+      Post getTitle(int postIdx) throws DataAccessException;
 
 }

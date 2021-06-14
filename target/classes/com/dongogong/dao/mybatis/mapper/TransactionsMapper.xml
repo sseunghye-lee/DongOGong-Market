@@ -31,7 +31,7 @@
 		SELECT SELLER_ID AS SELLERID, TITLE, PRICE
 		FROM TRANSACTIONS, POST
 		WHERE TRANSACTIONS.POST_IDX = POST.POST_IDX 
-			AND POST_IDX = #{postIdx} AND BUYER_ID = #{buyerId} AND STATUS = 'decide'
+			AND POST_IDX = #{postIdx} AND BUYER_ID = #{buyerId} AND STATUS = 'DECIDE'
 	</select>
 	
 	<select id="transactionsCheckNickName" resultType="java.lang.String">
