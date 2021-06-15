@@ -79,8 +79,6 @@
 ></script>
 <script
         src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="./js/bootstrap.min.js"></script>
-
 
 <script>
     /*<![CDATA[*/
@@ -134,6 +132,7 @@
             success: function (res) {
                 console.log("호출성공");
                 console.log(JSON.parse(res)); //찾아보기
+                location.reload();
             },// 요청 완료 시
             error: function (err) {
                 console.log("채팅 전송 실패입니다.");
