@@ -43,21 +43,22 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
    <%@ include file="IncludeTop.jsp" %>
+    <link href="/img/market.png" rel="icon">
+    <link href="/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 </head>
 <body>
 <%@ include file="IncludeQuickHeader.jsp" %>
 <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
-        <div class="row">
-
-          <div class="col-lg-5 col-md-6">
-            <div class="about-img" data-aos="fade-right" data-aos-delay="100">
+        <div class="row justify-content-around">
+          <div class="col-lg-5 col-md-8 mr-3" style="margin-top: 120px;">
+            <div class="about-img" data-aos="fade-right" data-aos-delay="100" style="margin-top: 120px;">
               <img src="resources/images/DongOGong2.jpg" alt="">
             </div>
           </div>
 
-          <div class="col-lg-7 col-md-6">
+          <div class="col-lg-6 col-md-6" style="margin-top: 120px;">
             <div class="about-content" data-aos="fade-left" data-aos-delay="100">
               <h2>About DongOGong Market</h2>
               <p>안녕하세요. 동오공 마켓입니다. <br> 저희 마켓을 방문해주셔서 감사합니다. <br> 아래의 주의사항들을 잘 읽고 만족스러운 구매가 되길 바랍니다.<br>

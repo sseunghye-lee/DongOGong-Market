@@ -8,6 +8,7 @@ import com.dongogong.service.ChatMessageFacade;
 import com.dongogong.service.PostFacade;
 import com.dongogong.service.UserInfoFacade;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -84,14 +85,13 @@ public class ChatMessageController {
     public Object sendMessageOnChat(@RequestBody ChatMessage chatMessage, HttpServletRequest request, HttpServletResponse reponse, Model model) {
         ChatMessage newChatMessage =chatMessageFacade.insertMessage(chatMessage);
 
-        model.addAttribute("sendMessage", newChatMessage);
         model.addAttribute("chatRelationIdx", chatMessage.getChatRelationIdx());
+        model.addAttribute("", newChatMessage);
+        List<ChatSummary> chatMessageList = chatMessageFacade.getChatMessageList(chatMessage.getChatRelationIdx());
+        model.addAttribute("chatMessageList", chatMessageList);
 
-        HashMap<String, Boolean> map = new HashMap<String, Boolean>();
-        map.put("result", true);
-        return map;
+        return newChatMessage;
     }
-
     //    chatRoomList 모델맵객체에 저장
     @RequestMapping("/send/post/message.do")
     public String sendMessageOnPost(@ModelAttribute("post") Post post, @ModelAttribute("ChatMessage") ChatMessage chatMessage, HttpServletRequest request, HttpServletResponse response) {

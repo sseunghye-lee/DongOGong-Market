@@ -11,14 +11,23 @@
         <main class="vh-100">
             <header class="page-header page-header-light bg-light h-100 overflow-scroll">
                 <div class="container h-100">
+                    <div class="card-header text-center mb-4">상품 구매 진행 중에 있는 상품으로 현재 구매가 불가능합니다.</div>
+                    <div class="text-center mb-4 d-block">
+                        <input class="mt-4 btn btn-light btn-outline-dark font-weight-500 pl-5 pr-5 mb-2"
+                               id="btnDecide" type="submit" value="구매하기"/>
+                        <input class="mt-4 btn btn-light btn-outline-dark font-weight-500 pl-5 pr-5 mb-2"
+                               id="btnCancel" type="submit" value="취소하기"/>
+                    </div>
+                    <c:if test="${userSession.getUserInfo().getUserId() eq message.receiverId}">
+                    </c:if>
                     <a href="<c:url value="/chat/room/${userSession.userInfo.userId}"/>">
                         <i class="fas fa-angle-left fa-2x"></i>
                         <h1 class="ml-2 d-inline font-weight-bolder">
                             <c:out value="${chatRoomName}"></c:out>
                         </h1>
                     </a>
-                    <main class="main-screen main-chat mt-5 h-75">
-                        <c:forEach var="message" items="${chatMessageList}">
+                    <main class="main-screen main-chat mt-5 h-75 scroll-to-top" id="chatMessageArea">
+                        <c:forEach var="message" items="${chatMessageList}" varStatus="i">
                             <div>
                                 <c:if test="${userSession.getUserInfo().getUserId() eq message.receiverId}">
                                     <div class="message-row leftMessage">
@@ -59,14 +68,14 @@
                         </c:forEach>
                     </main>
                 </div>
-                <form class="reply">
+                <div class="reply">
                     <div class="reply__column">
                         <input type="text" placeholder="Write a message..." id="message" onkeyup="send()" autofocus/>
                         <button id="send_message_btn" class="bg-gray-400" onclick="send()">
                             <i class="fas fa-arrow-up text-light"></i>
                         </button>
                     </div>
-                </form>
+                </div>
             </header>
         </main>
     </section>
@@ -75,13 +84,13 @@
 
 <script
         src="https://kit.fontawesome.com/6478f529f2.js"
-        crossorigin="anonymous"
-></script>
+        crossorigin="anonymous">
+</script>
 <script
         src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/dist/js/bootstrap.min.js"></script>
 
 <script>
-    /*<![CDATA[*/
     let Message = document.getElementById("message");
     $("#send_message_btn").click(function () {
         sendMessage();
@@ -121,9 +130,8 @@
             chatRelationIdx: chatRelationIdx
         };
 
-        var reqUrl = "../../../send/room/message.do";
         $.ajax({
-            url: reqUrl,
+            url: "../../../send/room/message.do",
             type: 'POST',
             async: false,
             data: JSON.stringify(data),
@@ -131,8 +139,8 @@
             dataType: 'json', // 리턴해주는 타입을 지정해줘야함
             success: function (res) {
                 console.log("호출성공");
-                console.log(JSON.parse(res)); //찾아보기
-                location.reload();
+                alert(res);
+                location.href = '/chat/message/' + res.chatRelationIdx;
             },// 요청 완료 시
             error: function (err) {
                 console.log("채팅 전송 실패입니다.");
@@ -141,8 +149,6 @@
             }// 요청 실패.
         });
     }
-
-    /*]]>*/
 </script>
 
 </body>

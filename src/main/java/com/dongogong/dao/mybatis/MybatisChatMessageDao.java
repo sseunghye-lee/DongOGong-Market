@@ -20,26 +20,24 @@ public class MybatisChatMessageDao implements ChatMessageDao {
     @Autowired
     private SequenceDao sequenceDao;
 
-    @Transactional
     //    채팅방 리스트 불러오기
     public List<ChatSummary> getChatRoomList(String userId) throws DataAccessException {
         return chatMessageMapper.getChatRoomList(userId);
     }
 
-    @Transactional
     //    채팅리스트에서 채팅방 클릭 시 채팅창 화면 불러오기
+    @Transactional
     public List<ChatSummary> getChatMessageList(int relationIdx) throws DataAccessException {
         return chatMessageMapper.getChatMessageList(relationIdx);
     }
 
-    @Transactional
     //    채팅방 들어갈 때 안읽음 -> 읽음 변경
     public void updateReadYn(int relationIdx, String userIdx) throws DataAccessException {
         chatMessageMapper.updateReadYn(relationIdx, userIdx);
     }
 
-    @Transactional
     //    메세지 전송 시 저장
+    @Transactional
     public ChatMessage insertMessage(ChatMessage chatMessage) throws DataAccessException {
         return chatMessageMapper.insertMessage(chatMessage);
     }
