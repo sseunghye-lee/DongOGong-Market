@@ -4,44 +4,14 @@
 <mapper namespace="com.dongogong.dao.mybatis.mapper.TransactionsMapper">
 
 	<cache />
-
-<!--
-	<select id ="TransactionsRequest" resultType="Transactions">
-		SELECT POSTIDX, SELLERID, BUYERID
-		FROM TRANSACTIONS
-		WHERE 
-	</select>  
--->	  
-
   
 	<select id="transactionSize" resultType="Transactions">
      SELECT MAX(TRANSACTIONS_IDX) AS transactionsIdx
      FROM TRANSACTIONS
   	</select> 
-  
-   <!--  
-	<update id="TransactionsStatus" parameterType="java.lang.String">
-		UPDATE TRANSACTIONS
-		SET STATUS = #{status}
-	</update>======
-	-->
-
-	<!-- 거래 내역 확인 -->
-	<select id="transactionsCheck" resultType="Transactions">
-		SELECT SELLER_ID AS SELLERID, TITLE, PRICE
-		FROM TRANSACTIONS, POST
-		WHERE TRANSACTIONS.POST_IDX = POST.POST_IDX 
-			AND POST_IDX = #{postIdx} AND BUYER_ID = #{buyerId} AND STATUS = 'DECIDE'
-	</select>
 	
-	<select id="transactionsCheckNickName" resultType="java.lang.String">
-		SELECT NICKNAME
-		FROM USERINFO
-		WHERE USER_ID = #{sellerId}
-	</select>
-
     <insert id="insertCartTransactions" parameterType="Transactions">
        INSERT INTO TRANSACTIONS(transactions_Idx, post_Idx, seller_Id, buyer_Id, status)
        VALUES(#{transactionsIdx}, #{postIdx}, #{sellerId}, #{buyerId}, 'WAIT')
-    </insert> <!-- transaction 테이블에 거래 완료된 경매 등록 -->
+    </insert> 
 </mapper>

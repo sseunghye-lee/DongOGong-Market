@@ -24,22 +24,19 @@ public class MybatisPostDao implements PostDao {
 	@Override
 	 public  List<Post> getCategory(String borderType) throws DataAccessException {
 		 return postMapper.getCategory(borderType);
-	 }
-     
+	 }   
 	
 	// 내 상품 가져오기
 	@Override
 	public List<Post> getPost(String registerId) throws DataAccessException {
 		return postMapper.getPost(registerId);
 	}
-	
-	
+		
 	// 상품 눌렀을때 정보보기
-		@Override
-		public Post selectPost(int post_idx) throws DataAccessException {
-			return postMapper.selectPost(post_idx);
-		}
-
+	@Override
+	public Post selectPost(int post_idx) throws DataAccessException {
+		return postMapper.selectPost(post_idx);
+	}
 	
 	// 상품 등록
 	@Override
@@ -93,4 +90,9 @@ public class MybatisPostDao implements PostDao {
    	public List<Post> cartList(String buyerId) throws DataAccessException {
     	return postMapper.cartList(buyerId);
     }
+    
+	@Override
+	public List<Post> transactionsCheckList(String buyerId) throws DataAccessException {
+		return postMapper.transactionsCheckList(buyerId);
+	}
 }

@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,16 +45,13 @@ public class CartSendController {
       String SPostIdx = request.getParameter("postIdx");
       String SPrice = request.getParameter("price");
       String title = request.getParameter("title");
+      String sellerId = request.getParameter("sellerId");    
       int postIdx = Integer.valueOf(SPostIdx);
-      int price = Integer.valueOf(SPrice);
+      int price = Integer.valueOf(SPrice);   
       
-      String sellerId = request.getParameter("sellerId");
-      
-      Post post = postFacade.getPostIdx(postIdx);
-       
+      Post post = postFacade.getPostIdx(postIdx);    
       Transactions transIdx;
-      int transactionIdx = 0;
-      
+      int transactionIdx = 0; 
       
       try {
          transIdx = transactionsFacade.transactionSize();
@@ -76,10 +72,6 @@ public class CartSendController {
       transactions.setStatus("WAIT");
       
       transactionsFacade.insertCartTransactions(transactions);
-      
-      //post.setPostIdx(postIdx);
-      //post.setRegisterId(userSession.getUserInfo().getUserId());
-      //post.setTitle(title);
 
       model.addAttribute("getPostList", getPostList());
       

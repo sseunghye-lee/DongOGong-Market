@@ -91,4 +91,9 @@ public class PostImpl implements PostFacade{
 	public List<Post> cartList(String buyerId) {
 		return postDao.cartList(buyerId);
 	}   
+	
+	@Override
+	public List<Post> transactionsCheckList(String buyerId) {
+		return postDao.transactionsCheckList(buyerId);
+	}
 }

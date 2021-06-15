@@ -24,32 +24,41 @@
                                         <th class="w-7 d-none d-lg-table-cell text-nowrap">판매자</th>
                                         <th class="w-7 d-none d-lg-table-cell text-nowrap">상품명</th>
                                         <th class="w-7 d-none d-lg-table-cell text-nowrap">가격</th>
+                                        <th class="w-7 d-none d-lg-table-cell text-nowrap">거래내역(일반거래, 경매)</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="transactions" items="${checkDeal}" varStatus="status">
+                                    <c:forEach var="transactionsCheckList" items="${transactionsCheckList}" varStatus="status">
                                         <tr>
                                             <td class="px-3 text-nowrap">
                                                 <c:out value="${status.count}"/>
                                             </td>
                                             <td class="px-3 d-none d-lg-table-cell text-nowrap">
-                                                <c:out value="${transactions.sellerId}"></c:out>
+                                                <c:out value="${transactionsCheckList.registerId}"></c:out>
                                             </td>
                                             <td class="px-3 d-none d-lg-table-cell text-nowrap">
-                                                <c:out value="${post.title}"></c:out>
+                                                <c:out value="${transactionsCheckList.title}"></c:out>
                                             </td>
                                              <td class="px-3 d-none d-lg-table-cell text-nowrap">
-                                                <c:out value="${post.price}"></c:out>
-                                            </td>                                           
+                                                <c:out value="${transactionsCheckList.price}"></c:out>
+                                            </td>  
+                                            <td class="px-3 d-none d-lg-table-cell text-nowrap">
+                                            	<c:if test="${transactionsCheckList.transactionConfirmation eq 'COMPLETED'}">
+                                              	  <c:out value="일반거래"></c:out>
+                                                </c:if>
+                                                <c:if test="${transactionsCheckList.transactionConfirmation eq 'DECIDE'}">
+                                              	  <c:out value="경매"></c:out>
+                                                </c:if>
+                                            </td>                                          
                                         </tr>
                                         </c:forEach>
                                      </tbody>
                                 </table>
                             </li>
                         </ul>
-                        <c:if test="${checkDeal}.size == 0">
+                        <c:if test="${empty transactionsCheckList}">
                             <p class="text-center page-header-text align-middle pt-10 pb-15">
-                                거래내역이 없습니다.
+                                거래한 물건이 없습니다.
                             </p>
                             <hr class="mb-0">
                         </c:if>

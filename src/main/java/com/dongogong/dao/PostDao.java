@@ -15,7 +15,7 @@ public interface PostDao {
       // 내 상품 가져오기
       List<Post> getPost(String registerId) throws DataAccessException;
       
-   // 상품 눌렀을때 정보보기
+      // 상품 눌렀을때 정보보기
       Post selectPost(int post_idx) throws DataAccessException;
       
       // 상품 등록
@@ -39,5 +39,8 @@ public interface PostDao {
       void updatePost(int postIdx) throws DataAccessException;
       
      //장바구니에 추가된 상품 가져오기
-      List<Post> cartList(String buyerId) throws DataAccessException;
+     List<Post> cartList(String buyerId) throws DataAccessException;
+     
+  	 // 거래 내역 확인 -> 로그인한 해당 user가 buyerId인 경우의 모든 레코드 가져오기
+  	 List<Post> transactionsCheckList(String buyerId) throws DataAccessException;
 }
