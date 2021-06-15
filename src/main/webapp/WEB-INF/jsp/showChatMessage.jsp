@@ -9,13 +9,13 @@
     <section id="layoutDefault_content">
         <%@ include file="IncludeQuickHeader.jsp" %>
         <main class="vh-100">
-            <header class="page-header page-header-light bg-light h-100 overflow-scroll">
-                <div class="container h-100">
+            <header class="page-header page-header-light bg-light h-100">
+                <div class="container h-100" style="overflow-y: scroll">
                     <div class="card-header text-center mb-4">상품 구매 진행 중에 있는 상품으로 현재 구매가 불가능합니다.</div>
                     <div class="text-center mb-4 d-block">
-                        <input class="mt-4 btn btn-light btn-outline-dark font-weight-500 pl-5 pr-5 mb-2"
+                        <input class="mt-2 btn btn-light btn-outline-dark font-weight-500 pl-5 pr-5 mb-2"
                                id="btnDecide" type="submit" value="구매하기"/>
-                        <input class="mt-4 btn btn-light btn-outline-dark font-weight-500 pl-5 pr-5 mb-2"
+                        <input class="mt-2 btn btn-light btn-outline-dark font-weight-500 pl-5 pr-5 mb-2"
                                id="btnCancel" type="submit" value="취소하기"/>
                     </div>
                     <c:if test="${userSession.getUserInfo().getUserId() eq message.receiverId}">
@@ -26,7 +26,7 @@
                             <c:out value="${chatRoomName}"></c:out>
                         </h1>
                     </a>
-                    <main class="main-screen main-chat mt-5 h-75 scroll-to-top" id="chatMessageArea">
+                    <main class="main-screen main-chat mt-5 h-75 scroll-to-top pb-5" id="chatMessageArea">
                         <c:forEach var="message" items="${chatMessageList}" varStatus="i">
                             <div>
                                 <c:if test="${userSession.getUserInfo().getUserId() eq message.receiverId}">
