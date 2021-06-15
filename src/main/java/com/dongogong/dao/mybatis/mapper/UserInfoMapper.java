@@ -36,5 +36,7 @@ public interface UserInfoMapper {
    
    //List<UserInfo> findUserList(int currentPage, int countPerPaga);
    
-   //boolean existingUser(String user_id);   
+   //boolean existingUser(String user_id);
+   
+   UserInfo myInfo(String userId);
 }

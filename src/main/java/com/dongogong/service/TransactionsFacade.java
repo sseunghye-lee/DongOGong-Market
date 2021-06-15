@@ -6,5 +6,7 @@ public interface TransactionsFacade {
 	
 	Transactions transactionSize();
 		
-	void insertCartTransactions(Transactions transactions); 
+	void insertCartTransactions(Transactions transactions);
+	
+	void deleteCartTransactions(Transactions transactions);
 }

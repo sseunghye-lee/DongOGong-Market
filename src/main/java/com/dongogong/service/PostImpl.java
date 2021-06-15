@@ -96,4 +96,9 @@ public class PostImpl implements PostFacade{
 	public List<Post> transactionsCheckList(String buyerId) {
 		return postDao.transactionsCheckList(buyerId);
 	}
+
+	@Override
+	public void deleteCartPost(int postIdx) {
+		postDao.deleteCartPost(postIdx);	
+	}
 }

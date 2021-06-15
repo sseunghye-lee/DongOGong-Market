@@ -43,4 +43,7 @@ public interface PostDao {
      
   	 // 거래 내역 확인 -> 로그인한 해당 user가 buyerId인 경우의 모든 레코드 가져오기
   	 List<Post> transactionsCheckList(String buyerId) throws DataAccessException;
+  	 
+  	 // 장바구니 삭제 시 상태 변경
+  	 void deleteCartPost(int postIdx) throws DataAccessException;
 }

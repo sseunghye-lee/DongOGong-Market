@@ -41,7 +41,10 @@
                                                 <c:out value="${cartList.price}"></c:out>
                                             </td>
                                             <td class="px-3 d-none d-lg-table-cell text-nowrap">
-                                            	<a href="<c:url value="/cartDelete.do"><c:param name='postIdx' value='${cartList.postIdx}'/></c:url>">삭제하기</a>
+                                            	<a href="<c:url value="/cartDelete.do">
+                                            		<c:param name='postIdx' value='${cartList.postIdx}'/>
+                                            		<c:param name='buyerId' value='${cartList.registerId}'/>
+                                            	</c:url>">삭제하기</a>
                                             </td>
                                         </tr>
                                         </c:forEach>

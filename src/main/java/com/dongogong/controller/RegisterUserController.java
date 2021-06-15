@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.WebUtils;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.dongogong.domain.UserInfo;
 import com.dongogong.service.UserInfoFacade;
@@ -60,7 +57,7 @@ public class RegisterUserController {
       return formViewName;
    }
    
-
+   //회원가입
    @PostMapping
    public String onSubmit(
          HttpServletRequest request, HttpSession session,
@@ -71,25 +68,7 @@ public class RegisterUserController {
      //validator.validate(userInfoForm, result);
      
       if (result.hasErrors()) 
-         return "index";
-     
-      /*
-       try {
-         if (userInfoForm.isNewUserInfo() && idChk(userInfo) == 0) {
-        	 userInfoFacade.insertUserInfo(userInfoForm.getUserInfo());
-         } 
-         else if (idChk(userInfo) == 1) {
-        	 return "index";
-         }
-      } catch (DataIntegrityViolationException ex) {
-         result.rejectValue("userInfo.userId", "USER_ID_ALREADY_EXISTS",
-               "User ID already exists: choose a different ID.");
-         return formViewName;
-      }
-	
-      return successViewName;
-       */
-      
+         return "index"; 
       
       try {
          if (userInfoForm.isNewUserInfo()) {
@@ -103,13 +82,4 @@ public class RegisterUserController {
 	
       return successViewName;
    }
-   
-   /*
-   //아이디 중복체크
-   @ResponseBody
-   @RequestMapping(value="/idChk.do", method=RequestMethod.POST)
-   public int idChk(UserInfo userInfo) throws Exception {
-	   int result = userInfoFacade.idChk(userInfo);
-	   return result;
-   }*/
 }

@@ -49,7 +49,7 @@ public class UpdateUserController {
 		UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 		model.addAttribute("userSession", userSession);
-		
+		model.addAttribute("myInfo", myInfo(userSession.getUserInfo().getUserId()));
 		return formViewName;
 	}
 	
@@ -76,4 +76,9 @@ public class UpdateUserController {
 		
 		return new ModelAndView("myPage");
 	} 
+	
+	@ModelAttribute("myInfo")
+	public UserInfo myInfo(String userId) {
+		return userInfoFacade.myInfo(userId);
+	}
 }

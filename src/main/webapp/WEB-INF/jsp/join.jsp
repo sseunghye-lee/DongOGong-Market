@@ -35,7 +35,7 @@
                                     <label>Id</label>
                                     <h4>ID</h4>
                                     <form:input class="form-control" path="userInfo.userId" placeholder="ID" type="text" />
-                                    <form:button class ="idChk" id="idChk" type="button" onclick="fn_idChk();" value="N" >중복확인</form:button>
+                                    <!--<form:button class ="idChk" id="idChk" type="button" onclick="fn_idChk();" value="N" >중복확인</form:button>-->
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>                        
@@ -71,6 +71,7 @@
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
+
                             <br />
                             <div id="success"></div>
 								<div class="form-group">

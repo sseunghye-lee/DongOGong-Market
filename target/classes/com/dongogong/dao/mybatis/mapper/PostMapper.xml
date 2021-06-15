@@ -77,7 +77,7 @@
 	 VALUES(#{postIdx}, #{registerId}, #{title}, #{borderType}, #{price}, #{content}, 'no', #{photoUrl})
 	</insert>
 
-	<!-- 장바구니 상태 변경 -->
+	<!-- 장바구니 추가 시 상태 변경 -->
 	<update id="updatePost" parameterType="java.lang.Integer">
 	  UPDATE POST
 	  SET TRANSACTION_CONFIRMATION = 'WAIT'
@@ -86,7 +86,7 @@
 	
 	<!-- 장바구니에 추가된 상품 가져오기 -->
     <select id="cartList" resultType="Post">
-		SELECT P.TITLE, P.PRICE, P.TRANSACTION_CONFIRMATION AS TRANSACTIONCONFIRMATION
+		SELECT P.TITLE, P.PRICE, P.TRANSACTION_CONFIRMATION AS TRANSACTIONCONFIRMATION, P.POST_IDX AS POSTIDX, T.BUYER_ID AS BUYERID
 		FROM POST P
 		         LEFT JOIN TRANSACTIONS T ON P.POST_IDX = T.POST_IDX
 		WHERE T.BUYER_ID = #{buyerId, jdbcType=VARCHAR}
@@ -102,4 +102,11 @@
 		WHERE T.BUYER_ID = #{buyerId, jdbcType=VARCHAR}  
 		  AND P.TRANSACTION_CONFIRMATION = 'COMPLETED' OR P.TRANSACTION_CONFIRMATION = 'DECIDE'      
 	</select>
+	
+	<!-- 장바구니 삭제 시 상태 변경 -->
+	<update id="deleteCartPost" parameterType="java.lang.Integer">
+	  UPDATE POST
+	  SET TRANSACTION_CONFIRMATION = 'no'
+	  WHERE POST_IDX = #{postIdx}
+	</update>
 </mapper>

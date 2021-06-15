@@ -31,4 +31,5 @@ public interface UserInfoDao {   //회원
    
    //List<UserInfo> findUserList(int currentPage, int countPerPaga) throws DataAccessException;
    
+   UserInfo myInfo(String userId) throws DataAccessException;
 }

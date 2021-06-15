@@ -74,26 +74,15 @@
     	FROM TRANSACTIONS
     	WHERE SELLER_ID = #{userId} OR BUYER_ID = #{userId}
     </delete>
-    
-    <!-- 
-    <select id="idChk" resultType="int">
-    	SELECT COUNT(*)
-    	FROM USERINFO
-    	WHERE USER_ID = #{userId} AS userId
-    </select>
-     -->
      
     <select id="getUsernameList" resultType="java.lang.String">
         SELECT NAME AS VALUE
         FROM LOGIN
     </select>
-
-    <!--
-    <select id="findUserList" resultType="List<User>">
-       SELECT
-          USER_ID, NAME, NICK_NAME, PHONE, PASSWORD, INDIVIDUAL_COPORATION_STATUS
-       FROM USERINFO
-       ORDER BY USER_ID
+    
+    <select id="myInfo" resultType="UserInfo">
+    	SELECT NAME, PHONE
+    	FROM USERINFO
+    	WHERE USER_ID = #{userId, jdbcType=VARCHAR}
     </select>
-    -->
 </mapper>

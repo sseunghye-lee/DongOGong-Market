@@ -2,6 +2,7 @@ package com.dongogong.service;
 
 import java.util.List;
 
+import com.dongogong.domain.Post;
 import com.dongogong.domain.UserInfo;
 
 public interface UserInfoFacade {
@@ -30,4 +31,7 @@ public interface UserInfoFacade {
    int idChk(UserInfo userInfo);
    
    List<String> getUsernameList();
+   
+   // 회원 정보 보기
+   UserInfo myInfo(String userId);
 }

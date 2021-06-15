@@ -95,4 +95,9 @@ public class MybatisPostDao implements PostDao {
 	public List<Post> transactionsCheckList(String buyerId) throws DataAccessException {
 		return postMapper.transactionsCheckList(buyerId);
 	}
+	
+	@Override
+	public void deleteCartPost(int postIdx) throws DataAccessException {
+		postMapper.deleteCartPost(postIdx);
+	}
 }

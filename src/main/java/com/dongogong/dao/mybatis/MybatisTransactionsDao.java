@@ -23,4 +23,9 @@ public class MybatisTransactionsDao implements TransactionsDao {
 	public void insertCartTransactions(Transactions transactions) throws DataAccessException{
 		transactionsMapper.insertCartTransactions(transactions);
 	}
+	
+	@Override
+	public void deleteCartTransactions(Transactions transactions) throws DataAccessException {
+		transactionsMapper.deleteCartTransactions(transactions);
+	}
 }

@@ -24,6 +24,9 @@ public class TransactionsImpl implements TransactionsFacade {
 	public void insertCartTransactions(Transactions transactions) throws DataAccessException {
 		transactionsDao.insertCartTransactions(transactions);
 	}
-	
-	
+
+	@Override
+	public void deleteCartTransactions(Transactions transactions) {
+		transactionsDao.deleteCartTransactions(transactions);	
+	}	
 }
