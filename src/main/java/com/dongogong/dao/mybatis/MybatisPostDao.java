@@ -20,7 +20,7 @@ public class MybatisPostDao implements PostDao {
 	public List<Post> getPostList() throws DataAccessException {
 		return postMapper.getPostList();
 	}
-	
+	 // 카테고리별 상품출력
 	@Override
 	 public  List<Post> getCategory(String borderType) throws DataAccessException {
 		 return postMapper.getCategory(borderType);
@@ -45,25 +45,32 @@ public class MybatisPostDao implements PostDao {
 	   postMapper.registerPost(post);
 	}
 	
+	//상품 수정
 	@Override
 	public void updatePost(Post post) throws DataAccessException {
 		postMapper.postUpdate(post);
 	}
+	
+	 //상품 삭제
 	@Override
 	public void postDelete(int postIdx) throws DataAccessException {
 		postMapper.postDelete(postIdx);
 	}
 	
+	//거래 삭제
 	@Override
 	public void transactionDelete(int postIdx) throws DataAccessException {
 		postMapper.transactionDelete(postIdx);
 		
 	}
+	
+	//릴레이션 삭제
 	@Override
 	public void relationDelete(int postIdx) throws DataAccessException {
 		postMapper.relationDelete(postIdx);
 		
 	}
+	//채팅 삭제
 	@Override
 	public void chatDelete(int postIdx) throws DataAccessException {
 		postMapper.chatDelete(postIdx);

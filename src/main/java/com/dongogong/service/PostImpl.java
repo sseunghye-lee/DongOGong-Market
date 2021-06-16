@@ -47,25 +47,31 @@ public class PostImpl implements PostFacade{
       postDao.registerPost(post);
    }
    
+   //상품 수정
    @Override
 	public void updatePost(Post post) {
 		postDao.updatePost(post);
 	}
+   
+   //상품 삭제
    @Override
 	public void postDelete(int postIdx) {
 		postDao.postDelete(postIdx);
 	}
    
+   //거래 삭제
    @Override
 	public void transactionDelete(int postIdx) {
 		postDao.transactionDelete(postIdx);
-		
+	
+    //릴레이션 삭제	
 	}
    @Override
   	public void relationDelete(int postIdx) {
   		postDao.relationDelete(postIdx);
   		
   	}
+   //채팅 삭제
    @Override
   	public void chatDelete(int postIdx) {
   		postDao.chatDelete(postIdx);

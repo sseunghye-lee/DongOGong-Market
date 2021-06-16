@@ -10,29 +10,33 @@ import com.dongogong.domain.Post;
 @Mapper
 public interface PostMapper {
 	// 전체상품 가져오기
-	List<Post> getPostList();
+	List<Post> getPostList() throws DataAccessException;
 	
 	//카테고리별 상품 출력
-	 List<Post> getCategory(String borderType);
-      
+	 List<Post> getCategory(String borderType) throws DataAccessException;
 	
 	// 내 상품 가져오기
-	 List<Post> getPost(String registerId); 
-	
+	 List<Post> getPost(String registerId) throws DataAccessException;
 	
 	// 상품 눌렀을때 정보보기
-	Post selectPost(int post_idx);
+	Post selectPost(int post_idx) throws DataAccessException;
 		
 	// 상품 등록
 	void registerPost(Post post) throws DataAccessException;
 	
+	//상품 수정
 	void postUpdate(Post post) throws DataAccessException;
 	
+	//상품 삭제
 	void postDelete(int postIdx) throws DataAccessException;
 	
+	//거래 삭제
 	void transactionDelete(int postIdx) throws DataAccessException;
+	
+	//릴레이션 삭제
 	void relationDelete(int postIdx) throws DataAccessException;
 	
+	//채팅 삭제
 	void chatDelete(int postIdx) throws DataAccessException;
 	
 	// 전체 상품 가져오기

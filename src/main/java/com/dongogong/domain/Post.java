@@ -13,13 +13,13 @@ public class Post implements Serializable {
     // 상품 이름
     private String title;
 
-    // 寃뚯떆�뙋 醫낅쪟
+    // 카테고리
     private String borderType;
     
     //가격
     private int price;
 
-	// 寃뚯떆臾� �궡�슜
+	// 내용
     private String content;
 
     // 거래확정 여부
@@ -106,7 +106,7 @@ public class Post implements Serializable {
         this.transactionConfirmation = transactionConfirmation;
     }
 
-	// Post 紐⑤뜽 蹂듭궗
+	
     public void CopyData(Post param)
     {
         this.postIdx = param.getPostIdx();
