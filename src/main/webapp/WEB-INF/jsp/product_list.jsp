@@ -205,6 +205,8 @@
                                             <div class="card-title small mb-0">${getPostList.title}</div>
                                             <div class="text-xs text-gray-500">${getPostList.content} </div>
                                         </div>
+                                          <c:if test="${!empty userSession.userInfo}">
+           
 										  <input type="submit" value="세부정보" class="btn-blue-soft border-light"
                                                onClick="goDetail('<c:url value='/select_product_myList.do'><c:param name='postIdx' value='${getPostList.postIdx}'/></c:url>')"/>
                                        <c:if test="${getPostList.registerId ne userSession.getUserInfo().getUserId()}">
@@ -216,6 +218,7 @@
                                                <c:param name='title' value='${getPostList.title}'/>
                                                <c:param name='sellerId' value='${getPostList.registerId}'/>
                                                </c:url>')"/>
+										</c:if>
 										</c:if>
                                     </a>
                                 </div>

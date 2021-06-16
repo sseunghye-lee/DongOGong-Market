@@ -23,11 +23,12 @@ public class GetMyPostController {
 		public void setPostFacade(PostFacade postFacade) {
 			this.postFacade = postFacade;
 		}
-		
+		 
 		 @PostMapping
 		 public String myPost() {
 		       return "product_my_list";
 		    }
+		 //back 버튼
 		 @GetMapping
 		 public String myPostList() {
 		       return "product_my_list";
@@ -37,7 +38,7 @@ public class GetMyPostController {
 			public List<Post> getPost(HttpServletRequest request) {
 				 UserSession userSession =
 			                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
-				 
+				
 			return postFacade.getPost(userSession.getUserInfo().getUserId());
 			}
 		 
