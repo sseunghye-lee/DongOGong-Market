@@ -91,6 +91,11 @@
 </script>
 
 <script>
+
+    window.onload = function () {
+        $("#chatMessageArea").scrollTop($("#chatMessageArea")[0].scrollHeight);
+    }
+
     let Message = document.getElementById("message");
     $("#send_message_btn").click(function () {
         sendMessage();
@@ -139,7 +144,6 @@
             dataType: 'json', // 리턴해주는 타입을 지정해줘야함
             success: function (res) {
                 console.log("호출성공");
-                alert(res.content);
                 location.reload();
             },// 요청 완료 시
             error: function (err) {

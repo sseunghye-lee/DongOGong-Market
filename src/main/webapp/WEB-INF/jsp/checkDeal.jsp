@@ -5,8 +5,9 @@
          pageEncoding="UTF-8" %>
 <%@ include file="IncludeTopDist.jsp" %>
 <body>
+<script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
 <!-- ======= Header ======= -->
-<section id="hero" class="bg-light h-100 overflow-scroll" >
+<section id="hero" class="bg-light h-100 overflow-scroll">
     <div id="layoutDefault">
         <div id="layoutDefault_content h-100 overflow-scroll">
             <%@ include file="IncludeQuickHeader.jsp" %>
@@ -15,6 +16,8 @@
                 <!-- Page Header-->
                 <div class="page-header-content pt-15">
                     <div class="container mt-n10 mb-4">
+                        <h5 class="page-header-text text-gray-600 font-weight-bolder"><i class="fas fa-hand-holding-usd fa-2x mr-2"></i>
+                            나의 거래내역을 확인해보세요.</h5>
                         <ul class="list-group list-group-flush list-group-careers overflow-hidden">
                             <li class="list-group-item bg-light align-items-center">
                                 <table class="text-center table table-vcenter custom-table">
@@ -28,7 +31,8 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <c:forEach var="transactionsCheckList" items="${transactionsCheckList}" varStatus="status">
+                                    <c:forEach var="transactionsCheckList" items="${transactionsCheckList}"
+                                               varStatus="status">
                                         <tr>
                                             <td class="px-3 text-nowrap">
                                                 <c:out value="${status.count}"/>
@@ -39,20 +43,20 @@
                                             <td class="px-3 d-none d-lg-table-cell text-nowrap">
                                                 <c:out value="${transactionsCheckList.title}"></c:out>
                                             </td>
-                                             <td class="px-3 d-none d-lg-table-cell text-nowrap">
-                                                <c:out value="${transactionsCheckList.price}"></c:out>
-                                            </td>  
                                             <td class="px-3 d-none d-lg-table-cell text-nowrap">
-                                            	<c:if test="${transactionsCheckList.transactionConfirmation eq 'COMPLETED'}">
-                                              	  <c:out value="일반거래"></c:out>
+                                                <c:out value="${transactionsCheckList.price}"></c:out>
+                                            </td>
+                                            <td class="px-3 d-none d-lg-table-cell text-nowrap">
+                                                <c:if test="${transactionsCheckList.transactionConfirmation eq 'COMPLETED'}">
+                                                    <c:out value="일반거래"></c:out>
                                                 </c:if>
                                                 <c:if test="${transactionsCheckList.transactionConfirmation eq 'DECIDE'}">
-                                              	  <c:out value="경매"></c:out>
+                                                    <c:out value="경매"></c:out>
                                                 </c:if>
-                                            </td>                                          
+                                            </td>
                                         </tr>
-                                        </c:forEach>
-                                     </tbody>
+                                    </c:forEach>
+                                    </tbody>
                                 </table>
                             </li>
                         </ul>
