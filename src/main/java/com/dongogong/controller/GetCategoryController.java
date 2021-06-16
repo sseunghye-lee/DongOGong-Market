@@ -21,7 +21,7 @@ import com.dongogong.service.PostFacade;
 
 @Controller
 @RequestMapping("/jsp/category_product.do")
-
+//카테고리별 상품 출력
 public class GetCategoryController {
 	
 		

@@ -19,6 +19,7 @@ import com.dongogong.service.PostFacade;
 
 @Controller
 @RequestMapping("/select_product_myList.do")
+//상품 세부정보
 public class SelectPostController {
 
 	@Autowired(required=false)

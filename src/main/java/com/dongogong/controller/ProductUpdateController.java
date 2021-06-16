@@ -18,6 +18,7 @@ import com.dongogong.service.PostFacade;
 
 	@Controller
 	@RequestMapping(value="/productUpdate.do")
+	//상품 수정
 	public class ProductUpdateController {
 		@Autowired(required=false)
 		   private PostFacade postFacade;

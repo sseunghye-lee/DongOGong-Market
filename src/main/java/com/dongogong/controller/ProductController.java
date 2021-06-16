@@ -19,6 +19,7 @@ import com.dongogong.service.PostFacade;
 
 @Controller
 @RequestMapping("/apply/product.do")
+//new 버튼 눌렀을때 가는 컨트롤러
 public class ProductController {
 	
 	@Autowired(required=false)

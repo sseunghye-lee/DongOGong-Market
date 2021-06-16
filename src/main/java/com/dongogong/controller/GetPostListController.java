@@ -17,6 +17,7 @@ import com.dongogong.domain.Post;
 import com.dongogong.service.PostFacade;
 @Controller
 @RequestMapping("/apply/PostList_product.do")
+//전체상품 가져오는 컨트롤러
 public class GetPostListController {
 		
 	@Autowired(required=false)

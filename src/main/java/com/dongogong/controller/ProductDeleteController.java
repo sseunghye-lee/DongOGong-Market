@@ -19,6 +19,7 @@ import com.dongogong.service.AuctionFacade;
 
 @Controller
 @RequestMapping(value="/productDelete.do")
+//상품 삭제
 public class ProductDeleteController {
 	@Autowired(required=false)
 	   private PostFacade postFacade;

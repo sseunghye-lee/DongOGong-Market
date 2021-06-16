@@ -21,13 +21,19 @@ public interface PostDao {
       // 상품 등록
       void registerPost(Post post) throws DataAccessException;
       
+      //상품 수정
       void updatePost(Post post) throws DataAccessException;
-  	
+  	  
+      //상품 삭제
       void postDelete(int postIdx) throws DataAccessException;
   	
+      //거래 삭제
       void transactionDelete(int postIdx) throws DataAccessException;
+      
+      //릴레이션 삭제
       void relationDelete(int postIdx) throws DataAccessException;
     	
+      //채팅 삭제
       void chatDelete(int postIdx) throws DataAccessException;
     	
       

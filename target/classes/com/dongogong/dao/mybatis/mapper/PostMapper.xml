@@ -3,36 +3,36 @@
 
 <mapper namespace="com.dongogong.dao.mybatis.mapper.PostMapper">
   <cache />
-  
+  <!-- 상품 수정 -->
    <update id="postUpdate" parameterType="Post">
      UPDATE POST SET TITLE = #{title}, CONTENT = #{content}, PRICE = #{price}, PHOTOURL = #{photoUrl}
      WHERE POST_IDX = #{postIdx}
   </update>
-  
+   <!-- 상품 삭제 -->
   <delete id="postDelete" parameterType="java.lang.Integer">
      DELETE
      FROM POST 
      WHERE POST_IDX = #{postIdx}
   </delete>
-  
+   <!-- 거래 삭제 -->
    <delete id="transactionDelete" parameterType="java.lang.Integer">
   	DELETE
   	FROM TRANSACTIONS
   	WHERE POST_IDX = #{postIdx}
   </delete>
-  
+   <!-- 릴레이션 삭제 -->
    <delete id="relationDelete" parameterType="java.lang.Integer">
   	DELETE
   	FROM RELATION
   	WHERE POST_IDX = #{postIdx}
   </delete>
-  
+   <!-- 채팅 삭제 -->
    <delete id="chatDelete" parameterType="java.lang.Integer">
   	DELETE
   	FROM CHAT_MESSAGE
   	WHERE POST_IDX = #{postIdx}
   </delete>
-
+   <!-- 내 상품 가져오기 -->
   <select id="getPost" resultType="Post">
     SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID AS REGISTERID, PRICE, TITLE, CONTENT
      FROM POST
@@ -45,20 +45,20 @@
      FROM POST
      WHERE POST_IDX = #{postIdx} 
     </select>
-
+   <!-- 전체 상품 가져오기 -->
   <select id="getPostList" resultType="Post">
     SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID AS REGISTERID, PRICE, TITLE, CONTENT
      FROM POST
      WHERE NOT BORDER_TYPE = 'auction'
      AND TRANSACTION_CONFIRMATION = 'no'
     </select>
-    
+     <!-- 상품 눌렀을때 정보보기 -->
     <select id="selectPost" resultType="Post">
      SELECT PHOTOURL, POST_IDX AS POSTIDX, PRICE, TITLE, CONTENT, TRANSACTION_CONFIRMATION
      FROM POST
      WHERE POST_IDX = #{postIdx}
   </select>
-    
+     <!-- 카테고리별 상품 출력 -->
     <select id="getCategory" resultType="Post" parameterType="java.lang.String">
     SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID AS REGISTERID, PRICE, TITLE, CONTENT, BORDER_TYPE
      FROM POST
@@ -71,7 +71,7 @@
     SELECT MAX(POST_IDX) AS POSTIDX
      FROM POST
     </select>
-  
+   <!-- 상품 등록 -->
 	<insert id="registerPost" parameterType="Post">
 	INSERT INTO POST (post_Idx, register_Id, title, border_type, price, content, transaction_confirmation, photoUrl)
 	 VALUES(#{postIdx}, #{registerId}, #{title}, #{borderType}, #{price}, #{content}, 'no', #{photoUrl})

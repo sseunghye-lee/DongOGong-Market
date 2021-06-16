@@ -16,6 +16,7 @@ import com.dongogong.domain.Post;
 import com.dongogong.service.PostFacade;
 @Controller
 @RequestMapping("/apply/productMy.do")
+//상품 수정&삭제하는 곳으로 가는 컨트롤러
 public class ProductMyController {
 	@Autowired(required=false)
 	   private PostFacade postFacade;

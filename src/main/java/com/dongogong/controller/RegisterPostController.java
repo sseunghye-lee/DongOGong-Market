@@ -22,6 +22,7 @@ import com.dongogong.service.PostFacade;
 
 @Controller
 @RequestMapping("/apply/registerPost_product.do")
+//상품 등록
 public class RegisterPostController {
    
 	@Autowired(required=false)

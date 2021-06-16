@@ -17,6 +17,7 @@ import com.dongogong.domain.Post;
 import com.dongogong.service.PostFacade;
 @Controller
 @RequestMapping("/apply/MyPost_product.do")
+//내 상품 가져오는 컨트롤러
 public class GetMyPostController {		
 	@Autowired(required=false)
 	   private PostFacade postFacade;
