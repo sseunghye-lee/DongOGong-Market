@@ -32,7 +32,7 @@ public class GetPostListController {
 		    }
 		*/
 		@GetMapping
-		public ModelAndView registerPost(HttpServletRequest request, Model model) {
+		public ModelAndView postList(HttpServletRequest request, Model model) {
 			UserSession userSession =
 					(UserSession) WebUtils.getSessionAttribute(request, "userSession");
 			model.addAttribute("userSession", userSession);
