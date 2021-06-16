@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.WebUtils;
 
-import com.dongogong.domain.UserInfo;
 import com.dongogong.service.UserInfoFacade;
 import com.dongogong.service.UserInfoFormValidator;
 
@@ -62,7 +61,6 @@ public class RegisterUserController {
    public String onSubmit(
          HttpServletRequest request, HttpSession session,
          @ModelAttribute("userInfoForm") UserInfoForm userInfoForm,
-         UserInfo userInfo,
          BindingResult result) throws Exception {
 
      validator.validate(userInfoForm, result);

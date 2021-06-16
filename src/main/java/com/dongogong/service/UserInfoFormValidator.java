@@ -12,7 +12,7 @@ import com.dongogong.domain.UserInfo;
 public class UserInfoFormValidator implements Validator {
 
 	public boolean supports(Class<?> clazz) {
-		return UserInfo.class.isAssignableFrom(clazz);
+		return UserInfoForm.class.isAssignableFrom(clazz);
 	}
 	
 	public void validate(Object obj, Errors errors) {

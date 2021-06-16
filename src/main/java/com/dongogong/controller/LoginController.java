@@ -32,16 +32,13 @@ public class LoginController {
          @RequestParam(value="forwardAction", required=false) String forwardAction,
          Model model) throws Exception {
       
-      UserInfo user = userInfo.getUserInfo(userId, password);
-      
+      UserInfo user = userInfo.getUserInfo(userId, password);     
       if (user == null) {
-         return new ModelAndView("Error", "message", 
-               "Invalid username or password.  Signon failed.");
+    	  return new ModelAndView("Error", "message", 
+					"Invalid username or password. Signon failed.");
       }
       else {
          UserSession userSession = new UserSession(user);
-         //PagedListHolder<ProductCategory> myList = new PagedListHolder<ProductCategory>(this.userInfo.getProductListByCategory(userInfo.getFavouriteCategoryId()));
-
          model.addAttribute("userSession", userSession);
 
          if (forwardAction != null) 

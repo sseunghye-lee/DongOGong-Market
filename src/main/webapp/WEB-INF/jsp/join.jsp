@@ -78,14 +78,20 @@
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
-
+                             <div class="control-group">
+                                <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                   <label>Repeat password</label>
+                                    <h4>REPEATPASSWORD</h4>
+                                   <form:input class="form-control" path="repeatedPassword" type="password" placeholder="REPEAT_PASSWORD"  /> 
+                                   <form:errors class="form-control" path="repeatedPassword" cssClass="error"/>   
+                                   <p class="help-block text-danger"></p>
+                               </div>
+                            </div>
+                         
                             <br />
-                            <div id="success"></div>
-								<div class="form-group">
-									<div class="btn btn-primary btn-xl font-weight-500 mb-2 w-100">
-										<input id="btnLogin" type="submit" value="등록하기"/>
-									</div>
-								</div>
+                            <div class="btn btn-primary btn font-weight-500 mb-2 w-100">
+                   				<input id="btnLogin" type="submit" class="btn btn-primary font-weight-bolder w-100" value="등록하기"/>
+                			</div>
                         </form:form>
                     </div>
                 </div>
