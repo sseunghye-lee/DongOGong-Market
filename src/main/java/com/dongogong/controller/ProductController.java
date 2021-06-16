@@ -37,6 +37,9 @@ public class ProductController {
         UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 
+        if(userSession == null)
+            return new ModelAndView("loginForm");
+        
         ModelAndView mav = new ModelAndView("applyProduct");
         mav.addObject("userSession", userSession);
         return mav;
