@@ -30,7 +30,6 @@ import com.dongogong.service.PostFacade;
 					@RequestParam(value="title", required=false) String title,
 					@RequestParam(value="price", required=false) int price,
 					@RequestParam(value="content", required=false) String content,
-					@RequestParam(value="borderType", required=false) String borderType,
 					@RequestParam(value="transactionConfirmation", required=false) String transactionConfirmation,
 					Model model
 					) throws Exception {
@@ -43,7 +42,6 @@ import com.dongogong.service.PostFacade;
 				post.setTitle(title);
 				post.setPrice(price);
 				post.setRegisterId(userSession.getUserInfo().getUserId());
-				post.setBorderType(borderType);
 				post.setContent(content);
 				post.setTransactionConfirmation(transactionConfirmation);
 				if(!(photoUrl.equals("")) || photoUrl.length() != 0)
