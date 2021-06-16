@@ -1,21 +1,16 @@
 package com.dongogong.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.WebUtils;
 
-import com.dongogong.domain.Post;
 import com.dongogong.service.PostFacade;
-import com.dongogong.service.AuctionFacade;
 
 @Controller
 @RequestMapping(value="/productDelete.do")

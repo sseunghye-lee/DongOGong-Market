@@ -1,9 +1,6 @@
 package com.dongogong.service;
 
 import java.util.List;
-
-import org.springframework.dao.DataAccessException;
-
 import com.dongogong.domain.Post;
 
 public interface PostFacade {
