@@ -3,6 +3,7 @@ package com.dongogong.dao;
 import com.dongogong.domain.AuctionPrice;
 import com.dongogong.domain.ChatMessage;
 import com.dongogong.domain.ChatSummary;
+import com.dongogong.domain.Relation;
 import org.springframework.dao.DataAccessException;
 
 import java.util.List;
@@ -22,4 +23,6 @@ public interface ChatMessageDao {
 
     //    시퀀스
     ChatMessage getMaxChatMessageIdx() throws DataAccessException;
+
+    Relation getMaxRelationIdx() throws DataAccessException;
 }

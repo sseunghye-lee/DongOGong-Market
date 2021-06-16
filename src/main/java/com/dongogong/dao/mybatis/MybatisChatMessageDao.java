@@ -5,6 +5,7 @@ import com.dongogong.dao.SequenceDao;
 import com.dongogong.dao.mybatis.mapper.ChatMessageMapper;
 import com.dongogong.domain.ChatMessage;
 import com.dongogong.domain.ChatSummary;
+import com.dongogong.domain.Relation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
@@ -45,5 +46,9 @@ public class MybatisChatMessageDao implements ChatMessageDao {
     @Transactional
     public ChatMessage getMaxChatMessageIdx() throws DataAccessException {
         return chatMessageMapper.getMaxChatMessageIdx();
+    }
+
+    public Relation getMaxRelationIdx() throws DataAccessException {
+        return chatMessageMapper.getMaxRelationIdx();
     }
 }

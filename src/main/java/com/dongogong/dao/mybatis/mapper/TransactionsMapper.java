@@ -16,5 +16,5 @@ public interface TransactionsMapper {
 	// 장바구니에서 삭제
 	void deleteCartTransactions(int postIdx);
 	
-	String checkWaitingUser(int postIdx) throws DataAccessException;
+	String checkBuyer(int postIdx) throws DataAccessException;
 }

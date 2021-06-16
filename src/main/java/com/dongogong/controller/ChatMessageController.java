@@ -3,6 +3,7 @@ package com.dongogong.controller;
 import com.dongogong.domain.ChatMessage;
 import com.dongogong.domain.ChatSummary;
 import com.dongogong.domain.Post;
+import com.dongogong.domain.Relation;
 import com.dongogong.repository.ChatMessageRepository;
 import com.dongogong.service.ChatMessageFacade;
 import com.dongogong.service.PostFacade;
@@ -40,7 +41,7 @@ public class ChatMessageController {
         UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 
-        if(userSession == null)
+        if (userSession == null)
             return new ModelAndView("index");
 
         model.addAttribute("chatRoomList", chatMessageFacade.getChatRoomList(userId));
@@ -56,7 +57,7 @@ public class ChatMessageController {
         UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 
-        if(userSession == null)
+        if (userSession == null)
             return new ModelAndView("index");
 
         List<ChatSummary> chatMessageList = chatMessageFacade.getChatMessageList(relationIdx);
@@ -64,8 +65,8 @@ public class ChatMessageController {
         Post post = postFacade.getPostIdx(chatMessageList.get(chatMessageList.size() - 1).getPostIdx());
         model.addAttribute("post", post);
 
-        if(post.getTransactionConfirmation().equals("WAIT")) {
-            model.addAttribute("waitingUser", transactionsFacade.checkWaitingUser(post.getPostIdx()));
+        if (post.getTransactionConfirmation().equals("DECIDE")) {
+            model.addAttribute("buyer", transactionsFacade.checkBuyer(post.getPostIdx()));
         }
 
         model.addAttribute("userSession", userSession);
@@ -92,7 +93,7 @@ public class ChatMessageController {
     @PostMapping("/send/room/message.do")
     @ResponseBody
     public Object sendMessageOnChat(@RequestBody ChatMessage chatMessage, HttpServletRequest request, HttpServletResponse reponse, Model model) {
-        ChatMessage newChatMessage =chatMessageFacade.insertMessage(chatMessage);
+        ChatMessage newChatMessage = chatMessageFacade.insertMessage(chatMessage);
 
         model.addAttribute("chatRelationIdx", chatMessage.getChatRelationIdx());
         model.addAttribute("", newChatMessage);
@@ -101,25 +102,53 @@ public class ChatMessageController {
 
         return newChatMessage;
     }
+
     //    chatRoomList 모델맵객체에 저장
-    @RequestMapping("/send/post/message.do")
-    public String sendMessageOnPost(@ModelAttribute("post") Post post, @ModelAttribute("ChatMessage") ChatMessage chatMessage, HttpServletRequest request, HttpServletResponse response) {
+    @GetMapping("/send/post/message/{postIdx}")
+    public ModelAndView sendMessageOnPost(@PathVariable("postIdx") int postIdx, HttpServletRequest request, HttpServletResponse response, Model model) {
 
         UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 
-        boolean check = chatMessageFacade.isRelationExist(userSession.getUserInfo().getUserId(), post.getRegisterId());
 
-        if (!check) {
-            chatMessageFacade.insertRelation(userSession.getUserInfo().getUserId(), post.getRegisterId());
+        Post post = postFacade.getPostIdx(postIdx);
+        model.addAttribute("post", post);
+
+        if (userSession == null)
+            return new ModelAndView("index");
+
+        if (post.getTransactionConfirmation().equals("WAIT")) {
+            model.addAttribute("buyer", transactionsFacade.checkBuyer(post.getPostIdx()));
         }
 
-        int relationIdx = chatMessageFacade.findRelationIdx(userSession.getUserInfo().getUserId(), post.getRegisterId());
+        model.addAttribute("userSession", userSession);
+        model.addAttribute("userId", userSession.getUserInfo().getUserId());
 
-        chatMessage.setChatRelationIdx(relationIdx);
+        Relation relation = chatMessageFacade.isRelationExist(userSession.getUserInfo().getUserId(), post.getRegisterId(), post.getPostIdx());
 
-        chatMessageFacade.insertMessage(chatMessage);
+        if (relation == null) {
+            int sequence = chatMessageFacade.insertRelation(userSession.getUserInfo().getUserId(), post.getRegisterId(), post.getPostIdx());
+            model.addAttribute("chatRelationIdx", sequence);
+            model.addAttribute("chatMessageList", null);
+        } else {
+            model.addAttribute("chatRelationIdx", relation.getRelationIdx());
 
-        return "index";
+            List<ChatSummary> chatMessageList = chatMessageFacade.getChatMessageList(relation.getRelationIdx());
+            if (chatMessageList.size() == 0)
+                model.addAttribute("chatMessageList", null);
+            else {
+                model.addAttribute("chatMessageList", chatMessageList);
+
+                if (chatMessageList.size() != 0 && chatMessageList.get(((ArrayList) chatMessageList).size() - 1).getReadYn().equals("N")) {
+                    if (chatMessageList.get(((ArrayList) chatMessageList).size() - 1).getReceiverId().equals(userSession.getUserInfo().getUserId())) {
+                        chatMessageFacade.updateReadYn(relation.getRelationIdx(), userSession.getUserInfo().getUserId());
+                    }
+                }
+            }
+        }
+        model.addAttribute("chatRoomName", userInfoFacade.getUserInfo(post.getRegisterId()).getNickName());
+        model.addAttribute("chatRoomId", userInfoFacade.getUserInfo(post.getRegisterId()).getUserId());
+
+        return new ModelAndView("showChatMessage");
     }
 }

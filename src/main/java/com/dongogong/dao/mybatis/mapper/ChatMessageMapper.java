@@ -2,6 +2,7 @@ package com.dongogong.dao.mybatis.mapper;
 
 import com.dongogong.domain.ChatMessage;
 import com.dongogong.domain.ChatSummary;
+import com.dongogong.domain.Relation;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.dao.DataAccessException;
 
@@ -16,7 +17,7 @@ public interface ChatMessageMapper {
     List<ChatSummary> getChatMessageList(int relationIdx) throws DataAccessException;
 
     //    처음 연락하는 관계에 있을 때 (동일한 사람이라도 게시물에 따라 구별되어 보여짐)
-    void insertRelation(String userId, String registerId) throws DataAccessException;
+    void insertRelation(String userId, String registerId, int postIdx) throws DataAccessException;
 
     //    채팅방 들어갈 때 안읽음 -> 읽음 변경
     void updateReadYn(int relationIdx, String userIdx) throws DataAccessException;
@@ -25,7 +26,7 @@ public interface ChatMessageMapper {
     ChatMessage insertMessage(ChatMessage chatMessage) throws DataAccessException;
 
     //    게시글에서 메세지 보낼 때 관계가 존재하는 지
-    boolean isRelationExist(String userId, String registerId) throws DataAccessException;
+    Relation isRelationExist(String userId, String registerId, int postIdx) throws DataAccessException;
 
     int getRelation(String userId, String registerId) throws DataAccessException;
 
@@ -33,4 +34,7 @@ public interface ChatMessageMapper {
     int findRelationIdx(String userId, String registerId) throws DataAccessException;
 
     ChatMessage getMaxChatMessageIdx() throws DataAccessException;
+
+    Relation getMaxRelationIdx() throws DataAccessException;
+
 }

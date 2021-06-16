@@ -30,7 +30,7 @@ public class MybatisTransactionsDao implements TransactionsDao {
 	}
 
 	@Override
-	public String checkWaitingUser(int postIdx) throws DataAccessException {
-		return transactionsMapper.checkWaitingUser(postIdx);
+	public String checkBuyer(int postIdx) throws DataAccessException {
+		return transactionsMapper.checkBuyer(postIdx);
 	}
 }

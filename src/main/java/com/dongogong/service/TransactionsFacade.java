@@ -10,5 +10,5 @@ public interface TransactionsFacade {
 	
 	void deleteCartTransactions(int postIdx);
 
-	String checkWaitingUser(int postIdx);
+	String checkBuyer(int postIdx);
 }

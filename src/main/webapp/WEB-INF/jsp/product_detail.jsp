@@ -75,8 +75,8 @@
                     </div>
 
                     <c:if test="${!empty userSession.userInfo and selectPost.registerId ne userSession.getUserInfo().getUserId()}">
-                        <div class="btn btn-primary btn-xl font-weight-500 text-center w-100" onclick="chat()">
-                            <a>Go To Chat</a>
+                        <div class="btn btn-primary btn-xl font-weight-500 text-center w-100">
+                            <a href="<c:url value="/send/post/message/${selectPost.postIdx}" />">Go To Chat</a>
                         </div>
                     </c:if>
                     <c:if test="${!empty userSession.userInfo and selectPost.registerId eq userSession.getUserInfo().getUserId()}">

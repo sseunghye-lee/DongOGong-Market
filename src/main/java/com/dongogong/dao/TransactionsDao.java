@@ -14,5 +14,5 @@ public interface TransactionsDao {	//거래
 	// 장바구니에서 삭제
 	void deleteCartTransactions(int postIdx) throws DataAccessException;
 	
-	String checkWaitingUser(int postIdx) throws  DataAccessException;
+	String checkBuyer(int postIdx) throws  DataAccessException;
 }

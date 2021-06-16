@@ -122,4 +122,9 @@
         SELECT MAX(CHAT_MESSAGE_IDX) AS chatMessageIdx
         FROM CHAT_MESSAGE
     </select>
+
+    <select id="getMaxRelationIdx" resultType="Relation">
+        SELECT MAX(RELATION_IDX) AS relationIdx
+        FROM RELATION
+    </select>
 </mapper>

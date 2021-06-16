@@ -31,7 +31,7 @@ public class TransactionsImpl implements TransactionsFacade {
 	}   
 
 	@Override
-	public String checkWaitingUser(int postIdx) {
-		return transactionsDao.checkWaitingUser(postIdx);
+	public String checkBuyer(int postIdx) {
+		return transactionsDao.checkBuyer(postIdx);
 	}
 }
