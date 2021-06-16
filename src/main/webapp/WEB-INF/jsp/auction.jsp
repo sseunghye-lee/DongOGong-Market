@@ -152,8 +152,10 @@
                                             <div class="small text-gray-500" name="content">${auction.content}
                                             </div>
                                         </div>
-                                        <input type="submit" value="경매참가" class="btn-blue-soft border-light"
-                                               onClick="goAuction('<c:url value='/auctionSend.do'><c:param name='postIdx' value='${auction.postIdx}'/><c:param name='price' value='${auction.price}'/></c:url>')"/>
+                                        <c:if test="${auction.registerId ne userSession.getUserInfo().getUserId()}">
+                                            <input type="submit" value="경매참가" class="btn-blue-soft border-light"
+                                                   onClick="goAuction('<c:url value='/auctionSend.do'><c:param name='postIdx' value='${auction.postIdx}'/><c:param name='price' value='${auction.price}'/></c:url>')"/>
+                                        </c:if>
                                         <input type="submit" value="경매현황" class="btn-danger-soft border-light"
                                                onClick="goAuction('<c:url value='/auction_progress.do'> <c:param name='postIdx' value='${auction.postIdx}'/></c:url>')"/>
                                     </a>

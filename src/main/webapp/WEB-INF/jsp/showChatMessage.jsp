@@ -12,12 +12,16 @@
             <header class="page-header page-header-light bg-light h-100">
                 <div class="container h-100" style="overflow-y: scroll">
                     <div class="text-center mb-4 d-block">
-                        <input class="mt-2 btn btn-light btn-outline-dark font-weight-500 pl-5 pr-5 mb-2"
-                               id="btnDecide" type="submit" value="구매하기"/>
-                        <input class="mt-2 btn btn-light btn-outline-dark font-weight-500 pl-5 pr-5 mb-2"
-                               id="btnCancel" type="submit" value="취소하기"/>
+                        <c:if test="${post.transactionConfirmation eq 'no'}">
+                            <input class="mt-2 btn btn-light btn-outline-dark font-weight-500 pl-5 pr-5 mb-2"
+                                   id="btnDecide" type="submit" value="구매하기"/>
+                        </c:if>
+                        <c:if test="${post.transactionConfirmation eq 'WAIT' and waitingUser eq userId}">
+                            <input class="mt-2 btn btn-light btn-outline-dark font-weight-500 pl-5 pr-5 mb-2"
+                                   id="btnCancel" type="submit" value="취소하기"/>
+                        </c:if>
                     </div>
-                    <c:if test="${post.transactionConfirmation eq 'no'}">
+                    <c:if test="${post.transactionConfirmation eq 'WAIT' and waiting ne userId}">
                         <div class="card-header text-center mb-4">상품 구매 진행 중에 있는 상품으로 현재 구매가 불가능합니다.</div>
                     </c:if>
                     <c:if test="${post.transactionConfirmation eq 'COMPLETED'}">
