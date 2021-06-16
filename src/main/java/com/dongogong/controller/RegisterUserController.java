@@ -65,10 +65,10 @@ public class RegisterUserController {
          UserInfo userInfo,
          BindingResult result) throws Exception {
 
-     //validator.validate(userInfoForm, result);
+     validator.validate(userInfoForm, result);
      
       if (result.hasErrors()) 
-         return "index"; 
+         return formViewName; 
       
       try {
          if (userInfoForm.isNewUserInfo()) {

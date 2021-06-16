@@ -58,10 +58,10 @@ public class CartDeleteController {
       postFacade.deleteCartPost(postIdx);
       
       Transactions transactions = new Transactions();
-      transactions.setTransactionsIdx(++transactionIdx);
-      transactions.setBuyerId(userSession.getUserInfo().getUserId());
-      transactions.setPostIdx(postIdx);
-      transactions.setStatus("no");
+      //transactions.setTransactionsIdx(++transactionIdx);
+      //transactions.setBuyerId(userSession.getUserInfo().getUserId());
+      //transactions.setPostIdx(postIdx);
+      //transactions.setStatus("no");
       
       transactionsFacade.deleteCartTransactions(transactions);
            
