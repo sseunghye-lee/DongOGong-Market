@@ -14,13 +14,12 @@
         INSERT INTO TRANSACTIONS(transactions_Idx, post_Idx, seller_Id, buyer_Id, status)
         VALUES (#{transactionsIdx}, #{postIdx}, #{sellerId}, #{buyerId}, 'WAIT')
     </insert>
-
-    <delete id="deleteCartTransactions" parameterType="Transactions">
-        DELETE
-        FROM TRANSACTIONS
-        WHERE POST_IDX = #{postIdx}
+    
+    <delete id="deleteCartTransactions" parameterType="java.lang.Integer">
+       DELETE FROM TRANSACTIONS
+       WHERE POST_IDX = #{postIdx} 
     </delete>
-
+    
     <select id="checkWaitingUser" resultType="java.lang.String">
         SELECT BUYER_ID as buyerId
         FROM TRANSACTIONS

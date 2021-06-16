@@ -36,9 +36,9 @@ public class CartDeleteController {
     
     @GetMapping
     public ModelAndView cart(HttpServletRequest request, Model model) {
-    	UserSession userSession =
+       UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
-    	
+       
       String SPostIdx = request.getParameter("postIdx");
       int postIdx = Integer.valueOf(SPostIdx); 
       Post post = postFacade.getPostIdx(postIdx); 
@@ -63,9 +63,11 @@ public class CartDeleteController {
       //transactions.setPostIdx(postIdx);
       //transactions.setStatus("no");
       
-      transactionsFacade.deleteCartTransactions(transactions);
-           
-      model.addAttribute("cartList", cartList(buyerId));
+      transactionsFacade.deleteCartTransactions(postIdx);
+      
+      
+      model.addAttribute("userSession", userSession);     
+      model.addAttribute("cartList", cartList(userSession.getUserInfo().getUserId()));
 
       //return new ModelAndView("product_list");
       return new ModelAndView("cartList");
@@ -73,6 +75,6 @@ public class CartDeleteController {
     
     @ModelAttribute("cartList")
     public List<Post> cartList(String buyerId) {
-    	return postFacade.cartList(buyerId);
+       return postFacade.cartList(buyerId);
     }
 }

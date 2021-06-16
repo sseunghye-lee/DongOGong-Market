@@ -8,7 +8,7 @@ public interface TransactionsFacade {
 		
 	void insertCartTransactions(Transactions transactions);
 	
-	void deleteCartTransactions(Transactions transactions);
+	void deleteCartTransactions(int postIdx);
 
 	String checkWaitingUser(int postIdx);
 }
