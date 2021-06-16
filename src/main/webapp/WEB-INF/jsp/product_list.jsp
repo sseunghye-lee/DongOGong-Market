@@ -47,10 +47,12 @@
             <nav class="navbar navbar-marketing navbar-expand-lg bg-white navbar-light justify-content-between">
                 <div class="container justify-content-between py-4">
                     <a class="navbar-brand text-dark">DongOGong Market</a>
+                     <c:if test="${!empty userSession.userInfo}">
                     <form method="post" action="<c:url value="/apply/MyPost_product.do"/>">
                         <input type="submit" value="My"
                                class="btn font-weight-500 ml-lg-4 btn-blue-soft p-3 d-inline btn-primary">
                     </form>
+                    </c:if>
                     <div class="d-inline-block collapse navbar-collapse justify-content-end text-align-right"
                          id="navbarSupportedContent">
 
