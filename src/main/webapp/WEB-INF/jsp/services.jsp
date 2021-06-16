@@ -102,7 +102,7 @@
               <div class="icon" style="background: #eafde7;"><i class="bi bi-binoculars" style="color:#41cf2e;"></i></div>
               <h4 class="title">               
               <c:if test="${empty userSession.userInfo}">
-              <a href="<c:url value="/loginForm.do"/>">AUCTION</a>
+              <a href="<c:url value="/loginForm.do"/>">MY CART</a>
               </c:if> 
               <c:if test="${!empty userSession.userInfo}">
               <a href="<c:url value="/cartList.do"/>">MY CART</a>
@@ -116,7 +116,7 @@
             <div class="icon" style="background: #e1eeff;"><i class="bi bi-brightness-high" style="color: #2282ff;"></i></div>
             <h4 class="title">
              <c:if test="${empty userSession.userInfo}">
-              <a href="<c:url value="/loginForm.do"/>">AUCTION</a>
+              <a href="<c:url value="/loginForm.do"/>">MYPAGE</a>
               </c:if> 
               <c:if test="${!empty userSession.userInfo}">
                <a href="<c:url value="/myPage.do"/>" > MYPAGE</a>
