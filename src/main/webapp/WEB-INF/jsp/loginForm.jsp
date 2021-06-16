@@ -7,6 +7,9 @@
 <body>
 <!-- ======= Header ======= -->
 <%@ include file="IncludeQuickHeader.jsp" %>
+                            <c:if test="${!empty message}">
+							  <b><font color="red"><c:url value="${message}" /></font></b>
+							</c:if>
 <!-- End Header -->
 <section id="hero" class="clearfix bg-light">
     <div class="container h-100">
@@ -29,7 +32,7 @@
                                             <label class="sr-only" for="inputId"><strong>ID</strong></label>
                                             <input class="mt-2 form-control form-control-solid w-100 log-email"
                                                    id="userId" name="userId"
-                                                   type="text" placeholder="Enter your ID..." aria-describedby="inputEmail"/>
+                                                   type="text" placeholder="Enter your ID..." aria-describedby="inputId"/>
                                             <label class="pt-3 sr-only"
                                                    for="inputPassword"><strong>PASSWORD</strong></label>
                                             <input class="mt-2 form-control form-control-solid w-100"

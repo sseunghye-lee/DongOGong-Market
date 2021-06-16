@@ -1,8 +1,6 @@
 package com.dongogong.service;
 
 import java.util.List;
-
-import com.dongogong.domain.Post;
 import com.dongogong.domain.UserInfo;
 
 public interface UserInfoFacade {
