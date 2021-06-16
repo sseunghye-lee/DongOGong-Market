@@ -62,6 +62,7 @@ public class RegisterPostController {
 		
 		postFacade.registerPost(post);
 		
+		model.addAttribute("userSession", userSession);
 		model.addAttribute("getPostList", getPostList());
 		
 		return new ModelAndView("product_list");

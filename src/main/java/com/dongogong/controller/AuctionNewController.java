@@ -69,6 +69,7 @@ public class AuctionNewController {
 		
 		auctionFacade.insertAuction(post);
 		
+		model.addAttribute("userSession", userSession);
 		model.addAttribute("auctionList", auctionList());
 		model.addAttribute("myAuction", myAuction(request));
 		
