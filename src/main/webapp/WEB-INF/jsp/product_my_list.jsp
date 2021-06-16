@@ -72,6 +72,12 @@
                                  </c:forEach>
                             </div>
                            </form>
+                            <c:if test="${empty getPost}">
+                            <p class="text-center page-header-text align-middle pt-10 pb-15">
+                                내 상품이 없습니다.
+                            </p>
+                           
+                        </c:if>
                            </div>
                     </section>
                 </main>
