@@ -26,6 +26,7 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,400,500,600,700"
           rel="stylesheet">
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
 
     <!-- Vendor CSS Files -->
     <link rel="stylesheet" type="text/css" href="resources/assets/vendor/aos/aos.css">
@@ -72,9 +73,23 @@
                             <p class="text-align-right d-block">${selectPost.content}</p>
                         </div>
                     </div>
-                    <div class="btn btn-primary btn-xl font-weight-500 mb-2 w-100">
-                        <a id="button">Chat</a>
-                    </div>
+
+                    <c:if test="${!empty userSession.userInfo and selectPost.registerId ne userSession.getUserInfo().getUserId()}">
+                        <div class="btn btn-primary btn-xl font-weight-500 text-center w-100" onclick="chat()">
+                            <a>Go To Chat</a>
+                        </div>
+                    </c:if>
+                    <c:if test="${!empty userSession.userInfo and selectPost.registerId eq userSession.getUserInfo().getUserId()}">
+                        <div class="btn btn-warning font-weight-500 w-100" style="pointer-events: none">
+                                <p class=" m-0 p-0"><c:out value="${userSession.userInfo.getNickName()}"></c:out>님이 등록한 상품입니다.</p>
+                        </div>
+                    </c:if>
+                    <c:if test="${empty userSession.userInfo}">
+                        <div class="btn btn-outline-dark w-100 text-black">
+                            <a href="<c:url value="/loginForm.do" />">로그인 후 채팅이 가능합니다.<br>
+                                <h6 class="mt-1 mb-0">로그인하러 가기&nbsp;<i class="fas fa-sign-in-alt"></i></h6></a>
+                        </div>
+                    </c:if>
                 </form>
             </div>
 

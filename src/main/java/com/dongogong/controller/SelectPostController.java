@@ -20,45 +20,48 @@ import com.dongogong.service.PostFacade;
 //상품 세부정보
 public class SelectPostController {
 
-	@Autowired(required=false)
-	   private PostFacade postFacade;
-		public void setPostFacade(PostFacade postFacade) {
-			this.postFacade = postFacade;
-		}
-	
-	@GetMapping
-	public  ModelAndView selectPost2(HttpServletRequest request, Model model) throws Exception {
-		UserSession userSession =
+    @Autowired(required = false)
+    private PostFacade postFacade;
+
+    public void setPostFacade(PostFacade postFacade) {
+        this.postFacade = postFacade;
+    }
+
+    @GetMapping
+    public ModelAndView selectPost2(HttpServletRequest request, Model model) throws Exception {
+        UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
-		
-		String SpostIdx = request.getParameter("postIdx");
-		int postIdx = Integer.valueOf(SpostIdx);
-		
-		
-		model.addAttribute("userSession", userSession);
-		model.addAttribute("selectPost", selectPostList(postIdx));
-		model.addAttribute("userId", userSession.getUserInfo().getUserId());
-		
-		return new ModelAndView("product_detail");
-	}
-		
-	@PostMapping
-		public  ModelAndView selectPost(HttpServletRequest request, Model model) throws Exception {
-			UserSession userSession =
-	                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
-			
-			String SpostIdx = request.getParameter("postIdx");
-			int postIdx = Integer.valueOf(SpostIdx);
-			
-			
-			model.addAttribute("userSession", userSession);
-			model.addAttribute("selectPost", selectPostList(postIdx));
-			model.addAttribute("userId", userSession.getUserInfo().getUserId());
-			
-			return new ModelAndView("product_detail");
-		}
-	public Post selectPostList(int postId) {
-		return postFacade.selectPost(postId);
-	}
-	
+
+        String SpostIdx = request.getParameter("postIdx");
+        int postIdx = Integer.valueOf(SpostIdx);
+
+
+        model.addAttribute("userSession", userSession);
+        model.addAttribute("selectPost", selectPostList(postIdx));
+        model.addAttribute("userId", userSession.getUserInfo().getUserId());
+
+        return new ModelAndView("product_detail");
+    }
+
+    @PostMapping
+    public ModelAndView selectPost(HttpServletRequest request, Model model) throws Exception {
+        UserSession userSession =
+                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
+
+        String SpostIdx = request.getParameter("postIdx");
+        int postIdx = Integer.valueOf(SpostIdx);
+
+
+        model.addAttribute("userSession", userSession);
+        model.addAttribute("selectPost", selectPostList(postIdx));
+        if (userSession != null)
+            model.addAttribute("userId", userSession.getUserInfo().getUserId());
+
+        return new ModelAndView("product_detail");
+    }
+
+    public Post selectPostList(int postId) {
+        return postFacade.selectPost(postId);
+    }
+
 }

@@ -47,14 +47,14 @@
     </select>
    <!-- 전체 상품 가져오기 -->
   <select id="getPostList" resultType="Post">
-    SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID AS REGISTERID, PRICE, TITLE, CONTENT
+    SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID AS registerId, PRICE, TITLE, CONTENT
      FROM POST
      WHERE NOT BORDER_TYPE = 'auction'
      AND TRANSACTION_CONFIRMATION = 'no'
     </select>
      <!-- 상품 눌렀을때 정보보기 -->
     <select id="selectPost" resultType="Post">
-     SELECT PHOTOURL, POST_IDX AS POSTIDX, PRICE, TITLE, CONTENT, TRANSACTION_CONFIRMATION
+     SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID as registerId, PRICE, TITLE, CONTENT, TRANSACTION_CONFIRMATION
      FROM POST
      WHERE POST_IDX = #{postIdx}
   </select>
