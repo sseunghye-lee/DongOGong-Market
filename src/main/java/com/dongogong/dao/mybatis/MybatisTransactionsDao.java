@@ -28,4 +28,9 @@ public class MybatisTransactionsDao implements TransactionsDao {
 	public void deleteCartTransactions(Transactions transactions) throws DataAccessException {
 		transactionsMapper.deleteCartTransactions(transactions);
 	}
+
+	@Override
+	public String checkWaitingUser(int postIdx) throws DataAccessException {
+		return transactionsMapper.checkWaitingUser(postIdx);
+	}
 }

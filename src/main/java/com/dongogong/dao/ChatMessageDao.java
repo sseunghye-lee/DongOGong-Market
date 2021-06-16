@@ -18,7 +18,7 @@ public interface ChatMessageDao {
     void updateReadYn(int relationIdx, String userIdx) throws DataAccessException;
 
     //    메세지 전송 시 저장
-    ChatMessage insertMessage(ChatMessage chatMessage) throws DataAccessException;
+//    ChatMessage insertMessage(ChatMessage chatMessage) throws DataAccessException;
 
     //    시퀀스
     ChatMessage getMaxChatMessageIdx() throws DataAccessException;

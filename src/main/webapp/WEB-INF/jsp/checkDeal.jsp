@@ -6,14 +6,14 @@
 <%@ include file="IncludeTopDist.jsp" %>
 <body>
 <!-- ======= Header ======= -->
-<section id="hero" class="clearfix h-100 overflow-scroll">
+<section id="hero" class="bg-light h-100 overflow-scroll" >
     <div id="layoutDefault">
         <div id="layoutDefault_content h-100 overflow-scroll">
             <%@ include file="IncludeQuickHeader.jsp" %>
             <!-- End Header -->
             <main>
                 <!-- Page Header-->
-                <div class="page-header-content pt-5">
+                <div class="page-header-content pt-15">
                     <div class="container mt-n10 mb-4">
                         <ul class="list-group list-group-flush list-group-careers overflow-hidden">
                             <li class="list-group-item bg-light align-items-center">

@@ -36,11 +36,11 @@ public class MybatisChatMessageDao implements ChatMessageDao {
         chatMessageMapper.updateReadYn(relationIdx, userIdx);
     }
 
-    //    메세지 전송 시 저장
-    @Transactional
-    public ChatMessage insertMessage(ChatMessage chatMessage) throws DataAccessException {
-        return chatMessageMapper.insertMessage(chatMessage);
-    }
+//    //    메세지 전송 시 저장
+//    @Transactional
+//    public ChatMessage insertMessage(ChatMessage chatMessage) throws DataAccessException {
+//        return chatMessageMapper.insertMessage(chatMessage);
+//    }
 
     @Transactional
     public ChatMessage getMaxChatMessageIdx() throws DataAccessException {

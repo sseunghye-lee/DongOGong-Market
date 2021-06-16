@@ -18,7 +18,7 @@
                 <div class="page-header-content pt-15">
                     <div class="container mt-n10 mb-4">
                         <h5 class="page-header-text text-orange">
-                            <i class="fas fa-coins text-yellow mr-2"></i>현재 경매 진행상황을 살펴보세요.</h5>
+                            <i class="fas fa-coins text-yellow mr-2"></i>나의 거래내역을 확인해보세요.</h5>
                         <ul class="list-group list-group-flush list-group-careers overflow-hidden">
                             <li class="list-group-item bg-light align-items-center">
                                 <table class="text-center table table-vcenter custom-table">

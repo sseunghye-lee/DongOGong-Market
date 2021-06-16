@@ -9,4 +9,6 @@ public interface TransactionsFacade {
 	void insertCartTransactions(Transactions transactions);
 	
 	void deleteCartTransactions(Transactions transactions);
+
+	String checkWaitingUser(int postIdx);
 }

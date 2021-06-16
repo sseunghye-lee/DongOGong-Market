@@ -28,5 +28,10 @@ public class TransactionsImpl implements TransactionsFacade {
 	@Override
 	public void deleteCartTransactions(Transactions transactions) {
 		transactionsDao.deleteCartTransactions(transactions);	
-	}	
+	}
+
+	@Override
+	public String checkWaitingUser(int postIdx) {
+		return transactionsDao.checkWaitingUser(postIdx);
+	}
 }

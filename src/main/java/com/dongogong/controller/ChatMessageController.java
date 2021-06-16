@@ -6,6 +6,7 @@ import com.dongogong.domain.Post;
 import com.dongogong.repository.ChatMessageRepository;
 import com.dongogong.service.ChatMessageFacade;
 import com.dongogong.service.PostFacade;
+import com.dongogong.service.TransactionsFacade;
 import com.dongogong.service.UserInfoFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,6 +32,8 @@ public class ChatMessageController {
     private UserInfoFacade userInfoFacade;
     @Autowired
     private PostFacade postFacade;
+    @Autowired
+    private TransactionsFacade transactionsFacade;
 
     @GetMapping("/chat/room/{userId}")
     public ModelAndView showChatList(@PathVariable("userId") String userId, HttpServletRequest request, HttpServletResponse response, Model model) {
@@ -47,7 +50,7 @@ public class ChatMessageController {
         return new ModelAndView("showChatRoom");
     }
 
-    @RequestMapping("/chat/message/{chatRelationIdx}")
+    @GetMapping("/chat/message/{chatRelationIdx}")
     public ModelAndView showChatMessage(@PathVariable("chatRelationIdx") int relationIdx,
                                         HttpServletRequest request, HttpServletResponse response, Model model) {
         UserSession userSession =
@@ -58,7 +61,13 @@ public class ChatMessageController {
 
         List<ChatSummary> chatMessageList = chatMessageFacade.getChatMessageList(relationIdx);
         model.addAttribute("chatMessageList", chatMessageList);
-        model.addAttribute("post", postFacade.getPostIdx(chatMessageList.get(chatMessageList.size() - 1).getPostIdx()));
+        Post post = postFacade.getPostIdx(chatMessageList.get(chatMessageList.size() - 1).getPostIdx());
+        model.addAttribute("post", post);
+
+        if(post.getTransactionConfirmation().equals("WAIT")) {
+            model.addAttribute("waitingUser", transactionsFacade.checkWaitingUser(post.getPostIdx()));
+        }
+
         model.addAttribute("userSession", userSession);
         model.addAttribute("chatRelationIdx", relationIdx);
         model.addAttribute("userId", userSession.getUserInfo().getUserId());

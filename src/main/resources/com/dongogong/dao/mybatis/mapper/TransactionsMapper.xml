@@ -3,20 +3,27 @@
 
 <mapper namespace="com.dongogong.dao.mybatis.mapper.TransactionsMapper">
 
-	<cache />
-  
-	<select id="transactionSize" resultType="Transactions">
-     SELECT MAX(TRANSACTIONS_IDX) AS transactionsIdx
-     FROM TRANSACTIONS
-  	</select> 
-	
+    <cache/>
+
+    <select id="transactionSize" resultType="Transactions">
+        SELECT MAX(TRANSACTIONS_IDX) AS transactionsIdx
+        FROM TRANSACTIONS
+    </select>
+
     <insert id="insertCartTransactions" parameterType="Transactions">
-       INSERT INTO TRANSACTIONS(transactions_Idx, post_Idx, seller_Id, buyer_Id, status)
-       VALUES(#{transactionsIdx}, #{postIdx}, #{sellerId}, #{buyerId}, 'WAIT')
-    </insert> 
-    
+        INSERT INTO TRANSACTIONS(transactions_Idx, post_Idx, seller_Id, buyer_Id, status)
+        VALUES (#{transactionsIdx}, #{postIdx}, #{sellerId}, #{buyerId}, 'WAIT')
+    </insert>
+
     <delete id="deleteCartTransactions" parameterType="Transactions">
-    	DELETE FROM TRANSACTIONS
-    	WHERE POST_IDX = #{postIdx} 
+        DELETE
+        FROM TRANSACTIONS
+        WHERE POST_IDX = #{postIdx}
     </delete>
+
+    <select id="checkWaitingUser" resultType="java.lang.String">
+        SELECT BUYER_ID as buyerId
+        FROM TRANSACTIONS
+        WHERE POST_IDX = #{postIdx}
+    </select>
 </mapper>

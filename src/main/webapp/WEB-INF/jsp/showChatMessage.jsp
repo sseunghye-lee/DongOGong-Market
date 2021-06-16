@@ -11,14 +11,17 @@
         <main class="vh-100">
             <header class="page-header page-header-light bg-light h-100">
                 <div class="container h-100" style="overflow-y: scroll">
-                    <div class="card-header text-center mb-4">상품 구매 진행 중에 있는 상품으로 현재 구매가 불가능합니다.</div>
                     <div class="text-center mb-4 d-block">
                         <input class="mt-2 btn btn-light btn-outline-dark font-weight-500 pl-5 pr-5 mb-2"
                                id="btnDecide" type="submit" value="구매하기"/>
                         <input class="mt-2 btn btn-light btn-outline-dark font-weight-500 pl-5 pr-5 mb-2"
                                id="btnCancel" type="submit" value="취소하기"/>
                     </div>
-                    <c:if test="${userSession.getUserInfo().getUserId() eq message.receiverId}">
+                    <c:if test="${post.transactionConfirmation eq 'no'}">
+                        <div class="card-header text-center mb-4">상품 구매 진행 중에 있는 상품으로 현재 구매가 불가능합니다.</div>
+                    </c:if>
+                    <c:if test="${post.transactionConfirmation eq 'COMPLETED'}">
+                        <div class="card-header text-center mb-4">상품 구매가 완료된 상품으로 구매가 불가능합니다.</div>
                     </c:if>
                     <a href="<c:url value="/chat/room/${userSession.userInfo.userId}"/>">
                         <i class="fas fa-angle-left fa-2x"></i>
@@ -86,9 +89,6 @@
         src="https://kit.fontawesome.com/6478f529f2.js"
         crossorigin="anonymous">
 </script>
-<script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="/dist/js/bootstrap.min.js"></script>
 
 <script>
     let Message = document.getElementById("message");
@@ -132,20 +132,20 @@
 
         $.ajax({
             url: "../../../send/room/message.do",
-            type: 'POST',
-            async: false,
+            method: "POST",
+            contentType: "application/json; charset=utf-8",
             data: JSON.stringify(data),
-            contentType: 'application/json; charset = utf-8',
+            async: false,
             dataType: 'json', // 리턴해주는 타입을 지정해줘야함
             success: function (res) {
                 console.log("호출성공");
-                alert(res);
-                location.href = '/chat/message/' + res.chatRelationIdx;
+                alert(res.content);
+                location.reload();
             },// 요청 완료 시
             error: function (err) {
+                btn.removeClass("b-loading").attr("disabled", false);
                 console.log("채팅 전송 실패입니다.");
                 alert("채팅 전송에 실패하였습니다.");
-                btn.removeClass("btn-loading").attr("disabled", false);
             }// 요청 실패.
         });
     }
