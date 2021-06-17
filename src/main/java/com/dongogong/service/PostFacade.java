@@ -50,4 +50,6 @@ public interface PostFacade {
    
    // 장바구니 삭제 시 상태변경
    void deleteCartPost(int postIdx);
+
+   void updatePostOnChat(Post post);
 }

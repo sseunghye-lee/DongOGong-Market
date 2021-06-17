@@ -20,7 +20,7 @@
        WHERE POST_IDX = #{postIdx} 
     </delete>
     
-    <select id="checkWaitingUser" resultType="java.lang.String">
+    <select id="checkBuyer" resultType="java.lang.String">
         SELECT BUYER_ID as buyerId
         FROM TRANSACTIONS
         WHERE POST_IDX = #{postIdx}

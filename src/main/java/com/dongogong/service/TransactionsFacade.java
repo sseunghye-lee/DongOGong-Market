@@ -11,4 +11,6 @@ public interface TransactionsFacade {
 	void deleteCartTransactions(int postIdx);
 
 	String checkBuyer(int postIdx);
+
+	void insertTransactionsOnChat(Transactions transactions);
 }

@@ -13,17 +13,19 @@
                 <div class="container h-100" style="overflow-y: scroll">
                     <div class="text-center mb-4 d-block">
                         <c:if test="${post.transactionConfirmation eq 'no' or post.transactionConfirmation eq 'WAIT'}">
-                            <input class="mt-2 btn btn-light btn-outline-dark font-weight-500 pl-5 pr-5 mb-2"
-                                   id="btnDecide" type="submit" value="구매하기"/>
+                            <a class="mt-2 btn btn-light btn-outline-dark font-weight-500 pl-5 pr-5 mb-2"
+                               onclick="complete()">구매하기</a>
                         </c:if>
                         <c:if test="${post.transactionConfirmation eq 'COMPLETED' and buyer eq userId}">
-                            <input class="mt-2 btn btn-light btn-outline-dark font-weight-500 pl-5 pr-5 mb-2"
-                                   id="btnCancel" type="submit" value="취소하기"/>
+                            <div class="card-header text-center mb-4">
+                                <c:out value="${userSession.getUserInfo().getNickName()}"></c:out>님이 구매하신 상품입니다. 판매자와의
+                                연락을 통해 직거래를 해주세요.
+                            </div>
                         </c:if>
-                        <c:if test="${post.transactionConfirmation eq 'WAIT' and waiting ne userId}">
+                        <c:if test="${post.transactionConfirmation eq 'WAIT'}">
                             <div class="card-header text-center mb-4 w-100">상품을 찜한 사람이 있습니다. 서둘러 구매해보세요.</div>
                         </c:if>
-                        <c:if test="${post.transactionConfirmation eq 'COMPLETED' and buyer eq userId}">
+                        <c:if test="${post.transactionConfirmation eq 'COMPLETED' and buyer ne userId}">
                             <div class="card-header text-center mb-4">상품 구매가 완료된 상품으로 구매가 불가능합니다.</div>
                         </c:if>
                     </div>
@@ -62,6 +64,9 @@
                                                     <span class="message__bubble">
                                                     <c:out value="${message.content}"></c:out>
                                                     </span>
+                                                    <c:if test="${message.readYn eq 'N'}">
+                                                        <span>1</span>
+                                                    </c:if>
                                                 </div>
                                                 <span class="message__time float-end">
                                                         <fmt:formatDate value="${message.createdDateTime}"
@@ -89,13 +94,55 @@
 </div>
 <!-- end chat area-->
 
+<%--<div class="modal fade" id="completeModal" tabindex="-1" role="dialog" aria-labelledby="completeModalLabel"--%>
+<%--     aria-hidden="true">--%>
+<%--    <div class="modal-dialog" role="document">--%>
+<%--        <div class="modal-content">--%>
+<%--            <div class="modal-header">--%>
+<%--                <h5 class="modal-title" id="completeModalLabel">구매 확정</h5>--%>
+<%--                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span--%>
+<%--                        aria-hidden="true">×</span></button>--%>
+<%--            </div>--%>
+<%--            <div class="modal-body">--%>
+<%--                <c:out value="${chatRoomName}"></c:out>님이 올린 상품을 구매하시겠습니까?<br>--%>
+<%--                구매 확정 후에는 직거래로 구매를 진행하시면 됩니다.<br>--%>
+<%--                안전한 거래가 되시길 바랍니다.--%>
+<%--            </div>--%>
+<%--            <div class="modal-footer">--%>
+<%--                <button class="btn btn-primary" type="button">구매 확정</button>--%>
+<%--                <button class="btn btn-light" type="button" data-dismiss="modal">닫기</button>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
+<%--<div class="modal fade" id="cancelModal" tabindex="-1" role="dialog" aria-labelledby="cancelModalLabel"--%>
+<%--     aria-hidden="true">--%>
+<%--    <div class="modal-dialog" role="document">--%>
+<%--        <div class="modal-content">--%>
+<%--            <div class="modal-header">--%>
+<%--                <h5 class="modal-title" id="cancelModalLabel">구매 취소</h5>--%>
+<%--                <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span--%>
+<%--                        aria-hidden="true">×</span></button>--%>
+<%--            </div>--%>
+<%--            <div class="modal-body">--%>
+<%--                <c:out value="${chatRoomName}"></c:out>님의 상품 구매를 취소하시겠습니까?<br>--%>
+<%--                단순 구매 취소는 지양해주시길 바랍니다.--%>
+<%--            </div>--%>
+<%--            <div class="modal-footer">--%>
+<%--                <button class="btn btn-danger" type="button">구매 취소</button>--%>
+<%--                <button class="btn btn-light" type="button" data-dismiss="modal">닫기</button>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
+
 <script
         src="https://kit.fontawesome.com/6478f529f2.js"
         crossorigin="anonymous">
 </script>
 
 <script>
-
     window.onload = function () {
         $("#chatMessageArea").scrollTop($("#chatMessageArea")[0].scrollHeight);
     }
@@ -157,6 +204,49 @@
             }// 요청 실패.
         });
     }
+
+
+    function complete() {
+        const btn = $(this);
+        if (btn.hasClass("btn-loading")) return;
+
+        let postIdx = '<c:out value="${post.postIdx}"></c:out>';
+        let sellerId = '<c:out value="${chatRoomId}"></c:out>';
+        let buyerId = '<c:out value="${userId}"></c:out>';
+        let status = 'COMPLETED'
+        let borderType = '<c:out value="${post.borderType}"></c:out>';
+
+        btn.addClass("btn-loading").attr("disabled", true);
+
+
+        let data = {
+            postIdx: postIdx,
+            sellerId: sellerId,
+            buyerId: buyerId,
+            status: status,
+            borderType: borderType
+        };
+
+        $.ajax({
+            url: "/complete/product.do",
+            method: "POST",
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(data),
+            dataType: 'json', // 리턴해주는 타입을 지정해줘야함
+            async: false,
+            success: function (res) {
+                console.log("호출성공");
+                alert('상품 구매가 확정되었습니다.\n구매 확정 후에는 직거래로 구매를 진행하시면 됩니다.');
+                location.reload();
+            },// 요청 완료 시
+            error: function (err) {
+                btn.removeClass("b-loading").attr("disabled", false);
+                console.log("상품 구매 실패입니다.");
+                alert("상품 구매에 실패하였습니다.");
+            }// 요청 실패.
+        });
+    }
+
 </script>
 
 </body>

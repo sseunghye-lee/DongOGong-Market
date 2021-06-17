@@ -1,19 +1,28 @@
 package com.dongogong.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
+@Entity
+@Table(name = "POST")
 public class Post implements Serializable {
     // 해당 상품 idx
+    @Id
     private int postIdx;
 
     // 상품 등록자 id
+    @Column(name="REGISTER_ID")
     private String registerId;
 
     // 상품 이름
     private String title;
 
     // 카테고리
+    @Column(name="BORDER_TYPE")
     private String borderType;
     
     //가격
@@ -23,8 +32,10 @@ public class Post implements Serializable {
     private String content;
 
     // 거래확정 여부
+    @Column(name="TRANSACTION_CONFIRMATION")
     private String transactionConfirmation;
-    
+
+    @Column(name="PHOTOURL")
     private String photoUrl;
     
     public Post() {}
