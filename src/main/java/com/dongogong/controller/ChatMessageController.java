@@ -117,7 +117,7 @@ public class ChatMessageController {
         if (userSession == null)
             return new ModelAndView("index");
 
-        if (post.getTransactionConfirmation().equals("WAIT")) {
+        if (!(post.getRegisterId().equals(userSession.getUserInfo().getUserId())) && post.getTransactionConfirmation().equals("COMPLETED")) {
             model.addAttribute("buyer", transactionsFacade.checkBuyer(post.getPostIdx()));
         }
 
