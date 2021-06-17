@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,31 +17,32 @@ import com.dongogong.service.PostFacade;
 @Controller
 @RequestMapping("/apply/MyPost_product.do")
 //내 상품 가져오는 컨트롤러
-public class GetMyPostController {		
-	@Autowired(required=false)
-	   private PostFacade postFacade;
-		public void setPostFacade(PostFacade postFacade) {
-			this.postFacade = postFacade;
-		}
-		 
-		 @PostMapping
-		 public String myPost() {
-		       return "product_my_list";
-		    }
-		 //back 버튼
-		 @GetMapping
-		 public String myPostList() {
-		       return "product_my_list";
-		    }
-		
-		 @ModelAttribute("getPost")
-			public List<Post> getPost(HttpServletRequest request) {
-				 UserSession userSession =
-			                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
-				
-			return postFacade.getPost(userSession.getUserInfo().getUserId());
-			}
-		 
-		}
-
+public class GetMyPostController {      
+   @Autowired(required=false)
+      private PostFacade postFacade;
+      public void setPostFacade(PostFacade postFacade) {
+         this.postFacade = postFacade;
+      }
+       
+       @PostMapping
+       public String myPost() {
+             return "product_my_list";
+          }
+       //back 버튼
+       @GetMapping
+       public String myPostList() {
+             return "product_my_list";
+          }
+      
+       @ModelAttribute("getPost")
+         public List<Post> getPost(HttpServletRequest request, Model model) {
+             UserSession userSession =
+                         (UserSession) WebUtils.getSessionAttribute(request, "userSession");
+             model.addAttribute("userSession", userSession);
+               
+            
+         return postFacade.getPost(userSession.getUserInfo().getUserId());
+         }
+       
+      }
 

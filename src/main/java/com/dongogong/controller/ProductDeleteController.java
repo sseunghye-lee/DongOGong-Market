@@ -16,29 +16,29 @@ import com.dongogong.service.PostFacade;
 @RequestMapping(value="/productDelete.do")
 //상품 삭제
 public class ProductDeleteController {
-	@Autowired(required=false)
-	   private PostFacade postFacade;
-		public void setPostFacade(PostFacade postFacade) {
-			this.postFacade = postFacade;
-		}
-		@PostMapping
-		public ModelAndView deleteProduct(HttpServletRequest request,
-				@RequestParam(value="postIdx", required=false) String postIdx,
-				Model model
-				) throws Exception {
-			UserSession userSession =
-	                (UserSession) WebUtils.getSessionAttribute(request, "userSession");
-		 
-			int postId = Integer.valueOf(postIdx);
-			
-			postFacade.chatDelete(postId);
-			postFacade.relationDelete(postId);
-			postFacade.transactionDelete(postId);
-			
-			postFacade.postDelete(postId);
-			
-			model.addAttribute("getPost", postFacade.getPost(userSession.getUserInfo().getUserId()));
-		
-			return new ModelAndView("product_my_list");
-		}	
+   @Autowired(required=false)
+      private PostFacade postFacade;
+      public void setPostFacade(PostFacade postFacade) {
+         this.postFacade = postFacade;
+      }
+      @PostMapping
+      public ModelAndView deleteProduct(HttpServletRequest request,
+            @RequestParam(value="postIdx", required=false) String postIdx,
+            Model model
+            ) throws Exception {
+         UserSession userSession =
+                   (UserSession) WebUtils.getSessionAttribute(request, "userSession");
+       
+         int postId = Integer.valueOf(postIdx);
+         
+         postFacade.chatDelete(postId);
+         postFacade.relationDelete(postId);
+         postFacade.transactionDelete(postId);
+         
+         postFacade.postDelete(postId);
+         model.addAttribute("userSession", userSession);
+         model.addAttribute("getPost", postFacade.getPost(userSession.getUserInfo().getUserId()));
+      
+         return new ModelAndView("product_my_list");
+      }   
 }

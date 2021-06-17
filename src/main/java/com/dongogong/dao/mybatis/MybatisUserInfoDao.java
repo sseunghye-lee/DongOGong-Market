@@ -74,14 +74,7 @@ public class MybatisUserInfoDao implements UserInfoDao{
       public List<String> getUsernameList() throws DataAccessException {
          return userInfoMapper.getUsernameList();
       }
-      /*public List<UserInfo> findUserList() throws DataAccessException {
-         return userMapper.findUserList();
-      }
-      
-      public List<UserInfo> findUserList(int currentPage, int countPerPage) throws DataAccessException {
-         return userMapper.findUserList(currentPage, countPerPage);
-      }
-       */
+
      @Override 
      public UserInfo myInfo(String userId) throws DataAccessException {
 		return userInfoMapper.myInfo(userId);
