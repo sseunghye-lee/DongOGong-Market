@@ -65,12 +65,6 @@ public class MybatisUserInfoDao implements UserInfoDao{
 		  userInfoMapper.deleteTransaction(userId);		
 	  }
       
-	  
-	  public int idChk(UserInfo userInfo) throws DataAccessException {
-    	  int result = userInfoMapper.idChk(userInfo);
-    	  return result;
-      }
-      
       public List<String> getUsernameList() throws DataAccessException {
          return userInfoMapper.getUsernameList();
       }

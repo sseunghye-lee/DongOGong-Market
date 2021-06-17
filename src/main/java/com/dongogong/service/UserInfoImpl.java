@@ -66,11 +66,6 @@ public class UserInfoImpl implements UserInfoFacade{
       userInfoDao.deleteTransaction(userId);
       
    }
-      
-    public int idChk(UserInfo userInfo) {
-       int result = userInfoDao.idChk(userInfo);
-       return result;
-    }
     
     public List<String> getUsernameList() {
        return userInfoDao.getUsernameList();

@@ -15,126 +15,96 @@ import com.dongogong.domain.Transactions;
 
 @Repository
 public class MybatisAuctionDao implements AuctionPriceDao {
-	
-	@Autowired
-	private AuctionMapper auctionMapper;
+   
+   @Autowired
+   private AuctionMapper auctionMapper;
 
-	@Override
-	public void insertAuction(Post post) throws DataAccessException {
-		auctionMapper.auctionRegister(post);
-		
-	}
-	
-	/*
-	@Override
-	public void insertPhoto(Photo photo) throws DataAccessException {
-		auctionMapper.auctionPhoto(photo);
-	}
-	 */
-	@Override
-	public void updateAuction(Post post) throws DataAccessException {
-		auctionMapper.auctionUpdate(post);
-	}
-	
-	/*
-	@Override
-	public void updatePhoto(Photo photo) throws DataAccessException {
-		auctionMapper.photoUpdate(photo);
-	}
-	*/
-	@Override
-	public void finishAuction(int postIdx) throws DataAccessException {
-		auctionMapper.auctionFinish(postIdx);
-	}
-	
-	@Override
-	public String postRegisterId(int postIdx) throws DataAccessException {
-		return auctionMapper.postRegisterId(postIdx);
-	}
-	
-	@Override
-	public void insertTransaction(Transactions transactions) throws DataAccessException {
-		auctionMapper.insertTransaction(transactions);
-	}
-	
-	@Override
-	public void auctionPriceFinish(int postIdx) throws DataAccessException {
-		auctionMapper.auctionPriceFinish(postIdx);
-	}
+   @Override
+   public void insertAuction(Post post) throws DataAccessException {
+      auctionMapper.auctionRegister(post);
+      
+   }
+   
+   @Override
+   public void updateAuction(Post post) throws DataAccessException {
+      auctionMapper.auctionUpdate(post);
+   }
+   
+   @Override
+   public void finishAuction(int postIdx) throws DataAccessException {
+      auctionMapper.auctionFinish(postIdx);
+   }
+   
+   @Override
+   public String postRegisterId(int postIdx) throws DataAccessException {
+      return auctionMapper.postRegisterId(postIdx);
+   }
+   
+   @Override
+   public void insertTransaction(Transactions transactions) throws DataAccessException {
+      auctionMapper.insertTransaction(transactions);
+   }
+   
+   @Override
+   public void auctionPriceFinish(int postIdx) throws DataAccessException {
+      auctionMapper.auctionPriceFinish(postIdx);
+   }
 
-	@Override
-	public List<Post> auctionList() throws DataAccessException {
-		return auctionMapper.auctionList();
-	}
-	
-	@Override
-	public int myAuctionRegister(String registerId) throws DataAccessException {
-		return auctionMapper.myAuctionRegister(registerId);
-	}
+   @Override
+   public List<Post> auctionList() throws DataAccessException {
+      return auctionMapper.auctionList();
+   }
+   
+   @Override
+   public int myAuctionRegister(String registerId) throws DataAccessException {
+      return auctionMapper.myAuctionRegister(registerId);
+   }
 
-	@Override
-	public Post myAuction(int post_idx) throws DataAccessException {
-		return auctionMapper.myAuction(post_idx);
-	}
+   @Override
+   public Post myAuction(int post_idx) throws DataAccessException {
+      return auctionMapper.myAuction(post_idx);
+   }
 
-	/*
-	@Override
-	public AuctionPrice auctionPrice(int post_idx) throws DataAccessException {
-		return auctionMapper.auctionPrice(post_idx);
-	}
+   @Override
+   public void attendAuction(AuctionPrice auctionPrice) throws DataAccessException {
+      auctionMapper.auctionSend(auctionPrice);
+      auctionMapper.updatePostPrice(auctionPrice.getPrice(), auctionPrice.getPostIdx());
+   }
 
-	@Override
-	public Post auctionPrice2(int post_idx) throws DataAccessException {
-		return auctionMapper.auctionPrice2(post_idx);
-	}
-	*/
+   @Override
+   public List<AuctionPrice> auctionProgress(int postIdx) throws DataAccessException {
+      return auctionMapper.auctionProgress(postIdx);
+   }
 
-	@Override
-	public void attendAuction(AuctionPrice auctionPrice) throws DataAccessException {
-		auctionMapper.auctionSend(auctionPrice);
-		auctionMapper.updatePostPrice(auctionPrice.getPrice(), auctionPrice.getPostIdx());
-		//auctionMapper.updateAuctionPrice(auctionPrice.getPrice());
-	}
+   @Override
+   public AuctionPrice auctionPriceSize() throws DataAccessException {
+      return auctionMapper.auctionPriceSize();
+   }
 
-	@Override
-	public List<AuctionPrice> auctionProgress(int postIdx) throws DataAccessException {
-		return auctionMapper.auctionProgress(postIdx);
-	}
+   @Override
+   public void auctionDelete(int postIdx) throws DataAccessException {
+      auctionMapper.auctionDelete(postIdx);
+   }
 
-	@Override
-	public String auctionNickName(String buyerId) throws DataAccessException {
-		return auctionMapper.auctionNickName(buyerId);
-	}
+   @Override
+   public void auctionPriceDelete(int postIdx) throws DataAccessException {
+      auctionMapper.auctionPriceDelete(postIdx);
+   }
 
-	@Override
-	public AuctionPrice auctionPriceSize() throws DataAccessException {
-		return auctionMapper.auctionPriceSize();
-	}
+   @Override
+   public Post auctionRegisterId(int postIdx) throws DataAccessException {
+      return auctionMapper.auctionRegisterId(postIdx);
+   }
 
-	@Override
-	public void auctionDelete(int postIdx) throws DataAccessException {
-		auctionMapper.auctionDelete(postIdx);
-	}
+   @Override
+   public AuctionPrice auctionMax(int postIdx) throws DataAccessException {
+      return auctionMapper.auctionMax(postIdx);
+   }
 
-	@Override
-	public void auctionPriceDelete(int postIdx) throws DataAccessException {
-		auctionMapper.auctionPriceDelete(postIdx);
-	}
-
-	@Override
-	public Post auctionRegisterId(int postIdx) throws DataAccessException {
-		return auctionMapper.auctionRegisterId(postIdx);
-	}
-
-	@Override
-	public AuctionPrice auctionMax(int postIdx) throws DataAccessException {
-		return auctionMapper.auctionMax(postIdx);
-	}
-
-	@Override
-	public void transactionDelete(int postIdx) throws DataAccessException {
-		auctionMapper.transactionDelete(postIdx);
-		
-	}
+   @Override
+   public void transactionDelete(int postIdx) throws DataAccessException {
+      auctionMapper.transactionDelete(postIdx);
+      
+   }
 
 }

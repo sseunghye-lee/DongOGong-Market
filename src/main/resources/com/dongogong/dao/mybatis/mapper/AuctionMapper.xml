@@ -8,14 +8,6 @@
         VALUES(#{postIdx}, #{registerId}, #{title}, 'auction', #{price}, #{content}, 'no', #{photoUrl})
     </insert>
 
-    <!--
-    <insert id="auctionPhoto" parameterType="Photo">
-       INSERT INTO PHOTO(photoIdx, postIdx, url)
-       VALUES(#{photoIdx}, #{postIdx}, #{url})
-
-        INSERT INTO PHOTO(photoIdx, postIdx, url, created_date_time, modified_date_time)
-       VALUES(#{photoIdx}, #{postIdx}, #{url}, #{created_date_time}, #{modified_date_time})
-    </insert> -->
 
     <!-- 2) 경매 수정 -->
     <update id="auctionUpdate" parameterType="Post">
@@ -23,14 +15,6 @@
         WHERE POST_IDX = #{postIdx}
     </update>
 
-    <!--
-    <update id="photoUpdate" parameterType="Photo">
-       UPDATE PHOTO SET URL = #{url}
-       WHERE POSTIDX = #{postIdx}
-
-        UPDATE PHOTO SET URL = #{url}, MODIFIED_DATE_TIME = #{modified_date_time}
-       WHERE POSTIDX = #{postIdx}
-    </update> -->
 
     <!-- 3) 경매 마감 -->
     <update id="auctionFinish" parameterType="java.lang.Integer">
@@ -60,10 +44,6 @@
         SELECT PHOTOURL, POST_IDX AS POSTIDX, PRICE, TITLE, CONTENT, REGISTER_ID AS REGISTERID
         FROM POST
         WHERE BORDER_TYPE = 'auction' AND TRANSACTION_CONFIRMATION = 'no'
-        <!--
-        WHERE POST.POSTIDX = #{postIdx}
-           AND PHOTO.POSTIDX = #{postIdx}
-           AND POST.POSTIDX = PHOTO.POSTIDX -->
     </select>
 
     <!-- 5) 내가 등록한 경매 -> registerId로 post_idx를 찾고 그 것을 이용해 Photo를 찾음 -->

@@ -18,11 +18,11 @@
     <link type="text/css" href="resources/css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
     <script>
-		   function goAuction(targetUri) {
-		         form.action = targetUri;
-		         form.submit();
-      	}
-	</script>
+         function goAuction(targetUri) {
+               form.action = targetUri;
+               form.submit();
+         }
+   </script>
 </head>
 <body>
    <section>
@@ -66,7 +66,7 @@
                                data-validation-required-message="Please enter a Description." value="${myAuction.content}" />
                                 <!--  
                                 <textarea class="form-control" name="content" id="Description" rows="5" type="text" placeholder="Description" required="required" data-validation-required-message="Please enter a Description.">
-                                	${myAuction.content}
+                                   ${myAuction.content}
                                 </textarea>-->
                                 <p class="help-block text-danger"></p>
                            </div>
@@ -77,8 +77,7 @@
                         <input type = "submit" value = "DELETE" class="btn btn-primary btn-xl" onClick = "goAuction('<c:url value='/auctionDelete.do'></c:url>')" />
                         <input type = "submit" value = "UPDATE" class="btn btn-primary btn-xl" onClick = "goAuction('<c:url value='/auctionUpdate.do'></c:url>')" />
                         <a class="btn btn-primary btn-xl" href="<c:url value="/auction.do"/>">CANCEL</a>
-                        <!--  
-                     <button onclick="<c:url value="/auction.do"/>" class="btn btn-primary btn-xl" id="sendMessageButton" type="submit">Cancel</button>  -->                         </div>
+                                                </div>
                   </form>
                </div>
             </div>

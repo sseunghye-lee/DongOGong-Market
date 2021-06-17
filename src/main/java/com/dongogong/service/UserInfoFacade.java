@@ -22,12 +22,7 @@ public interface UserInfoFacade {
    void deleteChatInfo(String userId);
    void deleteRelation(String userId);
    void deleteTransaction(String userId);
-   
-   //UserInfo deleteUserInfo(String userId);
-   //boolean passChk(UserInfo userInfo, UserInfo passward);
-   
-   int idChk(UserInfo userInfo);
-   
+      
    List<String> getUsernameList();
    
    // 회원 정보 보기

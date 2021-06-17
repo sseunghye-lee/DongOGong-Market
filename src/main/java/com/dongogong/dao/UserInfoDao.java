@@ -25,7 +25,5 @@ public interface UserInfoDao {   //회원
    
    List<String> getUsernameList() throws DataAccessException;
    
-   int idChk(UserInfo userInfo) throws DataAccessException;	//회원가입 시 아이디 중복 체크
-
    UserInfo myInfo(String userId) throws DataAccessException;
 }

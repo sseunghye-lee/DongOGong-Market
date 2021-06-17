@@ -70,13 +70,4 @@ public class UserInfo implements Serializable {
         this.password = password;
     }
 
-   /*public String getIndividual_corporation_status() {
-      return individual_corporation_status;
-   }
-
-   public void setIndividual_corporation_status(String individual_corporation_status) {
-      this.individual_corporation_status = individual_corporation_status;
-   }
-    */
-
 }

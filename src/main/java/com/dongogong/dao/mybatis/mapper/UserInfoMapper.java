@@ -23,20 +23,10 @@ public interface UserInfoMapper {
    void deleteChatInfo(String userId);
    void deleteRelation(String userId);
    void deleteTransaction(String userId);
-   
-   //boolean passChk(UserInfo userInfo, UserInfo passward);
-   
-   int idChk(UserInfo userInfo);
-   
+         
    UserInfo findUser(String user_id);
    
    List<String> getUsernameList();
-   
-   //List<UserInfo> findUserList();
-   
-   //List<UserInfo> findUserList(int currentPage, int countPerPaga);
-   
-   //boolean existingUser(String user_id);
    
    UserInfo myInfo(String userId);
 }
