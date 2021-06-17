@@ -28,10 +28,7 @@ public class ProductController {
 			this.postFacade = postFacade;
 		}
 	
-	 @ModelAttribute("getPostList")
-	   public List<Post> getPostList() {
-	      return postFacade.getPostList();
-	   }
+
 	
     @GetMapping
     public ModelAndView applyProduct(HttpServletRequest request, HttpServletResponse response) {
