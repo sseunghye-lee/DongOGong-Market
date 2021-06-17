@@ -12,21 +12,24 @@
             <header class="page-header page-header-light bg-light h-100">
                 <div class="container h-100" style="overflow-y: scroll">
                     <div class="text-center mb-4 d-block">
-                        <c:if test="${post.transactionConfirmation eq 'no' or post.transactionConfirmation eq 'WAIT'}">
+                        <c:if test="${post.registerId ne userId and (post.transactionConfirmation eq 'no' or post.transactionConfirmation eq 'WAIT')}">
                             <a class="mt-2 btn btn-light btn-outline-dark font-weight-500 pl-5 pr-5 mb-2"
                                onclick="complete()">구매하기</a>
                         </c:if>
-                        <c:if test="${post.transactionConfirmation eq 'COMPLETED' and buyer eq userId}">
+                        <c:if test="${post.registerId ne userId and post.transactionConfirmation eq 'COMPLETED' and buyer eq userId}">
                             <div class="card-header text-center mb-4">
                                 <c:out value="${userSession.getUserInfo().getNickName()}"></c:out>님이 구매하신 상품입니다. 판매자와의
                                 연락을 통해 직거래를 해주세요.
                             </div>
                         </c:if>
-                        <c:if test="${post.transactionConfirmation eq 'WAIT'}">
+                        <c:if test="${post.registerId ne userId and post.transactionConfirmation eq 'WAIT'}">
                             <div class="card-header text-center mb-4 w-100">상품을 찜한 사람이 있습니다. 서둘러 구매해보세요.</div>
                         </c:if>
-                        <c:if test="${post.transactionConfirmation eq 'COMPLETED' and buyer ne userId}">
+                        <c:if test="${post.registerId ne userId and post.transactionConfirmation eq 'COMPLETED' and buyer ne userId}">
                             <div class="card-header text-center mb-4">상품 구매가 완료된 상품으로 구매가 불가능합니다.</div>
+                        </c:if>
+                        <c:if test="${post.registerId eq userId}">
+                            <div class="card-header text-center mb-4"><c:out value="${userSession.getUserInfo().getNickName()}"></c:out>님이 등록한 상품입니다. <c:out value="${chatRoomName}"></c:out>님에게 상품을 팔아보세요.</div>
                         </c:if>
                     </div>
                     <a href="<c:url value="/chat/room/${userSession.userInfo.userId}"/>">

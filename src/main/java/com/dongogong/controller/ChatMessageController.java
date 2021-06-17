@@ -65,7 +65,7 @@ public class ChatMessageController {
         Post post = postFacade.getPostIdx(chatMessageList.get(chatMessageList.size() - 1).getPostIdx());
         model.addAttribute("post", post);
 
-        if (post.getTransactionConfirmation().equals("COMPLETED")) {
+        if (!(post.getRegisterId().equals(userSession.getUserInfo().getUserId())) && post.getTransactionConfirmation().equals("COMPLETED")) {
             model.addAttribute("buyer", transactionsFacade.checkBuyer(post.getPostIdx()));
         }
 

@@ -41,7 +41,7 @@
     </select>
     
     <select id="getPostIdx" resultType="Post">
-    SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID as registerId, PRICE, TITLE, CONTENT, TRANSACTION_CONFIRMATION AS transactionConfirmation
+    SELECT PHOTOURL, POST_IDX AS POSTIDX, REGISTER_ID as registerId, PRICE, TITLE, CONTENT, TRANSACTION_CONFIRMATION AS transactionConfirmation, BORDER_TYPE as borderType
      FROM POST
      WHERE POST_IDX = #{postIdx} 
     </select>
