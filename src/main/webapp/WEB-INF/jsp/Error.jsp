@@ -4,5 +4,5 @@
 <br>
 <br>
 <br>
-<h3><font color="red">Error!</font></h3>
-<b><c:out value="${message}" default="No further information was provided."/></b>
+<h3><font color="red">&nbsp;&nbsp;&nbsp;Error!</font></h3>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><c:out value="${message}" default="No further information was provided."/></b>

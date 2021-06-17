@@ -34,8 +34,8 @@ public class LoginController {
       
       UserInfo user = userInfo.getUserInfo(userId, password);     
       if (user == null) {
-    	  return new ModelAndView("Error", "message", 
-					"Invalid username or password. Signon failed.");
+         return new ModelAndView("Error", "message", 
+               "Invalid Id or Password. Signon failed.");
       }
       else {
          UserSession userSession = new UserSession(user);
