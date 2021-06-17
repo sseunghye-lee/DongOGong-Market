@@ -38,16 +38,6 @@
 	                            <p class="help-block text-danger"></p>
 	                        </div>
 	                    </div>
-	                    <!-- <div class="control-group">
-                        	<div class="form-group floating-label-form-group controls mb-0 pb-2">
-                            	<label>NickName</label>
-                                <h4>NICKNAME</h4>
-                                <input class="form-control" id="nickName" name="nickName" placeholder="NICKNAME" type="text" />
-                                <button id="confirmNickName" type="submit">중복확인</button>
-                                <p class="help-block text-danger"></p>
-                           </div>
-                        </div>
-                         -->
 	                    <div class="control-group">
 	                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
 	                            <label>Phone</label> 
@@ -64,15 +54,6 @@
 	                            <p class="help-block text-danger"></p>
 	                        </div>
 	                    </div>
-	                    <!--
-	                     <div class="control-group">
-	                        <div class="form-group floating-label-form-group controls mb-0 pb-2">
-	                            <label>PASSWORD CHECK</label>
-	                            <h4>PASSWORD CHECK</h4><input class="form-control" id="passwordCheck" type="password" placeholder="PASSWORD CHECK" required="required" data-validation-required-message="Please enter your phone number." />
-	                            <p class="help-block text-danger"></p>
-	                        </div>
-	                    </div>
-	                    -->
 	                    <br />
 	                    <div id="success"></div>
 	                    <div onclick="<c:url value="/myPage_change.do"/>" class="form-group"><button class="btn btn-primary btn-xl" id="okayButton" type="submit">UPDATE</button>

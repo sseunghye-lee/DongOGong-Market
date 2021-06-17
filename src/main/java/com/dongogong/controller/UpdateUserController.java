@@ -1,19 +1,15 @@
 package com.dongogong.controller;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.WebUtils;
@@ -35,7 +31,6 @@ public class UpdateUserController {
 	public void setUserInfo(UserInfoFacade userInfoFacade) {
 		this.userInfoFacade = userInfoFacade;
 	}
-
 	   
 	@Autowired
 	private UserInfoFormValidator validator;
@@ -53,11 +48,10 @@ public class UpdateUserController {
 		return formViewName;
 	}
 	
-	
+	//회원 수정
 	@PostMapping
 	public ModelAndView addUser(HttpServletRequest request,
 			@RequestParam(value="name", required=false) String name,
-			//@RequestParam(value="nickName", required=false) String nickName,
 			@RequestParam(value="phone", required=false) String phone,
 			@RequestParam(value="password", required=false) String password,
 			Model model
@@ -68,7 +62,6 @@ public class UpdateUserController {
 		
 		UserInfo userInfo = userInfoFacade.getUserInfo(userSession.getUserInfo().getUserId());
 		userInfo.setName(name);
-		//userInfo.setName(nickName);
 		userInfo.setPhone(phone);
 		userInfo.setPassword(password);
 		

@@ -32,8 +32,8 @@ public class CartListController {
 		UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 		
-		   if(userSession == null)
-	            return new ModelAndView("loginForm");
+		if(userSession == null)
+			return new ModelAndView("loginForm");
 		
 		model.addAttribute("userSession", userSession);
     	model.addAttribute("cartList", cartList(userSession.getUserInfo().getUserId()));

@@ -7,13 +7,13 @@
 <body>
 <!-- ======= Header ======= -->
 <%@ include file="IncludeQuickHeader.jsp" %>
-                            <c:if test="${!empty message}">
-							  <b><font color="red"><c:url value="${message}" /></font></b>
-							</c:if>
 <!-- End Header -->
 <section id="hero" class="clearfix bg-light">
     <div class="container h-100">
         <div>
+        <c:if test="${!empty message}">
+			<b><font color="red"><c:url value="${message}" /></font></b>
+		</c:if>
             <main>
                 <!-- Page Header-->
                 <header class="page-header page-header-light">

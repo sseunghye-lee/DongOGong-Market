@@ -61,12 +61,10 @@ public class CartSendController {
       }
       post.setTransactionConfirmation("WAIT");
       postFacade.updatePost(postIdx);
-      
-      System.out.println(postIdx);
-      
+            
       Transactions transactions = new Transactions();
       transactions.setTransactionsIdx(++transactionIdx);
-      transactions.setBuyerId(userSession.getUserInfo().getUserId());;
+      transactions.setBuyerId(userSession.getUserInfo().getUserId());
       transactions.setPostIdx(postIdx);
       transactions.setSellerId(sellerId);
       transactions.setStatus("WAIT");

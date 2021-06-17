@@ -42,9 +42,7 @@ public class CartDeleteController {
       String SPostIdx = request.getParameter("postIdx");
       int postIdx = Integer.valueOf(SPostIdx); 
       Post post = postFacade.getPostIdx(postIdx); 
-      
-      String buyerId = request.getParameter("buyerId");
-      
+            
       Transactions transIdx;
       int transactionIdx = 0; 
       
@@ -56,20 +54,13 @@ public class CartDeleteController {
       }
       post.setTransactionConfirmation("no");
       postFacade.deleteCartPost(postIdx);
-      
-      Transactions transactions = new Transactions();
-      //transactions.setTransactionsIdx(++transactionIdx);
-      //transactions.setBuyerId(userSession.getUserInfo().getUserId());
-      //transactions.setPostIdx(postIdx);
-      //transactions.setStatus("no");
-      
+            
       transactionsFacade.deleteCartTransactions(postIdx);
       
       
       model.addAttribute("userSession", userSession);     
       model.addAttribute("cartList", cartList(userSession.getUserInfo().getUserId()));
 
-      //return new ModelAndView("product_list");
       return new ModelAndView("cartList");
     }
     
