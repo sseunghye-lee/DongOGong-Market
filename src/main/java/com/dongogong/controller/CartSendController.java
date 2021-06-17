@@ -71,6 +71,7 @@ public class CartSendController {
       
       transactionsFacade.insertCartTransactions(transactions);
 
+	  model.addAttribute("userSession", userSession);
       model.addAttribute("getPostList", getPostList());
       
       return new ModelAndView("product_list");   
