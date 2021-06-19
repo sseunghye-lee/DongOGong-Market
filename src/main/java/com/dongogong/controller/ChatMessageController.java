@@ -110,7 +110,6 @@ public class ChatMessageController {
         UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 
-
         Post post = postFacade.getPostIdx(postIdx);
         model.addAttribute("post", post);
 

@@ -32,7 +32,7 @@ public class ChatButtonController {
 
     @PostMapping("/complete/product.do")
     @ResponseBody
-    public Object completeProductOnChat(@RequestBody Transactions transactions, HttpServletRequest request, HttpServletResponse reponse, Model model) {
+    public Object completeProductOnChat(@RequestBody Transactions transactions, HttpServletRequest request, HttpServletResponse reponse) {
         UserSession userSession =
                 (UserSession) WebUtils.getSessionAttribute(request, "userSession");
 

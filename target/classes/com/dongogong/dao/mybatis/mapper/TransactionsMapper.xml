@@ -14,15 +14,17 @@
         INSERT INTO TRANSACTIONS(transactions_Idx, post_Idx, seller_Id, buyer_Id, status)
         VALUES (#{transactionsIdx}, #{postIdx}, #{sellerId}, #{buyerId}, 'WAIT')
     </insert>
-    
+
     <delete id="deleteCartTransactions" parameterType="java.lang.Integer">
-       DELETE FROM TRANSACTIONS
-       WHERE POST_IDX = #{postIdx} 
+        DELETE
+        FROM TRANSACTIONS
+        WHERE POST_IDX = #{postIdx}
     </delete>
-    
+
     <select id="checkBuyer" resultType="java.lang.String">
         SELECT BUYER_ID as buyerId
         FROM TRANSACTIONS
         WHERE POST_IDX = #{postIdx}
+          AND STATUS = 'COMPLETED'
     </select>
 </mapper>

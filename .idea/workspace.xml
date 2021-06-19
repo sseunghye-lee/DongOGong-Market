@@ -7,28 +7,50 @@
     <list default="true" id="b6eadb82-9fb7-4bd1-8ef7-52adb1ca84d4" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/dongogong/controller/ChatButtonController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dongogong/controller/ChatButtonController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dongogong/controller/ChatCompletionButtonController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/dongogong/controller/ChatMessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/dongogong/controller/ChatMessageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showChatMessage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/showChatMessage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/dongogong/dao/mybatis/mapper/TransactionsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/dongogong/dao/mybatis/mapper/TransactionsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/AuctionDeleteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/AuctionDeleteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/AuctionFinishController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/AuctionFinishController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/AuctionNewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/AuctionNewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/AuctionProgressController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/AuctionProgressController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/AuctionSendController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/AuctionSendController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/AuctionUpdateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/AuctionUpdateController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/CartListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/CartListController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/CartSendController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/CartSendController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/ChatCompletionButtonController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/ChatMessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/ChatMessageController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/DeleteUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/DeleteUserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/GetCategoryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/GetCategoryController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/GetMyPostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/GetMyPostController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/GetPostListController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/GetPostListController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/GoAuctionMyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/GoAuctionMyController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/GoAuctionNewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/GoAuctionNewController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/MyPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/MyPageController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/ProductController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/ProductController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/ProductDeleteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/ProductDeleteController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/ProductMyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/ProductMyController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/ProductUpdateController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/ProductUpdateController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/RegisterPostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/RegisterPostController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/TransactionsCheckDealController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/TransactionsCheckDealController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/controller/UpdateUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/controller/UpdateUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/dao/AuctionPriceDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/dao/AuctionPriceDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/dao/PostDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/dao/PostDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/dao/UserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/dao/UserInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/dao/mybatis/MybatisAuctionDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/dao/mybatis/MybatisAuctionDao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/dao/mybatis/MybatisPostDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/dao/mybatis/MybatisPostDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/dao/mybatis/MybatisUserInfoDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/dao/mybatis/MybatisUserInfoDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/dao/mybatis/mapper/AuctionMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/dao/mybatis/mapper/AuctionMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/dao/mybatis/mapper/PostMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/dao/mybatis/mapper/PostMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/dao/mybatis/mapper/PostMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/dao/mybatis/mapper/PostMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/dao/mybatis/mapper/TransactionsMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/dao/mybatis/mapper/TransactionsMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/dao/mybatis/mapper/UserInfoMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/dao/mybatis/mapper/UserInfoMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/domain/UserInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/domain/UserInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/service/AuctionFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/service/AuctionFacade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/service/AuctionImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/service/AuctionImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/service/UserInfoFacade.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/service/UserInfoFacade.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/dongogong/service/UserInfoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/dongogong/service/UserInfoImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +146,8 @@
       <workItem from="1623856615015" duration="2900000" />
       <workItem from="1623889192799" duration="9927000" />
       <workItem from="1623905147487" duration="1033000" />
-      <workItem from="1623906217296" duration="7295000" />
+      <workItem from="1623906217296" duration="17375000" />
+      <workItem from="1624076966621" duration="4018000" />
     </task>
     <task id="LOCAL-00001" summary="가연 - 상품 리스트 관련 컨트롤러 수정 및 product_list와 product_detail에서 로그인 여부와 게시글 등록자 본인 확인 여부에 따라 유아이 다르게 수정">
       <created>1623854063917</created>
@@ -147,7 +170,21 @@
       <option name="project" value="LOCAL" />
       <updated>1623909584701</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="가연 - 채팅 결함 보완 (완성)&#10;판매자 본인이 본인 상품을 구매할 수 없도록 변경 및 디비 수정">
+      <created>1623914236433</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1623914236434</updated>
+    </task>
+    <task id="LOCAL-00005" summary="가연 - 채팅 재결함 보완 (재완성)&#10;상품 목록에서 채팅으로 갈 때 컨트롤러 결함 수정">
+      <created>1623915828145</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1623915828145</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,7 +206,20 @@
     <MESSAGE value="가연 - 상품 리스트 관련 컨트롤러 수정 및 product_list와 product_detail에서 로그인 여부와 게시글 등록자 본인 확인 여부에 따라 유아이 다르게 수정" />
     <MESSAGE value="가연 - product_detail.jsp에서 채팅 버튼 누르면 채팅방으로 이동 및 바로 채팅 가능" />
     <MESSAGE value="가연 - 채팅 확정 및 경우에 따른 문구 지정&#10;레퍼지토리 추가 및 기존 도메인 수정, 컨트롤러 추가 및 완성, 안읽음 표시 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="가연 - 채팅 확정 및 경우에 따른 문구 지정&#10;레퍼지토리 추가 및 기존 도메인 수정, 컨트롤러 추가 및 완성, 안읽음 표시 추가" />
+    <MESSAGE value="가연 - 채팅 결함 보완 (완성)&#10;판매자 본인이 본인 상품을 구매할 수 없도록 변경 및 디비 수정" />
+    <MESSAGE value="가연 - 채팅 재결함 보완 (재완성)&#10;상품 목록에서 채팅으로 갈 때 컨트롤러 결함 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="가연 - 채팅 재결함 보완 (재완성)&#10;상품 목록에서 채팅으로 갈 때 컨트롤러 결함 수정" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/dongogong/controller/ChatMessageController.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
