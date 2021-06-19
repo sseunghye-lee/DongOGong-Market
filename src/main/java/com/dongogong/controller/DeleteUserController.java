@@ -37,9 +37,9 @@ public class DeleteUserController {
 	   
 	   userInfoFacade.deleteChatInfo(userInfo.getUserId());
 	   userInfoFacade.deleteAuctionInfo(userInfo.getUserId());
-	   userInfoFacade.deletePostInfo(userInfo.getUserId());
 	   userInfoFacade.deleteRelation(userInfo.getUserId());
 	   userInfoFacade.deleteTransaction(userInfo.getUserId());
+	   userInfoFacade.deletePostInfo(userInfo.getUserId());
 	   userInfoFacade.deleteUserInfo(userInfo.getUserId(), userInfo.getPassword());
 
 	   session.removeAttribute("userSession");
